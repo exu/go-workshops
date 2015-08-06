@@ -104,6 +104,86 @@ voila!
 
 spróbuj `go`
 
+
+
+
+## Standard library
+
+### HTTP
+
+"Helloł Łerld"
+
+### JSON
+
+{"message": "Helloł łerld"}
+
+### Template with angular example
+
+<html><input ng-model="message"></a></html>
+<js>$scope.message = "Helloł łerld"</js>
+
+### Channels
+
+simple queued logging system
+
+-   REST post message
+-   put message to queue
+-   append message to file
+
+one file
+
+### Streams
+
+writer?
+
+### Shell binares - flags
+
+simple shell app (maybe tree implementation)
+
+
+
+
+
+## Useful libs:
+
+### framework
+
+- echo
+- gin
+- beego
+
+
+
+
+
+## Tooling
+
+### IDEs
+
+- TODO IDE - sprawdźić IntelliJ Go plugin
+- LiteIDE
+- TODO SublimeText
+- TODO Atom
+
+### Auto reload
+
+BRA
+
+
+
+
+
+## Testing
+
+-   Unit testing
+-   Mocking HTTP server
+-   Chrome driver integration example
+
+
+
+
+
+
 ## Deploy
 
 ### push and run
@@ -127,62 +207,16 @@ no deps needed!
 
 buy one :) get money from TPM :P
 
-
-
-# Tu musi być już struktura ustawiona i działający kompilator
+Tu musi być już struktura ustawiona i działający kompilator
 każdy kompiluje przykłady,
 żeby nie klepać z łapki checkout z taga
 git co l001 l002 itp
 
-## Standard library
 
-### HTTP
 
-"Helloł Łerld"
 
-### JSON
 
-{"message": "Helloł łerld"}
 
-### Template with angular example
-
-<html> <input ng-model="message"></a> </html> $scope.message = "Helloł łerld"
-
-### Channels
-
-simple queued logging system
-
--   REST post message
--   put message to queue
--   append message to file
-
-one file
-
-### Streams
-
-writer?
-
-### Shell binares - flags
-
-simple shell app (maybe tree implementation)
-
-## Tooling
-
-### TODO IDE - sprawdźić IntelliJ Go plugin
-
-### TODO SublimeText
-
-### TODO Atom
-
-### Auto reload
-
-BRA
-
-## Testing
-
--   Unit testing
--   Mocking HTTP server
--   Chrome driver integration example
 
 ## Debugging
 
@@ -191,10 +225,16 @@ BRA
 
 ktoś to ogarnie w jakimś IDE :P
 
+
+
+
+
+
 ## Profiling
 
 -   ? function call graph
 -   cośtam flame ?
+
 
 ## Workshops wyspawać pomysł kursantów
 
@@ -202,4 +242,4 @@ jak nikt nie da nic ciekawego kilka pomysłów związanych z robotą:
 
 -   Może pobierzmy z kolejki mongo na nmelu dane z jakiejs kolejki i zrobmy cos z nimi
 -   Migracja części danych do mongo/cassandry
--   próba przepisania wolnej miracji w PHPie na mongo (concurrent)
+-   próba przepisania wolnej miracji w PHPie na go
