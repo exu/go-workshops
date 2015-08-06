@@ -89,7 +89,7 @@ pkg/
 
 ```
 
-i've put them into $HOME :)
+I've put them into $HOME :)
 
 ## Env Setup (on native machine)
 

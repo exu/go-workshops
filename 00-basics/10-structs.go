@@ -18,7 +18,7 @@ func (this Dimension) IsVertical() bool {
 	}
 }
 
-// wymiar jest zagnieżdżony
+// wymiar jest zagnieżdżony (embedded)
 // możemy dowolnie składać strukturki
 type Image struct {
 	Dimension   // embedded struct
