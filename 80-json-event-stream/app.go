@@ -30,18 +30,23 @@ func apiHandler(c *echo.Context) error {
 	i := 0
 	c.Response().Header().Set(echo.ContentType, "text/event-stream")
 	c.Response().WriteHeader(http.StatusOK)
+
 	for {
 		l := locations[i]
+		c.Response().Write([]byte("data: "))
 		if err := json.NewEncoder(c.Response()).Encode(l); err != nil {
 			return err
 		}
+		c.Response().Write([]byte("\n\n"))
 		c.Response().Flush()
 		time.Sleep(1 * time.Second)
 
 		i++
 		if i >= len(locations) {
+			return nil
 			i = 0
 		}
+
 	}
 	return nil
 }
