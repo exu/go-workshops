@@ -28,26 +28,31 @@ var (
 
 func apiHandler(c *echo.Context) error {
 	i := 0
-	c.Response().Header().Set(echo.ContentType, "text/event-stream")
-	c.Response().WriteHeader(http.StatusOK)
+	response := c.Response()
+
+	// ustawiamy header na event-stream rozpoznawalny przez przeglądarkę
+	response.Header().Set(echo.ContentType, "text/event-stream")
+	response.WriteHeader(http.StatusOK) // 200
 
 	for {
-		l := locations[i]
-		c.Response().Write([]byte("data: "))
-		if err := json.NewEncoder(c.Response()).Encode(l); err != nil {
+		location := locations[i]
+		response.Write([]byte("data: "))
+
+		if err := json.NewEncoder(response).Encode(location); err != nil {
 			return err
 		}
-		c.Response().Write([]byte("\n\n"))
-		c.Response().Flush()
-		time.Sleep(1 * time.Second)
+
+		response.Write([]byte("\n\n"))
+		response.Flush()
+		time.Sleep(100 * time.Millisecond)
 
 		i++
 		if i >= len(locations) {
-			return nil
 			i = 0
 		}
 
 	}
+
 	return nil
 }
 
