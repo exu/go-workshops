@@ -1,6 +1,3 @@
-// Go offers built-in support for JSON encoding and decoding, including to and from built-in
-// and custom data types.
-
 package main
 
 import "encoding/json"
@@ -17,11 +14,6 @@ type Response2 struct {
 	Fruits     []string `json:"healthy_fruits"`
 	Color      string   `json:"color,omitempty"`
 	NotExpored int      `json:"-"`
-}
-
-func h1(message string) {
-	fmt.Println()
-	fmt.Println("---------- ", message, " ----------")
 }
 
 func main() {
@@ -126,4 +118,9 @@ func main() {
 	d := map[string]int{"apple": 5, "lettuce": 7}
 	p("Writing to os.stdOut")
 	enc.Encode(d)
+}
+
+func h1(message string) {
+	fmt.Println()
+	fmt.Println("---------- ", message, " ----------")
 }

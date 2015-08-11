@@ -11,8 +11,9 @@ import (
 )
 
 func hello(c *echo.Context) error {
-	// możesz użyc http.StatusOK (import net/http)
-	return c.JSON(200, &map[string]int{
+	// możesz użyc stałych z pakietu  net/http np: http.StatusOK
+	// najpierw import trzeba zrobić (import net/http)
+	return c.JSON(200, map[string]int{
 		"nmel_errors_count": rand.Int(),
 		"users":             rand.Int(),
 	})
@@ -21,5 +22,5 @@ func hello(c *echo.Context) error {
 func main() {
 	e := echo.New()
 	e.Get("/", hello)
-	e.Run(":1323")
+	e.Run(":8080")
 }

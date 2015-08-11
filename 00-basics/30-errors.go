@@ -3,6 +3,7 @@ package main
 import "errors"
 import "fmt"
 
+// Custom error
 type WizardLowPowerError struct {
 	spellPower    int
 	minSpellPower int
@@ -10,12 +11,13 @@ type WizardLowPowerError struct {
 
 func (error *WizardLowPowerError) Error() string {
 	return fmt.Sprintf(
-		"ERROR: Not enough spell power (have %d but %d needed)",
+		"ERROR: Not enough mana (have %d but %d needed)",
 		error.spellPower,
 		error.minSpellPower,
 	)
 }
 
+// Nasz czarodziej
 type Wizard struct {
 	spellPower int
 }
@@ -33,19 +35,23 @@ func (wizard *Wizard) cast(spellCost int) error {
 	}
 
 	wizard.spellPower -= spellCost
-	fmt.Println("Casting spell with power:", spellCost, ", power left:", wizard.spellPower)
+	fmt.Println("Casting spell with power:", spellCost, ", mana left:", wizard.spellPower)
 
 	return nil
 
 }
 
 func main() {
+	// pierwsza instancja rzuci błędem gdy będziemy
+	// rzucać czar o mocy 666
 	superWizard := &Wizard{10000}
 	err := superWizard.cast(666)
 	if err != nil {
 		fmt.Println(err.Error())
 	}
 
+	// i wykorzystanie customowego błędu
+	// rzucamy tak długo aż nie wyczerpiemy many
 	wizard := &Wizard{10}
 	for {
 		err := wizard.cast(3)
