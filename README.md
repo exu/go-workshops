@@ -1,12 +1,8 @@
-+TITLE: Go resources
-
 #  Go lang workshops
 
 ## Intro
 
-Slajd 1
 Dlaczego Go?
-
 -   łatwy deploy aplikacji (kod nie ma zależności - jenda binarka)
 -   brak wojny o code style  `gofmt`
 -   zintegrowany package manager `go get`
@@ -14,7 +10,6 @@ Dlaczego Go?
 -   ciekawa standardowa biblioteka template/html, performant www servers, json, xml
     streams, io, buffers, first class citizen concurrency
 
-Slajd 2 Dodatkowo ...
 -   Kompilacja na wiele maszyn (cross-compilation)
 -   łatwy i przyjemny setup środowiska (edytory, ide, code completition server)
 -   bardzo niski próg wejścia aby zacząć pisać
@@ -22,7 +17,6 @@ Slajd 2 Dodatkowo ...
 -   wielu dev killerów pisze w go, więc community trochę bardziej inteligentne niż PHP
 -   hype w internetach
 
-Slajd 3 :)
 Dlaczego nie Go ?
 -   brak zarządzania wersjami w package managerze (go get only honors URLs?)
     3rd party - `godep`
@@ -32,21 +26,6 @@ Dlaczego nie Go ?
     przykład mongo "gopkg.in/mgo.v2/bson")
     zmieniamy API podbijamy wersję, API kompatybilne
 -   często jeszcze młode biblioteki przykład gin i skopany cache w contrib repo
-
-## Golang basics
-
-Każdy na osobnym slajdzie (1-2 slajdy per item):
--   how to get help `godoc`
--   static typing (types)
--   for if switch and other keywords
--   function return values
--   variadic functions
--   custom types
--   structs
--   interfaces
--   channels
--   timers
--   sql
 
 ## Porównanie z PHP
 
@@ -72,7 +51,7 @@ Każdy na osobnym slajdzie (1-2 slajdy per item):
 ```
 
 
-## Github style project structure
+## Github style struktura projektu
 
 ```
 src/
@@ -91,7 +70,7 @@ pkg/
 
 I've put them into $HOME :)
 
-## Env Setup (on native machine)
+## Instalacja
 
 jest kilka sposobów na zainstalowanie go, my aby wszyscy mieli najnowszą wersję
 po prostu podamy naszemu systemowi golang prosto w pysk
@@ -107,20 +86,21 @@ spróbuj `go`
 
 
 
-## Standard library
+## Przykłady
 
-### HTTP
+- [Podstawy](/exu/go-workshops/tree/master/00-basics)
+- [HTTP](/exu/go-workshops/tree/master/01-http)
+- [JSON](/exu/go-workshops/tree/master/02-json)
+- [Używanie zewnętrznych paczek](/exu/go-workshops/tree/master/03-using-3rd-party)
+- [Kanały](/exu/go-workshops/tree/master/10-channels)
+- [Testowanie](/exu/go-workshops/tree/master/20-testing)
+- [Przykłady Full-stack Angular+Go](/exu/go-workshops/tree/master/30-full-stack)
+- [Cli](/exu/go-workshops/tree/master/40-cli)
+- [Debugowanie](/exu/go-workshops/tree/master/80-debugging)
+- [Deployment](/exu/go-workshops/tree/master/90-deploy)
 
-"Helloł Łerld"
 
-### JSON
 
-{"message": "Helloł łerld"}
-
-### Template with angular example
-
-<html><input ng-model="message"></a></html>
-<js>$scope.message = "Helloł łerld"</js>
 
 ### Channels
 

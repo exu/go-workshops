@@ -60,5 +60,6 @@ func main() {
 	e := echo.New()
 	e.Static("/", "./")
 	e.Get("/api", apiHandler)
-	e.Run(":6788")
+
+	e.Run(":8080")
 }

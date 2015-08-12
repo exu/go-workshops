@@ -2,13 +2,12 @@
 <html lang="en">
     <head>
         <meta charset="utf-8"/>
-        <title>JSON Event stream example</title>
+        <title>JSON Event stream example with Angular</title>
         <script src="jquery-2.1.3.min.js"></script>
         <script src="angular.min.js"></script>
         <link href="bootstrap.min.css" rel="stylesheet"/>
-        <!--  -->
     </head>
-    <body>
+    <body ng-app="app">
 
 
         <div class="navbar navbar-default navbar-static-top" role="navigation">
@@ -20,48 +19,57 @@
         </div>
 
 
-        <div class="container">
+        <div class="container" ng-controller="eventCtrl">
             <form class="form-horizontal">
                 <div class="form-group">
                     <label for="inputEmail3" class="col-sm-2 control-label">Longitude</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="lon">
+                        <input ng-model="lon" type="text" class="form-control">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="inputPassword3" class="col-sm-2 control-label">Latitude</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="lat">
+                        <input ng-model="lat" type="text" class="form-control">
                     </div>
                 </div>
             </form>
         </div>
 
         <script>
-         var source = new EventSource('http://l:6788/api');
-
-         source.addEventListener('message', function(e) {
-             var data = JSON.parse(e.data);
-              //{"Altitude":-97,"Latitude":37.819929,"Longitude":-122.478255}
-             $("#lon").val(data.Longitude);
-             $("#lat").val(data.Latitude);
-
-         }, false);
-
-         source.addEventListener('open', function(e) {
-             console.log(e);
-         }, false);
-
-         source.addEventListener('error', function(e) {
-             if (e.readyState == EventSource.CLOSED) {
-                 // Connection was closed.
-             }
-
-             console.log(e);
-         }, false);
+         // definicja naszej aplikacji
+         var app = angular.module('app', [], function() {
+         });
 
 
+         // wewnątrz kontrolera jestesmy w stanie operować
+         // na scope'ie
+         app.controller('eventCtrl', ["$scope", function($scope){
+
+             // nowy obiekt event sourca na nim można nasłuchiwać na
+             // zdarzenia
+             var source = new EventSource('http://l:8080/api');
+
+
+             // główna część aplikacji, tu dostaniemy dane
+             // gdy serwer zrobi:
+             // 		response.Write([]byte("\n\n"))
+		     //         response.Flush()
+             source.addEventListener('message', function(e) {
+                 var data = JSON.parse(e.data);
+                 $scope.lon = data.Longitude;
+                 $scope.lat = data.Latitude;
+                 $scope.$apply();
+             }, false);
+
+             source.addEventListener('open', function(e) {
+                 console.log("Opening connection", e);
+             }, false);
+
+             source.addEventListener('error', function(e) {
+                 console.log("Error", e);
+             }, false);
+         }]);
         </script>
-
     </body>
 </html>
