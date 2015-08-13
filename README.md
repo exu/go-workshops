@@ -138,6 +138,15 @@ simple shell app (maybe tree implementation)
 
 ## Tooling
 
+### Included
+
+- go fmt - code formater - tylko jeden słuszny coding standard
+- gocode - autocomplete service
+- go vet - znajduje błędy
+- go oracle - wyszukiwanie zależności
+- go test - wbudowane testowanie
+
+
 ### IDEs
 
 - TODO IDE - sprawdźić IntelliJ Go plugin
