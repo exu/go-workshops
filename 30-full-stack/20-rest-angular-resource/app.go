@@ -10,7 +10,7 @@ import (
 	"strconv"
 )
 
-// Definiujemy dane
+// Definiujemy struktury danych
 type Person struct {
 	Id    int    `json:"id,omitempty"`
 	Name  string `json:"name"`
@@ -31,7 +31,7 @@ func (storage *Storage) New(person Person) Person {
 	storage.MaxId++
 	person.Id = storage.MaxId
 	storage.Data[person.Id] = person
-	return storage.Data[person.Id]
+	return person
 }
 
 func (storage *Storage) GetAll() []Person {
@@ -138,7 +138,7 @@ func init() {
 func main() {
 	app := gin.Default()
 
-	app.LoadHTMLGlob("*.html")
+	app.LoadHTMLGlob("static/*.html")
 	app.Static("/static", "static")
 
 	// to be or not to be restfull - version your api
