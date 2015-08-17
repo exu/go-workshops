@@ -2,10 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8"/>
-        <title>Binding Angular Data Without Additional Request</title>
-        <script src="/static/jquery-2.1.3.min.js"></script>
-        <script src="/static/angular.min.js"></script>
-        <script src="/static/angular-resource.min.js"></script>
+        <title>Binding REST API to Angular resource</title>
         <link href="/static/bootstrap.min.css" rel="stylesheet"/>
     </head>
     <body ng-app="app">
@@ -37,6 +34,9 @@
             </form>
         </div>
 
+        <script src="/static/jquery-2.1.3.min.js"></script>
+        <script src="/static/angular.min.js"></script>
+        <script src="/static/angular-resource.min.js"></script>
         <script>
          // definicja naszej aplikacji
          var app = angular.module('app', ["ngResource"], function($interpolateProvider) {
