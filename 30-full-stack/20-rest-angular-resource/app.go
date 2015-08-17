@@ -5,7 +5,6 @@
 package main
 
 import (
-	"fmt"
 	"github.com/gin-gonic/gin"
 	"strconv"
 )
@@ -63,7 +62,6 @@ var storage Storage
 
 func usersListHandler(c *gin.Context) {
 	people := storage.GetAll()
-	fmt.Println(people)
 	c.JSON(200, people)
 }
 
@@ -103,7 +101,6 @@ func userNewHandler(c *gin.Context) {
 
 	person = storage.New(person)
 
-	fmt.Println(person)
 	c.JSON(200, gin.H{"inserted": 1, "person": person})
 }
 
@@ -136,7 +133,7 @@ func init() {
 }
 
 func main() {
-	app := gin.Default()
+	app := gin.New()
 
 	app.LoadHTMLGlob("static/*.html")
 	app.Static("/static", "static")
