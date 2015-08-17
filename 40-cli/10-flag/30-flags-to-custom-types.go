@@ -45,7 +45,14 @@ func init() {
 	flag.Var(&intervalFlag, "deltaT", "lista okresów czasu po przecinku")
 }
 
+func echoAfter(message string, durations []time.Duration) {
+	for _, interval := range durations {
+		time.Sleep(interval)
+		fmt.Println(message, "After", interval)
+	}
+}
+
 func main() {
 	flag.Parse()
-	fmt.Println(intervalFlag)
+	echoAfter("Hi", intervalFlag)
 }

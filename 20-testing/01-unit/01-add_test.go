@@ -17,9 +17,3 @@ func TestAddAddsThreeInts(t *testing.T) {
 		t.Errorf("Hohohoho I want 60 but got %d", result)
 	}
 }
-
-func ExampleAdd() {
-
-	// Output: The output of
-	// this example.
-}

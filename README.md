@@ -140,12 +140,12 @@ simple shell app (maybe tree implementation)
 
 ### Included
 
-- go fmt - code formater - tylko jeden słuszny coding standard
-- gocode - autocomplete service
-- go vet - znajduje błędy
-- go oracle - wyszukiwanie zależności
+- go fmt - code formater - tylko jeden słuszny coding standard (https://golang.org/pkg/fmt/)
+- gocode - autocomplete service (https://github.com/nsf/gocode)
+- go vet - znajduje błędy (http://godoc.org/golang.org/x/tools/cmd/vet)
+- go oracle - wyszukiwanie zależności (http://golang.org/s/oracle-user-manual)
 - go test - wbudowane testowanie
-
+- godoc
 
 ### IDEs
 
