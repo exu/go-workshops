@@ -11,7 +11,7 @@
         <div class="navbar navbar-default navbar-static-top" role="navigation">
             <div class="container">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="#">Mega map</a>
+                    <a class="navbar-brand" href="#">EventSource example with AngularJS</a>
                 </div>
             </div>
         </div>
@@ -20,13 +20,13 @@
         <div class="container" ng-controller="eventCtrl">
             <form class="form-horizontal">
                 <div class="form-group">
-                    <label for="inputEmail3" class="col-sm-2 control-label">Longitude</label>
+                    <label class="col-sm-2 control-label">Longitude</label>
                     <div class="col-sm-10">
                         <input ng-model="lon" type="text" class="form-control">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="inputPassword3" class="col-sm-2 control-label">Latitude</label>
+                    <label class="col-sm-2 control-label">Latitude</label>
                     <div class="col-sm-10">
                         <input ng-model="lat" type="text" class="form-control">
                     </div>
@@ -38,8 +38,7 @@
         <script src="angular.min.js"></script>
         <script>
          // definicja naszej aplikacji
-         var app = angular.module('app', [], function() {
-         });
+         var app = angular.module('app', [], function() {});
 
 
          // wewnątrz kontrolera jestesmy w stanie operować
