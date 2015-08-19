@@ -14,9 +14,9 @@ func main() {
 	// standardowe wywołanie funkcji (blokujące synchroniczne)
 	f("direct")
 
-	// Aby wywołać funkcję synchronicznie dajemy słowo kluczowe `go`
-	// `go f(s)`. Ta nowa gorutynka zostanie wywołana w nowym thred'zie
-	// równolegle z istniejącą
+	// Aby wywołać funkcję asynchronicznie dajemy słowo kluczowe `go`
+	// `go f(s)`. Ta nowa gorutynka zostanie wywołana w nowym
+	// lekkim thred'zie równolegle z istniejącą
 	go f("goroutine")
 
 	// Możemy wywoływać gorutynki jako funkcje anonimowe

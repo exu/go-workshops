@@ -11,7 +11,7 @@ func zeroval(ival int) {
 
 // `zeroptr` ma określony parameter w formie `*int`
 // co oznacza że przekazywany będzie wskaźnik do zmiennej.
-// `*iptr` to skok (dereferences) wskaźnika z lokalizacji w
+// `*iptr` to skok (dereference) wskaźnika z lokalizacji w
 // pamięci do określonej wartości pod tym adresem.
 func zeroptr(iptr *int) {
 	*iptr = 0

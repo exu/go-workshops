@@ -10,10 +10,10 @@ type Response1 struct {
 }
 
 type Response2 struct {
-	Page       int      `json:"page"`
-	Fruits     []string `json:"healthy_fruits"`
-	Color      string   `json:"color,omitempty"`
-	NotExpored int      `json:"-"`
+	Page        int      `json:"page"`
+	Fruits      []string `json:"healthy_fruits"`
+	Color       string   `json:"color,omitempty"`
+	NotExported int      `json:"-"`
 }
 
 func main() {
@@ -57,10 +57,10 @@ func main() {
 
 	// możemy użyć annotacji aby skonfgurować pola jsonowe w zwracanych strukturkach
 	response2 := &Response2{
-		Page:       1,
-		Fruits:     []string{"apple", "peach", "pear"},
-		NotExpored: 100,
-		Color:      "MAGENTA",
+		Page:        1,
+		Fruits:      []string{"apple", "peach", "pear"},
+		NotExported: 100,
+		Color:       "MAGENTA",
 	}
 	response2JSON, _ := json.Marshal(response2)
 	p("Response2:  std ", string(response2JSON))
