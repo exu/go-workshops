@@ -8,6 +8,7 @@ import (
 	"math/rand"
 
 	"github.com/labstack/echo"
+	mw "github.com/labstack/echo/middleware"
 )
 
 func hello(c *echo.Context) error {
@@ -21,6 +22,10 @@ func hello(c *echo.Context) error {
 
 func main() {
 	e := echo.New()
+
+	e.Use(mw.Logger())
+	e.Use(mw.Recover())
+
 	e.Get("/", hello)
 	e.Run(":8080")
 }
