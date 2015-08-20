@@ -68,16 +68,22 @@ pkg/
 
 ```
 
-I've put them into $HOME :)
+Definiuje to zmienna środowiskowa `$GOPATH`
 
 ## Instalacja
 
 jest kilka sposobów na zainstalowanie go, my aby wszyscy mieli najnowszą wersję
 po prostu podamy naszemu systemowi golang prosto w pysk
 
-wget binary
+- wget binary
 
-add paths to bashrc/zshrc
+- tar xf to /usr/local
+
+- overwrite existing go binary with new one
+
+- add paths to bashrc/zshrc
+
+
 
 voila!
 
@@ -100,17 +106,6 @@ spróbuj `go`
 - [Deployment](/exu/go-workshops/tree/master/90-deploy)
 
 
-
-
-### Channels
-
-simple queued logging system
-
--   REST post message
--   put message to queue
--   append message to file
-
-one file
 
 ### Streams
 
