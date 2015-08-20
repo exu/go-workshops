@@ -12,10 +12,10 @@ import (
 
 func TestSimpleHandler(t *testing.T) {
 	// Używany w testach E2E, konfigurowalny
-	ts := httptest.NewServer(http.HandlerFunc(handler.Simple))
-	defer ts.Close()
+	testServer := httptest.NewServer(http.HandlerFunc(handler.Simple))
+	defer testServer.Close()
 
-	response, err := http.Get(ts.URL)
+	response, err := http.Get(testServer.URL)
 	if err != nil {
 		log.Fatal(err)
 	}

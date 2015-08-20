@@ -15,6 +15,7 @@ func TestSimpleHandler(t *testing.T) {
 	}
 
 	w := httptest.NewRecorder()
+
 	// Wstrzykujemy recorder (zamiast writera który jest normalnie
 	// wstrzykiwany przez Mux) oraz stworzony request
 	Simple(w, req)
