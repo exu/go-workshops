@@ -6,7 +6,13 @@ import (
 	"time"
 )
 
-func NewChromeSession(chromeDriver *wd.ChromeDriver) *wd.Session {
+func NewNmel() *Nmel {
+	chromeDriver := wd.NewChromeDriver("chromedriver")
+	err := chromeDriver.Start()
+	if err != nil {
+		log.Println(err)
+	}
+
 	desired := wd.Capabilities{"Platform": "Linux"}
 	required := wd.Capabilities{}
 	session, err := chromeDriver.NewSession(desired, required)
@@ -15,51 +21,49 @@ func NewChromeSession(chromeDriver *wd.ChromeDriver) *wd.Session {
 		log.Println(err)
 	}
 
-	return session
+	return &Nmel{Driver: *chromeDriver, Session: *session}
 }
 
-func NewChromeDriver() *ChromeDriver {
-	chromeDriver := wd.NewChromeDriver("chromedriver")
-	err := chromeDriver.Start()
+type Nmel struct {
+	Driver  wd.ChromeDriver
+	Session wd.Session
+}
+
+func (this *Nmel) Login(user string, password string) (bool, error) {
+	element, err := this.Session.FindElement(wd.CSS_Selector, "#username")
 	if err != nil {
-		log.Println(err)
+		return false, err
 	}
-
-	session := NewChromeSession(chromeDriver)
-
-	return &ChromeDriver{Session: *session, ChromeDriver: *chromeDriver}
-}
-
-type ChromeDriver struct {
-	Session      wd.Session
-	ChromeDriver wd.ChromeDriver
-}
-
-func (this *ChromeDriver) Login(user string, password string) (bool, error) {
-	element, _ := this.Session.FindElement(wd.CSS_Selector, "#identity")
 	element.SendKeys(user)
 
-	element, _ = this.Session.FindElement(wd.CSS_Selector, "#credential")
+	element, err = this.Session.FindElement(wd.CSS_Selector, "#password")
+	if err != nil {
+		return false, err
+	}
 	element.SendKeys(password)
 
 	log.Printf("Login'in as %s:%s\n", user, password)
 
-	element, _ = this.Session.FindElement(wd.CSS_Selector, "#sign-in-submit")
+	element, err = this.Session.FindElement(wd.CSS_Selector, "#login_button")
+	if err != nil {
+		return false, err
+	}
 	element.Click()
 
 	return true, nil
 }
 
-func (this *ChromeDriver) Goto(url string) (bool, error) {
+func (this *Nmel) Goto(url string) (bool, error) {
 	log.Printf("Going to: %s\n", url)
 	this.Session.Url(url)
 
 	return true, nil
 }
 
-func (this *ChromeDriver) Quit() {
+func (this *Nmel) Quit() {
 	log.Println("Byebye!")
 	time.Sleep(1 * time.Second)
 	this.Session.Delete()
-	this.ChromeDriver.Stop()
+	this.Driver.Stop()
+	log.Println("Gracefully shuted down!")
 }
