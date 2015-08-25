@@ -54,28 +54,28 @@ Dlaczego nie Go ?
 
 # Agenda
 
-## [Podstawy](/exu/go-workshops/tree/master/00-basics)
+## [Podstawy](00-basics)
 
-## @TODO [Zarządzanie paczkami / zależnościami](/exu/go-workshops/tree/master/01-package-management)
+## @TODO [Zarządzanie paczkami / zależnościami](01-package-management)
 
-## [HTTP](/exu/go-workshops/tree/master/04-http)
+## [HTTP](04-http)
 
-## [JSON](/exu/go-workshops/tree/master/05-json)
+## [JSON](05-json)
 
-## @TODO [Strumienie]((/exu/go-workshops/tree/master/15-streams))
+## @TODO [Strumienie]((15-streams))
 
-## [Jak strukturyzować projekt?](/exu/go-workshops/tree/master/09-project-structure)
+## [Jak strukturyzować projekt?](09-project-structure)
 
-## [Kanały](/exu/go-workshops/tree/master/10-channels)
+## [Kanały](10-channels)
 
-## [Testowanie i dokumentacja](/exu/go-workshops/tree/master/20-testing)
+## [Testowanie i dokumentacja](20-testing)
 
-## [Przykłady Full-stack Angular+Go](/exu/go-workshops/tree/master/30-full-stack) czyli jak to ograć z frontendem
+## [Przykłady Full-stack Angular+Go](30-full-stack) czyli jak to ograć z frontendem
 
-## [Cli apps](/exu/go-workshops/tree/master/40-cli)
+## [Cli apps](40-cli)
 
-## [Bazy Danych](/exu/go-workshops/tree/master/70-databases)
+## [Bazy Danych](70-databases)
 
-## [Debugowanie](/exu/go-workshops/tree/master/80-debugging)
+## [Debugowanie](80-debugging)
 
-## [Deployment aplikacji](/exu/go-workshops/tree/master/90-deploy)
+## [Deployment aplikacji](90-deploy)
