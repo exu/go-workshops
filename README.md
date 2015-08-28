@@ -21,7 +21,7 @@ Dlaczego Go?
 Dlaczego nie Go ?
 -   brak zarządzania wersjami w package managerze (go get only honors URLs?)
     3rd party - `godep`
-    w go 1.5 ma zostać dodana flaga która pozwoli na ładowanie w podobny
+    w go 1.5 została  dodana flaga która pozwoli na ładowanie w podobny
     sposób jak godep to robi
     (istnieje co prawda zarządzanie na poziomie pkg server
     przykład mongo "gopkg.in/mgo.v2/bson")
