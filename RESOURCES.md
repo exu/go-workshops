@@ -27,9 +27,12 @@ Libs:
 
 - Drones programming http://www.godrone.io
 
+
+
 Cross Compiling
 
--
+- Compile Go for rasberry pi
+  `GOARCH=arm go build app.go -o app-for-arm ` BOOM!
 
 Challanges:
 

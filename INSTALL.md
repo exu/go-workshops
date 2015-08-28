@@ -2,19 +2,20 @@
 
 ## Instalacja
 
-jest kilka sposobów na zainstalowanie go, my aby wszyscy mieli najnowszą wersję
+Ważne aby mieć nową wersję, nie gwarantuję że na starszych będą działać te przykłady
+(choć powinny)
+
+Postępuj zgodnie z dla twojego systemu:
+https://golang.org/doc/install
+
+Jest kilka sposobów na zainstalowanie go, my aby wszyscy mieli najnowszą wersję
 po prostu podamy naszemu systemowi golang prosto w pysk
 
-- wget binary
+- `wget https://storage.googleapis.com/golang/go1.5.linux-amd64.tar.gz`
 
-- tar xf to /usr/local
+- `tar -C /usr/local -xzf go$VERSION.$OS-$ARCH.tar.gz`
 
-- overwrite existing go binary with new one
+- dodaj `export PATH=$PATH:/usr/local/go/bin` do czegoś wykonywalnego
+przy uruchomieniu systemu (zazwyczaj ~/.bashrc)
 
-- add paths to bashrc/zshrc
-
-
-
-voila!
-
-spróbuj uruchomić `go version`
+- spróbuj uruchomić `go version`
