@@ -1,4 +1,33 @@
-#  Go lang workshops
+# Go training go go go ...
+
+## Agenda
+
+## [Podstawy](00-basics)
+
+## @TODO [Zarządzanie paczkami / zależnościami](01-package-management)
+
+## [HTTP](04-http)
+
+## [JSON](05-json)
+
+## [Strumienie]((15-streams))
+
+## [Jak strukturyzować projekt?](09-project-structure)
+
+## [Kanały](10-channels)
+
+## [Testowanie i dokumentacja](20-testing)
+
+## [Przykłady Full-stack Angular+Go](30-full-stack) czyli jak to ograć z frontendem
+
+## [Cli apps](40-cli)
+
+## [Bazy Danych](70-databases)
+
+## [Debugowanie](80-debugging)
+
+## [Deployment aplikacji](90-deploy)
+
 
 ## Intro
 
@@ -50,32 +79,3 @@ Dlaczego nie Go ?
 |                      |                                               | wystarczy wymienić "annotacje"                                         |
 |                      |                                               |                                                                        |
 ```
-
-
-# Agenda
-
-## [Podstawy](00-basics)
-
-## @TODO [Zarządzanie paczkami / zależnościami](01-package-management)
-
-## [HTTP](04-http)
-
-## [JSON](05-json)
-
-## @TODO [Strumienie]((15-streams))
-
-## [Jak strukturyzować projekt?](09-project-structure)
-
-## [Kanały](10-channels)
-
-## [Testowanie i dokumentacja](20-testing)
-
-## [Przykłady Full-stack Angular+Go](30-full-stack) czyli jak to ograć z frontendem
-
-## [Cli apps](40-cli)
-
-## [Bazy Danych](70-databases)
-
-## [Debugowanie](80-debugging)
-
-## [Deployment aplikacji](90-deploy)
