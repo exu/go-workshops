@@ -3,14 +3,43 @@ package main
 import "fmt"
 
 func main() {
-	// zminee
+	// stałe
+	const DOOR_NUMBER = 5
+
+	// enumerated
+	const (
+		_          = iota // ignore
+		KB float64 = 1 << (10 * iota)
+		MB
+		GB
+		TB
+		PB
+		EB
+		ZB
+		YB
+	)
+
+	fmt.Println("Bytes", KB, MB, GB, TB)
+
+	const (
+		A float64 = iota
+		B
+		C
+		D
+		E
+		F
+	)
+
+	fmt.Println("Kojelno odlicz:", A, B, C, D)
+
+	// zmienne
 	var liczba int
 	liczba = 1
-	fmt.Println(liczba)
+	fmt.Println("Liczba", liczba)
 
-	// krócej
+	// krócej definicja i deklaracja
 	superliczba := 1
-	fmt.Println(superliczba)
+	fmt.Println("super liczba", superliczba)
 
 	// uwazaj na typy!
 	var duzaliczba int64
@@ -19,10 +48,10 @@ func main() {
 	var prawieduzaliczba int
 	prawieduzaliczba = 908132908929083889
 
-	fmt.Println(duzaliczba, prawieduzaliczba)
+	fmt.Println("Różne typy", duzaliczba, prawieduzaliczba)
 
 	if duzaliczba == int64(prawieduzaliczba) {
-		fmt.Println("Równe są!!")
+		fmt.Println("Różne typy równe są!!")
 	}
 
 	//tablice
@@ -42,8 +71,7 @@ func main() {
 		},
 	}
 	fmt.Println(supermap)
-
-	// hmmm słabe :P
+	// hmmm słabe :P ... ale można lepiej :)
 
 	// custom types
 	type H map[string]interface{}
