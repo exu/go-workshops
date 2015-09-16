@@ -1,20 +1,12 @@
-// The standard library’s strings package provides many useful string-related functions. Here
-// are some examples to give you a sense of the package.
-
 package main
 
 import s "strings"
 import "fmt"
 
-// We alias fmt.Println to a shorter name as we’ll use it a lot below.
-
+// alias do funkcji
 var p = fmt.Println
 
 func main() {
-
-	// Here’s a sample of the functions available in strings. Note that these are all
-	// functions from package, not methods on the string object itself. This means that we
-	// need pass the string in question as the first argument to the function.
 
 	p("Contains:  ", s.Contains("test", "es"))
 	p("Count:     ", s.Count("test", "t"))
@@ -31,11 +23,7 @@ func main() {
 	p()
 	p("substring:   ", "lalalallalaallalalalalala"[:10])
 
-	// You can find more functions in the strings package docs.
-
-	// Not part of strings but worth mentioning here are the mechanisms for getting the
-	// length of a string and getting a character by index.
-
+	// dodatkowe (nie część strings)
 	p("Len: ", len("hello"))
 	p("Char:", "hello"[1])
 }

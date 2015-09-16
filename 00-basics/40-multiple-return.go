@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-// zwracanie multi wartości (definicja w nawiasie, typy po przecinku)
+// zwracanie wielu wartości (definicja w nawiasie, typy po przecinku)
 func vals() (int, int) {
 	return 42, 2
 }

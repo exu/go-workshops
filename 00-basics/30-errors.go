@@ -3,7 +3,7 @@ package main
 import "errors"
 import "fmt"
 
-// Custom error
+// WizardLowPowerError - Nasz customowy błąd
 type WizardLowPowerError struct {
 	spellPower    int
 	minSpellPower int
@@ -17,7 +17,7 @@ func (error *WizardLowPowerError) Error() string {
 	)
 }
 
-// Nasz czarodziej
+// Wizard - Nasz czarodziej
 type Wizard struct {
 	spellPower int
 }
@@ -51,7 +51,8 @@ func main() {
 	}
 
 	// i wykorzystanie customowego błędu
-	// rzucamy tak długo aż nie wyczerpiemy many
+	// rzucamy tak długo aż nie wyczerpiemy
+	// dostępnej mocy
 	wizard := &Wizard{10}
 	for {
 		err := wizard.cast(3)

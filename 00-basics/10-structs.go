@@ -29,9 +29,9 @@ type Image struct {
 func main() {
 	images := []Image{
 		Image{
-			Dimension{100, 200},
-			"http://static.ioki.pl/coś.png",
-			"image/png",
+			Dimension:   Dimension{100, 200},
+			URL:         "http://static.ioki.pl/coś.png",
+			ContentType: "image/png",
 		},
 		Image{
 			Dimension{200, 100},

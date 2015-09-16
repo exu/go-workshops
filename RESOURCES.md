@@ -65,3 +65,24 @@ The next Go class for Ruby Learning - https://docs.google.com/forms/d/1WXO68p3gH
 
 Who is using go:
 https://github.com/golang/go/wiki/GoUsers
+
+
+# Companies using go
+
+- Google
+- Twitter https://blog.twitter.com/2015/handling-five-billion-sessions-a-day-in-real-time
+- Dropbox
+- Heroku
+- Canonical (Juju)
+- Cloudflare (Railgun)
+- http://www.camlistore.org/
+- https://www.cloudflare.com/railgun
+- http://www.soundcloud.com/
+- http://bitly.com/
+- http://koding.com/
+- http://www.iron.io/
+- http://www.6wunderkinder.com/
+- https://www.gov.uk/
+
+other:
+- http://go-lang.cat-v.org/organizations-using-go

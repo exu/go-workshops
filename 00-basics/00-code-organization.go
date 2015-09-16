@@ -3,7 +3,8 @@ package main
 import (
 	"fmt"
 
-	// jeżeli kod będzie na githubie każdy może
+	// jeżeli kod będzie na githubie (lub w innym public repo)
+	// każdy może
 	// zaimportować w ten sposób
 	"github.com/exu/go-workshops/00-basics/sub"
 
