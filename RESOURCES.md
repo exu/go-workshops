@@ -62,12 +62,10 @@ My go twitter stream:
 Ruby Learning Slack Channel for Go Courses - https://gocourse.slack.com/
 The next Go class for Ruby Learning - https://docs.google.com/forms/d/1WXO68p3gH4b-4S3dOS_MUbvoe7uaRNT9tii1syTznYA/viewform
 
+# Companies using go
 
 Who is using go:
 https://github.com/golang/go/wiki/GoUsers
-
-
-# Companies using go
 
 - Google
 - Twitter https://blog.twitter.com/2015/handling-five-billion-sessions-a-day-in-real-time
