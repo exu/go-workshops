@@ -4,7 +4,7 @@ package main
 import "fmt"
 import "time"
 
-func worker(done chan bool) {
+func doIt(done chan bool) {
 	fmt.Print("working...")
 	time.Sleep(time.Second)
 	fmt.Println("done")
@@ -15,10 +15,10 @@ func worker(done chan bool) {
 func main() {
 	// startujemy gorutynke, przekazujemy jej kanał
 	done := make(chan bool, 1)
-	go worker(done)
+	go doIt(done)
 
 	// blokujemy do otrzymania wartości z tego kanału
-	<-done
+	a := <-done
 }
 
 // jeżeli usuniemy <-done program zostanie zakończony a go worker(done) nie zdąży
