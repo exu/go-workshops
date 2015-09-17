@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"gopkg.in/mgo.v2"
+)
 
 func main() {
 	// db.createCollection("messages", { size: 100000000, capped: true })
@@ -10,5 +13,4 @@ func main() {
 	}
 	defer session.Close()
 	c := session.DB("test").C("cars")
-
 }
