@@ -11,6 +11,7 @@
 // "curl http://localhost:8080/debug/vars | python -m json.tool".
 
 // dodajmy interfejs do tych danych :)
+//
 package main
 
 import (
@@ -40,5 +41,5 @@ func HelloServer(w http.ResponseWriter, req *http.Request) {
 
 func main() {
 	http.HandleFunc("/", HelloServer)
-	http.ListenAndServe(":8080", nil)
+	panic(http.ListenAndServe(":8080", nil))
 }
