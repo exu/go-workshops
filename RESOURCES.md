@@ -12,6 +12,9 @@ Presentations:
 
 - Go: 90% Perfect, 100% of the time: http://talks.golang.org/2014/gocon-tokyo.slide#18
 
+Debugging:
+- https://www.youtube.com/watch?v=xxDZuPEgbBU
+
 
 Web programming toolkits and frameworks:
 - The standard HTTP package https://golang.org/pkg/net/http/

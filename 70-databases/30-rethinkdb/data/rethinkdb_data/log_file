@@ -1,0 +1,72 @@
+2015-09-18T07:03:50.661224900 0.017931s notice: Recursively removing directory /data/rethinkdb_data/tmp
+2015-09-18T07:03:50.666170793 0.022878s notice: Initializing directory /data/rethinkdb_data
+2015-09-18T07:03:50.666226384 0.022932s info: Creating a default database for your convenience. (This is because you ran 'rethinkdb' without 'create', 'serve', or '--join', and the directory '/data/rethinkdb_data' did not already exist or is empty.)
+2015-09-18T07:03:50.666245168 0.022951s notice: Running rethinkdb 2.1.1~0jessie (GCC 4.9.1)...
+2015-09-18T07:03:50.667995074 0.024702s notice: Running on Linux 4.1.6-1-ARCH x86_64
+2015-09-18T07:03:50.668070109 0.024776s notice: Loading data from directory /data/rethinkdb_data
+2015-09-18T07:03:50.804633482 0.161340s info: Automatically using cache size of 1070 MB
+2015-09-18T07:03:50.807515083 0.164221s notice: Listening for intracluster connections on port 29015
+2015-09-18T07:03:50.808473671 0.165179s notice: Listening for client driver connections on port 28015
+2015-09-18T07:03:50.833500943 0.190207s notice: Listening for administrative HTTP connections on port 8080
+2015-09-18T07:03:50.835673774 0.192379s notice: Listening on addresses: 127.0.0.1, 172.17.0.3, ::1, fe80::42:acff:fe11:3%10
+2015-09-18T07:03:50.835679554 0.192385s notice: Server ready, "e04f4c61a3f9_lt1" ce6ba441-f3f2-4cce-9f7f-1477fc43b056
+2015-09-18T07:03:51.260800262 0.617506s notice: A newer version of the RethinkDB server is available: 2.1.4. You can read the changelog at <https://github.com/rethinkdb/rethinkdb/releases>.
+2015-09-18T07:31:07.755238527 1637.111945s notice: Server got SIGTERM from pid 0, uid 0; shutting down...
+2015-09-18T07:31:07.755309020 1637.112015s notice: Shutting down client connections...
+2015-09-18T07:31:07.755343559 1637.112049s notice: All client connections closed.
+2015-09-18T07:31:07.755344799 1637.112050s notice: Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+2015-09-18T07:31:07.755876068 1637.112582s notice: Storage engine shut down.
+2015-09-18T07:32:19.486572004 0.030955s notice: Running rethinkdb 2.1.1~0jessie (GCC 4.9.1)...
+2015-09-18T07:32:19.492830510 0.037214s notice: Running on Linux 4.1.6-1-ARCH x86_64
+2015-09-18T07:32:19.492928746 0.037310s notice: Loading data from directory /data/rethinkdb_data
+2015-09-18T07:32:19.541937504 0.086320s info: Automatically using cache size of 1202 MB
+2015-09-18T07:32:19.545233839 0.089615s notice: Listening for intracluster connections on port 29015
+2015-09-18T07:32:19.546196906 0.090578s notice: Listening for client driver connections on port 28015
+2015-09-18T07:32:19.549585362 0.093966s notice: Listening for administrative HTTP connections on port 8080
+2015-09-18T07:32:19.551779392 0.096160s notice: Listening on addresses: 127.0.0.1, 172.17.0.4, ::1, fe80::42:acff:fe11:4%12
+2015-09-18T07:32:19.551784861 0.096166s notice: Server ready, "e04f4c61a3f9_lt1" ce6ba441-f3f2-4cce-9f7f-1477fc43b056
+2015-09-18T07:32:20.208123063 0.752504s notice: A newer version of the RethinkDB server is available: 2.1.4. You can read the changelog at <https://github.com/rethinkdb/rethinkdb/releases>.
+2015-09-18T07:43:57.471843722 698.016225s info: Table 5d229a33-2674-4e01-8075-7c470a416582: Added replica on this server.
+2015-09-18T07:43:59.170463887 699.714845s info: Table 5d229a33-2674-4e01-8075-7c470a416582: Starting a new Raft election for term 1.
+2015-09-18T07:43:59.178035867 699.722417s info: Table 5d229a33-2674-4e01-8075-7c470a416582: This server is Raft leader for term 1. Latest log index is 0.
+2015-09-18T07:43:59.576600970 700.120982s info: Table 5d229a33-2674-4e01-8075-7c470a416582: Configuration is changing.
+2015-09-18T07:44:50.528788175 751.073169s notice: Removing file /data/rethinkdb_data/5d229a33-2674-4e01-8075-7c470a416582
+2015-09-18T07:44:50.535501280 751.079882s info: Table 5d229a33-2674-4e01-8075-7c470a416582: Deleted the table.
+2015-09-18T07:44:50.628354050 751.172735s info: Table 4f91d2a7-f61e-42a2-896b-1e618dbab7ee: Added replica on this server.
+2015-09-18T07:44:52.271234596 752.815615s info: Table 4f91d2a7-f61e-42a2-896b-1e618dbab7ee: Starting a new Raft election for term 1.
+2015-09-18T07:44:52.284705586 752.829086s info: Table 4f91d2a7-f61e-42a2-896b-1e618dbab7ee: This server is Raft leader for term 1. Latest log index is 0.
+2015-09-18T07:44:52.733574474 753.277955s info: Table 4f91d2a7-f61e-42a2-896b-1e618dbab7ee: Configuration is changing.
+2015-09-18T07:49:54.508682511 1055.053063s notice: Removing file /data/rethinkdb_data/4f91d2a7-f61e-42a2-896b-1e618dbab7ee
+2015-09-18T07:49:54.516440216 1055.060821s info: Table 4f91d2a7-f61e-42a2-896b-1e618dbab7ee: Deleted the table.
+2015-09-18T07:49:54.599793928 1055.144175s info: Table d5e07b3d-9352-4db5-a6d6-9601648c6d99: Added replica on this server.
+2015-09-18T07:49:56.495645599 1057.040027s info: Table d5e07b3d-9352-4db5-a6d6-9601648c6d99: Starting a new Raft election for term 1.
+2015-09-18T07:49:56.509881826 1057.054263s info: Table d5e07b3d-9352-4db5-a6d6-9601648c6d99: This server is Raft leader for term 1. Latest log index is 0.
+2015-09-18T07:49:57.831078471 1058.375459s info: Table d5e07b3d-9352-4db5-a6d6-9601648c6d99: Configuration is changing.
+2015-09-18T08:07:42.321852825 2122.866234s notice: Removing file /data/rethinkdb_data/d5e07b3d-9352-4db5-a6d6-9601648c6d99
+2015-09-18T08:07:42.330115740 2122.874497s info: Table d5e07b3d-9352-4db5-a6d6-9601648c6d99: Deleted the table.
+2015-09-18T08:07:42.461193397 2123.005574s info: Table f8f2acb9-c166-48ba-b783-41255f2b8664: Added replica on this server.
+2015-09-18T08:07:43.708060142 2124.252441s info: Table f8f2acb9-c166-48ba-b783-41255f2b8664: Starting a new Raft election for term 1.
+2015-09-18T08:07:43.721296229 2124.265677s info: Table f8f2acb9-c166-48ba-b783-41255f2b8664: This server is Raft leader for term 1. Latest log index is 0.
+2015-09-18T08:07:44.551112000 2125.095493s info: Table f8f2acb9-c166-48ba-b783-41255f2b8664: Configuration is changing.
+2015-09-18T08:08:17.844585904 2158.388967s notice: Removing file /data/rethinkdb_data/f8f2acb9-c166-48ba-b783-41255f2b8664
+2015-09-18T08:08:17.858154020 2158.402535s info: Table f8f2acb9-c166-48ba-b783-41255f2b8664: Deleted the table.
+2015-09-18T08:08:17.953614715 2158.497996s info: Table 873bc726-5b24-4923-9907-eee6da6af6e1: Added replica on this server.
+2015-09-18T08:08:19.108460821 2159.652842s info: Table 873bc726-5b24-4923-9907-eee6da6af6e1: Starting a new Raft election for term 1.
+2015-09-18T08:08:19.122147742 2159.666529s info: Table 873bc726-5b24-4923-9907-eee6da6af6e1: This server is Raft leader for term 1. Latest log index is 0.
+2015-09-18T08:08:20.044180894 2160.588562s info: Table 873bc726-5b24-4923-9907-eee6da6af6e1: Configuration is changing.
+2015-09-18T08:09:46.842116359 2247.386497s notice: Removing file /data/rethinkdb_data/873bc726-5b24-4923-9907-eee6da6af6e1
+2015-09-18T08:09:46.864756823 2247.409138s info: Table 873bc726-5b24-4923-9907-eee6da6af6e1: Deleted the table.
+2015-09-18T08:09:47.040390992 2247.584772s info: Table 60e81093-512d-45a4-ba23-198187dea458: Added replica on this server.
+2015-09-18T08:09:48.843181101 2249.387562s info: Table 60e81093-512d-45a4-ba23-198187dea458: Starting a new Raft election for term 1.
+2015-09-18T08:09:48.852174853 2249.396556s info: Table 60e81093-512d-45a4-ba23-198187dea458: This server is Raft leader for term 1. Latest log index is 0.
+2015-09-18T08:09:51.460784846 2252.005166s notice: Removing file /data/rethinkdb_data/60e81093-512d-45a4-ba23-198187dea458
+2015-09-18T08:09:51.470413365 2252.014794s info: Table 60e81093-512d-45a4-ba23-198187dea458: Deleted the table.
+2015-09-18T08:09:51.666034696 2252.210416s info: Table 608e2116-aeda-4211-a562-f2d11a82d73d: Added replica on this server.
+2015-09-18T08:09:53.405806624 2253.950188s info: Table 608e2116-aeda-4211-a562-f2d11a82d73d: Starting a new Raft election for term 1.
+2015-09-18T08:09:53.420314942 2253.964696s info: Table 608e2116-aeda-4211-a562-f2d11a82d73d: This server is Raft leader for term 1. Latest log index is 0.
+2015-09-18T08:09:53.756433368 2254.300814s info: Table 608e2116-aeda-4211-a562-f2d11a82d73d: Configuration is changing.
+2015-09-18T08:25:04.124892336 3164.669274s notice: Server got SIGTERM from pid 0, uid 0; shutting down...
+2015-09-18T08:25:04.125025402 3164.669406s notice: Shutting down client connections...
+2015-09-18T08:25:04.127268011 3164.671649s notice: All client connections closed.
+2015-09-18T08:25:04.127337887 3164.671719s notice: Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+2015-09-18T08:25:04.139171265 3164.683552s notice: Storage engine shut down.

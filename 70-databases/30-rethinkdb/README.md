@@ -3,8 +3,6 @@
 Jedną z ciekawych funkcjonalności RethinkDB jest możliwość
 monitorowania zmian na kolekcji
 
-
-
 # Dockerizing
 
 ## Uruchom rethinka jako kontener
