@@ -10,6 +10,7 @@ func main() {
 
 	// każdy z kanałów dostanie wartość po określonym czasie
 	// wartość przekazujemy w osobnych go-rutynkach
+
 	go func() {
 		time.Sleep(time.Second * 1)
 		c1 <- "one"
@@ -33,7 +34,7 @@ func main() {
 		case msg2 := <-c2:
 			fmt.Println("received", msg2)
 		case <-time.After(time.Second * 10):
-			fmt.Println("timeout after 3 seconds")
+			fmt.Println("timeout after 10 seconds")
 		}
 	}
 }
