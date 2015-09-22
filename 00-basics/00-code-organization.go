@@ -15,4 +15,5 @@ import (
 func main() {
 	fmt.Println("sub.FIRST_CONSTANT:\t", sub.FIRST_CONSTANT)
 	fmt.Println("sub.SECOND_CONSTANT:\t", sub.SECOND_CONSTANT)
+	fmt.Println("sub.Hoł() func call:\t", sub.Hoł())
 }
