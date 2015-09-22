@@ -1,4 +1,4 @@
-# Resources
+# Moar GO? Look at this!
 
 Go internal:
 
@@ -14,7 +14,16 @@ Presentations:
 
 Debugging:
 - https://www.youtube.com/watch?v=xxDZuPEgbBU
+- https://github.com/derekparker/delve/
 
+Testing:
+- https://golang.org/pkg/testing/
+- http://nathany.com/go-testing-toolbox/
+
+Cross Compiling
+
+- Compile Go for rasberry pi
+  `GOARCH=arm go build app.go -o app-for-arm ` BOOM!
 
 Web programming toolkits and frameworks:
 - The standard HTTP package https://golang.org/pkg/net/http/
@@ -29,13 +38,6 @@ Web programming toolkits and frameworks:
 Libs:
 
 - Drones programming http://www.godrone.io
-
-
-
-Cross Compiling
-
-- Compile Go for rasberry pi
-  `GOARCH=arm go build app.go -o app-for-arm ` BOOM!
 
 Challanges:
 
