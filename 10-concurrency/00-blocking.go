@@ -18,7 +18,7 @@ func main() {
 	go doIt(done)
 
 	// blokujemy do otrzymania wartości z tego kanału
-	a := <-done
+	<-done
 }
 
 // jeżeli usuniemy <-done program zostanie zakończony a go worker(done) nie zdąży
