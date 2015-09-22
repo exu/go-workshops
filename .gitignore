@@ -1,3 +1,4 @@
 /20-testing/todo-10-chromedriver/chromedriver.log
 *.test
 /04-http/server
+chromedriver.log
