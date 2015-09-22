@@ -5,17 +5,17 @@ import (
 	"log"
 	"math/rand"
 	"strconv"
-	"time"
+	// "time"
 
 	r "gopkg.in/dancannon/gorethink.v1"
 )
 
 //ScoreEntry for scores
-type ScoreEntry struct {
-	ID         string `gorethink:"id,omitempty"`
-	PlayerName string
-	Score      int
-}
+// type ScoreEntry struct {
+// 	ID         string `gorethink:"id,omitempty"`
+// 	PlayerName string
+// 	Score      int
+// }
 
 func main() {
 	fmt.Println("Connecting to RethinkDB")
@@ -33,21 +33,13 @@ func main() {
 
 	fmt.Println("Loop through updates")
 	for {
-		var scoreentry ScoreEntry
 		pl := rand.Intn(10000)
 		sc := rand.Intn(6) - 2
-		res, err := r.Table("scores").Get(strconv.Itoa(pl)).Run(session)
-		if err != nil {
-			log.Fatal(err)
-		}
 
-		err = res.One(&scoreentry)
-		scoreentry.Score = scoreentry.Score + sc
-
-		startingTime := time.Now()
-		_, err = r.Table("scores").Update(scoreentry).RunWrite(session)
-		fmt.Println(time.Now().Sub(startingTime))
-
-		fmt.Println("Updating ", scoreentry)
+		// startingTime := time.Now()
+		_, err = r.Table("scores").Get(strconv.Itoa(pl)).Update(map[string]interface{}{
+			"Score": r.Row.Field("Score").Add(sc),
+		}).RunWrite(session)
+		// fmt.Println(time.Now().Sub(startingTime))
 	}
 }

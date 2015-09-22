@@ -5,7 +5,6 @@ import (
 	"log"
 	"math/rand"
 	"strconv"
-	"time"
 
 	r "gopkg.in/dancannon/gorethink.v1"
 )

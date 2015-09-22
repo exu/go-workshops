@@ -3,14 +3,9 @@ import random
 
 conn = r.connect(host="localhost", port=28015, db="players", auth_key="", timeout=20)
 
-# all = r.db('players').table('scores').run(conn)
-# print(dir(all))
-
-# for doc in all:
-#     print(doc)
-
 while True:
     scores = r.table("scores")
     id = str(random.randint(1,1000))
-    # data = scores.get(id).run(conn)
-    r.table("scores").get(id).update({"Score": random.randint(1,10)}).run(conn)
+    data = scores.get(id).run(conn)
+    newScore = random.randint(1,10) + data["Score"]
+    r.table("scores").get(id).update({"Score": newScore}).run(conn)
