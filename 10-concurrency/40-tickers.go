@@ -29,7 +29,7 @@ func main() {
 	// poniewaz jest to kanal ktory na razie nie ma wartosci
 	// wiec wszstkie zostaja zablokowane
 
-	// pierwsza goroutine ktora pobierze wartosc mo<ze ja wyswietlic
+	// pierwsza goroutine ktora pobierze wartosc moze ja wyswietlic
 	// reszta jest nadal zblokowana. kolejna dostanie wartosc
 	// gdy ticker wygeneruje ja po 200 ms itd...
 
