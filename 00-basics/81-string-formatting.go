@@ -11,7 +11,7 @@ func main() {
 
 	p := point{1, 2}
 
-	// instance of our point struct.
+	// instancja punktu.
 	fmt.Printf("%v\n", p)
 
 	// jeżeli p jest strukturą + doda nam informację o jej polach
@@ -65,7 +65,7 @@ func main() {
 	// Szerokość i precyzja liczb zmiennoprzecinkowych
 	fmt.Printf("|%6.2f|%6.2f|\n", 1.2, 3.45)
 
-	// wyrówwanie do lewej
+	// wyrówanie do lewej
 	fmt.Printf("|%-6.2f|%-6.2f|\n", 1.2, 3.45)
 
 	// i dla stringów
