@@ -4,3 +4,4 @@
 chromedriver.log
 /02-logging/errors.log
 /02-logging/warnings.log
+rethinkdb_data

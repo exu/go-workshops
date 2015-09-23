@@ -1,0 +1,8 @@
+localhost:8080
+
+markdown /blog {
+	ext .md .txt
+	css /resources/css/blog.css
+	js  /resources/js/blog.js
+    dev
+}

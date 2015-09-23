@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <title>Binding REST API to Angular resource</title>
+        <link href="/static/bootstrap.min.css" rel="stylesheet"/>
+        <link href="/static/demo.css" rel="stylesheet"/>
+    </head>
+    <body ng-app="app">
+        <div class="container" ng-controller="ctrl">
+            <form class="clearfix form-horizontal col-md-6 col-sm-6 col-xs-12 col-lg-6">
+                <div class="form-group">
+                    <div class="form-group">
+                        <label class="control-label">ID:</label>
+                        <input ng-model="user.id" type="text" class="form-control" ng-disabled="true">
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Imię i nazwisko:</label>
+                        <input ng-required="true" ng-model="user.name" type="text" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Mieszkam w:</label>
+                        <input ng-model="user.city" type="text" class="form-control">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="form-group">
+                        <button ng-click="update()" class="btn btn-primary">Zapisz zmiany</button>
+                        <button ng-click="reset()" class="btn btn-success">Resetuj formę</button>
+                    </div>
+                </div>
+            </form>
+
+            <div class="col-md-6 col-sm-6 col-xs-12 col-lg-6">
+                <table class="table table=stripped">
+                    <tr ng-repeat="user in users">
+                        <td>[[ user.name ]]</td>
+                        <td>
+                            <button class="btn btn-info" ng-click="loadUser(user.id)">Edytuj</button>
+                            <button class="btn btn-danger" ng-click="del(user.id)">Usuń</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+
+
+        <script src="/static/jquery-2.1.3.min.js"></script>
+        <script src="/static/angular.min.js"></script>
+        <script src="/static/angular-resource.min.js"></script>
+        <script>
+         // definicja naszej aplikacji
+         var app = angular.module('app', ["ngResource"], function($interpolateProvider) {
+             // oba systemy templatek mają te same tagi - mały konflikt :)
+             // skupiamy sie na go wiec dostosujmy angulara
+             $interpolateProvider.startSymbol('[[');
+             $interpolateProvider.endSymbol(']]');
+         });
+
+         // wewnątrz kontrolera jestesmy w stanie operować
+         // na scope'ie
+         app.controller('ctrl', ["$scope", "$resource", "$timeout", function($scope, $resource, $timeout){
+
+             // lista wszystich uzytkownikow na widoku
+             $scope.users = [];
+
+             // zdefiniujmy zasób usera
+             $scope.userResource = $resource(
+                 '/v1/users/:id',
+                 {id: '@id'}
+                 ,
+                 // zdefiniujemy własną akcję bo chcemy save przez put robić
+                 // nie przez post (ot taki kaprys)
+                 {
+                     "update": {
+                         method: "PUT",
+                         isArray: false,
+                         /* params: {
+                            id: "@id"
+                            } */
+                     }
+                 }
+             );
+
+             // ładujemy usera z zasobu
+             $scope.loadUser = function(id) {
+                 $scope.userResource.get({id: id})
+                       .$promise.then(
+                           function(user) {
+                               $scope.user = user;
+                           }
+                       );
+             }
+
+
+             // zapis zmian na użytkowniku
+             $scope.update = function() {
+                 if ($scope.user.id == undefined) {
+                     $scope.userResource.save($scope.user)
+                 } else {
+                     $scope.userResource.update($scope.user)
+                 }
+
+                 $scope.reset();
+                 $scope.query();
+
+             }
+
+             $scope.reset = function() {
+                 $scope.user = {};
+             }
+
+             // usunięcie usera
+             $scope.del = function(id) {
+                 $scope.userResource.remove({"id":id});
+                 $scope.query();
+             }
+
+             // ładujemy wszystkich użytkowników
+             $scope.query = function() {
+                 $scope.userResource.query()
+                       .$promise.then(
+                           function(users) {
+                               $scope.users = users;
+
+                               // odświerzmy widok
+                               $timeout(function() {
+                                   $scope.$digest();
+                               })
+                           }
+                       );
+             }
+
+             $scope.query();
+         }]);
+        </script>
+    </body>
+</html>

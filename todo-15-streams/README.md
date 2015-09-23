@@ -1,5 +1,0 @@
-# Streams - Przykłady
-
-## Readers
-
-## Writers
