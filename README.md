@@ -124,7 +124,10 @@ twoim systemie.
 
 ### IDEs
 
-- TODO IDE - sprawdźić IntelliJ Go plugin
+- IntelliJ Go plugin
+  https://github.com/go-lang-plugin-org/go-lang-idea-plugin/wiki/Documentation
+  testowane na IntelliJ 14.1.4
+
 - LiteIDE
 - TODO SublimeText
 - TODO Atom
