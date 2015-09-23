@@ -6,10 +6,10 @@ import (
 	// jeżeli kod będzie na githubie (lub w innym public repo)
 	// każdy może
 	// zaimportować w ten sposób
-	"github.com/exu/go-workshops/00-basics/sub"
+	"github.com/exu/go-workshops/010-basics-importing/sub"
 
 	// TIP: zadziała również
-	// import "./sub"
+	// "./sub"
 )
 
 func main() {
