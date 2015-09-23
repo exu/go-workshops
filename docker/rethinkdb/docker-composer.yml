@@ -1,0 +1,6 @@
+app:
+  build: .
+  ports:
+   - "28015:28015"
+  volumes:
+      - ./data:/data
