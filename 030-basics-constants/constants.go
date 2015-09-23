@@ -42,5 +42,4 @@ func main() {
 		// Will NOT compile
 		// biggerInt int64 = 9223372036854775808543522345
 	)
-
 }
