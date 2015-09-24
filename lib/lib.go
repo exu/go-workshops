@@ -1,7 +1,8 @@
-package main
+package lib
 
 import "fmt"
 
-func main() {
+// ScreamAAAA screams "aAAAAAAAAAAAAAA"
+func ScreamAAAA() {
 	fmt.Print("aAAAAAAAAAAAAAA")
 }

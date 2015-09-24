@@ -70,7 +70,7 @@ func editHandler(w http.ResponseWriter, r *http.Request, title string) {
 func listHandler(w http.ResponseWriter, r *http.Request) {
 	files, _ := filepath.Glob(DATA_PATH + "*.txt")
 
-	for i, _ := range files {
+	for i := range files {
 		files[i] = strings.Replace(files[i], DATA_PATH, "", 1)
 		files[i] = strings.Replace(files[i], ".txt", "", 1)
 	}

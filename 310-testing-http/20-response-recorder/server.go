@@ -3,7 +3,7 @@ package main
 import (
 	"net/http"
 
-	"github.com/exu/go-workshops/20-testing/02-http/20-response-recorder/handler"
+	"github.com/exu/go-workshops/310-testing-http/20-response-recorder/handler"
 )
 
 func main() {
