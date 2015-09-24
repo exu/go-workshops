@@ -125,8 +125,9 @@ twoim systemie.
 ### IDEs
 
 - IntelliJ Go plugin
-  https://github.com/go-lang-plugin-org/go-lang-idea-plugin/wiki/Documentation
-  testowane na IntelliJ 14.1.4
+  - https://github.com/go-lang-plugin-org/go-lang-idea-plugin/wiki/Documentation
+  - http://blog.pivotal.io/labs/labs/setting-google-go-plugin-intellij-idea-13-os-x-10-8-5
+    testowane na IntelliJ 14.1.4
 
 - LiteIDE
 - TODO SublimeText
