@@ -1,5 +1,9 @@
 # Moar GO? Look at this!
 
+Why Go?
+- https://www.youtube.com/watch?v=FTl0tl9BGdc (Rob Pike)
+- https://www.youtube.com/watch?v=ZuF78pVzrE8 (Francesc Campoy)
+
 Go internal:
 
 - Go - https://golang.org/
@@ -37,6 +41,7 @@ Web programming toolkits and frameworks:
 
 Libs:
 
+- Additional Go libs https://godoc.org/golang.org/x/tools
 - Drones programming http://www.godrone.io
 
 Challanges:
@@ -56,9 +61,10 @@ AJ’s articles on Go
 GopherCon - http://www.gophercon.com/
 GopherCon india - http://www.gophercon.in/
 
+http://corte.si/posts/code/go/golang-practicaly-beats-purity/
 
 Go intro talks:
-Go: code that grows with grace
+- https://vimeo.com/53221560 Go: code that grows with grace
 
 My go twitter stream:
 - https://twitter.com/search?q=%40ex00%20%23go&src=typd
