@@ -15,7 +15,7 @@ type Item struct {
 
 func main() {
 	// Must.... functions will panic on fail
-	db := sqlx.MustConnect("mysql", "root:root@tcp(127.0.0.1:3306)/sqlx_test")
+	db := sqlx.MustConnect("mysql", "root:root@tcp(127.0.0.1:3306)/gotraining")
 	var item Item
 
 	// We'll get most recent item and map it into our struct

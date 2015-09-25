@@ -14,7 +14,7 @@ type Item struct {
 func main() {
 	var item Item
 
-	db := sqlx.MustConnect("mysql", "root:root@tcp(127.0.0.1:3306)/sqlx_test")
+	db := sqlx.MustConnect("mysql", "root:root@tcp(127.0.0.1:3306)/gotraining")
 	stmt, err := db.Preparex(`SELECT * FROM items WHERE id=?`)
 
 	// existing one

@@ -6,8 +6,6 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 )
 
-// CREATE DATABASE gotraining;
-// CREATE TABLE squares (number int, squareNumber int);
 func main() {
 	db, err := sql.Open("mysql", "root:root@tcp(l:3306)/gotraining")
 	if err != nil {
@@ -29,16 +27,16 @@ func main() {
 	}
 
 	// czytanie
-	stmtOut, err := db.Prepare("SELECT number, squareNumber FROM squares WHERE number = ?")
+	stmtOut, err := db.Prepare("SELECT num, square FROM squares WHERE num = ?")
 	if err != nil {
 		panic(err.Error())
 	}
 	defer stmtOut.Close()
 
-	var num, squareNum int
-	err = stmtOut.QueryRow(13).Scan(&num, &squareNum)
+	var num, square int
+	err = stmtOut.QueryRow(13).Scan(&num, &square)
 	if err != nil {
 		panic(err.Error())
 	}
-	fmt.Printf("The square number of 13 is: %d\n", squareNum)
+	fmt.Printf("The square number of %d is: %d\n", num, square)
 }
