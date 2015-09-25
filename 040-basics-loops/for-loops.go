@@ -21,10 +21,24 @@ func main() {
 		fmt.Println(value)
 	}
 
+	fmt.Println("standard loop")
+	for i := 0; i < 10; i++ {
+		fmt.Println(i)
+	}
+
+	fmt.Println("while i < 10")
+
+	i := 0
+	for i < 10 {
+		fmt.Println(i)
+		i++
+	}
+
 	return
 
 	// infinite loop
-	i := 0
+	fmt.Println("infinite loop")
+	i = 0
 	for {
 		i++
 		fmt.Println(i)
