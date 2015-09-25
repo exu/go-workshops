@@ -2,7 +2,7 @@ package screamer
 
 import (
 	"fmt"
-	"github.com/exu/go-workshops/050-basics-init/silencer"
+	"github.com/exu/go-workshops/041-basics-init/silencer"
 	"io"
 )
 
