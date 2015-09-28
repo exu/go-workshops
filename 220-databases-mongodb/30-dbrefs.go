@@ -24,17 +24,29 @@ func main() {
 	}
 	defer session.Close()
 
-	db1 := session.DB("db1")
-	tags := db1.C("tags")
+	const DB1NAME = "goworkshops_ref_db1"
+	const DB2NAME = "goworkshops_ref_db2"
+
+	db1 := session.DB(DB1NAME)
+	db2 := session.DB(DB2NAME)
+
+	tags1 := db1.C("tags")
+	tags1.DropCollection()
+	tags1.Insert(bson.M{"_id": 1, "name": "super"})
+	tags1.Insert(bson.M{"_id": 2, "name": "słaby"})
+	tags1.Insert(bson.M{"_id": 3, "name": "in the middle"})
+
+	tags2 := db2.C("tags")
+	tags2.DropCollection()
+	tags2.Insert(bson.M{"_id": 1, "name": "zielony"})
+	tags2.Insert(bson.M{"_id": 2, "name": "czerwony"})
+	tags2.Insert(bson.M{"_id": 3, "name": "cytrynowa malaga"})
+
+	ref1 := mgo.DBRef{Database: DB1NAME, Collection: "tags", Id: 1}
+	ref2 := mgo.DBRef{Database: DB2NAME, Collection: "tags", Id: 2}
+
 	items := db1.C("items")
-
-	tags.Insert(bson.M{"_id": 1, "name": "super"})
-	tags.Insert(bson.M{"_id": 2, "name": "słaby"})
-	tags.Insert(bson.M{"_id": 3, "name": "in the middle"})
-
-	ref1 := mgo.DBRef{Collection: "tags", Id: 1}
-	ref2 := mgo.DBRef{Collection: "tags", Id: 2}
-
+	items.DropCollection()
 	items.Insert(Item{Id: 1, Tags: []mgo.DBRef{ref1, ref2}})
 	items.Insert(Item{Id: 2, Tags: []mgo.DBRef{ref2}})
 
@@ -42,7 +54,16 @@ func main() {
 
 	// tag id=1
 	err = db1.FindRef(&ref1).One(&result)
-	fmt.Println(result)
+	if err != nil {
+		fmt.Println(err.Error())
+	}
+	fmt.Println("ref1 result:", result)
+
+	err = db2.FindRef(&ref2).One(&result)
+	if err != nil {
+		fmt.Println(err.Error())
+	}
+	fmt.Println("ref2 result:", result)
 
 	// get reference
 	item := Item{}
