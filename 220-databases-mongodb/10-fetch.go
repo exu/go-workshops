@@ -19,11 +19,12 @@ func main() {
 	}
 	defer session.Close()
 
-	c := session.DB("test").C("people")
+	c := session.DB("goworkshops_fetch").C("people")
+	c.DropCollection()
 
 	err = c.Insert(
-		&Person{"Ale", "+55 53 8116 9639"},
-		&Person{"Cla", "+55 53 8402 8510"},
+		Person{"Ale", "+55 53 8116 9639"},
+		Person{"Cla", "+55 53 8402 8510"},
 	)
 
 	if err != nil {

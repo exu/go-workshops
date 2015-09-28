@@ -44,7 +44,6 @@ func main() {
 	}
 	defer session.Close()
 	c := session.DB("test").C("cars")
-
 	// czyścimy kolekcję
 	c.DropCollection()
 

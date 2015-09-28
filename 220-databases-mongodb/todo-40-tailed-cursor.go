@@ -12,5 +12,7 @@ func main() {
 		panic(err)
 	}
 	defer session.Close()
-	c := session.DB("test").C("cars")
+	c := session.DB("goworkshops_tailed").C("cars")
+
+	fmt.Println("TAILED cursors")
 }

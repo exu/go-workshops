@@ -34,7 +34,7 @@ func main() {
 
 	// Optional. Switch the session to a monotonic behavior.
 	session.SetMode(mgo.Monotonic, true)
-	c := session.DB("test").C("people")
+	c := session.DB("goworkshops_insert").C("people")
 	c.DropCollection()
 
 	start := time.Now()
