@@ -1,6 +1,8 @@
 # Moar GO? Look at this!
 
 Why Go?
+- https://golang.org/doc/faq#What%5Fis%5Fthe%5Fpurpose%5Fof%5Fthe%5Fproject
+- https://talks.golang.org/2012/splash.article
 - https://www.youtube.com/watch?v=FTl0tl9BGdc (Rob Pike)
 - https://www.youtube.com/watch?v=ZuF78pVzrE8 (Francesc Campoy)
 
