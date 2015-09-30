@@ -1,7 +1,7 @@
 app:
   build: .
   ports:
-   - "13306:3306"
+   - "7701:3306"
   volumes:
       - ./data:/data
   environment:

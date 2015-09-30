@@ -1,6 +1,6 @@
 # Podstawy
 
-## Instalacja
+## Instalacja Go
 
 Ważne aby mieć nową wersję, nie gwarantuję że na starszych będą działać te przykłady
 (choć powinny)
@@ -19,3 +19,29 @@ po prostu podamy naszemu systemowi golang prosto w pysk
 przy uruchomieniu systemu (zazwyczaj ~/.bashrc)
 
 - spróbuj uruchomić `go version`
+
+
+## Instalacja Docker
+
+Aby uruchomić bazy danych wykorzystywane w szkoleniu (jeżeli nie posiadasz
+zainstalowanych natywnie) należy zainstalować dockera oraz docker-compose
+(tool do zarządzania environmentem kontenerów)
+
+
+TODO !!!!
+
+## Instalacja Docker Compose
+
+TODO !!!!
+
+
+## Inicjalizacja zawarości repozytoriów dockera przed szkoleniem
+
+Najlepiej aby nie przeciążać sieceie podczas szkolenia należałoby odpalić `docker-compose build` dla każdego z kontenerów (każdy ściąga ~ kilkaset MB)
+
+aby to zrobić uruchom make w katalogu `docker`
+
+```
+cd docker
+make
+```
