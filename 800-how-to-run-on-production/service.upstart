@@ -1,0 +1,17 @@
+description     "gw-service"
+author          "ex00"
+
+start on (net-device-up
+          and local-filesystems
+          and runlevel [2345])
+
+stop on runlevel [023456]
+respawn
+
+script
+    exec 2>>/dev/.initramfs/gw-service.log
+    set -x
+    export PATH="/home/exu/src/github.com/exu/go-workshops/todo-800-services/"
+    chdir $PATH
+    exec $PATH/service >> /var/log/gw-log.log 2>&1
+end script
