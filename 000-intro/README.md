@@ -1,21 +1,27 @@
 ## Dlaczego Go?
 
-Kto jest autorem języka
-- Rob Pike
-- ????????
-- ????????
+Kto jest głównym pomysłodawcą języka
+- Rob Pike (Unix, UTF-8)
+- Ken Thompson (Unix author, UTF-8, B lang)
+- Robert Griesemer (V8, Java Hotspot (Oracle Java), GFS)
+
+lista kontrybutorów https://golang.org/AUTHORS
 
 Dlaczego go zostało stworzone przez Google?
-- Chcieli rozzwiązać problemy z DUŻYMI aplikacjami które mieli napisane w C
+Chcieli rozzwiązać problemy z DUŻYMI aplikacjami które mieli napisane w Google:
+- przyspieszyć development
+- multicore systems
 
+źródła:
+- https://golang.org/doc/faq#What_is_the_purpose_of_the_project
+- https://talks.golang.org/2012/splash.article
 
 
 ## Charakterystyka Go
 - Statycznie kompilowany (jedna binarka ze wszystkimi zależnościami)
-- W miarę dobre zarządzanie pamięcią jak na GC
+- Garbage Collected
 - Silnie typowany
 - Funkcyjno - Pseudo obiektowa hybryda
-
 
 ## Dlaczego jest warte uwagi?
 - łatwy deploy aplikacji (kod nie ma zależności - jenda binarka) + statics
@@ -36,13 +42,12 @@ Dlaczego go zostało stworzone przez Google?
 ## Dlaczego jest niefajne?
 - brak zarządzania wersjami w package managerze (go get only honors URLs?)
     3rd party - `godep`
-    w go 1.5 została  dodana flaga która pozwoli na ładowanie w podobny
+- w go 1.5 została dodana flaga która pozwoli na ładowanie w podobny
     sposób jak godep to robi
     (istnieje co prawda zarządzanie na poziomie pkg server
     przykład mongo "gopkg.in/mgo.v2/bson")
     zmieniamy API podbijamy wersję, API kompatybilne
 - często jeszcze młode biblioteki przykład gin i skopany cache w contrib repo
-
 
 
 ## Init
@@ -52,26 +57,38 @@ Dlaczego go zostało stworzone przez Google?
 
 ## Porównanie z PHP
 
-```
-|                      | PHP                                           | Go                                                                     |
-|----------------------+-----------------------------------------------+------------------------------------------------------------------------|
-| Głowna architektura  | Reqest - response app                         | App servers                                                            |
-| Typ                  | Skryptowy (z OPCache)                         | Kompilowany                                                            |
-| Typowanie            | Dynamiczne (static z dupy w PHP7)             | Statyczne                                                              |
-|                      |                                               |                                                                        |
-| Zaprojektowany jako: | HTML generator                                | łatwo zarządzalny następca C dla większych projektów                   |
-|                      |                                               |                                                                        |
-| Szybkość pisania     | Niektóre rzeczy da się zrobić dużo szybciej   | Które tu zrozumiesz jak działają :) i jest szansa                      |
-|                      | niż w Go niektóre nie                         | na zwiększenie wydajności (jak nie spierdzielisz)                      |
-|                      |                                               |                                                                        |
-| Główny paradygmat    | Pseudo Java OO                                | Pseudo-funkcyjny / Pseudo-Obiektowość da się zamodelować na struct'ach |
-|                      |                                               |                                                                        |
-| RPSy                 | zamodelowanie Event-loop'a kopnie cie w tylek | "Concurrency as CORE feature" WWW serwer może być wystarczająco szybki |
-|                      |                                               |                                                                        |
-| Modelowanie danych   | Co kraj to obyczaj                            | Tu zauważyłem tendencje do mapowania obiektow/encji na strukturki      |
-|                      |                                               | wystarczy wymienić "annotacje"                                         |
-|                      |                                               |                                                                        |
-```
+Architektura web aplikacji
+- PHP: Reqest - response app
+- Go:  Serwery aplikacyjne (a'la NodeJs, Ruby, Python)
+
+Typ
+- PHP: Skryptowy (z OPCache)
+- Go: Kompilowany
+
+Typowanie
+- PHP: Dynamiczne (static z dupy w PHP7)
+- Go:  Statyczne
+
+Zaprojektowany jako:
+- PHP: HTML generator
+- Go:  Łatwo zarządzalny następca C dla większych projektów
+
+Entry level
+- PHP: Trochę trzeba się naumieć aby przykrywać niekompetencje frameworków innymi design patternami
+- Go: niski dla podstawowych, trzeba zrozumieć concurrency i kilka dziwnych rozwiązań (np: err handling)
+
+Główny paradygmat
+- PHP: Pseudo Java OO
+- Go: Pseudo-funkcyjny / Pseudo-Obiektowość da się zamodelować na struct'ach
+
+RPSy
+- PHP: Req-Response boli, zamodelowanie Event-loop'a kopnie cie w tylek
+- Go: "Concurrency as CORE feature" WWW serwer może być wystarczająco szybki
+
+Użycie w świecie:
+- PHP: Tu wygrywa bardzo dużo softu, mało ciekawych projektów
+- Go: Jak już coś wychodzi o czym słychać to z reguły jest fajne :)
+
 
 ## Github style struktura projektu
 
