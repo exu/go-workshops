@@ -17,4 +17,9 @@ func main() {
 	for i := 0; i < len(numbers); i++ {
 		fmt.Println(i, numbers[i])
 	}
+
+	// nie trzeba podawać ilości elementów
+	// jeżeli inicjujemy z wartociami
+	b := [...]string{"Penn", "Teller"}
+
 }
