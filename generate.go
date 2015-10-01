@@ -40,7 +40,7 @@ func main() {
 			} else {
 				readme := string(readmeBytes)
 				readme = strings.Replace(readme, "\n", " "+getLink(dir)+"\n", 1)
-				content += readme
+				content += "\n\n" + readme
 			}
 		}
 	}

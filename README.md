@@ -2,19 +2,23 @@
 
 ## Dlaczego Go?
 
-Kto jest autorem języka
-- Rob Pike
-- ????????
-- ????????
+Kto jest głównym pomysłodawcą języka
+- Rob Pike (Unix, UTF-8)
+- Ken Thompson (unix author, UTF-8, B lang)
+- Robert Griesemer (V8, Java Hotspot, GFS)
 
-Dlaczego go zostało stworzone przez Google?
-- Chcieli rozzwiązać problemy z DUŻYMI aplikacjami które mieli napisane w C
+lista kontrybutorów https://golang.org/AUTHORS
 
+Dlaczego go zostało stworzone przez Google? https://golang.org/doc/faq#What_is_the_purpose_of_the_project
+
+Chcieli rozzwiązać problemy z DUŻYMI aplikacjami które mieli napisane w Google
+- przyspieszyć development
+- multicore systems
 
 
 ## Charakterystyka Go
 - Statycznie kompilowany (jedna binarka ze wszystkimi zależnościami)
-- W miarę dobre zarządzanie pamięcią jak na GC
+- Garbage Collected
 - Silnie typowany
 - Funkcyjno - Pseudo obiektowa hybryda
 
@@ -192,78 +196,112 @@ https://www.youtube.com/watch?v=InG72scKPd4
 ### Profiling
 
 https://github.com/bradfitz/talk-yapc-asia-2015/blob/master/talk.md
+
+
 ## Importowanie i packages [BASICS IMPORTING CODE](010-basics-importing)
 
 W go package jest zbiorem plików z dyrektywą `package nazwa`
+
+
 ## Zmienne [BASICS VARIABLES CODE](020-basics-variables)
 
 W go zmienne nie muszą mieć z góry określonego typu, możemy przypisać
 zmienną w postaci `a := 1` kompilator będzie wiedział że ma doczynienia
 z typem int.
+
+
 ## Stałe [BASICS CONSTANTS CODE](030-basics-constants)
 
 Obsługa standardowa, fajna rzecz `iota` (taki autoincrement)
+
+
 ## Zarządzanie błędami [BASICS ERRORS CODE](035-basics-errors)
 
 W go nie ma exceptionów, błędy są zwracane poprzez wielokrotne wartości
 lub agregowane w obiektach jeżeli zachodzi taka potrzeba. Preferuje
 się podejście jak najszybszej obsługi błędów
+
+
 ## Funkcje [BASICS FUNCTIONS CODE](040-basics-functions)
 
 Funkcje w go to "First class citizen".
+
+
 ## Pętle [BASICS LOOPS CODE](040-basics-loops)
 
 W go istnieje tylko jedna pętla: `for`. Wykorzystywana jest jednak w różnych
 wariantach, często używana ze słowem kluczowym `range`
+
+
 ## Inicjalzacja package'u [BASICS INIT CODE](041-basics-init)
 
 `func init() {}` odpowiada za zainicjowanie paczki, jest wykonywana tylko
 przy pierwszym imporcie paczki.
+
+
 ## Tablice [BASICS ARRAYS CODE](050-basics-arrays)
 
 Tablice w Go to niskopoziomowa struktura danych, najczęściej z nich nie korzystasz
 zamiast tego wykorzystujemy slice'y nakładkę na typy tablicowe znacznie ułatwiającą
 pracę z nimi
+
+
 ## Slices [BASICS SLICES CODE](051-basics-slices)
 
 Slice to nakładka na tablicę często reprezentuje część tablicy, przy dynamicznym
 tworzeniu nie musisz się zajmować pojemnością slice'a,
 
 `String` to też slice!
+
+
 ## Mapy [BASICS MAPS CODE](055-basics-maps)
 
 Mapy są statycznie typowane jak inne struktury w go, jeżeli potrzebujesz
 przechowywać różne typy w jednej mapie możesz uzyć  `interface{}` oznaczjącego
 dowolny typ
+
+
 ## Struktury [BASICS STRUCTS DEFINING CODE](060-basics-structs-defining)
 
 Struktury to podstawowy typ danych w go, większość driverów do storage'u
 pozwala kodować i dekodować do struktur. są bardzo użyteczne, dzięki nim
 możemy zamodelować pseudo-obiektowość, często używane do kompzycji
 oprogramowania.
+
+
 ## Struktury - Kompoozycja [BASICS STRUCT COMPOSITION CODE](062-basics-struct-composition)
 
 Kompozycja taki pattern chyba znacie ?
+
+
 ## Tagi - annotacje [BASICS STRUCT TAGS CODE](064-basics-struct-tags)
 
 Struktury w go posiadają możliwość opisywania pól dodatkowymi
 "tagami" które następnie możemy wykorzystać programistycznie
 wykorzystywane często przy enkodowaniu i dekodowaniu z formatów danych (JSON, yml)
 jak i z różnych silników baz danych.
+
+
 ## Interface'y [BASICS INTERFACES CODE](065-basics-interfaces)
 
 Go posiada tzw "implicit interfaces", oznacza to że jeżeli dana struktura
 implementuje metody z interfejsu automatycznie staje się obikektem o typie
 równym typie intefejsu.
+
+
 ## Stringi [BASICS STRINGS CODE](070-basics-strings)
 
 Podstawowa struktura danych w większości problemów programistycznych
 tu też jest i ma wszystko czego potrzebujesz.
+
+
 ## Go routines [BASICS GOROUTINES CODE](080-basics-goroutines)
 
 Concurrency. Goroutine to lekki "wątek" uruchamiany wewnątrz programu
 Goroutines są bardzo lekkie więc uruchomienie równolegle wielu tysięcy nie
 kosztuje nas zbyt wiele zasobów.
+
+
 ## Używanie tzw 3rd parties [BASICS 3RD PARTY PACKAGES CODE](090-basics-3rd-party-packages)
 
 Go posiada zintegrowany package manager (bez wersjonowania jeszcze niestety)
@@ -273,6 +311,8 @@ z packagem `main`
 
 
 # [BASICS POINTERS CODE](090-basics-pointers)
+
+
 
 # Example project structure [BASICS PROJECT STRUCTURE CODE](090-basics-project-structure)
 
@@ -323,7 +363,11 @@ z packagem `main`
 
 # [DATABASES MYSQL CODE](210-databases-mysql)
 
+
+
 # Przykłady MongoDB [DATABASES MONGODB CODE](220-databases-mongodb)
+
+
 # RethinkDB [DATABASES RETHINKDB CODE](230-databases-rethinkdb)
 
 Jedną z ciekawych funkcjonalności RethinkDB jest możliwość
@@ -425,4 +469,3 @@ docker run --name some-app --link some-rethink:rdb -d application-that-uses-rdb
 
 
 # [SHOOTING YOURSELF IN THE FOOT CODE](999-shooting-yourself-in-the-foot)
-
