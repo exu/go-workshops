@@ -11,7 +11,10 @@
 // "curl http://localhost:8080/debug/vars | python -m json.tool".
 
 // dodajmy interfejs do tych danych :)
-//
+// zainstaluj expvarmon
+// $ go get github.com/divan/expvarmon
+// $ expvarmon -ports="8080" -i 100ms -vars "num_calls,last_user"
+
 package main
 
 import (
