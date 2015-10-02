@@ -4,16 +4,19 @@
 
 Kto jest głównym pomysłodawcą języka
 - Rob Pike (Unix, UTF-8)
-- Ken Thompson (unix author, UTF-8, B lang)
-- Robert Griesemer (V8, Java Hotspot, GFS)
+- Ken Thompson (Unix author, UTF-8, B lang)
+- Robert Griesemer (V8, Java Hotspot (Oracle Java), GFS)
 
 lista kontrybutorów https://golang.org/AUTHORS
 
-Dlaczego go zostało stworzone przez Google? https://golang.org/doc/faq#What_is_the_purpose_of_the_project
-
-Chcieli rozzwiązać problemy z DUŻYMI aplikacjami które mieli napisane w Google
+Dlaczego go zostało stworzone przez Google?
+Chcieli rozzwiązać problemy z DUŻYMI aplikacjami które mieli napisane w Google:
 - przyspieszyć development
 - multicore systems
+
+źródła:
+- https://golang.org/doc/faq#What_is_the_purpose_of_the_project
+- https://talks.golang.org/2012/splash.article
 
 
 ## Charakterystyka Go
@@ -21,7 +24,6 @@ Chcieli rozzwiązać problemy z DUŻYMI aplikacjami które mieli napisane w Goog
 - Garbage Collected
 - Silnie typowany
 - Funkcyjno - Pseudo obiektowa hybryda
-
 
 ## Dlaczego jest warte uwagi?
 - łatwy deploy aplikacji (kod nie ma zależności - jenda binarka) + statics
@@ -42,13 +44,12 @@ Chcieli rozzwiązać problemy z DUŻYMI aplikacjami które mieli napisane w Goog
 ## Dlaczego jest niefajne?
 - brak zarządzania wersjami w package managerze (go get only honors URLs?)
     3rd party - `godep`
-    w go 1.5 została  dodana flaga która pozwoli na ładowanie w podobny
+- w go 1.5 została dodana flaga która pozwoli na ładowanie w podobny
     sposób jak godep to robi
     (istnieje co prawda zarządzanie na poziomie pkg server
     przykład mongo "gopkg.in/mgo.v2/bson")
     zmieniamy API podbijamy wersję, API kompatybilne
 - często jeszcze młode biblioteki przykład gin i skopany cache w contrib repo
-
 
 
 ## Init
@@ -58,26 +59,38 @@ Chcieli rozzwiązać problemy z DUŻYMI aplikacjami które mieli napisane w Goog
 
 ## Porównanie z PHP
 
-```
-|                      | PHP                                           | Go                                                                     |
-|----------------------+-----------------------------------------------+------------------------------------------------------------------------|
-| Głowna architektura  | Reqest - response app                         | App servers                                                            |
-| Typ                  | Skryptowy (z OPCache)                         | Kompilowany                                                            |
-| Typowanie            | Dynamiczne (static z dupy w PHP7)             | Statyczne                                                              |
-|                      |                                               |                                                                        |
-| Zaprojektowany jako: | HTML generator                                | łatwo zarządzalny następca C dla większych projektów                   |
-|                      |                                               |                                                                        |
-| Szybkość pisania     | Niektóre rzeczy da się zrobić dużo szybciej   | Które tu zrozumiesz jak działają :) i jest szansa                      |
-|                      | niż w Go niektóre nie                         | na zwiększenie wydajności (jak nie spierdzielisz)                      |
-|                      |                                               |                                                                        |
-| Główny paradygmat    | Pseudo Java OO                                | Pseudo-funkcyjny / Pseudo-Obiektowość da się zamodelować na struct'ach |
-|                      |                                               |                                                                        |
-| RPSy                 | zamodelowanie Event-loop'a kopnie cie w tylek | "Concurrency as CORE feature" WWW serwer może być wystarczająco szybki |
-|                      |                                               |                                                                        |
-| Modelowanie danych   | Co kraj to obyczaj                            | Tu zauważyłem tendencje do mapowania obiektow/encji na strukturki      |
-|                      |                                               | wystarczy wymienić "annotacje"                                         |
-|                      |                                               |                                                                        |
-```
+Architektura web aplikacji
+- PHP: Reqest - response app
+- Go:  Serwery aplikacyjne (a'la NodeJs, Ruby, Python)
+
+Typ
+- PHP: Skryptowy (z OPCache)
+- Go: Kompilowany
+
+Typowanie
+- PHP: Dynamiczne (static z dupy w PHP7)
+- Go:  Statyczne
+
+Zaprojektowany jako:
+- PHP: HTML generator
+- Go:  Łatwo zarządzalny następca C dla większych projektów
+
+Entry level
+- PHP: Trochę trzeba się naumieć aby przykrywać niekompetencje frameworków innymi design patternami
+- Go: niski dla podstawowych, trzeba zrozumieć concurrency i kilka dziwnych rozwiązań (np: err handling)
+
+Główny paradygmat
+- PHP: Pseudo Java OO
+- Go: Pseudo-funkcyjny / Pseudo-Obiektowość da się zamodelować na struct'ach
+
+RPSy
+- PHP: Req-Response boli, zamodelowanie Event-loop'a kopnie cie w tylek
+- Go: "Concurrency as CORE feature" WWW serwer może być wystarczająco szybki
+
+Użycie w świecie:
+- PHP: Tu wygrywa bardzo dużo softu, mało ciekawych projektów
+- Go: Jak już coś wychodzi o czym słychać to z reguły jest fajne :)
+
 
 ## Github style struktura projektu
 
@@ -219,7 +232,12 @@ Obsługa standardowa, fajna rzecz `iota` (taki autoincrement)
 
 W go nie ma exceptionów, błędy są zwracane poprzez wielokrotne wartości
 lub agregowane w obiektach jeżeli zachodzi taka potrzeba. Preferuje
-się podejście jak najszybszej obsługi błędów
+się podejście jak najszybszej obsługi błędów. W Go błąd jest wartością
+na którą masz reagować.
+
+Źródła:
+- https://blog.golang.org/errors-are-values
+- http://blog.golang.org/error-handling-and-go
 
 
 ## Funkcje [BASICS FUNCTIONS CODE](040-basics-functions)
@@ -251,7 +269,10 @@ pracę z nimi
 Slice to nakładka na tablicę często reprezentuje część tablicy, przy dynamicznym
 tworzeniu nie musisz się zajmować pojemnością slice'a,
 
-`String` to też slice!
+źródła:
+- http://blog.golang.org/go-slices-usage-and-internals
+- https://blog.golang.org/slices
+- http://www.dotnetperls.com/slice-go
 
 
 ## Mapy [BASICS MAPS CODE](055-basics-maps)
@@ -333,6 +354,19 @@ z packagem `main`
 
 
 
+# Streams - Przykłady [STDLIB STREAMS CODE](115-stdlib-streams)
+
+## Readers
+
+implementują `io.Reader`
+
+## Writers
+
+implementują `io.Writer`.
+
+koniec.
+
+
 # [STDLIB LOGGING CODE](120-stdlib-logging)
 
 
@@ -400,10 +434,6 @@ docker run --name some-app --link some-rethink:rdb -d application-that-uses-rdb
 
 
 
-# [TESTING PARALLEL BENCHMARK CODE](300-testing-parallel-benchmark)
-
-
-
 # [TESTING UNIT CODE](300-testing-unit)
 
 
@@ -421,6 +451,10 @@ docker run --name some-app --link some-rethink:rdb -d application-that-uses-rdb
 
 
 # [TESTING CHROMEDRIVER CODE](350-testing-chromedriver)
+
+
+
+# [TESTING PARALLEL BENCHMARK CODE](380-testing-parallel-benchmark)
 
 
 
@@ -452,11 +486,19 @@ docker run --name some-app --link some-rethink:rdb -d application-that-uses-rdb
 
 
 
+## Validator package [LIBS VALIDATOR CODE](630-libs-validator)
+
+github.com/go-playground/validator
+
+
 # [LIBS TERMBOX CODE](640-libs-termbox)
 
 
 
-# [LIBS CADDY CODE](650-libs-caddy)
+## Caddy webserver [LIBS CADDY CODE](650-libs-caddy)
+
+
+# [HOW TO RUN ON PRODUCTION CODE](800-how-to-run-on-production)
 
 
 
@@ -469,3 +511,4 @@ docker run --name some-app --link some-rethink:rdb -d application-that-uses-rdb
 
 
 # [SHOOTING YOURSELF IN THE FOOT CODE](999-shooting-yourself-in-the-foot)
+
