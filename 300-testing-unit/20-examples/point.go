@@ -12,14 +12,14 @@ type Point struct {
 }
 
 // Give me string representation od THE point
-func (this *Point) String() string {
-	return strconv.Itoa(this.X) + ":" + strconv.Itoa(this.Y)
+func (point *Point) String() string {
+	return strconv.Itoa(point.X) + ":" + strconv.Itoa(point.Y)
 }
 
 // Point can be moved by another point
-func (this *Point) Move(point Point) {
-	this.X += point.X
-	this.Y += point.Y
+func (point *Point) Move(to Point) {
+	point.X += to.X
+	point.Y += to.Y
 }
 
 // Pokazać godoc dla tego package'a

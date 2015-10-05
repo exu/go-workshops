@@ -240,6 +240,12 @@ na którą masz reagować.
 - http://blog.golang.org/error-handling-and-go
 
 
+## Panics [BASICS PANICS CODE](036-basics-panics)
+
+- Używamy gdy chcemy zatrzymać program.
+- Możemy podpiąć sprawdzenie do "defer chain" czy panic wystąpił
+
+
 ## Funkcje [BASICS FUNCTIONS CODE](040-basics-functions)
 
 Funkcje w go to "First class citizen".
