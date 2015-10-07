@@ -4,6 +4,11 @@ import "fmt"
 
 func main() {
 
+	fmt.Println("standard loop")
+	for i := 0; i < 10; i++ {
+		fmt.Println(i)
+	}
+
 	fmt.Println("index, wartość")
 	tablica := []int{1, 2, 3, 4, 5, 6, 7}
 	for index, value := range tablica {
@@ -19,11 +24,6 @@ func main() {
 	// jak nie potrzebujesz indeksu MUSISZ go zignorować
 	for _, value := range tablica {
 		fmt.Println(value)
-	}
-
-	fmt.Println("standard loop")
-	for i := 0; i < 10; i++ {
-		fmt.Println(i)
 	}
 
 	fmt.Println("while i < 10")
