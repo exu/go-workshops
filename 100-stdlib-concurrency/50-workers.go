@@ -35,6 +35,8 @@ func main() {
 
 	// teraz możemy zebrać wyniki
 	for a := 1; a <= 9; a++ {
+		//        tu blokujemy odbiór z kanału
+		//                                    \
 		fmt.Println("result: ", a, " = ", <-results)
 		time.Sleep(time.Second)
 	}
