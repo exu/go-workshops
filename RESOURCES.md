@@ -22,6 +22,10 @@ Debugging:
 - https://www.youtube.com/watch?v=xxDZuPEgbBU
 - https://github.com/derekparker/delve/
 
+Profiling
+- http://blog.golang.org/profiling-go-programs
+- http://spf13.com/project/nitro/
+
 Testing:
 - https://golang.org/pkg/testing/
 - http://nathany.com/go-testing-toolbox/

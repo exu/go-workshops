@@ -492,6 +492,11 @@ docker run --name some-app --link some-rethink:rdb -d application-that-uses-rdb
 
 
 
+# go readline implementation [LIBS READLINE CODE](630-libs-readline)
+
+https://github.com/chzyer/readline
+
+
 ## Validator package [LIBS VALIDATOR CODE](630-libs-validator)
 
 github.com/go-playground/validator

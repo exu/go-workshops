@@ -5,3 +5,6 @@ chromedriver.log
 /02-logging/errors.log
 /02-logging/warnings.log
 rethinkdb_data
+/todo-960-profiling/cpu.prof
+/todo-960-profiling/mem.prof
+/bin
