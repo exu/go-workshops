@@ -228,22 +228,8 @@ z typem int.
 Obsługa standardowa, fajna rzecz `iota` (taki autoincrement)
 
 
-## Zarządzanie błędami [BASICS ERRORS CODE](035-basics-errors)
+# [OVERRIDING INTERNAL TYPES CODE](035-overriding-internal-types)
 
-W go nie ma exceptionów, błędy są zwracane poprzez wielokrotne wartości
-lub agregowane w obiektach jeżeli zachodzi taka potrzeba. Preferuje
-się podejście jak najszybszej obsługi błędów. W Go błąd jest wartością
-na którą masz reagować.
-
-Źródła:
-- https://blog.golang.org/errors-are-values
-- http://blog.golang.org/error-handling-and-go
-
-
-## Panics [BASICS PANICS CODE](036-basics-panics)
-
-- Używamy gdy chcemy zatrzymać program.
-- Możemy podpiąć sprawdzenie do "defer chain" czy panic wystąpił
 
 
 ## Funkcje [BASICS FUNCTIONS CODE](040-basics-functions)
@@ -314,6 +300,24 @@ jak i z różnych silników baz danych.
 Go posiada tzw "implicit interfaces", oznacza to że jeżeli dana struktura
 implementuje metody z interfejsu automatycznie staje się obikektem o typie
 równym typie intefejsu.
+
+
+## Zarządzanie błędami [BASICS ERRORS CODE](067-basics-errors)
+
+W go nie ma exceptionów, błędy są zwracane poprzez wielokrotne wartości
+lub agregowane w obiektach jeżeli zachodzi taka potrzeba. Preferuje
+się podejście jak najszybszej obsługi błędów. W Go błąd jest wartością
+na którą masz reagować.
+
+Źródła:
+- https://blog.golang.org/errors-are-values
+- http://blog.golang.org/error-handling-and-go
+
+
+## Panics [BASICS PANICS CODE](068-basics-panics)
+
+- Używamy gdy chcemy zatrzymać program.
+- Możemy podpiąć sprawdzenie do "defer chain" czy panic wystąpił
 
 
 ## Stringi [BASICS STRINGS CODE](070-basics-strings)
@@ -389,8 +393,13 @@ koniec.
 
 
 
-# [STDLIB IO CODE](160-stdlib-io)
+## Podstawowe operacje na IO, Bufory [STDLIB IO CODE](160-stdlib-io)
 
+### Przykład z `bufio`
+
+### Directory traversal
+
+### Łączenie plików za pomocą buforów
 
 
 # [STDLIB TEMPLATES CODE](170-stdlib-templates)
