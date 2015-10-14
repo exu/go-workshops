@@ -19,6 +19,7 @@ func main() {
 		},
 		// możemy też przekazać bez podawania nazw pól
 		// jednak wtedy należy podać wszystkie wartości
+		// po kolei tak jak w definicji struktury
 		Image{
 			"http://static.ioki.pl/nic.jpg",
 			"image/jpg",

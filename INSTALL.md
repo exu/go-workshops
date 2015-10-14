@@ -2,6 +2,8 @@
 
 ## Instalacja Go
 
+TODO !!!!! version bump !!!!
+
 Ważne aby mieć nową wersję, nie gwarantuję że na starszych będą działać te przykłady
 (choć powinny)
 
@@ -37,11 +39,10 @@ TODO !!!!
 
 ## Inicjalizacja zawarości repozytoriów dockera przed szkoleniem
 
-Najlepiej aby nie przeciążać sieceie podczas szkolenia należałoby odpalić `docker-compose build` dla każdego z kontenerów (każdy ściąga ~ kilkaset MB)
+Aby nie przeciążać sieci przed szkoleniem należałoby odpalić `docker-compose build` dla każdego z kontenerów (każdy ściąga ~ kilkaset MB)
 
-aby to zrobić uruchom make w katalogu `docker`
+aby to zrobić uruchom make w głownym katalogu repozytorium
 
 ```
-cd docker
 make
 ```
