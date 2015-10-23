@@ -1,11 +1,3 @@
-// slice to "nakładka" na tablicę, trzyma do niej referencję
-// jak przypiszesz slice do slice'a to będą wskazywać na tą
-// samą tablicę.
-// Dogłębnie przeanalizowane w:
-// - https://blog.golang.org/slices
-// - https://github.com/golang/go/wiki/SliceTricks
-// - https://blog.golang.org/go-slices-usage-and-internals
-// - http://research.swtch.com/godata
 package main
 
 import "fmt"
