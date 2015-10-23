@@ -1,11 +1,8 @@
 package main
 
 import (
-	// "runtime"
 	"time"
 )
-
-// var _ = runtime.GOMAXPROCS(3)
 
 var a, b int
 
