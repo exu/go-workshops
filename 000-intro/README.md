@@ -27,7 +27,7 @@ Chcieli rozzwiązać problemy z DUŻYMI aplikacjami które mieli napisane w Goog
 - łatwy deploy aplikacji (kod nie ma zależności - jenda binarka) + statics
 - brak wojny o code style  `gofmt`
 - zintegrowany package manager `go get`
-- zintegrowane sprawdzanie poprawności kodu `go vet`
+- zintegrowane sprawdzanie poprawności kodu `go vet` także `golint` (github.com/golang/lint)
 - `gocode` serwer do intellisense - nie musisz miec IDE aby ci podpowiadało
   możesz pisać w swoim ulubionym edytorze (Sublime, Atom, Vim)
 - szybkie budowanie binarek
@@ -35,6 +35,7 @@ Chcieli rozzwiązać problemy z DUŻYMI aplikacjami które mieli napisane w Goog
   streams, io, buffers, first class citizen concurrency
 - kompilacja na wiele maszyn (cross-compilation)
 - łatwy i przyjemny setup środowiska (edytory, ide, code completition server)
+- wbudowane testy
 - bardzo niski próg wejścia aby zacząć pisać
 - hype w internetach, jeden z większych wzrostów w trendach na githubie oraz google trends
   (Tiobe kłamie!)
