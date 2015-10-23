@@ -29,7 +29,7 @@ Chcieli rozzwiązać problemy z DUŻYMI aplikacjami które mieli napisane w Goog
 - łatwy deploy aplikacji (kod nie ma zależności - jenda binarka) + statics
 - brak wojny o code style  `gofmt`
 - zintegrowany package manager `go get`
-- zintegrowane sprawdzanie poprawności kodu `go vet`
+- zintegrowane sprawdzanie poprawności kodu `go vet` także `golint` (github.com/golang/lint)
 - `gocode` serwer do intellisense - nie musisz miec IDE aby ci podpowiadało
   możesz pisać w swoim ulubionym edytorze (Sublime, Atom, Vim)
 - szybkie budowanie binarek
@@ -37,6 +37,7 @@ Chcieli rozzwiązać problemy z DUŻYMI aplikacjami które mieli napisane w Goog
   streams, io, buffers, first class citizen concurrency
 - kompilacja na wiele maszyn (cross-compilation)
 - łatwy i przyjemny setup środowiska (edytory, ide, code completition server)
+- wbudowane testy
 - bardzo niski próg wejścia aby zacząć pisać
 - hype w internetach, jeden z większych wzrostów w trendach na githubie oraz google trends
   (Tiobe kłamie!)
@@ -211,9 +212,36 @@ https://www.youtube.com/watch?v=InG72scKPd4
 https://github.com/bradfitz/talk-yapc-asia-2015/blob/master/talk.md
 
 
-## Importowanie i packages [BASICS IMPORTING CODE](010-basics-importing)
+## Github style struktura projektu [BASICS IMPORTING CODE](010-basics-importing)
+
+w Go projekty są uporządkowane zgodnie z "github style" - częścią ścieżki
+jest adres serwera na którym hostowane jest projekt / biblioteka
+
+```
+src/
+    github.com
+        exu
+            mysuperproject
+    ioki.com.pl
+            mnmel
+                 nmelinium
+bin/
+    superappbinary
+pkg/
+    compiled packages
+
+```
+
+Zmienna środowiskowa `$GOPATH` decyduje gdzie się znajdują te katalogi w
+twoim systemie.
+
+
+## Importowanie i packages
 
 W go package jest zbiorem plików z dyrektywą `package nazwa`
+Package default'owo jest importowany po pełnej ścieżce ścieżce
+
+    import "github.com/exu/go-workshops/010-basics-importing/sub"
 
 
 ## Zmienne [BASICS VARIABLES CODE](020-basics-variables)
@@ -228,7 +256,7 @@ z typem int.
 Obsługa standardowa, fajna rzecz `iota` (taki autoincrement)
 
 
-# [OVERRIDING INTERNAL TYPES CODE](035-overriding-internal-types)
+# [BASICS OVERRIDING INTERNAL TYPES CODE](035-basics-overriding-internal-types)
 
 
 
@@ -258,12 +286,17 @@ pracę z nimi
 
 ## Slices [BASICS SLICES CODE](051-basics-slices)
 
-Slice to nakładka na tablicę często reprezentuje część tablicy, przy dynamicznym
-tworzeniu nie musisz się zajmować pojemnością slice'a,
+Slice to "nakładka" na tablicę, trzyma do niej referencję
+jak przypiszesz slice do slice'a to będą wskazywać na tą
+samą tablicę.
 
 źródła:
-- http://blog.golang.org/go-slices-usage-and-internals
+
 - https://blog.golang.org/slices
+- https://github.com/golang/go/wiki/SliceTricks
+- https://blog.golang.org/go-slices-usage-and-internals
+- http://research.swtch.com/godata
+- http://blog.golang.org/go-slices-usage-and-internals
 - http://www.dotnetperls.com/slice-go
 
 
@@ -293,6 +326,10 @@ Struktury w go posiadają możliwość opisywania pól dodatkowymi
 "tagami" które następnie możemy wykorzystać programistycznie
 wykorzystywane często przy enkodowaniu i dekodowaniu z formatów danych (JSON, yml)
 jak i z różnych silników baz danych.
+
+
+# [BASICS ANONYMOUS STRUCTS CODE](065-basics-anonymous-structs)
+
 
 
 ## Interface'y [BASICS INTERFACES CODE](065-basics-interfaces)
