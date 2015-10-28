@@ -2,22 +2,24 @@ package main
 
 import "fmt"
 
+type h map[string]interface{}
+
 func main() {
 
-	parsedResponse := map[string]interface{}{
+	parsedResponse := h{
 		"size_in_kb": 12000,
 		"custom_headers": []string{
 			"X-Booo: your mama",
 			"X-Foo: ",
 		},
-		"html": map[string]interface{}{
-			"head": map[string]interface{}{
+		"html": h{
+			"head": h{
 				"title": "Some parsed html DOM",
 			},
-			"body": map[string]interface{}{
+			"body": h{
 				"div": "Main page body",
-				"form": map[string]interface{}{
-					"select": map[string]interface{}{
+				"form": h{
+					"select": h{
 						"values": []int{1, 2, 3, 4, 5},
 					},
 				},
