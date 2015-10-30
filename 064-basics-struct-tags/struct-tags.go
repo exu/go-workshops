@@ -25,7 +25,7 @@ func (message LogMessage) GetMessage() string {
 	return message.Message
 }
 
-func marshall(input Messanger) {
+func show(input Messanger) {
 	st := reflect.TypeOf(input)
 	field := st.Field(0)
 
@@ -38,6 +38,6 @@ func marshall(input Messanger) {
 }
 
 func main() {
-	marshall(LogMessage{"Hoł hoł"})
-	marshall(ErrorMessage{Message: "Noł noł noł"})
+	show(LogMessage{"Hoł hoł"})
+	show(ErrorMessage{Message: "Noł noł noł"})
 }

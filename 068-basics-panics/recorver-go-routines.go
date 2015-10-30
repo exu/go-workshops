@@ -6,12 +6,16 @@ import (
 	"time"
 )
 
+func funcWithPanic(name string) {
+	panic("Somethings is not allright at all for worker " + name)
+}
+
 func start(name string) {
 	defer errorHandler()
 	fmt.Println("Worker ", name, "working")
 
 	if num := rand.Intn(5); num == 4 {
-		panic("Somethings is not allright at all for worker " + name)
+		funcWithPanic(name)
 	}
 }
 

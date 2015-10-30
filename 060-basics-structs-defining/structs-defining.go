@@ -17,6 +17,12 @@ func main() {
 			ContentType: "image/png",
 			Size:        2048,
 		},
+		// jeżeli nie podamy wartości któregokolwiek z pól,
+		// zostanie przypisana wartość zerowa (NIE NULL)
+		// dla stringów "", int 0, float 0.0 itd.
+		Image{
+			URL: "http://static.ioki.pl/tylko-url.jpg",
+		},
 		// możemy też przekazać bez podawania nazw pól
 		// jednak wtedy należy podać wszystkie wartości
 		// po kolei tak jak w definicji struktury
@@ -24,12 +30,6 @@ func main() {
 			"http://static.ioki.pl/nic.jpg",
 			"image/jpg",
 			1024,
-		},
-		// jeżeli nie podamy wartości któregokolwiek z pól,
-		// zostanie przypisana wartość zerowa (NIE NULL)
-		// dla stringów "", int 0, float 0.0 itd.
-		Image{
-			URL: "http://static.ioki.pl/tylko-url.jpg",
 		},
 	}
 

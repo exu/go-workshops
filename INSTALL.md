@@ -2,25 +2,40 @@
 
 ## Instalacja Go
 
-TODO !!!!! version bump !!!!
-
 Ważne aby mieć nową wersję, nie gwarantuję że na starszych będą działać te przykłady
 (choć powinny)
 
-Postępuj zgodnie z dla twojego systemu:
-https://golang.org/doc/install
 
-Jest kilka sposobów na zainstalowanie go, my aby wszyscy mieli najnowszą wersję
-po prostu podamy naszemu systemowi golang prosto w pysk
+Pobierz paczkę dla twojego systemu:
 
-- `wget https://storage.googleapis.com/golang/go1.5.linux-amd64.tar.gz`
+- Linux: https://storage.googleapis.com/golang/go1.5.1.linux-amd64.tar.gz
+- MacOS: https://storage.googleapis.com/golang/go1.5.1.darwin-amd64.pkg
 
-- `tar -C /usr/local -xzf go$VERSION.$OS-$ARCH.tar.gz`
+Przykład dla Linux'a:
+```
+wget https://storage.googleapis.com/golang/go1.5.1.linux-amd64.tar.gz
+sudo tar -C /usr/local -xzf go1.5.1.linux-amd64.tar.gz
+```
+
 
 - dodaj `export PATH=$PATH:/usr/local/go/bin` do czegoś wykonywalnego
 przy uruchomieniu systemu (zazwyczaj ~/.bashrc)
 
+Szczegóły instalacji na https://golang.org/doc/install
+
+
+Ustawmy "workspace" dla naszych projektów go,
+możesz to zrobić w pliku twojego shella z reguły `.bashrc`
+
+```
+export PATH=$PATH:/usr/local/go/bin
+export GOPATH=$HOME/go
+```
+
+otwórz terminal ponownie aby bashrc się wczytał.
+
 - spróbuj uruchomić `go version`
+
 
 
 ## Instalacja Docker
@@ -28,6 +43,8 @@ przy uruchomieniu systemu (zazwyczaj ~/.bashrc)
 Aby uruchomić bazy danych wykorzystywane w szkoleniu (jeżeli nie posiadasz
 zainstalowanych natywnie) należy zainstalować dockera oraz docker-compose
 (tool do zarządzania environmentem kontenerów)
+
+
 
 
 TODO !!!!

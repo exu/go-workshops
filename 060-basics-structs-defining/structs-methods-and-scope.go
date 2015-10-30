@@ -12,5 +12,5 @@ func main() {
 		// size: 12999
 	}
 
-	fmt.Printf("%+v", img.GetSize()) // tu możemy użyć w innym package już nie
+	fmt.Printf("%+v", img.GetSize())
 }
