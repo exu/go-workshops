@@ -63,6 +63,11 @@ Linux - https://docs.docker.com/installation/
 
 ## Instalacja Docker Compose
 
+https://docs.docker.com/compose/install/
+
+
+Przykładowa instalacja na Linuksie:
+
 ```
 curl -L https://github.com/docker/compose/releases/download/1.5.0rc2/docker-compose-`uname -s`-`uname -m` > docker-compose
 sudo mv docker-compose /usr/local/bin/docker-compose
