@@ -18,7 +18,7 @@ type Tag struct {
 }
 
 func main() {
-	session, err := mgo.Dial("localhost")
+	session, err := mgo.Dial("localhost:7702")
 	if err != nil {
 		panic(err)
 	}
@@ -53,27 +53,28 @@ func main() {
 	result := Tag{}
 
 	// tag id=1
-	err = db1.FindRef(&ref1).One(&result)
+	err = session.FindRef(&ref1).One(&result)
 	if err != nil {
 		fmt.Println(err.Error())
 	}
 	fmt.Println("ref1 result:", result)
 
-	err = db2.FindRef(&ref2).One(&result)
+	err = session.FindRef(&ref2).One(&result)
 	if err != nil {
 		fmt.Println(err.Error())
 	}
 	fmt.Println("ref2 result:", result)
 
 	// get reference
+	fmt.Println("Find ref from db:")
 	item := Item{}
 	err = items.Find(bson.M{"_id": 1}).One(&item)
 	if err != nil {
 		fmt.Println(err)
 	}
 
-	err = db1.FindRef(&item.Tags[1]).One(&result)
+	err = session.FindRef(&item.Tags[1]).One(&result)
 
 	// tag id=2
-	fmt.Println(result)
+	fmt.Println("item.Tags[1]", result)
 }

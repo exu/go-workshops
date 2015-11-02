@@ -2,11 +2,18 @@ package main
 
 import (
 	"gopkg.in/mgo.v2"
+	"gopkg.in/mgo.v2/bson"
 )
+
+type Item struct {
+	Id          bson.ObjectId `bson:"_id"`
+	Name        string
+	Description string
+}
 
 func main() {
 	// db.createCollection("items", { size: 1000, capped: true })
-	session, err := mgo.Dial("localhost")
+	session, err := mgo.Dial("localhost:7702")
 	if err != nil {
 		panic(err)
 	}

@@ -7,7 +7,7 @@ import "github.com/jmoiron/sqlx"
 import _ "github.com/go-sql-driver/mysql"
 
 func main() {
-	db := sqlx.MustConnect("mysql", "root:root@tcp(127.0.0.1:3306)/gotraining")
+	db := sqlx.MustConnect("mysql", "root:root@tcp(127.0.0.1:7701)/gotraining")
 
 	rows, err := db.Query("SELECT id, name, description FROM items")
 

@@ -16,7 +16,7 @@ type Item struct {
 
 func main() {
 
-	db := sqlx.MustConnect("mysql", "root:root@tcp(127.0.0.1:3306)/gotraining")
+	db := sqlx.MustConnect("mysql", "root:root@tcp(127.0.0.1:7701)/gotraining")
 	rows, err := db.Queryx("SELECT id, name, description FROM items")
 
 	if err != nil {

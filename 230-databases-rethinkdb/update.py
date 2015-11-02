@@ -1,7 +1,7 @@
 import rethinkdb as r
 import random
 
-conn = r.connect(host="localhost", port=28015, db="players", auth_key="", timeout=20)
+conn = r.connect(host="localhost", port=7704, db="players", auth_key="", timeout=20)
 
 while True:
     scores = r.table("scores")

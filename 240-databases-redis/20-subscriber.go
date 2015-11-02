@@ -1,8 +1,8 @@
 package main
 
 import (
-	"fmt"
 	"gopkg.in/redis.v3"
+	"log"
 )
 
 var (
@@ -11,7 +11,7 @@ var (
 
 func init() {
 	client = redis.NewClient(&redis.Options{
-		Addr:     "localhost:6379",
+		Addr:     "localhost:7703",
 		Password: "",
 		DB:       0,
 	})
@@ -36,7 +36,7 @@ func main() {
 			panic(err)
 		}
 
-		fmt.Println(msg.Channel, msg.Payload)
+		log.Println(msg.Channel, msg.Payload)
 	}
 
 }

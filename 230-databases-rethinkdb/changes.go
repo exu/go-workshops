@@ -11,7 +11,7 @@ func main() {
 	fmt.Println("I'm watching You!")
 
 	session, err := r.Connect(r.ConnectOpts{
-		Address:  "localhost:28015",
+		Address:  "localhost:7704",
 		Database: "players",
 	})
 

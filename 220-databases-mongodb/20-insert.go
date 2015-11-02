@@ -26,7 +26,7 @@ Proin gravida tellus vitae dui. Maecenas tempor. Nulla eros mauris, aliquet quis
 `
 
 func main() {
-	session, err := mgo.Dial("localhost")
+	session, err := mgo.Dial("localhost:7702")
 	if err != nil {
 		panic(err)
 	}

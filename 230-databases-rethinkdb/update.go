@@ -5,7 +5,7 @@ import (
 	"log"
 	"math/rand"
 	"strconv"
-	// "time"
+	"time"
 
 	r "gopkg.in/dancannon/gorethink.v1"
 )
@@ -21,7 +21,7 @@ func main() {
 	fmt.Println("Connecting to RethinkDB")
 
 	session, err := r.Connect(r.ConnectOpts{
-		Address:  "localhost:28015",
+		Address:  "localhost:7704",
 		Database: "players",
 	})
 
@@ -41,5 +41,7 @@ func main() {
 			"Score": r.Row.Field("Score").Add(sc),
 		}).RunWrite(session)
 		// fmt.Println(time.Now().Sub(startingTime))
+
+		time.Sleep(time.Millisecond * 300)
 	}
 }

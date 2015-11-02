@@ -17,7 +17,7 @@ func main() {
 	var item Item
 
 	// Must.... functions will panic on fail
-	db := sqlx.MustConnect("mysql", "root:root@tcp(127.0.0.1:3306)/gotraining")
+	db := sqlx.MustConnect("mysql", "root:root@tcp(127.0.0.1:7701)/gotraining")
 
 	row := db.QueryRowx("SELECT * FROM items WHERE id=?", 3)
 	err := row.StructScan(&item)

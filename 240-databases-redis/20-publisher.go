@@ -2,6 +2,8 @@ package main
 
 import (
 	"gopkg.in/redis.v3"
+	"os"
+	"time"
 )
 
 var (
@@ -10,7 +12,7 @@ var (
 
 func init() {
 	client = redis.NewClient(&redis.Options{
-		Addr:     "localhost:6379",
+		Addr:     "localhost:7703",
 		Password: "", // no password set
 		DB:       0,  // use default DB
 	})
@@ -22,8 +24,16 @@ func init() {
 }
 
 func main() {
-	err := client.Publish("mychannel", "hello").Err()
-	if err != nil {
-		panic(err)
+	if len(os.Args) < 2 {
+		println("Podaj wiadomość")
+		return
+	}
+
+	for {
+		err := client.Publish("mychannel", "hello "+os.Args[1]).Err()
+		if err != nil {
+			panic(err)
+		}
+		time.Sleep(time.Millisecond * 500)
 	}
 }

@@ -14,7 +14,7 @@ type Item struct {
 }
 
 func main() {
-	session, err := mgo.Dial("localhost")
+	session, err := mgo.Dial("localhost:7702")
 	if err != nil {
 		panic(err)
 	}
