@@ -7,7 +7,8 @@ import (
 )
 
 func main() {
-	proc := exec.Command("ls -la")
+
+	proc := exec.Command("ls", "-la")
 	proc.Stdout = os.Stdout
 	proc.Stderr = os.Stderr
 	proc.Start()
@@ -16,7 +17,7 @@ func main() {
 	ps := proc.ProcessState
 
 	if err != nil {
-		log.Println(err.Error())
+		log.Println("ERRRRRRR", err.Error())
 		os.Exit(1)
 	} else {
 		log.Println(ps.Success())
