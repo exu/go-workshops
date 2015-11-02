@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"os"
 )
 
@@ -15,5 +14,5 @@ func init() {
 }
 
 func main() {
-	fmt.Printf("Starting %s", name)
+	println("Starting", name)
 }

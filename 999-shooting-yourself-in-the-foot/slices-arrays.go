@@ -7,6 +7,9 @@ import (
 func main() {
 	array := [...]int{1, 2, 3}
 
+	// przekraczamy poza indeks tablicy
+	// zostanie stworzony slice w oparciu
+	// o nową tablicę
 	slice := array[:3]
 	fmt.Println(slice, array)
 

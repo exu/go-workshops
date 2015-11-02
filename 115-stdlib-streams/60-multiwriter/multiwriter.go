@@ -9,12 +9,6 @@ import (
 	"os"
 )
 
-func check(e error) {
-	if e != nil {
-		panic(e)
-	}
-}
-
 func main() {
 	f, _ := os.Create("file.txt")
 	defer f.Close()

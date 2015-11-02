@@ -18,4 +18,7 @@ func main() {
 	// pominąć za pomocą znaku _
 	_, c := vals()
 	fmt.Println(c)
+
+	d, _ := vals()
+
 }

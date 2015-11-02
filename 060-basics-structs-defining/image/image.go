@@ -10,3 +10,7 @@ type Image struct {
 func (img *Image) GetSize() int {
 	return img.size
 }
+
+func (img *Image) SetSize(size int) {
+	img.size = size
+}

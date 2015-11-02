@@ -9,26 +9,23 @@ import (
 // Writer implementuje io.Writer w dokumentacji
 // proc.Stdout jest taki typ
 // `godoc io.Writer`
-type Writer struct{}
+type Writer struct {
+	count int
+}
 
 func (writer Writer) Write(p []byte) (n int, err error) {
-	log.Println(string(p))
+	writer.count++
+	log.Println(string(p), writer.count)
 	return len(p), nil
 }
 
 func main() {
-	out, err := exec.Command("date").Output()
-	if err != nil {
-		log.Fatal(err)
-	}
-	log.Printf("The date is %s\n", out)
-
 	proc := exec.Command("/bin/sh", "-c", "ls -la && sleep 2")
 	proc.Stdout = Writer{}
 	proc.Stderr = Writer{}
 	proc.Start()
 
-	err = proc.Wait()
+	err := proc.Wait()
 	ps := proc.ProcessState
 
 	if err != nil {

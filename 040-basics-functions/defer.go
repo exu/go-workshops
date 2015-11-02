@@ -1,29 +1,22 @@
 package main
 
-import (
-	"fmt"
-)
-
-func trace(s string) string {
-	fmt.Println("entering:", s)
-	return s
+func in(val int) {
+	println("in:", val)
 }
 
-func un(s string) {
-	fmt.Println("leaving:", s)
-}
-
-func a() {
-	defer un(trace("a"))
-	fmt.Println("in a")
-}
-
-func b() {
-	defer un(trace("b"))
-	fmt.Println("in b")
-	a()
+func out(val int) {
+	println("out:", val)
 }
 
 func main() {
-	b()
+	in(1)
+	defer out(1)
+	in(2)
+	defer out(2)
+	in(3)
+	defer out(3)
+
+	in(4)
+	in(5)
+	in(6)
 }

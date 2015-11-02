@@ -10,5 +10,5 @@ func init() {
 }
 
 func Write(writer io.Writer) {
-	writer.Write([]byte("package2: wrrrrrrrrrrrrr!\n"))
+	writer.Write([]byte("package4: wrrrrrrrrrrrrr!\n"))
 }

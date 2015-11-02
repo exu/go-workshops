@@ -12,5 +12,6 @@ func main() {
 		// size: 12999
 	}
 
+	img.SetSize(10000)
 	fmt.Printf("%+v", img.GetSize())
 }

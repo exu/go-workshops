@@ -8,3 +8,5 @@ rethinkdb_data
 /todo-960-profiling/cpu.prof
 /todo-960-profiling/mem.prof
 /bin
+/090-basics-3rd-party-packages/090-basics-3rd-party-packages
+/010-basics-importing/importing-packages
