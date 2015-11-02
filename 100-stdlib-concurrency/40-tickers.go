@@ -31,7 +31,7 @@ func main() {
 
 	// pierwsza goroutine ktora pobierze wartosc moze ja wyswietlic
 	// reszta jest nadal zblokowana. kolejna dostanie wartosc
-	// gdy ticker wygeneruje ja po 200 ms itd...
+	// gdy ticker wygeneruje ja po 500 ms itd...
 
 	time.Sleep(time.Second * 4)
 

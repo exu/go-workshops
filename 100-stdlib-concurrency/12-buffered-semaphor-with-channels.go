@@ -5,13 +5,15 @@ import (
 	"time"
 )
 
-var maxOutstanding = 10
+var maxOutstanding = 5
 var sem = make(chan int, maxOutstanding)
 
 func main() {
-	for {
+	for i := 0; i < 20; i++ {
 		go handle()
 	}
+
+	time.Sleep(time.Minute)
 }
 
 func handle() {

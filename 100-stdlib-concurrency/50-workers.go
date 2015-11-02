@@ -31,13 +31,13 @@ func main() {
 	for j := 1; j <= 9; j++ {
 		jobs <- j
 	}
-	close(jobs) // zamykamy kanał
+	close(jobs) // zamykamy kanał nie chcemy do niego więcej pisać
 
 	// teraz możemy zebrać wyniki
 	for a := 1; a <= 9; a++ {
 		//        tu blokujemy odbiór z kanału
 		//                                    \
 		fmt.Println("result: ", a, " = ", <-results)
-		time.Sleep(time.Second)
+		// time.Sleep(time.Second)
 	}
 }

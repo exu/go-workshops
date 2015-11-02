@@ -27,14 +27,14 @@ func main() {
 	// - c2
 	// - time.After zwraca kanał do którego zostanie
 	///             wysłana wartość po określonym czasie
-	for i := 0; i < 3; i++ {
+	for i := 0; i < 4; i++ {
 		select {
 		case msg1 := <-c1:
 			fmt.Println("received", msg1)
 		case msg2 := <-c2:
 			fmt.Println("received", msg2)
-		case <-time.After(time.Second * 10):
-			fmt.Println("timeout after 10 seconds")
+		case <-time.After(time.Second * 6):
+			fmt.Println("timeout after 6 seconds")
 		}
 	}
 }

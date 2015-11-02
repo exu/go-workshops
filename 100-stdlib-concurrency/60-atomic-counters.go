@@ -4,10 +4,12 @@
 
 package main
 
-import "fmt"
-import "time"
-import "sync/atomic"
-import "runtime"
+import (
+	"fmt"
+	"runtime"
+	"sync/atomic"
+	"time"
+)
 
 func main() {
 
