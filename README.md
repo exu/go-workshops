@@ -422,6 +422,10 @@ koniec.
 
 
 
+# [STDLIB HTTP MIDDLEWARES CODE](141-stdlib-http-middlewares)
+
+
+
 # [STDLIB ENCODING JSON CODE](150-stdlib-encoding-json)
 
 
@@ -447,8 +451,16 @@ koniec.
 
 
 
-# [DATABASES MYSQL CODE](210-databases-mysql)
+## Instalacja [DATABASES MYSQL CODE](210-databases-mysql)
 
+Uruchom
+
+```
+cd docker/mysql
+docker-compose start
+mysql -uroot -proot -P7701 -h127.0.0.1 < init.sql
+mysql -uroot -proot -P7701 -h127.0.0.1
+```
 
 
 # Przykłady MongoDB [DATABASES MONGODB CODE](220-databases-mongodb)
@@ -543,16 +555,19 @@ docker run --name some-app --link some-rethink:rdb -d application-that-uses-rdb
 https://github.com/chzyer/readline
 
 
-## Validator package [LIBS VALIDATOR CODE](630-libs-validator)
-
-github.com/go-playground/validator
-
-
 # [LIBS TERMBOX CODE](640-libs-termbox)
 
 
 
 ## Caddy webserver [LIBS CADDY CODE](650-libs-caddy)
+
+
+# [LIBS JOBRUNNER CODE](660-libs-jobrunner)
+
+
+
+# [LIBS CRON CODE](665-libs-cron)
+
 
 
 # [HOW TO RUN ON PRODUCTION CODE](800-how-to-run-on-production)
@@ -565,6 +580,117 @@ github.com/go-playground/validator
 
 # [DEBUGGING DELVE CODE](950-debugging-delve)
 
+
+
+## Profilowanie [PROFILING CODE](960-profiling)
+
+### Command
+
+Profilowanie standardowego programu
+
+```
+import (
+	"runtime/pprof"
+)
+
+var cpuprofile = flag.String("cpuprofile", "", "write cpu profile to file")
+
+func init() {
+	flag.Parse()
+	if *cpuprofile != "" {
+		f, err := os.Create(*cpuprofile)
+		if err != nil {
+			log.Fatal(err)
+		}
+		pprof.StartCPUProfile(f)
+	}
+}
+
+func main() {
+	defer pprof.StopCPUProfile()
+
+```
+
+
+Następnie budujemy binarkę i odpalamy ją z flagą cpuprofile
+
+```
+go build command.go && ./command -cpuprofile=data.prof
+```
+
+po czym możemy włączyć nasz profiler
+
+```
+go tool pprof command data.prof
+```
+
+Możemy do naszego programu dodać memory profile
+
+```
+var memprofile = flag.String("memprofile", "", "write memory profile to this file")
+
+
+func memProfile() {
+	if *memprofile != "" {
+		f, err := os.Create(*memprofile)
+		if err != nil {
+			log.Fatal(err)
+		}
+		pprof.WriteHeapProfile(f)
+		f.Close()
+		return
+	}
+}
+```
+
+informacje o pamięci zbierane są zbierane na końcu więc dorzucamy do defer list
+```
+func main() {
+    defer memProfile()
+
+```
+
+Teraz możemy zbierać informacje o obu profilach
+
+```
+go build command.go && ./command -cpuprofile=cpu.prof -memprofile=mem.prof
+
+go tool pprof command cpu.prof
+
+go tool pprof command mem.prof
+```
+
+
+### Web
+
+```
+package main
+
+import (
+	"fmt"
+	"net/http"
+	_ "net/http/pprof"
+)
+
+func handler(w http.ResponseWriter, r *http.Request) {
+	for i := 0; i < 100000000; i++ {
+		w.Write([]byte(fmt.Sprintf("%d - %d, ", i, i)))
+	}
+}
+
+func main() {
+	http.HandleFunc("/", handler)
+	http.ListenAndServe(":8080", nil)
+}
+
+```
+
+
+run in shell:
+
+```
+go tool pprof http://localhost:8080/debug/pprof/profile
+```
 
 
 # [SHOOTING YOURSELF IN THE FOOT CODE](999-shooting-yourself-in-the-foot)
