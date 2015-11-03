@@ -8,7 +8,10 @@ func Fib(n int) int {
 }
 
 // func Fib(n int) int {
-// 	for i, j := 0, 1; j < 100; i, j = i+j, i {
-// 		fmt.Println(i)
+// 	a, b := 1, 1
+// 	for i := 0; i < n; i++ {
+// 		a, b = b, a+b
 // 	}
+
+// 	return a
 // }

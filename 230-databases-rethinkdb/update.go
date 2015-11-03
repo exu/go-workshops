@@ -42,6 +42,6 @@ func main() {
 		}).RunWrite(session)
 		// fmt.Println(time.Now().Sub(startingTime))
 
-		time.Sleep(time.Millisecond * 300)
+		time.Sleep(time.Duration(rand.Int31n(1000)) * time.Millisecond)
 	}
 }

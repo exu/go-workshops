@@ -10,3 +10,6 @@ rethinkdb_data
 /bin
 /090-basics-3rd-party-packages/090-basics-3rd-party-packages
 /010-basics-importing/importing-packages
+/120-stdlib-logging/errors.log
+/120-stdlib-logging/warnings.log
+/960-profiling/data.prof

@@ -22,13 +22,14 @@ func main() {
 
 	c := session.DB("goworkshops_tailed").C("items")
 
-	iter := c.Find(nil).Sort("$natural").Tail(12 * time.Second)
-	defer iter.Close()
-
 	var result Item
-	var lastId bson.ObjectId
 
+	lastId := bson.NewObjectId()
 	for {
+		println("starting")
+		query := c.Find(bson.M{"_id": bson.M{"$gt": lastId}})
+		iter := query.Sort("$natural").Tail(5 * time.Second)
+
 		for iter.Next(&result) {
 			fmt.Printf("%+v\n\n", result)
 			lastId = result.Id
@@ -39,9 +40,8 @@ func main() {
 			time.Sleep(time.Second)
 		}
 		if iter.Timeout() {
+			println("timeout")
 			continue
 		}
-		query := c.Find(bson.M{"_id": bson.M{"$gt": lastId}})
-		iter = query.Sort("$natural").Tail(5 * time.Second)
 	}
 }

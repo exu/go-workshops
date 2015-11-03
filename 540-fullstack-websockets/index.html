@@ -54,7 +54,6 @@
              }
 
              ws.onmessage = function(evt) {
-                 var out = document.getElementById('output');
                  data = JSON.parse(evt.data)
                  $scope.lon = data.lon;
                  $scope.lat = data.lat;

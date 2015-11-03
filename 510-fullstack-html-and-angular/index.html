@@ -31,7 +31,6 @@
             </form>
         </div>
 
-        <script src="/static/jquery-2.1.3.min.js"></script>
         <script src="/static/angular.min.js"></script>
         <script>
          // definicja naszej aplikacji
@@ -45,6 +44,7 @@
          // wewnątrz kontrolera jestesmy w stanie operować
          // na scope'ie
          app.controller('ctrl', ["$scope", function($scope){
+             $scope.all = {{ . }}
              $scope.id = {{ .Id }}
              $scope.name = {{ .Name }}
              $scope.tags = {{ .Tags }}
