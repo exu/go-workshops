@@ -4,16 +4,20 @@ import (
 	"testing"
 )
 
-func TestAddAddsTwoInts(t *testing.T) {
-	result := Add(10, 20)
-	if result != 30 {
-		t.Errorf("Hohohoho I want 30 but got %d", result)
+func assertEquals(t *testing.T, expected int, result int) {
+	if result != expected {
+		t.Errorf("Hohohoho I want %d but got %d", expected, result)
 	}
 }
 
-func TestAddAddsThreeInts(t *testing.T) {
-	result := Add(10, 20, 30)
-	if result != 60 {
-		t.Errorf("Hohohoho I want 60 but got %d", result)
-	}
+func TestAdd_AddsTwoInts(t *testing.T) {
+	assertEquals(t, 30, Add(10, 20))
+}
+
+func TestAdd_AddsThreeInts(t *testing.T) {
+	assertEquals(t, 60, Add(10, 20, 30))
+}
+
+func TestAdd_AddsTenInts(t *testing.T) {
+	assertEquals(t, 400, Add(10, 20, 30, 40, 10, 20, 30, 40, 100, 100))
 }
