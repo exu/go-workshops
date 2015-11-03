@@ -47,7 +47,7 @@ func main() {
 	h1("Default Structs")
 
 	// mapowanie strukturki do jsona bez annotacji
-	response1 := &Response1{
+	response1 := Response1{
 		Page:   1,
 		Fruits: []string{"apple", "peach", "pear"}}
 	respnse1JSON, _ := json.Marshal(response1)
