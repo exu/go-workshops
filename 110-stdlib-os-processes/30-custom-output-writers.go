@@ -29,10 +29,10 @@ func main() {
 	ps := proc.ProcessState
 
 	if err != nil {
-		log.Println(err.Error())
+		log.Println("ERROR", err.Error())
 		os.Exit(1)
 	} else {
-		log.Println(ps.Success())
+		log.Println("SUCCESS", ps.Success())
 	}
 
 }

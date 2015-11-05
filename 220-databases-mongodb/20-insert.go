@@ -49,5 +49,5 @@ func main() {
 	}
 
 	elapsed := time.Since(start)
-	fmt.Printf("Added %d into test.people collection in %s\n", recordsCount, elapsed)
+	fmt.Printf("Added %d into goworkshops_insert.people collection in %s\n", recordsCount, elapsed)
 }

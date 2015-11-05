@@ -44,7 +44,7 @@ func (wizard *Wizard) cast(spellCost int) error {
 func main() {
 	// pierwsza instancja rzuci błędem gdy będziemy
 	// rzucać czar o mocy 666
-	superWizard := &Wizard{10000}
+	superWizard := Wizard{10000}
 	err := superWizard.cast(666)
 	if err != nil {
 		fmt.Println(err.Error())
@@ -53,7 +53,7 @@ func main() {
 	// i wykorzystanie customowego błędu
 	// rzucamy tak długo aż nie wyczerpiemy
 	// dostępnej mocy
-	wizard := &Wizard{10}
+	wizard := Wizard{10}
 	for {
 		err := wizard.cast(3)
 		if err != nil {

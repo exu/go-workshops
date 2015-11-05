@@ -5,17 +5,18 @@ import (
 )
 
 type NotDigitError struct {
+	num int
 }
 
 func (error *NotDigitError) Error() string {
-	return "You need to pass numbers from 0 to 9"
+	return fmt.Sprintf("You need to pass numbers from 0 to 9, you pass %d", error.num)
 }
 
 func SumDigits(nums []int) (int, error) {
 	sum := 0
 	for _, num := range nums {
 		if num > 10 {
-			return 0, &NotDigitError{}
+			return 0, &NotDigitError{num}
 		}
 		sum += num
 	}

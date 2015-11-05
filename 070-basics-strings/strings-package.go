@@ -21,7 +21,7 @@ func main() {
 	p("ToLower:   ", s.ToLower("TEST"))
 	p("ToUpper:   ", s.ToUpper("test"))
 	p()
-	p("substring:   ", "lalalallalaallalalalalala"[:10])
+	p("substring:   ", "ala ma kota a kot ma ale"[10:])
 
 	// dodatkowe (nie część strings)
 	p("Len: ", len("hello"))

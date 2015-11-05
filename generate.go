@@ -21,7 +21,7 @@ func main() {
 		panic(err.Error())
 	}
 
-	content := "# Goland Training\n\n"
+	content := "# Golang Training\n\n"
 
 	r, _ := regexp.Compile("^[0-9]{3}-[a-z0-9-]+")
 

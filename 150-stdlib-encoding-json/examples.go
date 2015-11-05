@@ -104,8 +104,12 @@ func main() {
 	// Jednak na ratunek przychodzi dekodowanie do struktur
 	// whoa! type safety na dekodowaniu danych z JSONa
 	str := `{"page": 1, "healthy_fruits": ["apple", "peach"]}`
-	res := &Response2{}
-	json.Unmarshal([]byte(str), &res)
+	res := Response2{}
+	err := json.Unmarshal([]byte(str), &res)
+	if err != nil {
+		fmt.Println(err.Error())
+		return
+	}
 	p("DECODED: response2: ", res)
 	p("DECODED: response2: pierwszy fruit:", res.Fruits[0])
 

@@ -22,4 +22,6 @@ func main() {
 	// jeżeli inicjujemy z wartociami
 	b := [...]string{"Penn", "Teller"}
 
+	fmt.Println(b)
+
 }

@@ -21,4 +21,5 @@ func main() {
 
 	d, _ := vals()
 
+	println(d)
 }

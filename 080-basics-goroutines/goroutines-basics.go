@@ -2,6 +2,7 @@
 package main
 
 import "fmt"
+import "time"
 
 func f(from string) {
 	for i := 0; i < 3; i++ {
@@ -24,11 +25,9 @@ func main() {
 		fmt.Println(msg)
 	}("going")
 
+	time.Sleep(time.Second * 2)
+
 	// Do tego miejsca nasze 2 gorutynki działają równolegle na
 	// 2 osobnych thread'ach, więc wykonanie programu idzie dalej
 	// aby zobaczyć rezultat przyblokujemy dalsze wykonywanie
-	var input string
-	fmt.Scanln(&input)
-
-	fmt.Println("done")
 }

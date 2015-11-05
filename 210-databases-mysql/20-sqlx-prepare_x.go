@@ -25,6 +25,7 @@ func main() {
 	err = stmt.Get(&item, 3)
 	fmt.Println(item)
 
+	err = stmt.Get(&item, 900)
 	// handling non existing item
 	if err == sql.ErrNoRows {
 		fmt.Println("There is no row with id", 900)

@@ -7,7 +7,7 @@ type ApiResourceDeleter interface {
 
 func BulkDeleter(resources []ApiResourceDeleter) {
 	for _, resource := range resources {
-		// resource.Delete()
+		resource.Delete()
 		println(resource.IsDeleted())
 	}
 }

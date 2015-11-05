@@ -2,5 +2,6 @@ app:
   build: .
   ports:
    - "7704:28015"
+   - "7710:8080"
   volumes:
       - ./data:/data

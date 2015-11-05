@@ -16,6 +16,6 @@ func TestGetShoulCallCallFunction(t *testing.T) {
 	Get()
 
 	if callCount != 4 {
-		t.Errorf("Shiuld be called 4 times")
+		t.Errorf("Should be called 4 times")
 	}
 }
