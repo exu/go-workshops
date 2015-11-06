@@ -1,5 +1,9 @@
 package main
 
+import (
+	"time"
+)
+
 func main() {
 	quit := make(chan bool)
 	go func() {
@@ -8,12 +12,14 @@ func main() {
 			case <-quit:
 				return
 			default:
-				// Do other stuff
+				println(".")
+				time.Sleep(time.Millisecond * 100)
 			}
 		}
 	}()
 
 	// Do stuff
+	time.Sleep(time.Second)
 
 	// Quit goroutine
 	quit <- true

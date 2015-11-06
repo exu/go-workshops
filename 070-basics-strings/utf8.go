@@ -18,8 +18,10 @@ func main() {
 	// FullRune example
 	fmt.Println()
 	fmt.Println()
-	buf := []byte{228, 184, 150} // 世
-	fmt.Println(utf8.FullRune(buf))
-	fmt.Println(utf8.FullRune(buf[:2]))
+	buf1 := []byte{228, 184, 150} // 世
+	buf2 := []byte{228}           // 世
+
+	fmt.Println(utf8.FullRune(buf1))
+	fmt.Println(utf8.FullRune(buf2))
 
 }

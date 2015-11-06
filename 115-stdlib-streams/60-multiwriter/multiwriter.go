@@ -14,7 +14,7 @@ func main() {
 	defer f.Close()
 
 	writer := io.MultiWriter(f, os.Stdout, os.Stderr)
-	writer.Write([]byte("Hoł hoł hoł"))
+	// writer.Write([]byte("Hoł hoł hoł"))
 
 	// teraz możemy użyć naszego writera np jako writer w logach
 	logger := log.New(writer, "\n\n[LOG]", 0)
