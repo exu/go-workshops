@@ -59,4 +59,4 @@ and all your fame will go away, so be carefull and do it good.
 
 ## Deadline
 
-7 days from receiving task
+9 days from receiving task on friday (2 weekends)
