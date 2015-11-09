@@ -21,14 +21,12 @@ func init() {
 }
 
 func main() {
-	key := "sessions"
-
-	err := client.Set(key, 10, 0).Err()
+	err := client.Set("sessions", 10, 0).Err()
 	if err != nil {
 		panic(err.Error())
 	}
 
-	sessions, _ := client.Get(key).Int64()
+	sessions, _ := client.Get("sessions").Int64()
 
 	fmt.Println("Active sessions:", sessions)
 }

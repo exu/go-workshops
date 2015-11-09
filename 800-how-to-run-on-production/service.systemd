@@ -4,8 +4,8 @@ Description=gwservice
 PIDFile=/tmp/gwservice.pid
 User=exu
 Group=exu
-WorkingDirectory=/home/exu/src/github.com/exu/go-workshops/todo-800-services/
-ExecStart=/home/exu/src/github.com/exu/go-workshops/todo-800-services/service
+WorkingDirectory=/home/exu/src/github.com/exu/go-workshops/800-how-to-run-on-production/
+ExecStart=/home/exu/src/github.com/exu/go-workshops/800-how-to-run-on-production/service
 
 [Install]
 WantedBy=multi-user.target

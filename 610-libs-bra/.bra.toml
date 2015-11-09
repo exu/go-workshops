@@ -1,7 +1,7 @@
 [run]
 init_cmds = [
 	["go", "build"],
-	["./bra"]
+	["./610-libs-bra"]
 ]									# Commands run in start
 watch_all = true					# Watch all sub-directories
 watch_dirs = ["view", "../lib"]	    # Directories to watch
@@ -11,5 +11,5 @@ ignore = [".git", "node_modules"] 	# Directories to exclude from watching
 build_delay = 1500					# Minimal interval to Trigger build event
 cmds = [
 	["go", "build"],
-	["./bra"]
+	["./610-libs-bra"]
 ]									# Commands to run

@@ -58,7 +58,7 @@
                  var data = JSON.parse(e.data);
                  $scope.lon = data.Longitude;
                  $scope.lat = data.Latitude;
-                 $scope.$apply();
+                 $scope.$applyAsync();
              }, false);
 
              source.addEventListener('open', function(e) {

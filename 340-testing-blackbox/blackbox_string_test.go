@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"testing"
 	"testing/quick"
 )
@@ -17,6 +18,8 @@ func TestIsDuck(t *testing.T) {
 	err := quick.Check(
 		func(input string) bool { // hmm closure
 			result := IsDuck(input)
+			fmt.Println("f(", input, ")", result)
+
 			return input != "duck" && !result
 		},
 		nil,

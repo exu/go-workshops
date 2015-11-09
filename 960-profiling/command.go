@@ -12,11 +12,11 @@ var cpuprofile = flag.String("cpuprofile", "", "write cpu profile to file")
 var memprofile = flag.String("memprofile", "", "write memory profile to this file")
 
 func init() {
+	flag.Parse()
 	cpuProfile()
 }
 
 func cpuProfile() {
-	flag.Parse()
 	if *cpuprofile != "" {
 		f, err := os.Create(*cpuprofile)
 		if err != nil {
@@ -49,7 +49,7 @@ func main() {
 	defer memProfile()
 
 	data := ""
-	for i := 0; i < 10; i++ {
+	for i := 0; i < 100; i++ {
 		data += Read()
 	}
 }
