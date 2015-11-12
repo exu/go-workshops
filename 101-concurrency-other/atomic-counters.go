@@ -26,6 +26,13 @@ func main() {
 
 				// Przepuszczamy pozostałe go rutynki
 				runtime.Gosched()
+
+				// In order to ensure that this goroutine doesn’t starve the scheduler, we
+				// explicitly yield after each operation with runtime.Gosched(). This
+				// yielding is handled automatically with e.g. every channel operation and
+				// for blocking calls like time.Sleep, but in this case we need to do it
+				// manually.
+
 			}
 		}()
 	}
