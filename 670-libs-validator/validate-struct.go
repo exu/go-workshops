@@ -1,11 +1,7 @@
 package main
 
 import (
-	"errors"
 	"fmt"
-	"reflect"
-
-	sql "database/sql/driver"
 
 	"gopkg.in/go-playground/validator.v8"
 )
@@ -33,14 +29,7 @@ var validate *validator.Validate
 func main() {
 
 	config := &validator.Config{TagName: "validate"}
-
 	validate = validator.New(config)
-
-	validateStruct()
-	validateField()
-}
-
-func validateStruct() {
 
 	address := &Address{
 		Street: "Eavesdown Docks",
@@ -77,79 +66,4 @@ func validateStruct() {
 	}
 
 	// save user to database
-}
-
-func validateField() {
-	myEmail := "joeybloggs.gmail.com"
-
-	errs := validate.Field(myEmail, "required,email")
-
-	if errs != nil {
-		fmt.Println(errs) // output: Key: "" Error:Field validation for "" failed on the "email" tag
-		return
-	}
-
-	// email ok, move on
-}
-
-var validate2 *validator.Validate
-
-type valuer struct {
-	Name string
-}
-
-func (v valuer) Value() (sql.Value, error) {
-
-	if v.Name == "errorme" {
-		return nil, errors.New("some kind of error")
-	}
-
-	if v.Name == "blankme" {
-		return "", nil
-	}
-
-	if len(v.Name) == 0 {
-		return nil, nil
-	}
-
-	return v.Name, nil
-}
-
-// ValidateValuerType implements validator.CustomTypeFunc
-func ValidateValuerType(field reflect.Value) interface{} {
-	if valuer, ok := field.Interface().(sql.Valuer); ok {
-		val, err := valuer.Value()
-		if err != nil {
-			// handle the error how you want
-			return nil
-		}
-
-		return val
-	}
-
-	return nil
-}
-
-func validateCustomFieldType() {
-	val := valuer{
-		Name: "blankme",
-	}
-
-	errs := validate2.Field(val, "required")
-	if errs != nil {
-		fmt.Println(errs) // output: Key: "" Error:Field validation for "" failed on the "required" tag
-		return
-	}
-
-	// all ok
-}
-
-func main2() {
-
-	config := &validator.Config{TagName: "validate"}
-
-	validate2 = validator.New(config)
-	validate2.RegisterCustomTypeFunc(ValidateValuerType, (*sql.Valuer)(nil), valuer{})
-
-	validateCustomFieldType()
 }
