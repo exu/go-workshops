@@ -13,3 +13,4 @@ rethinkdb_data
 /120-stdlib-logging/errors.log
 /120-stdlib-logging/warnings.log
 /960-profiling/data.prof
+/320-testing-benchmarking/fib2.go
