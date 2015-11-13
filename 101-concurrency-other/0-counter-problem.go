@@ -42,3 +42,5 @@ func main() {
 // przelacznik -race
 
 // go run -race 0-counter-problem.go
+
+// https://golang.org/doc/articles/race_detector.html
