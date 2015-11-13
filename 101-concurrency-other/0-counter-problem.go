@@ -36,3 +36,9 @@ func main() {
 	wg.Wait()
 	fmt.Println(counter.Value())
 }
+
+// Data races - to jest typowy przykład
+// aby wykryć automatycznie go udostepnia
+// przelacznik -race
+
+// go run -race 0-counter-problem.go
