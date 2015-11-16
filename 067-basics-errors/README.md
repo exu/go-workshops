@@ -8,3 +8,4 @@ na którą masz reagować.
 Źródła:
 - https://blog.golang.org/errors-are-values
 - http://blog.golang.org/error-handling-and-go
+- http://davidnix.io/post/error-handling-in-go/

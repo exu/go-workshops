@@ -3,23 +3,22 @@ package main
 
 import "fmt"
 
-func sum(nums ...int) {
-	fmt.Print(nums, " ")
-	total := 0
-	for _, num := range nums {
-		total += num
+func list(messages ...string) {
+	fmt.Println("Items:")
+	for _, message := range messages {
+		fmt.Println("-", message)
 	}
-	fmt.Println(total)
+	fmt.Println()
 }
 
 func main() {
 
-	sum()
-	sum(1, 2)
-	sum(1, 2, 3)
+	list()
+	list("coca-cola", "whiskey", "ice")
+	list("pączki", "drożdżówki")
 
 	// możemy przekazać slice poprzez dodanie "..."
 	// podczas przekazywanie wartości do funkcji
-	nums := []int{1, 2, 3, 4}
-	sum(nums...)
+	messages := []string{"A", "B", "C", "D"}
+	list(messages...)
 }
