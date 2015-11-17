@@ -6,12 +6,7 @@ import (
 )
 
 func main() {
-	img := image.Image{
-		URL: "http://www.wp.pl/logo.png",
-		// contentType: "image/png",
-		// size: 12999
-	}
+	img := image.NewImage(1888)
 
-	img.SetSize(10000)
 	fmt.Printf("%+v", img.GetSize())
 }

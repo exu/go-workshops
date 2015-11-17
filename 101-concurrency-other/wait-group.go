@@ -12,6 +12,7 @@ func main() {
 		"http://www.golang.org/",
 		"http://www.google.com/",
 		"http://www.somestupidname.com/",
+		"http://kasia.in",
 	}
 
 	for _, url := range urls {

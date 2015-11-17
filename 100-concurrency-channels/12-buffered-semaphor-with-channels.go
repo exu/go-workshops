@@ -16,6 +16,7 @@ func main() {
 }
 
 func handle() {
+	println("starting")
 	sem <- 1
 	fmt.Println("Step", time.Now())
 	time.Sleep(time.Second)

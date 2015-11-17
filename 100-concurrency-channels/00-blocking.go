@@ -14,11 +14,12 @@ func doIt(done chan bool) {
 
 func main() {
 	// startujemy gorutynke, przekazujemy jej kanał
-	done := make(chan bool, 1)
+	done := make(chan bool)
 	go doIt(done)
 
 	// blokujemy do otrzymania wartości z tego kanału
-	<-done
+	a := <-done
+	fmt.Println(a)
 }
 
 // jeżeli usuniemy <-done program zostanie zakończony a go worker(done) nie zdąży

@@ -8,7 +8,7 @@ import (
 
 // Writer implementuje io.Writer w dokumentacji
 // proc.Stdout jest taki typ
-// `godoc io.Writer`
+// `go doc io.Writer`
 type Writer struct {
 	count int
 }

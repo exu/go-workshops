@@ -25,5 +25,5 @@ func main() {
 	jacek := str[:5]
 	jacek = "Wacek"
 
-	fmt.Println(jacek, str)
+	fmt.Println(jacek, ",", str)
 }

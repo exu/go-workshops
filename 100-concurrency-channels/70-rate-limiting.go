@@ -10,7 +10,7 @@ func main() {
 
 	for i := 1; i <= 50; i++ {
 		requests <- i
-		fmt.Println(len(requests), cap(requests))
+		// fmt.Println(len(requests), cap(requests))
 	}
 	close(requests)
 

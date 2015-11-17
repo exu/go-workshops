@@ -6,7 +6,7 @@ package main
 
 import (
 	"fmt"
-	"sync"
+	"time"
 )
 
 type intCounter int64
@@ -21,20 +21,18 @@ func (c *intCounter) Value() (x int64) {
 
 func main() {
 	counter := intCounter(0)
-	var wg sync.WaitGroup
 
 	for i := 0; i < 100; i++ {
-		wg.Add(1)
 		go func(no int) {
-			defer wg.Done()
 			for i := 0; i < 10000; i++ {
 				counter.Add(1)
 			}
 		}(i)
 	}
 
-	wg.Wait()
+	time.Sleep(time.Second)
 	fmt.Println(counter.Value())
+
 }
 
 // Data races - to jest typowy przykład

@@ -18,7 +18,8 @@ func main() {
 				"div": "Main page body",
 				"form": map[string]interface{}{
 					"select": map[string]interface{}{
-						"values": []int{1, 2, 3, 4, 5},
+						"values":  []int{1, 2, 3, 4, 5},
+						"values2": []string{"A"},
 					},
 				},
 			},

@@ -1,4 +1,4 @@
-//(set-frame-font "-unknown-DejaVu Sans Mono-normal-normal-normal-*-24-*-*-*-m-0-iso10646-1")
+//(set-frame-font "-unknown-DejaVu Sans Mono-normal-normal-normal-*-26-*-*-*-m-0-iso10646-1")
 package main
 
 import "fmt"
