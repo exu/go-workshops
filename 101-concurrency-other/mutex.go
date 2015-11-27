@@ -8,6 +8,7 @@ package main
 import (
 	"fmt"
 	"sync"
+	"time"
 )
 
 type mutexCounter struct {
@@ -30,19 +31,16 @@ func (c *mutexCounter) Value() (x int64) {
 
 func main() {
 	counter := mutexCounter{}
-	var wg sync.WaitGroup
 
 	for i := 0; i < 100; i++ {
-		wg.Add(1)
 		go func(no int) {
-			defer wg.Done()
 			for i := 0; i < 10000; i++ {
 				counter.Add(1)
 			}
 		}(i)
 	}
 
-	wg.Wait()
+	time.Sleep(time.Second)
 	fmt.Println(counter.Value())
 
 }

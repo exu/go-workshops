@@ -8,11 +8,10 @@ import (
 
 func main() {
 	resp, err := http.Get("http://localhost:8080/")
-	defer resp.Body.Close()
-
 	if err != nil {
 		panic(err)
 	}
+	defer resp.Body.Close()
 
 	body, err := ioutil.ReadAll(resp.Body)
 
