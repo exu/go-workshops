@@ -6,17 +6,23 @@ package main
 
 import (
 	"fmt"
+	// "runtime"
 	"time"
 )
 
 type intCounter int64
 
 func (c *intCounter) Add(x int64) {
-	*c++
+	*c += intCounter(x)
 }
 
 func (c *intCounter) Value() (x int64) {
 	return int64(*c)
+}
+
+func init() {
+	// you'll need to set GOMAXPROCS > 1 to simulate data race
+	// runtime.GOMAXPROCS(1)
 }
 
 func main() {

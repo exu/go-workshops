@@ -17,7 +17,7 @@ func main() {
 	db, err := gorm.Open("mysql", "root:root@tcp(localhost:7701)/gotraining?charset=utf8")
 	defer db.Close()
 
-	// db.LogMode(true)
+	db.LogMode(true)
 
 	if err != nil {
 		panic(err)
