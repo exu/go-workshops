@@ -23,20 +23,21 @@ func main() {
 
 	go func() {
 		for {
-			c.increment()
-			jobs <- c.get()
+			select {
+			case <-quit:
+				close(jobs)
+				return
+			default:
+				c.increment()
+				jobs <- c.get()
+			}
 		}
 	}()
 
 	go func() {
-		for {
-			select {
-			case <-quit:
-				return
-			case job := <-jobs:
-				fmt.Printf("process %d\n", job)
-				time.Sleep(time.Millisecond * 100)
-			}
+		for job := range jobs {
+			fmt.Printf("process %d\n", job)
+			time.Sleep(time.Millisecond * 100)
 		}
 	}()
 
