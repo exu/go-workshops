@@ -15,7 +15,7 @@ func gen(nums ...int) <-chan int {
 	return out
 }
 
-func sq(in <-chan int) <-chan int {
+func square(in <-chan int) <-chan int {
 	out := make(chan int)
 	go func() {
 		for n := range in {
@@ -26,18 +26,26 @@ func sq(in <-chan int) <-chan int {
 	return out
 }
 
+func double(in <-chan int) <-chan int {
+	out := make(chan int)
+	go func() {
+		for n := range in {
+			out <- n + n
+		}
+		close(out)
+	}()
+	return out
+}
+
 func main() {
-	// Set up the pipeline.
-	c := gen(2, 3)
-	out := sq(c)
+	c := gen(10, 20)
+	out := double(double(c))
 
-	// Consume the output.
-	fmt.Println(<-out) // 4
-	fmt.Println(<-out) // 9
+	fmt.Println(<-out)
+	fmt.Println(<-out)
 
-	fmt.Println("Second generator") // 9
-	// Set up the pipeline and consume the output.
-	for n := range sq(sq(gen(2, 3))) {
-		fmt.Println(n) // 16 then 81
+	fmt.Println("Second generator")
+	for n := range double(square(square(gen(2, 3, 4, 5)))) {
+		fmt.Println(n)
 	}
 }
