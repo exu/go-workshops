@@ -13,12 +13,12 @@ var memprofile = flag.String("memprofile", "", "write memory profile to this fil
 
 func init() {
 	flag.Parse()
-	cpuProfile()
+	cpuProfile(*cpuprofile)
 }
 
-func cpuProfile() {
-	if *cpuprofile != "" {
-		f, err := os.Create(*cpuprofile)
+func cpuProfile(fileName string) {
+	if fileName != "" {
+		f, err := os.Create(fileName)
 		if err != nil {
 			log.Fatal(err)
 		}
@@ -26,9 +26,9 @@ func cpuProfile() {
 	}
 }
 
-func memProfile() {
-	if *memprofile != "" {
-		f, err := os.Create(*memprofile)
+func memProfile(fileName string) {
+	if fileName != "" {
+		f, err := os.Create(fileName)
 		if err != nil {
 			log.Fatal(err)
 		}
@@ -46,7 +46,7 @@ func Read() string {
 
 func main() {
 	defer pprof.StopCPUProfile()
-	defer memProfile()
+	defer memProfile(*memprofile)
 
 	data := ""
 	for i := 0; i < 100; i++ {
