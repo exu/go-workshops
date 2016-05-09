@@ -16,3 +16,4 @@ rethinkdb_data
 /320-testing-benchmarking/fib2.go
 /140-stdlib-http/s15
 /140-stdlib-http/s16
+/150-stdlib-encoding-json/jsonapi8080
