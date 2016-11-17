@@ -102,3 +102,9 @@ go run echo.go
 ## Go version manager - zarządzanie wersjami go
 
 - https://github.com/moovweb/gvm
+
+
+
+## Glide
+
+- + vendoring (default enabled in 1.6)

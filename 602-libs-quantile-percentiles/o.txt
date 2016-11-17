@@ -1,0 +1,5 @@
+MongoDB shell version: 3.2.8
+connecting to: queues_prod
+2016-08-29T17:33:32.209+0200 E QUERY    [thread1] SyntaxError: missing ) after argument list @/home/exu/src/mongo.js:11:4
+
+failed to load: /home/exu/src/mongo.js

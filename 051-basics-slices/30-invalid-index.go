@@ -8,8 +8,8 @@ func main() {
 	drinks[0] = "Whiskey"
 	drinks[1] = "Wódka"
 	drinks[2] = "Gin"
-	drinks[3] = "Piwo"
-	drinks[4] = "Wino"
+	drinks[3] = "Wino"
+	drinks[4] = "Piwo"
 
 	drinks[5] = "Odmrażacz szyb samolotowych"
 
