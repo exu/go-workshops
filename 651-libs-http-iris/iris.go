@@ -1,11 +1,14 @@
 package main
 
-import "github.com/kataras/iris"
-
+import (
+	"github.com/kataras/iris"
+	"github.com/kataras/iris/context"
+)
 func main() {
-	iris.Get("/hello/:name", func(c *iris.Context) {
-		name := c.Param("name")
-		c.Write("Hello " + name)
+	app := iris.New()
+	app.Get("/hello/{name:string}", func(ctx context.Context) {
+		name := ctx.Params().Get("name")
+        	ctx.Writef("Hello %s", name)
 	})
-	iris.Listen(":8080")
+	app.Run(iris.Addr(":8080"))
 }
