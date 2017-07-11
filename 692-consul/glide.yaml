@@ -1,0 +1,5 @@
+package: github.com/exu/go-workshops/692-consul
+import:
+- package: github.com/hashicorp/consul
+  subpackages:
+  - /api

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+	<testsuite tests="3" failures="0" time="0.002" name="_/home/exu/src/github.com/exu/go-workshops/302-testing-unit-examples">
+		<properties>
+			<property name="go.version" value="go1.8.3"></property>
+		</properties>
+		<testcase classname="302-testing-unit-examples" name="ExamplePoint_String" time="0.000"></testcase>
+		<testcase classname="302-testing-unit-examples" name="ExamplePoint_Move_positive" time="0.000"></testcase>
+		<testcase classname="302-testing-unit-examples" name="ExamplePoint_Move_negative" time="0.000"></testcase>
+	</testsuite>
+</testsuites>

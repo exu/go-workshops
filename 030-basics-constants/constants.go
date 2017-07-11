@@ -31,7 +31,7 @@ func main() {
 		YB
 	)
 
-	fmt.Println("Bytes", KB, MB, GB, TB)
+	fmt.Printf("Bytes %0.0f %0.0f %0.0f %0.0f\n", KB, MB, GB, TB)
 
 	const (
 		// Max integer value on 64 bit architecture.

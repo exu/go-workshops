@@ -1,0 +1,7 @@
+hash: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+updated: 2017-07-05T13:05:47.870562184+02:00
+imports:
+- name: bitbucket.pearson.com/jacewyso/gopackage
+  version: ffdde0e002281f44ce68b33abc1695b856bfc2e6
+  repo: ssh://git@bitbucket.pearson.com/~jacewyso/gopackage.git
+devImports: []

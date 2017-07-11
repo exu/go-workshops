@@ -1,0 +1,5 @@
+package: github.com/exu/go-workshops/390-testing-mockery
+import:
+- package: github.com/mediocregopher/radix.v2
+  subpackages:
+  - /redis
