@@ -1,0 +1,26 @@
+hash: 9b60a748d534d163b11ea166776edd88f18115ab5109002123b26a9be195a11b
+updated: 2017-07-28T08:47:30.127321436+02:00
+imports:
+- name: github.com/bradfitz/http2
+  version: aa7658c0e9902e929a9ed0996ef949e59fc0f3ab
+  subpackages:
+  - hpack
+- name: github.com/labstack/echo
+  version: db109cf4ecd738b8c5f1a9e7fe0bdfb1334bcd9c
+- name: github.com/labstack/gommon
+  version: 779b8a8b9850a97acba6a3fe20feb628c39e17c1
+  subpackages:
+  - color
+- name: github.com/mattn/go-colorable
+  version: 3fa8c76f9daed4067e4a806fb7e4dc86455c6d6a
+- name: github.com/mattn/go-isatty
+  version: fc9e8d8ef48496124e79ae0df75490096eccf6fe
+- name: golang.org/x/net
+  version: f5079bd7f6f74e23c4d65efa0f4ce14cbd6a3c0f
+  subpackages:
+  - websocket
+- name: golang.org/x/sys
+  version: 6faef541c73732f438fb660a212750a9ba9f9362
+  subpackages:
+  - unix
+testImports: []

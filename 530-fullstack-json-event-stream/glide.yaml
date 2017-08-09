@@ -1,0 +1,4 @@
+package: github.com/exu/go-workshops/530-fullstack-json-event-stream
+import:
+- package: github.com/labstack/echo
+  version: 1.0

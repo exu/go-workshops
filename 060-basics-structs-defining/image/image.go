@@ -1,20 +1,16 @@
 package image
 
-type image struct {
+type Image struct {
 	URL         string
 	contentType string // z małej litery prywatna zmienna w obrębie package
 	size        int
 }
 
 // metoda z tzw receiverem "img"
-func (img *image) GetSize() int {
+func (img *Image) GetSize() int {
 	return img.size
 }
 
-func (img *image) SetSize(size int) {
+func (img *Image) SetSize(size int) {
 	img.size = size
-}
-
-func NewImage(size int) image {
-	return image{"aaa", "asdj", size}
 }

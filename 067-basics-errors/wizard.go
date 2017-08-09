@@ -53,7 +53,7 @@ func main() {
 	// i wykorzystanie customowego błędu
 	// rzucamy tak długo aż nie wyczerpiemy
 	// dostępnej mocy
-	wizard := Wizard{10}
+	wizard := Wizard{100}
 	for {
 		err := wizard.cast(3)
 		if err != nil {

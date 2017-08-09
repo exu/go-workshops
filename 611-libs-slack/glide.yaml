@@ -1,0 +1,4 @@
+package: github.com/exu/go-workshops/611-libs-slack
+import:
+- package: github.com/nlopes/slack
+  version: ^0.1.0

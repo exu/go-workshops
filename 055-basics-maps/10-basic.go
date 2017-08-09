@@ -3,6 +3,7 @@ package main
 import "fmt"
 
 func main() {
+
 	userFavouriteDrinks := map[string][]string{}
 
 	userFavouriteDrinks["jacek"] = []string{"śliwowica", "browar"}

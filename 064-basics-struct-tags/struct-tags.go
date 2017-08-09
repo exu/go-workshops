@@ -10,7 +10,7 @@ type Messanger interface {
 }
 
 type ErrorMessage struct {
-	Message string `prefix:"\x1b[31m" postfix:"\x1b[0m"`
+	Message string `prefix:">>>>>>>>" postfix:"<<<<<<<<<<"`
 }
 
 func (message ErrorMessage) GetMessage() string {

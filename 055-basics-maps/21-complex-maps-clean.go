@@ -1,12 +1,15 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 type h map[string]interface{}
 
 func main() {
 
 	parsedResponse := h{
+
 		"size_in_kb": 12000,
 		"custom_headers": []string{
 			"X-Booo: your mama",

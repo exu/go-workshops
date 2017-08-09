@@ -1,23 +1,24 @@
 package add
 
-import (
-	"testing"
-)
+import "testing"
 
-func assertEquals(t *testing.T, expected int, result int) {
-	if result != expected {
-		t.Errorf("Hohohoho I want %d but got %d", expected, result)
+func TestAdd(t *testing.T) {
+	type args struct {
+		a []int
 	}
-}
-
-func TestAdd_AddsTwoInts(t *testing.T) {
-	assertEquals(t, 30, Add(10, 20))
-}
-
-func TestAdd_AddsThreeInts(t *testing.T) {
-	assertEquals(t, 60, Add(10, 20, 30))
-}
-
-func TestAdd_AddsTenInts(t *testing.T) {
-	assertEquals(t, 400, Add(10, 20, 30, 40, 10, 20, 30, 40, 100, 100))
+	tests := []struct {
+		name string
+		args args
+		want int
+	}{
+		{"dwa plus dwa = cztery ", args{[]int{2, 2}}, 4},
+		{"dwa plus dwa = sto ", args{[]int{2, 2}}, 100},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := Add(tt.args.a...); got != tt.want {
+				t.Errorf("Add() = %v, want %v", got, tt.want)
+			}
+		})
+	}
 }

@@ -1,0 +1,11 @@
+site_name: Echo
+
+theme: journal
+
+theme_dir: echo
+
+copyright: '&copy; 2015 LabStack'
+
+repo_url: https://github.com/labstack/echo
+
+google_analytics: ['UA-51208124-3', 'auto']

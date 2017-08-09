@@ -5,6 +5,6 @@ import (
 )
 
 func Simple(w http.ResponseWriter, r *http.Request) {
-	// w.WriteHeader(400)
+	w.WriteHeader(400)
 	w.Write([]byte("Helloł Łerld"))
 }

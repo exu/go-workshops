@@ -43,7 +43,7 @@ func main() {
 	}
 
 	for _, image := range images {
-		fmt.Println(image.URL, "is vertical? : ", image.IsVertical()) // dostęp do pól zagnieżdżonej strukturki
+		fmt.Println(image.URL, "is vertical? : ", image.Height) // dostęp do pól zagnieżdżonej strukturki
 	}
 
 }
