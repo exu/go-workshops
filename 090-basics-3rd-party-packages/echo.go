@@ -11,7 +11,7 @@ import (
 	mw "github.com/labstack/echo/middleware"
 )
 
-func hello(c *echo.Context) error {
+func hello(c echo.Context) error {
 	// możesz użyc stałych z pakietu  net/http np: http.StatusOK
 	// najpierw import trzeba zrobić (import net/http)
 	return c.JSON(200, map[string]int{
@@ -26,6 +26,6 @@ func main() {
 	e.Use(mw.Logger())
 	e.Use(mw.Recover())
 
-	e.Get("/", hello)
-	e.Run(":8080")
+	e.GET("/", hello)
+	e.Logger.Fatal(e.Start(":8080"))
 }
