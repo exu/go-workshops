@@ -1,59 +1,122 @@
 package middleware
 
 import (
+	"bufio"
 	"compress/gzip"
+	"io"
+	"io/ioutil"
+	"net"
+	"net/http"
 	"strings"
 
-	"net/http"
-
-	"bufio"
-	"net"
-
 	"github.com/labstack/echo"
-	"io"
 )
 
 type (
-	gzipWriter struct {
+	// GzipConfig defines the config for Gzip middleware.
+	GzipConfig struct {
+		// Skipper defines a function to skip middleware.
+		Skipper Skipper
+
+		// Gzip compression level.
+		// Optional. Default value -1.
+		Level int `json:"level"`
+	}
+
+	gzipResponseWriter struct {
 		io.Writer
 		http.ResponseWriter
 	}
 )
 
-func (w gzipWriter) Write(b []byte) (int, error) {
-	return w.Writer.Write(b)
-}
+const (
+	gzipScheme = "gzip"
+)
 
-func (w gzipWriter) Flush() {
-	w.Writer.(*gzip.Writer).Flush()
-}
-
-func (w gzipWriter) Hijack() (net.Conn, *bufio.ReadWriter, error) {
-	return w.ResponseWriter.(http.Hijacker).Hijack()
-}
-
-func (w *gzipWriter) CloseNotify() <-chan bool {
-	return w.ResponseWriter.(http.CloseNotifier).CloseNotify()
-}
+var (
+	// DefaultGzipConfig is the default Gzip middleware config.
+	DefaultGzipConfig = GzipConfig{
+		Skipper: DefaultSkipper,
+		Level:   -1,
+	}
+)
 
 // Gzip returns a middleware which compresses HTTP response using gzip compression
 // scheme.
 func Gzip() echo.MiddlewareFunc {
-	scheme := "gzip"
+	return GzipWithConfig(DefaultGzipConfig)
+}
 
-	return func(h echo.HandlerFunc) echo.HandlerFunc {
-		return func(c *echo.Context) error {
-			if strings.Contains(c.Request().Header.Get(echo.AcceptEncoding), scheme) {
-				w := gzip.NewWriter(c.Response().Writer())
-				defer w.Close()
-				gw := gzipWriter{Writer: w, ResponseWriter: c.Response().Writer()}
-				c.Response().Header().Set(echo.ContentEncoding, scheme)
-				c.Response().SetWriter(gw)
+// GzipWithConfig return Gzip middleware with config.
+// See: `Gzip()`.
+func GzipWithConfig(config GzipConfig) echo.MiddlewareFunc {
+	// Defaults
+	if config.Skipper == nil {
+		config.Skipper = DefaultGzipConfig.Skipper
+	}
+	if config.Level == 0 {
+		config.Level = DefaultGzipConfig.Level
+	}
+
+	return func(next echo.HandlerFunc) echo.HandlerFunc {
+		return func(c echo.Context) error {
+			if config.Skipper(c) {
+				return next(c)
 			}
-			if err := h(c); err != nil {
-				c.Error(err)
+
+			res := c.Response()
+			res.Header().Add(echo.HeaderVary, echo.HeaderAcceptEncoding)
+			if strings.Contains(c.Request().Header.Get(echo.HeaderAcceptEncoding), gzipScheme) {
+				res.Header().Set(echo.HeaderContentEncoding, gzipScheme) // Issue #806
+				rw := res.Writer
+				w, err := gzip.NewWriterLevel(rw, config.Level)
+				if err != nil {
+					return err
+				}
+				defer func() {
+					if res.Size == 0 {
+						if res.Header().Get(echo.HeaderContentEncoding) == gzipScheme {
+							res.Header().Del(echo.HeaderContentEncoding)
+						}
+						// We have to reset response to it's pristine state when
+						// nothing is written to body or error is returned.
+						// See issue #424, #407.
+						res.Writer = rw
+						w.Reset(ioutil.Discard)
+					}
+					w.Close()
+				}()
+				grw := &gzipResponseWriter{Writer: w, ResponseWriter: rw}
+				res.Writer = grw
 			}
-			return nil
+			return next(c)
 		}
 	}
+}
+
+func (w *gzipResponseWriter) WriteHeader(code int) {
+	if code == http.StatusNoContent { // Issue #489
+		w.ResponseWriter.Header().Del(echo.HeaderContentEncoding)
+	}
+	w.Header().Del(echo.HeaderContentLength) // Issue #444
+	w.ResponseWriter.WriteHeader(code)
+}
+
+func (w *gzipResponseWriter) Write(b []byte) (int, error) {
+	if w.Header().Get(echo.HeaderContentType) == "" {
+		w.Header().Set(echo.HeaderContentType, http.DetectContentType(b))
+	}
+	return w.Writer.Write(b)
+}
+
+func (w *gzipResponseWriter) Flush() {
+	w.Writer.(*gzip.Writer).Flush()
+}
+
+func (w *gzipResponseWriter) Hijack() (net.Conn, *bufio.ReadWriter, error) {
+	return w.ResponseWriter.(http.Hijacker).Hijack()
+}
+
+func (w *gzipResponseWriter) CloseNotify() <-chan bool {
+	return w.ResponseWriter.(http.CloseNotifier).CloseNotify()
 }

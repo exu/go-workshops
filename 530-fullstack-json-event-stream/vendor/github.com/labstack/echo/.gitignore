@@ -1,10 +1,7 @@
-# Website
-site/
-.publish/
-
-# Node.js
-node_modules/
-
-# IntelliJ
-.idea/
+.DS_Store
+coverage.txt
+_test
+vendor
+.idea
 *.iml
+*.out

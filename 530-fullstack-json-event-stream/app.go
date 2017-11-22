@@ -26,7 +26,7 @@ var (
 	}
 )
 
-func apiHandler(c *echo.Context) error {
+func apiHandler(c echo.Context) error {
 	i := 0
 	response := c.Response()
 
@@ -58,8 +58,8 @@ func apiHandler(c *echo.Context) error {
 
 func main() {
 	e := echo.New()
-	e.Static("/", "./")
-	e.Get("/api", apiHandler)
+	e.Static("/", "./static")
+	e.GET("/api", apiHandler)
 
-	e.Run(":8080")
+	e.Logger.Fatal(e.Start(":8080"))
 }

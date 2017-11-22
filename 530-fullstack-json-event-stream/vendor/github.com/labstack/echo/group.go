@@ -1,69 +1,114 @@
 package echo
 
+import (
+	"path"
+)
+
 type (
+	// Group is a set of sub-routes for a specified route. It can be used for inner
+	// routes that share a common middleware or functionality that should be separate
+	// from the parent echo instance while still inheriting from it.
 	Group struct {
-		echo Echo
+		prefix     string
+		middleware []MiddlewareFunc
+		echo       *Echo
 	}
 )
 
-func (g *Group) Use(m ...Middleware) {
-	for _, h := range m {
-		g.echo.middleware = append(g.echo.middleware, wrapMiddleware(h))
+// Use implements `Echo#Use()` for sub-routes within the Group.
+func (g *Group) Use(middleware ...MiddlewareFunc) {
+	g.middleware = append(g.middleware, middleware...)
+	// Allow all requests to reach the group as they might get dropped if router
+	// doesn't find a match, making none of the group middleware process.
+	g.echo.Any(path.Clean(g.prefix+"/*"), func(c Context) error {
+		return NotFoundHandler(c)
+	}, g.middleware...)
+}
+
+// CONNECT implements `Echo#CONNECT()` for sub-routes within the Group.
+func (g *Group) CONNECT(path string, h HandlerFunc, m ...MiddlewareFunc) *Route {
+	return g.Add(CONNECT, path, h, m...)
+}
+
+// DELETE implements `Echo#DELETE()` for sub-routes within the Group.
+func (g *Group) DELETE(path string, h HandlerFunc, m ...MiddlewareFunc) *Route {
+	return g.Add(DELETE, path, h, m...)
+}
+
+// GET implements `Echo#GET()` for sub-routes within the Group.
+func (g *Group) GET(path string, h HandlerFunc, m ...MiddlewareFunc) *Route {
+	return g.Add(GET, path, h, m...)
+}
+
+// HEAD implements `Echo#HEAD()` for sub-routes within the Group.
+func (g *Group) HEAD(path string, h HandlerFunc, m ...MiddlewareFunc) *Route {
+	return g.Add(HEAD, path, h, m...)
+}
+
+// OPTIONS implements `Echo#OPTIONS()` for sub-routes within the Group.
+func (g *Group) OPTIONS(path string, h HandlerFunc, m ...MiddlewareFunc) *Route {
+	return g.Add(OPTIONS, path, h, m...)
+}
+
+// PATCH implements `Echo#PATCH()` for sub-routes within the Group.
+func (g *Group) PATCH(path string, h HandlerFunc, m ...MiddlewareFunc) *Route {
+	return g.Add(PATCH, path, h, m...)
+}
+
+// POST implements `Echo#POST()` for sub-routes within the Group.
+func (g *Group) POST(path string, h HandlerFunc, m ...MiddlewareFunc) *Route {
+	return g.Add(POST, path, h, m...)
+}
+
+// PUT implements `Echo#PUT()` for sub-routes within the Group.
+func (g *Group) PUT(path string, h HandlerFunc, m ...MiddlewareFunc) *Route {
+	return g.Add(PUT, path, h, m...)
+}
+
+// TRACE implements `Echo#TRACE()` for sub-routes within the Group.
+func (g *Group) TRACE(path string, h HandlerFunc, m ...MiddlewareFunc) *Route {
+	return g.Add(TRACE, path, h, m...)
+}
+
+// Any implements `Echo#Any()` for sub-routes within the Group.
+func (g *Group) Any(path string, handler HandlerFunc, middleware ...MiddlewareFunc) {
+	for _, m := range methods {
+		g.Add(m, path, handler, middleware...)
 	}
 }
 
-func (g *Group) Connect(path string, h Handler) {
-	g.echo.Connect(path, h)
+// Match implements `Echo#Match()` for sub-routes within the Group.
+func (g *Group) Match(methods []string, path string, handler HandlerFunc, middleware ...MiddlewareFunc) {
+	for _, m := range methods {
+		g.Add(m, path, handler, middleware...)
+	}
 }
 
-func (g *Group) Delete(path string, h Handler) {
-	g.echo.Delete(path, h)
+// Group creates a new sub-group with prefix and optional sub-group-level middleware.
+func (g *Group) Group(prefix string, middleware ...MiddlewareFunc) *Group {
+	m := []MiddlewareFunc{}
+	m = append(m, g.middleware...)
+	m = append(m, middleware...)
+	return g.echo.Group(g.prefix+prefix, m...)
 }
 
-func (g *Group) Get(path string, h Handler) {
-	g.echo.Get(path, h)
+// Static implements `Echo#Static()` for sub-routes within the Group.
+func (g *Group) Static(prefix, root string) {
+	static(g, prefix, root)
 }
 
-func (g *Group) Head(path string, h Handler) {
-	g.echo.Head(path, h)
+// File implements `Echo#File()` for sub-routes within the Group.
+func (g *Group) File(path, file string) {
+	g.echo.File(g.prefix+path, file)
 }
 
-func (g *Group) Options(path string, h Handler) {
-	g.echo.Options(path, h)
-}
-
-func (g *Group) Patch(path string, h Handler) {
-	g.echo.Patch(path, h)
-}
-
-func (g *Group) Post(path string, h Handler) {
-	g.echo.Post(path, h)
-}
-
-func (g *Group) Put(path string, h Handler) {
-	g.echo.Put(path, h)
-}
-
-func (g *Group) Trace(path string, h Handler) {
-	g.echo.Trace(path, h)
-}
-
-func (g *Group) WebSocket(path string, h HandlerFunc) {
-	g.echo.WebSocket(path, h)
-}
-
-func (g *Group) Static(path, root string) {
-	g.echo.Static(path, root)
-}
-
-func (g *Group) ServeDir(path, root string) {
-	g.echo.ServeDir(path, root)
-}
-
-func (g *Group) ServeFile(path, file string) {
-	g.echo.ServeFile(path, file)
-}
-
-func (g *Group) Group(prefix string, m ...Middleware) *Group {
-	return g.echo.Group(prefix, m...)
+// Add implements `Echo#Add()` for sub-routes within the Group.
+func (g *Group) Add(method, path string, handler HandlerFunc, middleware ...MiddlewareFunc) *Route {
+	// Combine into a new slice to avoid accidentally passing the same slice for
+	// multiple routes, which would lead to later add() calls overwriting the
+	// middleware from earlier calls.
+	m := []MiddlewareFunc{}
+	m = append(m, g.middleware...)
+	m = append(m, middleware...)
+	return g.echo.Add(method, g.prefix+path, handler, m...)
 }

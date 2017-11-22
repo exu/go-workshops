@@ -1,56 +1,74 @@
 package echo
 
-import "net/http"
+import "strings"
 
 type (
+	// Router is the registry of all registered routes for an `Echo` instance for
+	// request matching and URL path parameter parsing.
 	Router struct {
-		trees  [21]*node
-		routes []Route
+		tree   *node
+		routes map[string]*Route
 		echo   *Echo
 	}
 	node struct {
-		typ      ntype
-		label    byte
-		prefix   string
-		parent   *node
-		children children
-		handler  HandlerFunc
-		pnames   []string
-		echo     *Echo
+		kind          kind
+		label         byte
+		prefix        string
+		parent        *node
+		children      children
+		ppath         string
+		pnames        []string
+		methodHandler *methodHandler
 	}
-	ntype    uint8
-	children []*node
+	kind          uint8
+	children      []*node
+	methodHandler struct {
+		connect HandlerFunc
+		delete  HandlerFunc
+		get     HandlerFunc
+		head    HandlerFunc
+		options HandlerFunc
+		patch   HandlerFunc
+		post    HandlerFunc
+		put     HandlerFunc
+		trace   HandlerFunc
+	}
 )
 
 const (
-	stype ntype = iota
-	ptype
-	mtype
+	skind kind = iota
+	pkind
+	akind
 )
 
-func NewRouter(e *Echo) (r *Router) {
-	r = &Router{
-		//		trees:  make(map[string]*node),
-		routes: []Route{},
+// NewRouter returns a new Router instance.
+func NewRouter(e *Echo) *Router {
+	return &Router{
+		tree: &node{
+			methodHandler: new(methodHandler),
+		},
+		routes: map[string]*Route{},
 		echo:   e,
 	}
-	for _, m := range methods {
-		r.trees[r.treeIndex(m)] = &node{
-			prefix:   "",
-			children: children{},
-		}
-	}
-	return
 }
 
-func (r *Router) Add(method, path string, h HandlerFunc, e *Echo) {
+// Add registers a new route for method and path with matching handler.
+func (r *Router) Add(method, path string, h HandlerFunc) {
+	// Validate path
+	if path == "" {
+		panic("echo: path cannot be empty")
+	}
+	if path[0] != '/' {
+		path = "/" + path
+	}
+	ppath := path        // Pristine path
 	pnames := []string{} // Param names
 
 	for i, l := 0, len(path); i < l; i++ {
 		if path[i] == ':' {
 			j := i + 1
 
-			r.insert(method, path[:i], nil, stype, nil, e)
+			r.insert(method, path[:i], nil, skind, "", nil)
 			for ; i < l && path[i] != '/'; i++ {
 			}
 
@@ -59,29 +77,32 @@ func (r *Router) Add(method, path string, h HandlerFunc, e *Echo) {
 			i, l = j, len(path)
 
 			if i == l {
-				r.insert(method, path[:i], h, ptype, pnames, e)
+				r.insert(method, path[:i], h, pkind, ppath, pnames)
 				return
 			}
-			r.insert(method, path[:i], nil, ptype, pnames, e)
+			r.insert(method, path[:i], nil, pkind, ppath, pnames)
 		} else if path[i] == '*' {
-			r.insert(method, path[:i], nil, stype, nil, e)
-			pnames = append(pnames, "_name")
-			r.insert(method, path[:i+1], h, mtype, pnames, e)
+			r.insert(method, path[:i], nil, skind, "", nil)
+			pnames = append(pnames, "*")
+			r.insert(method, path[:i+1], h, akind, ppath, pnames)
 			return
 		}
 	}
 
-	r.insert(method, path, h, stype, pnames, e)
+	r.insert(method, path, h, skind, ppath, pnames)
 }
 
-func (r *Router) insert(method, path string, h HandlerFunc, t ntype, pnames []string, e *Echo) {
+func (r *Router) insert(method, path string, h HandlerFunc, t kind, ppath string, pnames []string) {
 	// Adjust max param
 	l := len(pnames)
-	if *e.maxParam < l {
-		*e.maxParam = l
+	if *r.echo.maxParam < l {
+		*r.echo.maxParam = l
 	}
 
-	cn := r.trees[r.treeIndex(method)] // Current node as root
+	cn := r.tree // Current node as root
+	if cn == nil {
+		panic("echo: invalid method")
+	}
 	search := path
 
 	for {
@@ -102,35 +123,36 @@ func (r *Router) insert(method, path string, h HandlerFunc, t ntype, pnames []st
 			cn.label = search[0]
 			cn.prefix = search
 			if h != nil {
-				cn.typ = t
-				cn.handler = h
+				cn.kind = t
+				cn.addHandler(method, h)
+				cn.ppath = ppath
 				cn.pnames = pnames
-				cn.echo = e
 			}
 		} else if l < pl {
 			// Split node
-			n := newNode(cn.typ, cn.prefix[l:], cn, cn.children, cn.handler, cn.pnames, cn.echo)
+			n := newNode(cn.kind, cn.prefix[l:], cn, cn.children, cn.methodHandler, cn.ppath, cn.pnames)
 
 			// Reset parent node
-			cn.typ = stype
+			cn.kind = skind
 			cn.label = cn.prefix[0]
 			cn.prefix = cn.prefix[:l]
 			cn.children = nil
-			cn.handler = nil
+			cn.methodHandler = new(methodHandler)
+			cn.ppath = ""
 			cn.pnames = nil
-			cn.echo = nil
 
 			cn.addChild(n)
 
 			if l == sl {
 				// At parent node
-				cn.typ = t
-				cn.handler = h
+				cn.kind = t
+				cn.addHandler(method, h)
+				cn.ppath = ppath
 				cn.pnames = pnames
-				cn.echo = e
 			} else {
 				// Create child node
-				n = newNode(t, search[l:], cn, nil, h, pnames, e)
+				n = newNode(t, search[l:], cn, nil, new(methodHandler), ppath, pnames)
+				n.addHandler(method, h)
 				cn.addChild(n)
 			}
 		} else if l < sl {
@@ -142,30 +164,39 @@ func (r *Router) insert(method, path string, h HandlerFunc, t ntype, pnames []st
 				continue
 			}
 			// Create child node
-			n := newNode(t, search, cn, nil, h, pnames, e)
+			n := newNode(t, search, cn, nil, new(methodHandler), ppath, pnames)
+			n.addHandler(method, h)
 			cn.addChild(n)
 		} else {
 			// Node already exists
 			if h != nil {
-				cn.handler = h
-				cn.pnames = pnames
-				cn.echo = e
+				cn.addHandler(method, h)
+				cn.ppath = ppath
+				if len(cn.pnames) == 0 { // Issue #729
+					cn.pnames = pnames
+				}
+				for i, n := range pnames {
+					// Param name aliases
+					if i < len(cn.pnames) && !strings.Contains(cn.pnames[i], n) {
+						cn.pnames[i] += "," + n
+					}
+				}
 			}
 		}
 		return
 	}
 }
 
-func newNode(t ntype, pre string, p *node, c children, h HandlerFunc, pnames []string, e *Echo) *node {
+func newNode(t kind, pre string, p *node, c children, mh *methodHandler, ppath string, pnames []string) *node {
 	return &node{
-		typ:      t,
-		label:    pre[0],
-		prefix:   pre,
-		parent:   p,
-		children: c,
-		handler:  h,
-		pnames:   pnames,
-		echo:     e,
+		kind:          t,
+		label:         pre[0],
+		prefix:        pre,
+		parent:        p,
+		children:      c,
+		ppath:         ppath,
+		pnames:        pnames,
+		methodHandler: mh,
 	}
 }
 
@@ -173,9 +204,9 @@ func (n *node) addChild(c *node) {
 	n.children = append(n.children, c)
 }
 
-func (n *node) findChild(l byte, t ntype) *node {
+func (n *node) findChild(l byte, t kind) *node {
 	for _, c := range n.children {
-		if c.label == l && c.typ == t {
+		if c.label == l && c.kind == t {
 			return c
 		}
 	}
@@ -191,45 +222,99 @@ func (n *node) findChildWithLabel(l byte) *node {
 	return nil
 }
 
-func (n *node) findChildWithType(t ntype) *node {
+func (n *node) findChildByKind(t kind) *node {
 	for _, c := range n.children {
-		if c.typ == t {
+		if c.kind == t {
 			return c
 		}
 	}
 	return nil
 }
 
-func (r *Router) treeIndex(method string) uint8 {
-	if method[0] == 'P' {
-		return method[0]%10 + method[1] - 65
-	} else {
-		return method[0] % 10
+func (n *node) addHandler(method string, h HandlerFunc) {
+	switch method {
+	case GET:
+		n.methodHandler.get = h
+	case POST:
+		n.methodHandler.post = h
+	case PUT:
+		n.methodHandler.put = h
+	case DELETE:
+		n.methodHandler.delete = h
+	case PATCH:
+		n.methodHandler.patch = h
+	case OPTIONS:
+		n.methodHandler.options = h
+	case HEAD:
+		n.methodHandler.head = h
+	case CONNECT:
+		n.methodHandler.connect = h
+	case TRACE:
+		n.methodHandler.trace = h
 	}
 }
 
-func (r *Router) Find(method, path string, ctx *Context) (h HandlerFunc, e *Echo) {
-	cn := r.trees[r.treeIndex(method)] // Current node as root
-	search := path
+func (n *node) findHandler(method string) HandlerFunc {
+	switch method {
+	case GET:
+		return n.methodHandler.get
+	case POST:
+		return n.methodHandler.post
+	case PUT:
+		return n.methodHandler.put
+	case DELETE:
+		return n.methodHandler.delete
+	case PATCH:
+		return n.methodHandler.patch
+	case OPTIONS:
+		return n.methodHandler.options
+	case HEAD:
+		return n.methodHandler.head
+	case CONNECT:
+		return n.methodHandler.connect
+	case TRACE:
+		return n.methodHandler.trace
+	default:
+		return nil
+	}
+}
+
+func (n *node) checkMethodNotAllowed() HandlerFunc {
+	for _, m := range methods {
+		if h := n.findHandler(m); h != nil {
+			return MethodNotAllowedHandler
+		}
+	}
+	return NotFoundHandler
+}
+
+// Find lookup a handler registered for method and path. It also parses URL for path
+// parameters and load them into context.
+//
+// For performance:
+//
+// - Get context from `Echo#AcquireContext()`
+// - Reset it `Context#Reset()`
+// - Return it `Echo#ReleaseContext()`.
+func (r *Router) Find(method, path string, c Context) {
+	ctx := c.(*context)
+	ctx.path = path
+	cn := r.tree // Current node as root
 
 	var (
-		c  *node  // Child node
-		n  int    // Param counter
-		nt ntype  // Next type
-		nn *node  // Next node
-		ns string // Next search
+		search  = path
+		child   *node         // Child node
+		n       int           // Param counter
+		nk      kind          // Next kind
+		nn      *node         // Next node
+		ns      string        // Next search
+		pvalues = ctx.pvalues // Use the internal slice so the interface can keep the illusion of a dynamic slice
 	)
 
-	// TODO: Check empty path???
-
-	// Search order static > param > match-any
+	// Search order static > param > any
 	for {
 		if search == "" {
-			// Found
-			ctx.pnames = cn.pnames
-			h = cn.handler
-			e = cn.echo
-			return
+			goto End
 		}
 
 		pl := 0 // Prefix length
@@ -254,82 +339,99 @@ func (r *Router) Find(method, path string, ctx *Context) (h HandlerFunc, e *Echo
 		} else {
 			cn = nn
 			search = ns
-			if nt == ptype {
+			if nk == pkind {
 				goto Param
-			} else if nt == mtype {
-				goto MatchAny
-			} else {
-				// Not found
-				return
+			} else if nk == akind {
+				goto Any
 			}
+			// Not found
+			return
 		}
 
 		if search == "" {
-			// TODO: Needs improvement
-			if cn.findChildWithType(mtype) == nil {
-				continue
-			}
-			// Empty value
-			goto MatchAny
+			goto End
 		}
 
 		// Static node
-		c = cn.findChild(search[0], stype)
-		if c != nil {
+		if child = cn.findChild(search[0], skind); child != nil {
 			// Save next
-			if cn.label == '/' {
-				nt = ptype
+			if cn.prefix[len(cn.prefix)-1] == '/' { // Issue #623
+				nk = pkind
 				nn = cn
 				ns = search
 			}
-			cn = c
+			cn = child
 			continue
 		}
 
 		// Param node
 	Param:
-		c = cn.findChildWithType(ptype)
-		if c != nil {
+		if child = cn.findChildByKind(pkind); child != nil {
+			// Issue #378
+			if len(pvalues) == n {
+				continue
+			}
+
 			// Save next
-			if cn.label == '/' {
-				nt = mtype
+			if cn.prefix[len(cn.prefix)-1] == '/' { // Issue #623
+				nk = akind
 				nn = cn
 				ns = search
 			}
-			cn = c
+
+			cn = child
 			i, l := 0, len(search)
 			for ; i < l && search[i] != '/'; i++ {
 			}
-			ctx.pvalues[n] = search[:i]
+			pvalues[n] = search[:i]
 			n++
 			search = search[i:]
 			continue
 		}
 
-		// Match-any node
-	MatchAny:
-		//		c = cn.getChild()
-		c = cn.findChildWithType(mtype)
-		if c != nil {
-			cn = c
-			ctx.pvalues[0] = search
-			search = "" // End search
-			continue
+		// Any node
+	Any:
+		if cn = cn.findChildByKind(akind); cn == nil {
+			if nn != nil {
+				cn = nn
+				nn = cn.parent // Next (Issue #954)
+				search = ns
+				if nk == pkind {
+					goto Param
+				} else if nk == akind {
+					goto Any
+				}
+			}
+			// Not found
+			return
 		}
-
-		// Not found
-		return
+		pvalues[len(cn.pnames)-1] = search
+		goto End
 	}
-}
 
-func (r *Router) ServeHTTP(w http.ResponseWriter, req *http.Request) {
-	c := r.echo.pool.Get().(*Context)
-	h, _ := r.Find(req.Method, req.URL.Path, c)
-	c.reset(req, w, r.echo)
-	if h == nil {
-		c.Error(NewHTTPError(http.StatusNotFound))
-	} else {
-		h(c)
+End:
+	ctx.handler = cn.findHandler(method)
+	ctx.path = cn.ppath
+	ctx.pnames = cn.pnames
+
+	// NOTE: Slow zone...
+	if ctx.handler == nil {
+		ctx.handler = cn.checkMethodNotAllowed()
+
+		// Dig further for any, might have an empty value for *, e.g.
+		// serving a directory. Issue #207.
+		if cn = cn.findChildByKind(akind); cn == nil {
+			return
+		}
+		if h := cn.findHandler(method); h != nil {
+			ctx.handler = h
+		} else {
+			ctx.handler = cn.checkMethodNotAllowed()
+		}
+		ctx.path = cn.ppath
+		ctx.pnames = cn.pnames
+		pvalues[len(cn.pnames)-1] = ""
 	}
-	r.echo.pool.Put(c)
+
+	return
 }

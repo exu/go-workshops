@@ -1,46 +1,119 @@
 package middleware
 
 import (
-	"net/http"
-
 	"github.com/labstack/echo"
 )
 
 type (
-	RedirectToSlashOptions struct {
-		Code int
+	// TrailingSlashConfig defines the config for TrailingSlash middleware.
+	TrailingSlashConfig struct {
+		// Skipper defines a function to skip middleware.
+		Skipper Skipper
+
+		// Status code to be used when redirecting the request.
+		// Optional, but when provided the request is redirected using this code.
+		RedirectCode int `json:"redirect_code"`
 	}
 )
 
-// StripTrailingSlash returns a middleware which removes trailing slash from request
-// path.
-func StripTrailingSlash() echo.HandlerFunc {
-	return func(c *echo.Context) error {
-		p := c.Request().URL.Path
-		l := len(p)
-		if p[l-1] == '/' {
-			c.Request().URL.Path = p[:l-1]
+var (
+	// DefaultTrailingSlashConfig is the default TrailingSlash middleware config.
+	DefaultTrailingSlashConfig = TrailingSlashConfig{
+		Skipper: DefaultSkipper,
+	}
+)
+
+// AddTrailingSlash returns a root level (before router) middleware which adds a
+// trailing slash to the request `URL#Path`.
+//
+// Usage `Echo#Pre(AddTrailingSlash())`
+func AddTrailingSlash() echo.MiddlewareFunc {
+	return AddTrailingSlashWithConfig(DefaultTrailingSlashConfig)
+}
+
+// AddTrailingSlashWithConfig returns a AddTrailingSlash middleware with config.
+// See `AddTrailingSlash()`.
+func AddTrailingSlashWithConfig(config TrailingSlashConfig) echo.MiddlewareFunc {
+	// Defaults
+	if config.Skipper == nil {
+		config.Skipper = DefaultTrailingSlashConfig.Skipper
+	}
+
+	return func(next echo.HandlerFunc) echo.HandlerFunc {
+		return func(c echo.Context) error {
+			if config.Skipper(c) {
+				return next(c)
+			}
+
+			req := c.Request()
+			url := req.URL
+			path := url.Path
+			qs := c.QueryString()
+			if path != "/" && path[len(path)-1] != '/' {
+				path += "/"
+				uri := path
+				if qs != "" {
+					uri += "?" + qs
+				}
+
+				// Redirect
+				if config.RedirectCode != 0 {
+					return c.Redirect(config.RedirectCode, uri)
+				}
+
+				// Forward
+				req.RequestURI = uri
+				url.Path = path
+			}
+			return next(c)
 		}
-		return nil
 	}
 }
 
-// RedirectToSlash returns a middleware which redirects requests without trailing
-// slash path to trailing slash path.
-func RedirectToSlash(opts ...RedirectToSlashOptions) echo.HandlerFunc {
-	code := http.StatusMovedPermanently
+// RemoveTrailingSlash returns a root level (before router) middleware which removes
+// a trailing slash from the request URI.
+//
+// Usage `Echo#Pre(RemoveTrailingSlash())`
+func RemoveTrailingSlash() echo.MiddlewareFunc {
+	return RemoveTrailingSlashWithConfig(TrailingSlashConfig{})
+}
 
-	if len(opts) > 0 {
-		o := opts[0]
-		code = o.Code
+// RemoveTrailingSlashWithConfig returns a RemoveTrailingSlash middleware with config.
+// See `RemoveTrailingSlash()`.
+func RemoveTrailingSlashWithConfig(config TrailingSlashConfig) echo.MiddlewareFunc {
+	// Defaults
+	if config.Skipper == nil {
+		config.Skipper = DefaultTrailingSlashConfig.Skipper
 	}
 
-	return func(c *echo.Context) error {
-		p := c.Request().URL.Path
-		l := len(p)
-		if p[l-1] != '/' {
-			c.Redirect(code, p+"/")
+	return func(next echo.HandlerFunc) echo.HandlerFunc {
+		return func(c echo.Context) error {
+			if config.Skipper(c) {
+				return next(c)
+			}
+
+			req := c.Request()
+			url := req.URL
+			path := url.Path
+			qs := c.QueryString()
+			l := len(path) - 1
+			if l >= 0 && path != "/" && path[l] == '/' {
+				path = path[:l]
+				uri := path
+				if qs != "" {
+					uri += "?" + qs
+				}
+
+				// Redirect
+				if config.RedirectCode != 0 {
+					return c.Redirect(config.RedirectCode, uri)
+				}
+
+				// Forward
+				req.RequestURI = uri
+				url.Path = path
+			}
+			return next(c)
 		}
-		return nil
 	}
 }
