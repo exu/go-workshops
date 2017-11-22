@@ -1,12 +1,12 @@
 package main
 
 import (
-	"fmt"
 	"time"
+
+	"log"
 
 	"github.com/labstack/echo"
 	"golang.org/x/net/websocket"
-	"log"
 )
 
 // definiujemy struckturę
@@ -30,35 +30,35 @@ var (
 )
 
 // handler dla WebSocketów
-func wsHandler(c *echo.Context) (err error) {
+func wsHandler(c echo.Context) (err error) {
 	var response Geolocation
-	ws := c.Socket()
+	websocket.Handler(func(ws *websocket.Conn) {
+		defer ws.Close()
+		for {
+			// wyplujemy wszystkie lokacje co 100ms
+			for _, location := range locations {
+				if err = websocket.JSON.Send(ws, location); err != nil {
+					log.Println(err)
+					return
+				}
+				time.Sleep(100 * time.Millisecond)
+			}
 
-	for {
-		// wyplujemy wszystkie lokacje co 100ms
-		for _, location := range locations {
-			if err = websocket.JSON.Send(ws, location); err != nil {
+			if err = websocket.JSON.Receive(ws, &response); err != nil {
 				log.Println(err)
 				return
 			}
-			time.Sleep(100 * time.Millisecond)
 		}
+	}).ServeHTTP(c.Response(), c.Request())
 
-		if err = websocket.JSON.Receive(ws, &response); err != nil {
-			log.Println(err)
-			return
-		}
-
-		fmt.Printf("%+v\n", response)
-	}
-	return
+	return nil
 }
 
 func main() {
 	e := echo.New()
 
-	e.Static("/", ".")
-	e.WebSocket("/ws", wsHandler)
+	e.Static("/", "./static")
+	e.GET("/ws", wsHandler)
 
-	e.Run(":8080")
+	e.Logger.Fatal(e.Start(":8080"))
 }
