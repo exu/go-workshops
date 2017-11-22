@@ -8,21 +8,17 @@ import (
 )
 
 // Handler
-func hello(c *echo.Context) error {
-	return c.String(http.StatusOK, "Hello, World!\n")
+func hello(c echo.Context) error {
+	return c.String(http.StatusOK, "Hello, World!")
 }
 
 func main() {
-	// Echo instance
 	e := echo.New()
 
-	// Middleware
 	e.Use(mw.Logger())
 	e.Use(mw.Recover())
 
-	// Routes
-	e.Get("/", hello)
+	e.GET("/", hello)
 
-	// Start server
-	e.Run(":8080")
+	e.Logger.Fatal(e.Start(":1323"))
 }
