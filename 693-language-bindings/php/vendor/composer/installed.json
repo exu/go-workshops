@@ -1,0 +1,43 @@
+[
+    {
+        "name": "spiral/goridge",
+        "version": "v2.0.0",
+        "version_normalized": "2.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/spiral/goridge.git",
+            "reference": "f60182bef09f1e45a47908e1f0fb080affdcab81"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/spiral/goridge/zipball/f60182bef09f1e45a47908e1f0fb080affdcab81",
+            "reference": "f60182bef09f1e45a47908e1f0fb080affdcab81",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=7.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "~6.0"
+        },
+        "time": "2017-11-17T11:07:26+00:00",
+        "type": "goridge",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Spiral\\Goridge\\": "source/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Anton Titov / Wolfy-J",
+                "email": "wolfy.jd@gmail.com"
+            }
+        ],
+        "description": "High-performance PHP-to-Golang RPC bridge"
+    }
+]
