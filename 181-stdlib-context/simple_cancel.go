@@ -13,6 +13,7 @@ func main() {
 	ctx, cancel := context.WithCancel(context.Background())
 	defer cancel()
 
+	// cancel after new line appears in shell
 	go func() {
 		s := bufio.NewScanner(os.Stdin)
 		s.Scan()
