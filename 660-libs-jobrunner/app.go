@@ -2,8 +2,9 @@ package main
 
 import (
 	"fmt"
-	"github.com/bamzi/jobrunner"
 	"net/http"
+
+	"github.com/bamzi/jobrunner"
 
 	"github.com/labstack/echo"
 	mw "github.com/labstack/echo/middleware"
@@ -18,12 +19,12 @@ func main() {
 	e := echo.New()
 	e.Use(mw.Logger())
 	e.Use(mw.Recover())
-	e.Get("/status", status)
-	e.Run(":8080")
+	e.GET("/status", status)
+	e.Logger.Fatal(e.Start(":8080"))
 }
 
 // Handler
-func status(c *echo.Context) error {
+func status(c echo.Context) error {
 	return c.JSON(http.StatusOK, jobrunner.StatusJson())
 }
 
