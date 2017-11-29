@@ -1,0 +1,12 @@
+digraph {
+    A -> B[color=red]
+    A->C 
+    A->A 
+    A->D 
+    D->A
+    
+    A [border=red]
+    B [color=blue]
+    C 
+    D
+}
