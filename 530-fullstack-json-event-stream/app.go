@@ -31,7 +31,7 @@ func apiHandler(c echo.Context) error {
 	response := c.Response()
 
 	// ustawiamy header na event-stream rozpoznawalny przez przeglądarkę
-	response.Header().Set(echo.ContentType, "text/event-stream")
+	response.Header().Set(echo.HeaderContentType, "text/event-stream")
 	response.WriteHeader(http.StatusOK) // 200
 
 	for {
