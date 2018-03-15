@@ -1,5 +1,3 @@
 ## Mapy
 
-Mapy są statycznie typowane jak inne struktury w go, jeżeli potrzebujesz
-przechowywać różne typy w jednej mapie możesz uzyć  `interface{}` oznaczjącego
-dowolny typ
+One of the most useful data structures in computer science is the hash table. Many hash table implementations exist with varying properties, but in general they offer fast lookups, adds, and deletes. Go provides a built-in map type that implements a hash table.

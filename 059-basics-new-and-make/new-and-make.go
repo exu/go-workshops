@@ -19,7 +19,7 @@ func main() {
 	fmt.Printf("%+v\n", a1) // pointer
 
 	a2 := &Person{}
-	a2.Name = "Kolololo"
+	a2.Name = "John Doe"
 	fmt.Printf("%+v\n", a2) // pointer
 
 	b := new([]int)

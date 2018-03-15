@@ -1,4 +1,3 @@
-## Pętle
+## Loops
 
-W go istnieje tylko jedna pętla: `for`. Wykorzystywana jest jednak w różnych
-wariantach, często używana ze słowem kluczowym `range`
+In go there is only one loop keyword: `for`. It's often used with `range` keyword to iterate over array like elements.

@@ -1,5 +1,3 @@
 ## Tablice
 
-Tablice w Go to niskopoziomowa struktura danych, najczęściej z nich nie korzystasz
-zamiast tego wykorzystujemy slice'y nakładkę na typy tablicowe znacznie ułatwiającą
-pracę z nimi
+In Go, an `array` is a **numbered sequence of elements** of a specific length. Arrays are "low level" data structures with slices over them which simplifies creating and managing.

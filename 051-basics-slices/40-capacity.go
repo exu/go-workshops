@@ -3,9 +3,9 @@ package main
 import "fmt"
 
 func main() {
-	// slice to struktura która zawiera wskaźnik do tablicy
-	// wielkość slice'a oraz pojemność
-	// pojemność slice'a odnosi się do tablicy na podstawie której został stworzony
+	// slice is data structure which have array pointer
+	// size and capacity
+	// capacity relates to array on which slice was made
 	slice := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
 
 	subSlice := slice[:5]
@@ -13,14 +13,16 @@ func main() {
 
 	fmt.Println("Capacity of slice:", cap(slice), cap(subSlice))
 
-	// subSlice i slice mają ten sam  pointer do leżącej tablicy!!
+	// subSlice and slice have same pointer to underlying array data structure!!
 	subSlice[2] = 10000
 	fmt.Println(slice, subSlice)
 
+	// We  can create new slice with same length as previous one
 	iWantToChange := make([]int, len(subSlice))
 	iWantToChange[3] = 999999
 	fmt.Println(slice, iWantToChange)
 
+	// Strings are immutable (but works similar to slices)
 	str := "Jacek Placek"
 	jacek := str[:5]
 	jacek = "Wacek"
