@@ -1,4 +1,4 @@
-# Goland Training
+# Golang Training
 
 ## Dlaczego Go?
 
@@ -243,6 +243,124 @@ Package default'owo jest importowany po pełnej ścieżce ścieżce
 
     import "github.com/exu/go-workshops/010-basics-importing/sub"
 
+## Pobieranie i instalowanie
+
+```
+go install external.package.com/uri/to/package
+```
+
+
+## Package managers [PACKAGE MANAGEMENT CODE](011-package-management)
+
+Niestety ta część jest nadal słaba nie ma `virtualenv`'a :(.
+
+### godep
+
+Nie umiem ustawić wersji - wygląda na to że on robi coś
+w rodzaju snapshota z aktualnego drzewa zależności
+(chyba że coś mnie ominęło w dokumentacji)
+
+### gopm
+
+Wygląda na to że tutaj też nie można ustawić taga ani commita
+
+
+### gpm + gpv
+
+`gpm` ma buga jeżeli package istnieje w globalnej ścieżce to niestety
+się wypie****. Jak bug zostanie poprawiony następna metoda będzie
+niepotrzebna ponieważ `gvp` będzie nam zarządzać naszym ENV'em
+
+### gpm + autoenv
+
+Tutaj udało mi się uruchomić wersjonowanie za pomocą prostego tricku
+z przepisywaniem `GOPATH` (de facto wszelkie pckage managery działają
+na tej zasadzie)
+
+- https://github.com/kennethreitz/autoenv
+
+Ja instalowałem przez `pip`
+```
+pip install autoenv
+```
+
+Następnie należy dodać
+```
+source /usr/bin/activate.sh
+```
+
+do `~/bashrc` lub `~/.zshrc` (lub `.whateveryoureusingrc`)
+
+a w katalogu projektu dodać automatyczne przepisywanie ścieżki na
+```
+echo 'export GOPATH=$(pwd)/.godeps:$(pwd)' > .env
+```
+
+w katalogu wyżej możemy ustawić plik `.env` który będzie wracał do
+`root` lub stworzyć alias który będzie
+
+
+### Przykład
+
+Najpierw ustawiamy lokalnie GOPATH na `GOPATH=$(pwd)/.godeps:$(pwd)`
+na potrzeby przykładu możemy to zrobić ręcznie korzystać z autoenv
+lub poczekać na usunięcie buga z repo :)
+
+```
+package main
+
+import (
+	"github.com/exu/supergolib/printer"
+)
+
+func main() {
+	printer.PrintMe()
+}
+
+```
+
+
+Użyjemy `gpm-example` który ma zależność od biblioteki `github.com/exu/supergolib/printer`
+supergolib zostało utworzone wcześniej na githubie, ma 3 tagi `v1`, `v2`, `v23`
+
+definiujemy pliczek z zależnościami
+
+```
+github.com/exu/supergolib/printer        v1
+```
+
+uruchamiamy
+```
+gpm
+go run echo.go
+```
+
+gotowe
+
+Aby zmienić wersję
+
+
+```
+github.com/exu/supergolib/printer        v2
+```
+uruchamiamy
+```
+gpm
+go run echo.go
+```
+
+
+
+## Go version manager - zarządzanie wersjami go
+
+- https://github.com/moovweb/gvm
+
+
+
+## Glide
+
+- + vendoring (default enabled in 1.6)
+
 
 ## Zmienne [BASICS VARIABLES CODE](020-basics-variables)
 
@@ -277,6 +395,10 @@ wariantach, często używana ze słowem kluczowym `range`
 przy pierwszym imporcie paczki.
 
 
+# [BASICS CLOSURES CODE](042-basics-closures)
+
+
+
 ## Tablice [BASICS ARRAYS CODE](050-basics-arrays)
 
 Tablice w Go to niskopoziomowa struktura danych, najczęściej z nich nie korzystasz
@@ -305,6 +427,10 @@ samą tablicę.
 Mapy są statycznie typowane jak inne struktury w go, jeżeli potrzebujesz
 przechowywać różne typy w jednej mapie możesz uzyć  `interface{}` oznaczjącego
 dowolny typ
+
+
+# [BASICS NEW AND MAKE CODE](059-basics-new-and-make)
+
 
 
 ## Struktury [BASICS STRUCTS DEFINING CODE](060-basics-structs-defining)
@@ -349,6 +475,7 @@ na którą masz reagować.
 Źródła:
 - https://blog.golang.org/errors-are-values
 - http://blog.golang.org/error-handling-and-go
+- http://davidnix.io/post/error-handling-in-go/
 
 
 ## Panics [BASICS PANICS CODE](068-basics-panics)
@@ -361,6 +488,8 @@ na którą masz reagować.
 
 Podstawowa struktura danych w większości problemów programistycznych
 tu też jest i ma wszystko czego potrzebujesz.
+
+Więcej na https://blog.golang.org/strings
 
 
 ## Go routines [BASICS GOROUTINES CODE](080-basics-goroutines)
@@ -375,7 +504,16 @@ kosztuje nas zbyt wiele zasobów.
 Go posiada zintegrowany package manager (bez wersjonowania jeszcze niestety)
 `go get` pozwala nam w łatwy sposób ściągnąć paczki oraz je uruchamiać.
 dzięki powyższej komendzie zostaną ściągnięte wszystkie zależności związane
-z packagem `main`
+z packagem `main` (wrzucone niestety do globalnej sciezki z GOPATH)
+
+
+## DEP
+
+```
+go dep init 
+```
+
+ściągnie automatycznie zależności  i wrzuci wszystko do katalogu `vendor`
 
 
 # [BASICS POINTERS CODE](090-basics-pointers)
@@ -385,11 +523,11 @@ z packagem `main`
 # Example project structure [BASICS PROJECT STRUCTURE CODE](090-basics-project-structure)
 
 
-# [STDLIB CLI CODE](100-stdlib-cli)
+# [CONCURRENCY CHANNELS CODE](100-concurrency-channels)
 
 
 
-# [STDLIB CONCURRENCY CODE](100-stdlib-concurrency)
+# [CONCURRENCY OTHER CODE](101-concurrency-other)
 
 
 
@@ -398,6 +536,10 @@ z packagem `main`
 
 
 # [STDLIB OS PROCESSES CODE](110-stdlib-os-processes)
+
+
+
+# [STDLIB CLI CODE](114-stdlib-cli)
 
 
 
@@ -412,6 +554,15 @@ implementują `io.Reader`
 implementują `io.Writer`.
 
 koniec.
+
+
+## Podstawowe operacje na IO, Bufory [STDLIB IO CODE](116-stdlib-io)
+
+### Przykład z `bufio`
+
+### Directory traversal
+
+### Łączenie plików za pomocą buforów
 
 
 # [STDLIB LOGGING CODE](120-stdlib-logging)
@@ -434,21 +585,42 @@ koniec.
 
 
 
-## Podstawowe operacje na IO, Bufory [STDLIB IO CODE](160-stdlib-io)
-
-### Przykład z `bufio`
-
-### Directory traversal
-
-### Łączenie plików za pomocą buforów
-
-
 # [STDLIB TEMPLATES CODE](170-stdlib-templates)
+
+
+
+# [STDLIB RAND CODE](180-stdlib-rand)
 
 
 
 # [STDLIB REGEXP CODE](180-stdlib-regexp)
 
+
+
+# [STDLIB CONTEXT CODE](181-stdlib-context)
+
+
+
+# [STDLIB SORT CODE](181-stdlib-sort)
+
+
+
+# [STDLIB SIGNAL CODE](182-stdlib-signal)
+
+
+
+# Task [TASK HTTP RESPONSE READER CODE](199-task-http-response-reader)
+
+MVP:
+
+- Write HTTP response reader from given sources
+- You can implement it with channels.
+- Push results in JSON format to os.Stdout
+
+Homework for ambitious ones:
+
+- Do it with given interval (e.g. 10 seconds)
+- Pass last results back through WWW REST JSON API (e.g. localhost:8080/statuses)
 
 
 ## Instalacja [DATABASES MYSQL CODE](210-databases-mysql)
@@ -461,6 +633,20 @@ docker-compose start
 mysql -uroot -proot -P7701 -h127.0.0.1 < init.sql
 mysql -uroot -proot -P7701 -h127.0.0.1
 ```
+
+
+## ORMs in Go [DATABASES ORM CODE](215-databases-orm)
+
+### GORM całkiem nieźle rozbudowany ORM - na GH ~ tyle gwiazdek co doctrine
+
+detale na https://github.com/jinzhu/gorm
+
+
+### GORP - Go Object Relational Persistence
+
+gdy potrzebujesz czegoś lżejszego
+
+https://github.com/go-gorp/gorp
 
 
 # Przykłady MongoDB [DATABASES MONGODB CODE](220-databases-mongodb)
@@ -498,11 +684,39 @@ docker run --name some-app --link some-rethink:rdb -d application-that-uses-rdb
 
 
 
-# [TESTING UNIT CODE](300-testing-unit)
+# [DATABASES BOLT CODE](241-databases-bolt)
 
 
 
-# [TESTING HTTP CODE](310-testing-http)
+# [DATABASES POSTGRESQL CODE](250-databases-postgresql)
+
+
+
+# [QUEUES RABBITMQ CODE](260-queues-rabbitmq)
+
+
+
+# [DATABASES INFLUXDB CODE](270-databases-influxdb)
+
+
+
+# [TESTING UNIT TASK CODE](300-testing-unit-task)
+
+
+
+# [TESTING UNIT EXAMPLES CODE](302-testing-unit-examples)
+
+
+
+# [TESTING UNIT DEPENDENCIES CODE](305-testing-unit-dependencies)
+
+
+
+# [TESTING HTTP HANDLER CODE](310-testing-http-handler)
+
+
+
+# [TESTING HTTP SERVER CODE](310-testing-http-server)
 
 
 
@@ -519,6 +733,19 @@ docker run --name some-app --link some-rethink:rdb -d application-that-uses-rdb
 
 
 # [TESTING PARALLEL BENCHMARK CODE](380-testing-parallel-benchmark)
+
+
+
+## For testing we can use mockery [TESTING MOCKERY CODE](390-testing-mockery)
+
+https://github.com/vektra/mockery
+
+
+# [PATTERNS PIPELINE CODE](400-patterns-pipeline)
+
+
+
+# [PATTERNS GLOW MAP REDUCE CODE](401-patterns-glow-map-reduce)
 
 
 
@@ -542,7 +769,37 @@ docker run --name some-app --link some-rethink:rdb -d application-that-uses-rdb
 
 
 
+## Beego [FULLSTACK BEEGO CODE](570-fullstack-beego)
+
+Bee init script - inicjuje podstawową strukturę katalogów.
+hot compile.
+
+```
+go get github.com/astaxie/beego
+go get github.com/beego/bee
+bee new hello
+cd hello
+bee run hello
+```
+
+
+# [LIBS MANGOS CODE](601-libs-mangos)
+
+
+
+# [LIBS QUANTILE PERCENTILES CODE](602-libs-quantile-percentiles)
+
+
+
+# [LIBS BEEP CODE](610-libs-beep)
+
+
+
 # [LIBS BRA CODE](610-libs-bra)
+
+
+
+# [LIBS SLACK CODE](611-libs-slack)
 
 
 
@@ -562,6 +819,14 @@ https://github.com/chzyer/readline
 ## Caddy webserver [LIBS CADDY CODE](650-libs-caddy)
 
 
+# [LIBS HTTP ECHO CODE](651-libs-http-echo)
+
+
+
+# [LIBS HTTP IRIS CODE](651-libs-http-iris)
+
+
+
 # [LIBS JOBRUNNER CODE](660-libs-jobrunner)
 
 
@@ -570,15 +835,96 @@ https://github.com/chzyer/readline
 
 
 
+## Validator package [LIBS VALIDATOR CODE](670-libs-validator)
+
+- https://github.com/go-playground/validator
+
+- https://github.com/go-validator/validator
+
+- https://github.com/asaskevich/govalidator
+
+
+# [LIBS GOGRAPHVIZ CODE](677-libs-gographviz)
+
+
+
+# [LIBS FASTHTTP CODE](680-libs-fasthttp)
+
+
+
+# [LIBS UIPROGRESS CODE](681-libs-uiprogress)
+
+
+
+# [LIBS GO RPM CODE](690-libs-go-rpm)
+
+
+
+# [LIBS GRPC CODE](690-libs-grpc)
+
+
+
+# [LIBS LOGRUS CODE](690-libs-logrus)
+
+
+
+# [LIBS GO PLUGIN CODE](691-libs-go-plugin)
+
+
+
+# [LIBS CONSUL CODE](692-libs-consul)
+
+
+
+# [LIBS LANGUAGE BINDINGS CODE](693-libs-language-bindings)
+
+
+
+# [LIBS ASTIELECTRON CODE](694-libs-astielectron)
+
+
+
+# AWS Lambda Golang [LAMBDA SIMPLE CODE](700-lambda-simple)
+
+https://aws.amazon.com/blogs/compute/announcing-go-support-for-aws-lambda/
+
+## Remember to build your handler executable for Linux!
+
+    GOOS=linux GOARCH=amd64 go build -o main main.go
+    zip main.zip main
+
+
+## Deploying
+
+https://docs.aws.amazon.com/lambda/latest/dg/deploying-lambda-apps.html
+
+    aws lambda create-function \
+    --region us-west-1 \
+    --function-name HelloFunction \
+    --zip-file fileb://./main.zip \
+    --runtime go1.x \
+    --tracing-config Mode=Active \
+    --role arn:aws:iam::<account-id>:role/<role> \
+    --handler main
+
+
+aws lambda create-function --region us-west-1 --function-name HelloFunction --zip-file fileb://./deployment.zip --runtime go1.x --tracing-config Mode=Active --role arn:aws:iam::270605981035:role/<role> --handler main
+
+
 # [HOW TO RUN ON PRODUCTION CODE](800-how-to-run-on-production)
 
 
 
-# [DEBUGGING EXPVAR CODE](910-debugging-expvar)
+# Traefik [LOAD BALANCING TRAEFIK CODE](801-load-balancing-traefik)
 
+Load balancer with hot reloading
 
 
 # [DEBUGGING DELVE CODE](950-debugging-delve)
+
+
+
+# [DEBUGGING EXPVAR CODE](951-debugging-expvar)
 
 
 

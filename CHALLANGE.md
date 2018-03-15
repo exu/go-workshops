@@ -42,7 +42,7 @@ prebuild? etc. (youre developer you know it already)
 
 
 
-## For the best of the best (zadanie na szóstkę)
+## For the best of the best (A+ task)
 
 Should run on docker containers (minimum 2 containers with docker-compose usage)
 
