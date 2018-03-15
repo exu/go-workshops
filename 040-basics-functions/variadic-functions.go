@@ -1,8 +1,9 @@
-// variadic functions - mogą być wołane z dowolną liczbą argumentów.
 package main
 
 import "fmt"
 
+// we can receive variadic parameters like
+// standard slice
 func list(messages ...string) {
 	fmt.Println("Items:")
 	for _, message := range messages {
@@ -15,10 +16,11 @@ func main() {
 
 	list()
 	list("coca-cola", "whiskey", "ice")
-	list("pączki", "drożdżówki")
+	list("donuts", "bread")
 
-	// możemy przekazać slice poprzez dodanie "..."
-	// podczas przekazywanie wartości do funkcji
+	// If you already have multiple args in a slice,
+	// apply them to a variadic function using
+	// func(slice...) like this.
 	messages := []string{"A", "B", "C", "D"}
 	list(messages...)
 }

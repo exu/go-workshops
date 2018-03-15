@@ -2,20 +2,19 @@ package main
 
 import "fmt"
 
-// zwracanie wielu wartości (definicja w nawiasie, typy po przecinku)
+// returning many values definition in brackets
 func vals() (int, int) {
 	return 42, 2
 }
 
 func main() {
 
-	// zwracamy 2 wartości, przypisanie jak w pythonie
+	// we can return 2 values (or more) at a time
 	a, b := vals()
 	fmt.Println(a)
 	fmt.Println(b)
 
-	//jeżeli któraś z wartości nas nie interesuje możemy ją
-	// pominąć za pomocą znaku _
+	// if we don't want to use any of values we can bypass it with `_` operator
 	_, c := vals()
 	fmt.Println(c)
 

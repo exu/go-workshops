@@ -12,7 +12,7 @@ func getBoo(boosCount int) string {
 	return fmt.Sprintf("There are %d boo(s)", boosCount)
 }
 
-// może być tylko jeden main
+// There can be only one main() function in package
 func main() {
 	println(getBoo(3))
 }
