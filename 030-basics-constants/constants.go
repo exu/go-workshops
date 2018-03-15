@@ -3,10 +3,10 @@ package main
 import "fmt"
 
 func main() {
-	// stałe
-	const DOOR_NUMBER = 5
+	// simple contant definition
+	const MaxCapacity = 5
 
-	// enumerated
+	// enumerated constant
 	const (
 		A float64 = iota
 		B
@@ -16,7 +16,7 @@ func main() {
 		F
 	)
 
-	fmt.Println("Kojelno odlicz:", A, B, C, D)
+	fmt.Printf("Show me values: A=%f ,B=%f, C=%f, D=%f\n", A, B, C, D)
 
 	// enumerated with arithmetics
 	const (
