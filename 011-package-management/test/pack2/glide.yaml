@@ -1,5 +1,0 @@
-package: github.com/exu/go-workshops/011-package-management/test/pack2
-import:
-- package: bitbucket.pearson.com/jacewyso/gopackage
-  version: master
-  repo: ssh://git@bitbucket.pearson.com/~jacewyso/gopackage.git
