@@ -83,7 +83,7 @@ sources:
 - BRA (Brilliant Ridiculous Assistant) https://github.com/Unknwon/bra - it's good to setup it when you're working on some webservers to auto reload your app when changes in code are made.
 
 
-## Github style struktura projektu [BASICS IMPORTING CODE](010-basics-importing)
+## Github style - project structure [BASICS IMPORTING CODE](010-basics-importing)
 
 In go idiomatic way is to organise code in "github style", so part of the path is looking like server address to library. Of course if you want you don't need to do this, but whole ecosystem works that way.
 
@@ -255,10 +255,7 @@ In terms of channels there you can use make and new
 
 ## Struktury [BASICS STRUCTS DEFINING CODE](060-basics-structs-defining)
 
-Struktury to podstawowy typ danych w go, większość driverów do storage'u
-pozwala kodować i dekodować do struktur. są bardzo użyteczne, dzięki nim
-możemy zamodelować pseudo-obiektowość, często używane do kompzycji
-oprogramowania.
+A struct is a sequence of named elements, called fields, each of which has a name and a type. Field names may be specified explicitly (IdentifierList) or implicitly (EmbeddedField). Within a struct, non-blank field names must be unique.
 
 
 ## Struktury - Kompoozycja [BASICS STRUCT COMPOSITION CODE](062-basics-struct-composition)
@@ -266,12 +263,9 @@ oprogramowania.
 Kompozycja taki pattern chyba znacie ?
 
 
-## Tagi - annotacje [BASICS STRUCT TAGS CODE](064-basics-struct-tags)
+## Struct tags (annotations like) [BASICS STRUCT TAGS CODE](064-basics-struct-tags)
 
-Struktury w go posiadają możliwość opisywania pól dodatkowymi
-"tagami" które następnie możemy wykorzystać programistycznie
-wykorzystywane często przy enkodowaniu i dekodowaniu z formatów danych (JSON, yml)
-jak i z różnych silników baz danych.
+A tag for a field allows you to attach meta-information to the field which can be acquired using reflection. Usually it is used to provide transformation info on how a struct field is encoded to or decoded from another format (or stored/retrieved from a database), but you can use it to store whatever meta-info you want to, either intended for another package or for your own use.
 
 
 # [BASICS ANONYMOUS STRUCTS CODE](065-basics-anonymous-structs)
@@ -280,19 +274,29 @@ jak i z różnych silników baz danych.
 
 ## Interface'y [BASICS INTERFACES CODE](065-basics-interfaces)
 
-Go posiada tzw "implicit interfaces", oznacza to że jeżeli dana struktura
-implementuje metody z interfejsu automatycznie staje się obikektem o typie
-równym typie intefejsu.
+Go have "implicit interfaces". To implement an interface in Go, we just need to implement all the methods in the interface.
 
+So what is an interface? An interface is two things: it is a set of methods, but it is also a type.
 
-## Zarządzanie błędami [BASICS ERRORS CODE](067-basics-errors)
+### The `interface{}` type
 
-W go nie ma exceptionów, błędy są zwracane poprzez wielokrotne wartości
-lub agregowane w obiektach jeżeli zachodzi taka potrzeba. Preferuje
-się podejście jak najszybszej obsługi błędów. W Go błąd jest wartością
-na którą masz reagować.
+The `interface{}` type, the empty interface, is the source of much confusion. The interface{} type is the interface that has no methods. Since there is no implements keyword, all types implement at least zero methods, and satisfying an interface is done automatically, all types satisfy the empty interface. That means that if you write a function that takes an `interface{}` value as a parameter, you can supply that function with any value. So this function:
 
-Źródła:
+    func DoSomething(v interface{}) {
+    // ...
+    }
+
+will accept any parameter whatsoever.
+
+### Type assertions
+
+- https://medium.com/golangspec/type-assertions-in-go-e609759c42e1
+
+## Error handling [BASICS ERRORS CODE](067-basics-errors)
+
+There is no exceptions in Go, errors are returned by value, or aggregated in intermediate objects. In go error is simply value which should be handled programatically as quick as possible.
+
+Sources:
 - https://blog.golang.org/errors-are-values
 - http://blog.golang.org/error-handling-and-go
 - http://davidnix.io/post/error-handling-in-go/
@@ -300,47 +304,44 @@ na którą masz reagować.
 
 ## Panics [BASICS PANICS CODE](068-basics-panics)
 
-- Używamy gdy chcemy zatrzymać program.
-- Możemy podpiąć sprawdzenie do "defer chain" czy panic wystąpił
+- Used when we want to stop the program.
+- We can check if there was a `panic` occurence in function defer chain
 
 
-## Stringi [BASICS STRINGS CODE](070-basics-strings)
+## Strings [BASICS STRINGS CODE](070-basics-strings)
 
-Podstawowa struktura danych w większości problemów programistycznych
-tu też jest i ma wszystko czego potrzebujesz.
+In Go, a string is in effect a **read-only slice of bytes**.
 
-Więcej na https://blog.golang.org/strings
+It's important to state right up front that a string holds arbitrary bytes. It is not required to hold Unicode text, UTF-8 text, or any other predefined format. As far as the content of a string is concerned, it is exactly equivalent to a slice of bytes.
+
+More on https://blog.golang.org/strings
 
 
 ## Go routines [BASICS GOROUTINES CODE](080-basics-goroutines)
 
-Concurrency. Goroutine to lekki "wątek" uruchamiany wewnątrz programu
-Goroutines są bardzo lekkie więc uruchomienie równolegle wielu tysięcy nie
-kosztuje nas zbyt wiele zasobów.
+A goroutine is a lightweight thread of execution.
+
+Goroutines run in the same address space, so access to shared memory must be synchronized. The sync package provides useful primitives, although you won't need them much in Go as there are other primitives (channels).
+
+Channels are a typed conduit through which you can send and receive values with the channel operator, <-.
 
 
-## Używanie tzw 3rd parties [BASICS 3RD PARTY PACKAGES CODE](090-basics-3rd-party-packages)
+## Using 3rd parties [BASICS 3RD PARTY PACKAGES CODE](090-basics-3rd-party-packages)
 
-Go posiada zintegrowany package manager (bez wersjonowania jeszcze niestety)
-`go get` pozwala nam w łatwy sposób ściągnąć paczki oraz je uruchamiać.
-dzięki powyższej komendzie zostaną ściągnięte wszystkie zależności związane
-z packagem `main` (wrzucone niestety do globalnej sciezki z GOPATH)
+In go we can get packages to our $GOPATH with use of `go get` command.
 
 
 ## DEP
 
-```
-go dep init 
+```sh
+go dep init
 ```
 
-ściągnie automatycznie zależności  i wrzuci wszystko do katalogu `vendor`
+`dep` is fully-fledged dependency manager. It downloads all dependencies source code to `vendor` directory and then compilator includes those code during compilation process.
 
 
 # [BASICS POINTERS CODE](090-basics-pointers)
 
-
-
-# Example project structure [BASICS PROJECT STRUCTURE CODE](090-basics-project-structure)
 
 
 # [CONCURRENCY CHANNELS CODE](100-concurrency-channels)
