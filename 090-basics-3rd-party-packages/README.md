@@ -1,4 +1,4 @@
-## Używanie tzw 3rd parties
+## Using 3rd parties
 
 In go we can get packages to our $GOPATH with use of `go get` command.
 
