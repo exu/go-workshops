@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/exu/go-workshops/011-package-management/test/pack1"
+	"github.com/exu/go-workshops/011-package-management/pack1"
 
 	"fmt"
 )
