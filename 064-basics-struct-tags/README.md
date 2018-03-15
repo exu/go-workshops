@@ -1,6 +1,3 @@
-## Tagi - annotacje
+## Struct tags (annotations like)
 
-Struktury w go posiadają możliwość opisywania pól dodatkowymi
-"tagami" które następnie możemy wykorzystać programistycznie
-wykorzystywane często przy enkodowaniu i dekodowaniu z formatów danych (JSON, yml)
-jak i z różnych silników baz danych.
+A tag for a field allows you to attach meta-information to the field which can be acquired using reflection. Usually it is used to provide transformation info on how a struct field is encoded to or decoded from another format (or stored/retrieved from a database), but you can use it to store whatever meta-info you want to, either intended for another package or for your own use.

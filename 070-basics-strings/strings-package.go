@@ -3,7 +3,7 @@ package main
 import s "strings"
 import "fmt"
 
-// alias do funkcji
+// alias for function (as functions are first class citizens)
 var p = fmt.Println
 
 func main() {
@@ -21,9 +21,9 @@ func main() {
 	p("ToLower:   ", s.ToLower("TEST"))
 	p("ToUpper:   ", s.ToUpper("test"))
 	p()
-	p("substring:   ", "ala ma kota a kot ma ale"[10:])
+	p("substring:   ", "some quite long string with 1234 number"[10:])
 
-	// dodatkowe (nie część strings)
+	// additional (not in strings package)
 	p("Len: ", len("hello"))
 	p("Char:", "hello"[1])
 }

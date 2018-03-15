@@ -1,15 +1,12 @@
 ## Używanie tzw 3rd parties
 
-Go posiada zintegrowany package manager (bez wersjonowania jeszcze niestety)
-`go get` pozwala nam w łatwy sposób ściągnąć paczki oraz je uruchamiać.
-dzięki powyższej komendzie zostaną ściągnięte wszystkie zależności związane
-z packagem `main` (wrzucone niestety do globalnej sciezki z GOPATH)
+In go we can get packages to our $GOPATH with use of `go get` command.
 
 
 ## DEP
 
-```
-go dep init 
+```sh
+go dep init
 ```
 
-ściągnie automatycznie zależności  i wrzuci wszystko do katalogu `vendor`
+`dep` is fully-fledged dependency manager. It downloads all dependencies source code to `vendor` directory and then compilator includes those code during compilation process.

@@ -1,11 +1,8 @@
-## Zarządzanie błędami
+## Error handling
 
-W go nie ma exceptionów, błędy są zwracane poprzez wielokrotne wartości
-lub agregowane w obiektach jeżeli zachodzi taka potrzeba. Preferuje
-się podejście jak najszybszej obsługi błędów. W Go błąd jest wartością
-na którą masz reagować.
+There is no exceptions in Go, errors are returned by value, or aggregated in intermediate objects. In go error is simply value which should be handled programatically as quick as possible.
 
-Źródła:
+Sources:
 - https://blog.golang.org/errors-are-values
 - http://blog.golang.org/error-handling-and-go
 - http://davidnix.io/post/error-handling-in-go/

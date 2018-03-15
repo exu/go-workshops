@@ -1,9 +1,10 @@
+package main
+
 // Go source code is always UTF-8.
 // A string holds arbitrary bytes.
 // A string literal, absent byte-level escapes, always holds valid UTF-8 sequences.
 // Those sequences represent Unicode code points, called runes.
 // No guarantee is made in Go that characters in strings are normalized.
-package main
 
 import (
 	"fmt"

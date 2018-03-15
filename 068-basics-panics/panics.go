@@ -13,6 +13,7 @@ func init() {
 
 }
 
+// program is only valid when there is NAME env set
 func main() {
 	println("Starting", name)
 }

@@ -3,12 +3,13 @@ package main
 import "errors"
 import "fmt"
 
-// WizardLowPowerError - Nasz customowy błąd
+// WizardLowPowerError - our custom error like exception in other OO langs
 type WizardLowPowerError struct {
 	spellPower    int
 	minSpellPower int
 }
 
+// need to implement `Error() string` method
 func (error *WizardLowPowerError) Error() string {
 	return fmt.Sprintf(
 		"ERROR: Not enough mana (have %d but %d needed)",
@@ -17,7 +18,7 @@ func (error *WizardLowPowerError) Error() string {
 	)
 }
 
-// Wizard - Nasz czarodziej
+// Wizard - Our magic struct
 type Wizard struct {
 	spellPower int
 }
@@ -42,17 +43,14 @@ func (wizard *Wizard) cast(spellCost int) error {
 }
 
 func main() {
-	// pierwsza instancja rzuci błędem gdy będziemy
-	// rzucać czar o mocy 666
+	// first instance will return error when we will cast spell with power value of 666
 	superWizard := Wizard{10000}
 	err := superWizard.cast(666)
 	if err != nil {
 		fmt.Println(err.Error())
 	}
 
-	// i wykorzystanie customowego błędu
-	// rzucamy tak długo aż nie wyczerpiemy
-	// dostępnej mocy
+	// now we will be casting spells as long as error will occur.
 	wizard := Wizard{100}
 	for {
 		err := wizard.cast(3)

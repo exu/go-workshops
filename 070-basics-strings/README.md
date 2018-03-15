@@ -1,6 +1,7 @@
-## Stringi
+## Strings
 
-Podstawowa struktura danych w większości problemów programistycznych
-tu też jest i ma wszystko czego potrzebujesz.
+In Go, a string is in effect a **read-only slice of bytes**.
 
-Więcej na https://blog.golang.org/strings
+It's important to state right up front that a string holds arbitrary bytes. It is not required to hold Unicode text, UTF-8 text, or any other predefined format. As far as the content of a string is concerned, it is exactly equivalent to a slice of bytes.
+
+More on https://blog.golang.org/strings

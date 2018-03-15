@@ -13,6 +13,7 @@ func (thing *Thing) SetCount(count int) {
 }
 
 func main() {
+
 	a := Thing{}
 	a.SetCount(2)
 	b := &Thing{}

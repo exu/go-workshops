@@ -6,6 +6,8 @@ import (
 	"time"
 )
 
+// recovery from panics example in goroutines
+
 func funcWithPanic(name string) {
 	panic("Somethings is not allright at all for worker " + name)
 }

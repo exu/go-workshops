@@ -10,6 +10,7 @@ func SumDigits(nums []int) (int, error) {
 	for _, num := range nums {
 		if num > 10 {
 			return 0, errors.New("aaaaaaaaaa")
+			// errors.New creates new `error` instance
 		}
 		sum += num
 	}

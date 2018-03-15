@@ -5,8 +5,8 @@ import (
 )
 
 func main() {
-	// szybsze niż map[string]interface{}
-	// nie musi dynamicznie alokować pamięci
+	// faster than map[string]interface{}
+	// don't need to dynamically alocate memory
 	a := struct {
 		ID   int
 		Name string

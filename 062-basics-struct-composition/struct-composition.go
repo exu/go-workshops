@@ -2,9 +2,6 @@ package main
 
 import "fmt"
 
-// pola zaczynające się dużą literą będą dostępne na zewnątrz package
-// nazwane małą literą są prywatne dla paczki
-
 type Dimension struct {
 	Width  int
 	Height int
@@ -18,8 +15,8 @@ func (this Dimension) IsVertical() bool {
 	}
 }
 
-// wymiar jest zagnieżdżony (embedded)
-// możemy dowolnie składać strukturki
+// Dimension is embedded
+// we can composite struct with other ones
 type Image struct {
 	Dimension   // embedded struct
 	URL         string
@@ -43,7 +40,8 @@ func main() {
 	}
 
 	for _, image := range images {
-		fmt.Println(image.URL, "is vertical? : ", image.Height) // dostęp do pól zagnieżdżonej strukturki
+		fmt.Println(image.URL, "is vertical? : ", image.IsVertical())
+		// we have direct access to fields and methods of embedded struct
 	}
 
 }

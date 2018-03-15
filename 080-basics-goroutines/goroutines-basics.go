@@ -14,22 +14,20 @@ func f(from string) {
 
 func main() {
 
-	// standardowe wywołanie funkcji (blokujące synchroniczne)
+	// standard function call (synchronous one and blocking)
 	f("direct")
 
-	// Aby wywołać funkcję asynchronicznie dajemy słowo kluczowe `go`
-	// `go f(s)`. Ta nowa gorutynka zostanie wywołana w nowym
-	// lekkim thred'zie równolegle z istniejącą
+	// to call function in goroutine we're using `go` keyword
 	go f("goroutine")
 
-	// Możemy wywoływać gorutynki jako funkcje anonimowe
+	// we can call anonymous functions as in goroutines
 	go func(msg string) {
 		fmt.Println(msg)
 	}("going")
 
 	time.Sleep(time.Second * 2)
 
-	// Do tego miejsca nasze 2 gorutynki działają równolegle na
-	// 2 osobnych thread'ach, więc wykonanie programu idzie dalej
-	// aby zobaczyć rezultat przyblokujemy dalsze wykonywanie
+	// until now our 2 function `f` calls are running concurrently.
+	// first one in main goroutine second one in new goroutine spawned with `go` keyword.
+	// we'll block our main goroutine and wait for all to complete.
 }

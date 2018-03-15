@@ -2,11 +2,11 @@ package image
 
 type Image struct {
 	URL         string
-	contentType string // z małej litery prywatna zmienna w obrębie package
+	contentType string // beginning with small letter - private for package`(like protected in JAVA or PHP)
 	size        int
 }
 
-// metoda z tzw receiverem "img"
+// GetSize - struct method with receiver `(img *Image)`
 func (img *Image) GetSize() int {
 	return img.size
 }

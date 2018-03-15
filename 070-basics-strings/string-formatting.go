@@ -11,73 +11,72 @@ func main() {
 
 	p := point{1, 2}
 
-	// instancja punktu.
+	// point instance.
 	fmt.Printf("%v\n", p)
 
-	// jeżeli p jest strukturą + doda nam informację o jej polach
+	// if `p` is struct `+` will add fields information
 	fmt.Printf("%+v\n", p)
 
-	// %#v wyświetli kod źródłowy potrzebny do stworzenia instancji
+	// %#v will print source code needed for struct initialisation
 	fmt.Printf("%#v\n", p)
 
-	// typ wartości
+	// type
 	fmt.Printf("%T\n", p)
 
-	// formatowanie wartości bool
+	// boolean value
 	fmt.Printf("%t\n", true)
 
-	// base 10 dla intów
+	// int (base 10)
 	fmt.Printf("%d\n", 123)
 
-	// binarna reprezentacja
+	// binary
 	fmt.Printf("%b\n", 14)
 
-	// znak o danym kodzie
+	// character with given code
 	fmt.Printf("%c\n", 33)
 
 	// %x hex
 	fmt.Printf("%x\n", 456)
 
-	// Zmiennoprzecinkowe
-	// %f.
+	// floating point numbers - %f.
 	fmt.Printf("%f\n", 78.9)
 
-	// %e i %E dla formatu naukowego
+	// %e i %E
 	fmt.Printf("%e\n", 123400000.0)
 	fmt.Printf("%E\n", 123400000.0)
 
-	// Dla podstawowego drukowania stringów - %s.
+	// basic string printing - %s.
 	fmt.Printf("%s\n", "\"string\"")
 
-	// double-quote jak w kodzie - %q.
+	// double-quote - %q.
 	fmt.Printf("%q\n", "\"string\"")
 
 	// %x base-16 string, with two output
 	// characters per byte of input.
 	fmt.Printf("%x\n", "ó hex this !!")
 
-	// wskaźniki
+	// pointers
 	fmt.Printf("%p\n", &p)
 
-	// Szerokość i precyzja liczb
+	// numbers with width
 	fmt.Printf("|%6d|%6d|\n", 12, 345)
 
-	// Szerokość i precyzja liczb zmiennoprzecinkowych
+	// floats with width and precision
 	fmt.Printf("|%6.2f|%6.2f|\n", 1.2, 3.45)
 
-	// wyrówanie do lewej
+	// align left
 	fmt.Printf("|%-6.2f|%-6.2f|\n", 1.2, 3.45)
 
-	// i dla stringów
+	// strings width
 	fmt.Printf("|%6s|%6s|\n", "foo", "b")
 
-	// do lewej
+	// strings width aligned left
 	fmt.Printf("|%-6s|%-6s|\n", "foo", "b")
 
-	// Sprintf zwraca zamiast pluć na stdout
+	// Sprintf returns formatted string
 	s := fmt.Sprintf("a %s", "string")
 	fmt.Println(s)
 
-	// Fprintf pozwala pluć do dowolnego io.Writer'a
+	// Fprintf push strings to io.Writer
 	fmt.Fprintf(os.Stderr, "an %s\n", "error")
 }

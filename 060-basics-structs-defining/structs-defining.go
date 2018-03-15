@@ -2,8 +2,8 @@ package main
 
 import "fmt"
 
-// pola zaczynające się dużą literą będą dostępne na zewnątrz package
-// nazwane małą literą są prywatne dla paczki
+// fields starting with capital letter will be accesible outside package (like public in JAVA or PHP)
+// fields starting with small letter will be package private
 type Image struct {
 	URL         string
 	ContentType string
@@ -17,15 +17,14 @@ func main() {
 			ContentType: "image/png",
 			Size:        2048,
 		},
-		// jeżeli nie podamy wartości któregokolwiek z pól,
-		// zostanie przypisana wartość zerowa (NIE NULL)
-		// dla stringów "", int 0, float 0.0 itd.
+		// if we don't set value for field,
+		// there will be assigned zero-ed value automatically (NOT NULL)
+		// for strings "", int 0, float 0.0 etc.
 		Image{
 			URL: "http://static.ioki.pl/tylko-url.jpg",
 		},
-		// możemy też przekazać bez podawania nazw pól
-		// jednak wtedy należy podać wszystkie wartości
-		// po kolei tak jak w definicji struktury
+		// There is no need for naming struct fields during initialisation
+		// But then you'll need to pass all struct fields.
 		Image{
 			"http://static.ioki.pl/nic.jpg",
 			"image/jpg",
@@ -33,8 +32,9 @@ func main() {
 		},
 	}
 
+	// let's iterate over our slice of structs
 	for _, image := range images {
-		fmt.Println(image.URL, "with content type:", image.ContentType) // dostęp do pól zagnieżdżonej strukturki
+		fmt.Println(image.URL, "with content type:", image.ContentType) // we're accesing our Image struct fields.
 	}
 
 }
