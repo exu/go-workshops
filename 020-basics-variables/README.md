@@ -1,5 +1,3 @@
-## Zmienne
+## Variables
 
-W go zmienne nie muszą mieć z góry określonego typu, możemy przypisać
-zmienną w postaci `a := 1` kompilator będzie wiedział że ma doczynienia
-z typem int.
+In go variables can be declared and assigned in one simple way `a := 1`, compiler will detect type of variable based on its value.

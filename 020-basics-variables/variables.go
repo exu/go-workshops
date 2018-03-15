@@ -3,52 +3,53 @@ package main
 import "fmt"
 
 func main() {
-	// zmienne
-	var liczba int
-	liczba = 1
-	fmt.Println("Liczba", liczba)
+	// variable declaration with type
+	var someNumber int
+	someNumber = 1
+	fmt.Println("Liczba", someNumber)
 
-	// krócej definicja i deklaracja
-	superliczba := 1
-	fmt.Println("super liczba", superliczba)
+	// short assignment without type declaration
+	superNumber := 1
+	fmt.Println("super liczba", superNumber)
 
-	// uwazaj na typy!
-	var duzaliczba int64
-	duzaliczba = 908132908929083889
+	// Integer max value depends on system architecture!
+	var bigNumber int64
+	bigNumber = 9223372036854775807
 
-	var prawieduzaliczba int
-	prawieduzaliczba = 908132908929083889
+	var intIsInt64On64bitMachines int
+	intIsInt64On64bitMachines = 9223372036854775807
 
-	fmt.Println("Różne typy", duzaliczba, prawieduzaliczba)
+	fmt.Println("Ints:", bigNumber, intIsInt64On64bitMachines)
 
-	if duzaliczba == int64(prawieduzaliczba) {
-		fmt.Println("Różne typy równe są!!")
+	if bigNumber == int64(intIsInt64On64bitMachines) {
+		fmt.Println("bigNumer and intIsInt64On64bitMachines are equal")
 	}
 
-	//tablice
-	tabliczka := []string{"tab", "licz", "ka"}
-	fmt.Println(tabliczka)
+	// Array (in go we're using "slices" as interface to arrays - there will be dedicated chapter abput arrays)
+	someArray := []string{"tab", "licz", "ka"}
+	fmt.Println(someArray)
 
-	//hashmap
-	mapka := map[string]string{"t": "abl", "i": "czka"}
-	fmt.Println(mapka)
+	// Map
+	someSimpleMap := map[string]string{"t": "abl", "i": "czka"}
+	fmt.Println(someSimpleMap)
 
-	// zagnieżdżony
-	supermap := map[string]map[string]map[string]int{
+	// Some more complicated type
+	deepMap := map[string]map[string]map[string]int{
 		"t": map[string]map[string]int{
 			"a": map[string]int{
 				"b": 1,
 			},
 		},
 	}
-	fmt.Println(supermap)
-	// hmmm słabe :P ... ale można lepiej :)
+	fmt.Println(deepMap)
+	// definition of above looks like crap
+	// but we can fix it for sure using types
 
 	// custom types
 	type H map[string]interface{}
-	// interface{} oznacza dowolny typ
+	// interface{} means that we want to use any type
 
-	supersimplemap := H{
+	superSimpleDeepMap := H{
 		"t": H{
 			"a": H{
 				"b": 1,
@@ -56,5 +57,5 @@ func main() {
 		},
 	}
 
-	fmt.Println(supersimplemap)
+	fmt.Println(superSimpleDeepMap)
 }
