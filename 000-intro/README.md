@@ -53,28 +53,6 @@ sources:
     cd $GOPATH/exu/go-workshops
 
 
-## Github style - projects structure
-
-In Go ecosystem projects are organised in "github-style" - part of module path is path to server addess e.g.:
-
-```sh
-src/
-    github.com
-        exu
-            mysuperproject
-    ioki.com.pl
-            mnmel
-                 nmelinium
-bin/
-    superappbinary
-pkg/
-    compiled packages
-
-```
-
-Environment variable `$GOPATH` is responsible for path to the root dir of `src`, `bin` and `pkg` directories.
-
-
 ## Go Tools
 
 ### Included

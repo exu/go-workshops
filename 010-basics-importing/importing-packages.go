@@ -3,19 +3,15 @@ package main
 import (
 	"fmt"
 
-	// jeżeli kod będzie na githubie (lub w innym public repo)
-	// każdy może
-	// zaimportować w ten sposób
+	// if this code will be pushed to github everyone
+	// can import in that way:
 	"github.com/exu/go-workshops/010-basics-importing/sub"
-	// TIP: zadziała również
-	// "./sub"
+	// "./sub" will work too but it's not idiomatic in GO
 )
 
+// now we can use some data from our `sub` package
 func main() {
-	fmt.Println("sub.FIRST_CONSTANT:\t", sub.FIRST_CONSTANT)
+	fmt.Println("sub.FirstConstant:\t", sub.FirstContant)
 	fmt.Println("sub.Hoł() func call:\t", sub.Hoł())
-	fmt.Println("sub.SECOND_CONSTANT:\t", sub.SECOND_CONSTANT)
-
+	fmt.Println("sub.SecondConstant:\t", sub.SecondConstant)
 }
-
-

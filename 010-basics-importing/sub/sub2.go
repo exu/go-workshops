@@ -1,3 +1,3 @@
 package sub
 
-const SECOND_CONSTANT = 2
+const SecondConstant = 2
