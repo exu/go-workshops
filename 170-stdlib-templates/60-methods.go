@@ -10,9 +10,11 @@ type Recipient struct {
 	attended   bool
 }
 
-// Ten przykład nie zadziała nie może
-// być wskaźnik ??? nie wiaodmo dlaczego
-func (r *Recipient) Attended() bool {
+// It'll won't work for pointer receiver
+// need to be value receiver.
+// you'll find full available arguments list in documentation:
+// https://golang.org/pkg/text/template/#hdr-Arguments
+func (r Recipient) Attended() bool {
 	return r.attended
 }
 
@@ -20,7 +22,7 @@ func main() {
 
 	const letter = `
 Dear {{.Name}},
-{{if .Attended}}
+{{ if .Attended }}
     It was a pleasure to see you at the wedding.
 {{else}}
     It is a shame you couldn't make it to the wedding.

@@ -36,10 +36,13 @@ Josie
 		{"Cousin Rodney", "", false},
 	}
 
-	// Tworzymy nowy obiekt templatki i wrzucamy do niego sparsowany list
+	// lets create new template object
+	// and pass template content string
 	t := template.Must(template.New("letter").Parse(letter))
 
-	// Wykonujemy dla każdego odbiorcy
+	// next we need to execute template on each chunk of data
+	// in result we'll receive 3 letters for each Recipient in
+	// recipients array
 	for _, r := range recipients {
 		fmt.Println("----------------------------------------")
 		err := t.Execute(os.Stdout, r)

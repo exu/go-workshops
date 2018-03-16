@@ -6,20 +6,19 @@ import "log"
 import "os"
 import "fmt"
 
-// Policzmy spacje w stringu
+// let's count some spaces in string
 func countSpaces(str string) string {
 	count := strings.Count(str, " ")
 	return fmt.Sprintf("Text \"%s\" has %d spaces inside", str, count)
 }
 
 func main() {
-	// Mapa funkcji
+	// To use functions we need to declare function map
 	funcMap := template.FuncMap{
-		// nazwy funkcji "title" "up" "countSpaces" będzie można wykorzystać
-		// w templatce
-		"title":       strings.Title,
-		"up":          strings.ToUpper,
-		"countSpaces": countSpaces,
+		// names "title" "up" "countSpaces" can be used in template
+		"title":       strings.Title,   // go function in string package
+		"up":          strings.ToUpper, // go function in string package
+		"countSpaces": countSpaces,     // our custom function
 	}
 
 	const templateText = `
@@ -32,13 +31,13 @@ Output 4: {{countSpaces .}}
 Output 5 {{ . | up}} is obvious
 `
 
-	// Tworzenie templatki i dodanie naszej mapy z funkcjami
+	// Create new template and passing function map
 	tmpl, err := template.New("titleTest").Funcs(funcMap).Parse(templateText)
 	if err != nil {
 		log.Fatalf("parsing: %s", err)
 	}
 
-	// Odpalamy templatke jako Writer podajemy Stdout
+	// execute template and set writer to stdout
 	err = tmpl.Execute(os.Stdout, "the go programming language")
 	if err != nil {
 		log.Fatalf("execution: %s", err)
