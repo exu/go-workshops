@@ -26,6 +26,10 @@ func TestBulkDelete_ShouldCallDeleteOnAllResources(t *testing.T) {
 
 	BulkDeleter(ress)
 
+	// we want to test if our integration works well,
+	// it'll be valid when Some deleter will call Delete on all objects.
+	// we're passing our mock to BulkDeleter
+
 	for i, res := range ress {
 		if !res.IsDeleted() {
 			t.Errorf("Resource `%d` should be deleted", i)

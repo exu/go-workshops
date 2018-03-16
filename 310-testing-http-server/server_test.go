@@ -1,7 +1,7 @@
 package main
 
 import (
-	"./handler" // normalnie używamy ścieżek "Github" style
+	"./handler"
 
 	"io/ioutil"
 	"log"
@@ -11,7 +11,7 @@ import (
 )
 
 func TestSimpleHandler(t *testing.T) {
-	// Używany w testach E2E, konfigurowalny
+	// Used in E2E tests, configurable
 	testServer := httptest.NewServer(http.HandlerFunc(handler.Simple))
 	defer testServer.Close()
 
@@ -28,7 +28,7 @@ func TestSimpleHandler(t *testing.T) {
 
 	if string(greeting) != "Helloł Łerld" {
 		t.Errorf(
-			"Nikt się nie przywitał :( lub nie to pozdrowienie!\n Jest \t\t%s\n miało być: \t%s",
+			"Invalid greeting!\n I've got \t\t%s\n but want: \t%s",
 			string(greeting),
 			"Helloł Łerld",
 		)

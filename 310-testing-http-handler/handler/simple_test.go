@@ -16,15 +16,15 @@ func TestSimpleHandler(t *testing.T) {
 
 	w := httptest.NewRecorder()
 
-	// Wstrzykujemy recorder (zamiast writera który jest normalnie
-	// wstrzykiwany przez Mux) oraz stworzony request
+	// We're injecting recorder to our handler instead
+	// of writer injected by MUX
 	Simple(w, req)
 
 	if w.Code != http.StatusOK {
-		t.Errorf("Nie ten kod! Chciałem %d a mam %d", http.StatusOK, w.Code)
+		t.Errorf("Invalid code! I want %d but get %d", http.StatusOK, w.Code)
 	}
 
 	if w.Body.String() != "Helloł Łerld" {
-		t.Errorf("Nikt się nie przywitał :( lub nie to pozdrowienie!")
+		t.Errorf("Invalid greeting, gimme Hello world phoneticaly in polish")
 	}
 }
