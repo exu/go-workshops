@@ -7,6 +7,7 @@ import (
 	"os"
 )
 
+// trivial example for files copying
 func main() {
 	buf := bytes.NewBuffer(nil)
 	dir := "files/"

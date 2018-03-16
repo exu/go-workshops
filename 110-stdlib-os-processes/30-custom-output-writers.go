@@ -6,9 +6,7 @@ import (
 	"os/exec"
 )
 
-// Writer implementuje io.Writer w dokumentacji
-// proc.Stdout jest taki typ
-// `go doc io.Writer`
+// Writer implements io.Writer to find more call `go doc io.Writer` in your shell
 type Writer struct {
 	count int
 }

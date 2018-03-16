@@ -16,7 +16,7 @@ func main() {
 	writer := io.MultiWriter(f, os.Stdout, os.Stderr)
 	// writer.Write([]byte("Hoł hoł hoł"))
 
-	// teraz możemy użyć naszego writera np jako writer w logach
+	// now we can use our writer e.g. for logging some data in log package
 	logger := log.New(writer, "\n\n[LOG]", 0)
 	logger.Println("Hahahahah")
 }

@@ -7,13 +7,16 @@ import (
 )
 
 func main() {
-	cmd := exec.Command("sleep", "2")
+	cmd := exec.Command("sleep", "12")
 	cmd.Start()
 
+	// creating done channel to listen on it when program will complete
 	done := make(chan error, 1)
 	go func() {
 		done <- cmd.Wait()
 	}()
+
+	// listening for available channels data
 	select {
 	case <-time.After(3 * time.Second):
 		if err := cmd.Process.Kill(); err != nil {

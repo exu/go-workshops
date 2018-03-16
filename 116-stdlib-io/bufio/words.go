@@ -13,10 +13,14 @@ func main() {
 	// const input = "ą\n"
 	scanner := bufio.NewScanner(strings.NewReader(input))
 
-	// ustawiamy funkcje split bufio ma ich trochę: ScanWords, ScanRunes, ScanLines, ScanBytes
+	// We're setting "Split" function,
+	// bufio package have some other split functions:
+	// ScanWords, ScanRunes, ScanLines, ScanBytes
 	scanner.Split(bufio.ScanWords)
 
-	// policzymy słowa
+	// now we can easily count words in our stream
+	// it's of course simple example but we can for example
+	// pass here some stream from huge file.
 	count := 0
 	for scanner.Scan() {
 		count++

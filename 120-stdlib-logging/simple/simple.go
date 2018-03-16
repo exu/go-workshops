@@ -5,7 +5,8 @@ import (
 	"os"
 )
 
-// inicjujemy nasz logger
+// we can init our logger with some
+// more sophisticated config
 func init() {
 	log.SetOutput(os.Stdout)
 	log.SetPrefix("TRACE: ")
@@ -21,12 +22,13 @@ func init() {
 }
 
 func main() {
-	log.Println("Startuję")
+	log.Println("Starting my super app! Please fasten your seatbelts")
 
 	names := []string{"Tytus", "Romek", "Atomek"}
-	log.Printf("Ładuję userów %+v\n", names)
+	log.Printf("Loading users %+v\n", names)
 
-	log.Fatalln("Fatality")
-	// exit status 1
-	log.Println("Kończę program")
+	log.Fatalln("Fatality!")
+	// calls `os.Exit(1)` => exit status 1
+	log.Println("Ending app")
+	// never will be called
 }

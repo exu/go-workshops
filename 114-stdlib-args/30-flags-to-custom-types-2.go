@@ -6,20 +6,24 @@ import (
 	"time"
 )
 
+// One of most powerful part of flag package is definig flags custom types
+
+// assume we need to get from user several time intervals
 type interval []time.Duration
 
-// Metoda formatująca wartość flagi, część interfejsu flag.Value.
+// String - method which formats flag value, implementing `flag.Value` interface.
 func (i *interval) String() string {
 	return fmt.Sprint(*i)
 }
 
 // (flag.Value interface).
-// tutaj dostajemy wartość z shealla.
-// U nas będzie to lista (odzielana przecinkami
-// więc trzeba ją pociąć
+// Here we get value from shell.
+// until now previous example was identical
+// but we want to simplify it be removing unnecessary
+// complicated part
 func (i *interval) Set(value string) error {
-	// Możemy używać flag wiele razy, aby zbierać ich wartości
-	// w stylu:
+	// POWERTIP: we can use `Set` many times
+	// e.g.:
 	//	-deltaT 10s -deltaT 15s
 	duration, err := time.ParseDuration(value)
 	if err != nil {
@@ -30,11 +34,11 @@ func (i *interval) Set(value string) error {
 	return nil
 }
 
-// dla specjalnych typów używamy unkcji Var
 var intervalFlag interval
 
 func init() {
-	flag.Var(&intervalFlag, "deltaT", "lista okresów czasu po przecinku")
+	flag.Var(&intervalFlag, "deltaT", "time interval (can be repeated many times e.g. -deltaT=1s -deltaT=2s)")
+	flag.Parse()
 }
 
 func echoAfter(message string, durations []time.Duration) {
@@ -44,7 +48,7 @@ func echoAfter(message string, durations []time.Duration) {
 	}
 }
 
+// now use our flag and echo a message with given intervals
 func main() {
-	flag.Parse()
 	echoAfter("Hi", intervalFlag)
 }

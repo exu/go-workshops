@@ -6,6 +6,8 @@ import (
 	"os/exec"
 )
 
+// go command execution is also stream based
+// we can easily pipe commands with use of data pipes
 func main() {
 
 	c1 := exec.Command("ls", "/etc")

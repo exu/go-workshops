@@ -1,7 +1,5 @@
-## Podstawowe operacje na IO, Bufory
+## Basic IO operations
 
-### Przykład z `bufio`
-
-### Directory traversal
-
-### Łączenie plików za pomocą buforów
+- `bufio` examples
+- directory traversal
+- merging files with use of `buffers`
