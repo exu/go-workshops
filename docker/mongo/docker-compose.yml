@@ -1,4 +1,5 @@
 app:
-  build: .
+  image: mongo:latest
   ports:
    - "7702:27017"
+  tty: true

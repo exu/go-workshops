@@ -33,7 +33,7 @@ func main() {
 
 	fmt.Println("Loop through updates")
 	for {
-		pl := rand.Intn(10000)
+		pl := rand.Intn(1000)
 		sc := rand.Intn(6) - 2
 
 		// startingTime := time.Now()

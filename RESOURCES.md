@@ -83,6 +83,7 @@ The next Go class for Ruby Learning - https://docs.google.com/forms/d/1WXO68p3gH
 
 Who is using go:
 https://github.com/golang/go/wiki/GoUsers
+list is "quite" big :)
 
 - Google
 - Twitter https://blog.twitter.com/2015/handling-five-billion-sessions-a-day-in-real-time

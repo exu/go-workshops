@@ -2,7 +2,8 @@ package main
 
 import (
 	"fmt"
-	"gopkg.in/redis.v3"
+
+	"github.com/go-redis/redis"
 )
 
 var (

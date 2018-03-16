@@ -2,9 +2,10 @@ package main
 
 import (
 	"fmt"
+	"log"
+
 	"gopkg.in/mgo.v2"
 	"gopkg.in/mgo.v2/bson"
-	"log"
 )
 
 const (
@@ -44,7 +45,6 @@ func main() {
 	}
 	defer session.Close()
 	c := session.DB("test").C("cars")
-	// czyścimy kolekcję
 	c.DropCollection()
 
 	kazik := Person{"Kazik", "+4890909090", "PHP Deweloper"}
@@ -66,13 +66,13 @@ func main() {
 		SeatsCount: 10,
 	}
 
-	// wrzucamy do bazki
+	// put car to database
 	err = c.Insert(&mustang)
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	// pobieramy wrzucony rekord
+	// now we can get our fresh record from DB
 	var result Car
 	c.FindId(id).One(&result)
 	fmt.Printf("%+v", result)

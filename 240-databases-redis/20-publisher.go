@@ -1,9 +1,10 @@
 package main
 
 import (
-	"gopkg.in/redis.v3"
 	"os"
 	"time"
+
+	"github.com/go-redis/redis"
 )
 
 var (

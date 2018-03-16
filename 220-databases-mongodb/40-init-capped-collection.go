@@ -38,3 +38,4 @@ func main() {
 // should give you
 // > db.items.stats().capped
 // true
+// in mongo shell

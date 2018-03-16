@@ -1,5 +1,5 @@
 app:
-  build: .
+  image: mariadb:latest
   ports:
    - "7701:3306"
   environment:

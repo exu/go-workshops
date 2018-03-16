@@ -47,8 +47,8 @@ func main() {
 		log.Fatal("Could not create index")
 	}
 
-	fmt.Println("Inserting new records")
-	for i := 0; i < 10000; i++ {
+	fmt.Println("Inserting new records, quite slow need to be batch :| ")
+	for i := 0; i < 1000; i++ {
 		player := new(ScoreEntry)
 		player.ID = strconv.Itoa(i)
 		player.PlayerName = fmt.Sprintf("Player %d", i)
@@ -57,5 +57,7 @@ func main() {
 		if err != nil {
 			log.Fatal(err)
 		}
+
+		log.Println("Inserted player number: ", i)
 	}
 }

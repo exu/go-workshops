@@ -1,11 +1,10 @@
 # RethinkDB
 
-Jedną z ciekawych funkcjonalności RethinkDB jest możliwość
-monitorowania zmian na kolekcji
+Why rethink here? I think it'll be worth to point out one of it's nice feature - collection changes.
 
-# Dockerizing
+#@ Dockerizing
 
-## Uruchom rethinka jako kontener
+### run rethink db as container
 
 ```
 docker run --name some-rethink -v "$PWD:/data" -d rethinkdb
@@ -19,7 +18,7 @@ docker run --name rethink -p 28015:28015 -v "$PWD/data:/data" -d rethinkdb
 
 wtedy instacja kontenera będzie widoczna pod adresem `localhost:28015`
 
-## Zlinkuj go w swojej aplikacji
+### Zlinkuj go w swojej aplikacji
 
 ```
 docker run --name some-app --link some-rethink:rdb -d application-that-uses-rdb

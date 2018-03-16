@@ -1,8 +1,9 @@
 package main
 
 import (
-	"gopkg.in/redis.v3"
 	"log"
+
+	"github.com/go-redis/redis"
 )
 
 var (
@@ -24,10 +25,7 @@ func init() {
 
 func main() {
 
-	pubsub, err := client.Subscribe("mychannel")
-	if err != nil {
-		panic(err)
-	}
+	pubsub := client.Subscribe("mychannel")
 	defer pubsub.Close()
 
 	for {
