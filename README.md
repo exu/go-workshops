@@ -487,7 +487,7 @@ In Go there are template engines (yes plural!) implemented in `stdlib`!
 
 We'll go in this chapter by some `html` and `text` template engines.
 
-# ([code for: Stdlib Rand](180-stdlib-rand))
+# ([code for: Stdlib Math](180-stdlib-math))
 
 
 
@@ -495,9 +495,9 @@ We'll go in this chapter by some `html` and `text` template engines.
 
 
 
-# ([code for: Stdlib Context](181-stdlib-context))
+## Context package ([code for: Stdlib Context](181-stdlib-context))
 
-
+Context is very powerful package, in this section i've implemented HTTP client and server which handles cancelling both sides when client e.g. press Ctrl+C during request.
 
 # ([code for: Stdlib Sort](181-stdlib-sort))
 
@@ -521,13 +521,13 @@ Homework for ambitious ones:
 - Pass last results back through WWW REST JSON API (e.g. localhost:8080/statuses)
 
 
-## Instalacja ([code for: Databases Mysql](210-databases-mysql))
+## MySQL ([code for: Databases Mysql](210-databases-mysql))
 
-Uruchom
+Install instructions to run this section:
 
-```
+```sh
 cd docker/mysql
-docker-compose start
+docker-compose up
 mysql -uroot -proot -P7701 -h127.0.0.1 < init.sql
 mysql -uroot -proot -P7701 -h127.0.0.1
 ```
@@ -535,29 +535,38 @@ mysql -uroot -proot -P7701 -h127.0.0.1
 
 ## ORMs in Go ([code for: Databases Orm](215-databases-orm))
 
-### GORM całkiem nieźle rozbudowany ORM - na GH ~ tyle gwiazdek co doctrine
+### GORM the most popular Go ORM.
 
-detale na https://github.com/jinzhu/gorm
+gorm have [some nice converntions](http://gorm.io/docs/conventions.html) to start with new project
+
+full documentation is on http://gorm.io/docs/
 
 
 ### GORP - Go Object Relational Persistence
 
-gdy potrzebujesz czegoś lżejszego
+If you need some lighter abstraction on SQL driver (than full-fledged ORM)
 
 https://github.com/go-gorp/gorp
 
 
-# Przykłady MongoDB ([code for: Databases Mongodb](220-databases-mongodb))
+# MongoDB examples ([code for: Databases Mongodb](220-databases-mongodb))
+
+to use this examples you'll need to run MongoDB server. you can do this using prepared docker-compose file.
+
+```sh
+cd docker/mongo
+docker-compose up
+mongo localhost:7702
+```
 
 
 # RethinkDB ([code for: Databases Rethinkdb](230-databases-rethinkdb))
 
-Jedną z ciekawych funkcjonalności RethinkDB jest możliwość
-monitorowania zmian na kolekcji
+Why rethink here? I think it'll be worth to point out one of it's nice feature - collection changes.
 
-# Dockerizing
+#@ Dockerizing
 
-## Uruchom rethinka jako kontener
+### run rethink db as container
 
 ```
 docker run --name some-rethink -v "$PWD:/data" -d rethinkdb
@@ -571,7 +580,7 @@ docker run --name rethink -p 28015:28015 -v "$PWD/data:/data" -d rethinkdb
 
 wtedy instacja kontenera będzie widoczna pod adresem `localhost:28015`
 
-## Zlinkuj go w swojej aplikacji
+### Zlinkuj go w swojej aplikacji
 
 ```
 docker run --name some-app --link some-rethink:rdb -d application-that-uses-rdb
@@ -587,14 +596,6 @@ docker run --name some-app --link some-rethink:rdb -d application-that-uses-rdb
 
 
 # ([code for: Databases Postgresql](250-databases-postgresql))
-
-
-
-# ([code for: Queues Rabbitmq](260-queues-rabbitmq))
-
-
-
-# ([code for: Databases Influxdb](270-databases-influxdb))
 
 
 
@@ -622,21 +623,8 @@ docker run --name some-app --link some-rethink:rdb -d application-that-uses-rdb
 
 
 
-# ([code for: Testing Blackbox](340-testing-blackbox))
-
-
-
-# ([code for: Testing Chromedriver](350-testing-chromedriver))
-
-
-
 # ([code for: Testing Parallel Benchmark](380-testing-parallel-benchmark))
 
-
-
-## For testing we can use mockery ([code for: Testing Mockery](390-testing-mockery))
-
-https://github.com/vektra/mockery
 
 
 # ([code for: Patterns Pipeline](400-patterns-pipeline))
