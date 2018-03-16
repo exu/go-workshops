@@ -1,4 +1,4 @@
-# Golang Training
+# Golang Training Resources
 
 ## About Go
 
@@ -48,12 +48,36 @@ sources:
 - great documentation generator
 - and many many more ...
 
+## Workshop prerequisities
 
-## Init
+You can install `golang` and `docker` using your prefered way i.e. your OS package manager (brew, pacman, apt, snap or other) or you can simp[l follow installation instruction on go and docker sites.
+
+### Golang installation
+
+For recent installation instructions please refer to [Golang installation guide](https://golang.org/doc/install)
+
+You'll need `git` to be installed
+
+### Docker install
+
+> Docker is the company driving the container movement and the only container platform provider to address every application across the hybrid cloud. Today’s businesses are under pressure to digitally transform but are constrained by existing applications and infrastructure while rationalizing an increasingly diverse portfolio of clouds, datacenters and application architectures. Docker enables true independence between applications and infrastructure and developers and IT ops to unlock their potential and creates a model for better collaboration and innovation.
+
+
+
+For recent docker installation please follow [Docker installation guide](https://docs.docker.com/install/) for your OS.
+
+Docker is needed for some parts of workshops for running databases or other needed dependencies. Also will be needed to complete homework.
+
+### Docker Compose Installation
+
+> Compose is a tool for defining and running multi-container Docker applications. With Compose, you use a YAML file to configure your application’s services. Then, with a single command, you create and start all the services from your configuration.
+
+To install docker compose please follow [Docker compose installation guide](https://docs.docker.com/compose/install/)
+
+## Init workshops to play on your machine with code
 
     go get github.com/exu/go-workshops
     cd $GOPATH/exu/go-workshops
-
 
 ## Go Tools
 
