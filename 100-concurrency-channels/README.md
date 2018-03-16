@@ -21,3 +21,19 @@ Channels can be buffered. Provide the buffer length as the second argument to ma
     ch := make(chan int, 100)
 
 Sends to a buffered channel **block only when the buffer is full**. Receives block when the buffer is empty.
+
+### In this workshops you'll learn about:
+
+- channels mechanics
+- receiving data from channel
+- channels length
+- buffers
+- channel closing
+- generate data with channels
+- timers, tickers with channels
+- worker pool
+- rate limiting with channels
+- selecting proper channel stream
+- pipeline and fan-in/fan-out patterns
+
+Feel free to browse [channels chapter source code](100-concurrency-channels/)

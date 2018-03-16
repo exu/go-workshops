@@ -11,44 +11,46 @@ func main() {
 	now := time.Now()
 	p(now)
 
-	// Tworzenie nowej instancji
-	// Czas jest zawsze związany ze strefą czasową
+	// Creating new instance, always with time zone!
 	then := time.Date(
 		2009, 11, 17, 20, 34, 58, 651387237, time.UTC)
 
-	p(then)
+	p("Whole date:", then)
 
-	// Wyciągamy składowe
-	p(then.Year())
-	p(then.Month())
-	p(then.Day())
-	p(then.Hour())
-	p(then.Minute())
-	p(then.Second())
-	p(then.Nanosecond())
-	p(then.Location())
+	// let's get some time parts
+	p("year", then.Year())
+	p("month", then.Month())
+	p("day", then.Day())
+	p("hour", then.Hour())
+	p("minute", then.Minute())
+	p("second", then.Second())
+	p("ns", then.Nanosecond())
+	p("location", then.Location())
 
-	// Weekday
-	p(then.Weekday())
+	// also weekday is available
+	p("weekday", then.Weekday())
 
-	// Porównywanie dwóch wartości
-	p(then.Before(now))
-	p(then.After(now))
-	p(then.Equal(now))
+	// We can compare two values each other
+	p("is then before now?", then.Before(now))
+	p("is then after now?", then.After(now))
+	p("is then equal now?", then.Equal(now))
 
-	// Interwał pomiędzy dwoma czasami
-	// (Zwraca ciekawy typ Duration)
+	// we can also subtract one date from another
+	// We'll get here very handly type - `Duration`
 	diff := now.Sub(then)
-	p(diff)
+	p("difference between then and now =", diff)
 
-	// Możemy zwrócić poszczególne wartości interwału
-	p(diff.Hours())
-	p(diff.Minutes())
-	p(diff.Seconds())
-	p(diff.Nanoseconds())
+	// we can also get parts of interval
+	p("- hours", diff.Hours())
+	p("- minutes", diff.Minutes())
+	p("- seconds", diff.Seconds())
+	p("- nanoseconds", diff.Nanoseconds())
 
-	// Dodajemy Duration
-	// by a duration.
-	p(then.Add(2 * diff))
-	p(then.Add(-diff))
+	// we can add `Duration` to `Time` objects
+	p("adding duration", now.Add(2*diff))
+	// or subtract it
+	p("subtracting duration", now.Add(-diff))
+
+	// adding using constants in time pkg
+	p("adding 2 hours", now.Add(2*time.Hour))
 }
