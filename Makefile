@@ -7,4 +7,4 @@ build:
 	cd docker/redis && docker-compose build
 
 doc:
-	go run generate.go
+	go run generate.go && git add README.md && git commit -m "generated and updated main README.md file"
