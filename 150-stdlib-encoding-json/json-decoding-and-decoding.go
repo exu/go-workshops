@@ -20,12 +20,12 @@ func main() {
 	p := fmt.Println
 
 	// ----------------------------------------
-	// ENKODOWANIE
+	// Encoding
 	// ----------------------------------------
 
 	h1("Simple types")
 
-	// encoding podstawowych typów
+	// basic types encoding
 	boolJSON, _ := json.Marshal(true)
 	p("JSON:bool:", string(boolJSON))
 	intJSON, _ := json.Marshal(1)
@@ -40,13 +40,13 @@ func main() {
 	// slice
 	sliceJSON, _ := json.Marshal([]string{"apple", "peach", "pear"})
 	p("JSON:slice:", string(sliceJSON))
-	// mapa
+	// map
 	mapJSON, _ := json.Marshal(map[string]int{"apple": 5, "lettuce": 7})
 	p(string(mapJSON))
 
 	h1("Default Structs")
 
-	// mapowanie strukturki do jsona bez annotacji
+	// encoding struct w/o tags (annotation)
 	response1 := Response1{
 		Page:   1,
 		Fruits: []string{"apple", "peach", "pear"}}
@@ -55,7 +55,9 @@ func main() {
 
 	h1("Annotated structs")
 
-	// możemy użyć annotacji aby skonfgurować pola jsonowe w zwracanych strukturkach
+	// We can use tags to configure fields encoded to json
+	// look at Response2 struct `json:""` tags added on the
+	// right of type definition
 	response2 := &Response2{
 		Page:        1,
 		Fruits:      []string{"apple", "peach", "pear"},
@@ -72,37 +74,39 @@ func main() {
 	response2JSON, _ = json.Marshal(response2)
 	p("Response2: omit ", string(response2JSON))
 
-	h1("Deooding")
-
 	// ----------------------------------------
-	// DEKODOWANIE
+	// JSON decoding
 	// ----------------------------------------
 
+	h1("Decoding")
+
+	// example json bytes (e.g. from request body)
 	byt := []byte(`{"num":6.13,"strs":["a","b"]}`)
 
-	// musimy zapewnic zmienna do ktorej typu bedziemy w stanie
-	// odkodować dane (static typing)
-
+	// we need some data structure where data will be decoded
+	// if you are not sure or can't estimate those schemas you can
+	// use simpliest `map[string]interface{}` to allow decoding of
+	// any json file
 	var dat map[string]interface{}
 
-	// dekodowanie i sprawdzenie czy wystąpiły błędy
+	// decoding with error checking
 	if err := json.Unmarshal(byt, &dat); err != nil {
 		panic(err)
 	}
 	p("DECODED: dat:", dat)
 
-	// jeżeli chcemy używać typów z jsona zdekodowanego dynanicznie musimy
-	// zcastować wartości
+	// if we want to use values from map above (interface{} part)
+	// we need to cast values to given type
 	num := dat["num"].(float64)
 	p("DECODED: dat.num", num)
 
-	// Dostęp do zagnieżdzonych danych wymaga serii castów (uuuu)
+	// access to embedded data requires series of casts (uuuu how ugly!)
 	strs := dat["strs"].([]interface{})
 	str1 := strs[0].(string)
 	p("DECODED: ", str1)
 
-	// Jednak na ratunek przychodzi dekodowanie do struktur
-	// whoa! type safety na dekodowaniu danych z JSONa
+	// So how to handle complicated cases?
+	// decoding to struct FTW!
 	str := `{"page": 1, "healthy_fruits": ["apple", "peach"]}`
 	res := Response2{}
 	err := json.Unmarshal([]byte(str), &res)
@@ -115,15 +119,19 @@ func main() {
 
 	h1("Stream decoded")
 
-	// Powyżej mieliśmy dekodowanie do stringów i bajtów jako pośrednika pomiędzy jsonem
-	// a danymi. Jednak możemy również stream'ować JSON'a bezpośrednio do writer'ów
-	// przykładowym writerem jest os.Stdout
+	// Above all examples was done by encoding to array of bytes
+	// but as I said before streamiing in go is quite powerful,
+	// we can use streams for json too.
+	// we can create encoder which recieves io.Writer as parameter
+	// in example below there is os.Stdout writer but it could be
+	// e.g. http.Response writer which write data directly to HTTP response
 	enc := json.NewEncoder(os.Stdout)
 	d := map[string]int{"apple": 5, "lettuce": 7}
 	p("Writing to os.stdOut")
 	enc.Encode(d)
 }
 
+// h1 helper function
 func h1(message string) {
 	fmt.Println()
 	fmt.Println("---------- ", message, " ----------")

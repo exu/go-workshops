@@ -5,6 +5,10 @@ import "os"
 import "log"
 import "fmt"
 
+// templates in go working great with struct types
+// you'll have great static typed templates
+// errors checked during compilation
+
 func main() {
 
 	const letter = `
@@ -21,7 +25,7 @@ Best wishes,
 Josie
 `
 
-	// Dane dla templatki
+	// template data
 	type Recipient struct {
 		Name, Gift string
 		Attended   bool
