@@ -11,22 +11,20 @@ import (
 
 func main() {
 	ctx, cancel := context.WithCancel(context.Background())
-	defer cancel()
+	defer cancel() // call cancel on end of function call
 
 	// cancel after new line appears in shell
 	go func() {
 		s := bufio.NewScanner(os.Stdin)
 		s.Scan()
+		ctx.Value("aaa")
 		cancel()
 	}()
 
-	a(ctx, 5*time.Second, "hello")
-}
-
-func a(ctx context.Context, d time.Duration, msg string) {
+	// block on timer or ctx.Done()
 	select {
-	case <-time.After(d):
-		fmt.Println(msg)
+	case <-time.After(5 * time.Second):
+		fmt.Println("Timed out!")
 	case <-ctx.Done():
 		log.Println(ctx.Err())
 	}

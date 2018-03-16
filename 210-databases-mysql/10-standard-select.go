@@ -3,6 +3,7 @@ package main
 import (
 	"database/sql"
 	"fmt"
+
 	_ "github.com/go-sql-driver/mysql"
 )
 
@@ -26,7 +27,7 @@ func main() {
 		}
 	}
 
-	// czytanie
+	// red from tables
 	stmtOut, err := db.Prepare("SELECT num, square FROM squares WHERE num = ?")
 	if err != nil {
 		panic(err.Error())

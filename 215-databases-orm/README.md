@@ -1,12 +1,14 @@
 ## ORMs in Go
 
-### GORM całkiem nieźle rozbudowany ORM - na GH ~ tyle gwiazdek co doctrine
+### GORM the most popular Go ORM.
 
-detale na https://github.com/jinzhu/gorm
+gorm have [some nice converntions](http://gorm.io/docs/conventions.html) to start with new project
+
+full documentation is on http://gorm.io/docs/
 
 
 ### GORP - Go Object Relational Persistence
 
-gdy potrzebujesz czegoś lżejszego
+If you need some lighter abstraction on SQL driver (than full-fledged ORM)
 
 https://github.com/go-gorp/gorp
