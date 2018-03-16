@@ -83,7 +83,7 @@ sources:
 - BRA (Brilliant Ridiculous Assistant) https://github.com/Unknwon/bra - it's good to setup it when you're working on some webservers to auto reload your app when changes in code are made.
 
 
-## Github style - project structure [BASICS IMPORTING CODE](010-basics-importing)
+## Github style - project structure ([code for: Basics Importing](010-basics-importing))
 
 In go idiomatic way is to organise code in "github style", so part of the path is looking like server address to library. Of course if you want you don't need to do this, but whole ecosystem works that way.
 
@@ -123,7 +123,7 @@ go install external.package.com/uri/to/package
 As we can see our `sub` package is in directory `sub` (obvious) and have two files; `sub1.go` and `sub2.go` each of them also have `package sub` directive which tells compiler that they are in one package.
 
 
-## Package managers [PACKAGE MANAGEMENT CODE](011-package-management)
+## Package managers ([code for: Package Management](011-package-management))
 
 Currently most advanced in go ecosystem is `dep` https://github.com/golang/dep
 
@@ -137,21 +137,21 @@ after that dep will add vendor dir where all depndencies will be loaded (In go a
 
 For more details please refer to `dep` documentation at https://golang.github.io/dep/docs/daily-dep.html
 
-## Variables [BASICS VARIABLES CODE](020-basics-variables)
+## Variables ([code for: Basics Variables](020-basics-variables))
 
 In go variables can be declared and assigned in one simple way `a := 1`, compiler will detect type of variable based on its value.
 
 
-## Constants [BASICS CONSTANTS CODE](030-basics-constants)
+## Constants ([code for: Basics Constants](030-basics-constants))
 
 Use `const` to define new contant, mechanics looks like in other languages. What is worth to mention that we have `iota` keyword which could be used as some kind of iterator in constant definition.
 
 
-# [BASICS OVERRIDING INTERNAL TYPES CODE](035-basics-overriding-internal-types)
+# ([code for: Basics Overriding Internal Types](035-basics-overriding-internal-types))
 
 
 
-## Funkcje [BASICS FUNCTIONS CODE](040-basics-functions)
+## Funkcje ([code for: Basics Functions](040-basics-functions))
 
 Functions in Go are "First class citizen".
 
@@ -161,26 +161,26 @@ Functions in Go are "First class citizen".
 - defered calls
 - variadic functions
 
-## Loops [BASICS LOOPS CODE](040-basics-loops)
+## Loops ([code for: Basics Loops](040-basics-loops))
 
 In go there is only one loop keyword: `for`. It's often used with `range` keyword to iterate over array like elements.
 
-## Packages initialisation [BASICS INIT CODE](041-basics-init)
+## Packages initialisation ([code for: Basics Init](041-basics-init))
 
 `func init() {}` is responsible for package initialisation, it's called only once when import statement for given package is called.
 
 
-## Closures aka anonymous functions [BASICS CLOSURES CODE](042-basics-closures)
+## Closures aka anonymous functions ([code for: Basics Closures](042-basics-closures))
 
 Go supports anonymous functions, which can form closures. Anonymous functions are useful when you want to define a function inline without having to name it.
 
 
-## Tablice [BASICS ARRAYS CODE](050-basics-arrays)
+## Tablice ([code for: Basics Arrays](050-basics-arrays))
 
 In Go, an `array` is a **numbered sequence of elements** of a specific length. Arrays are "low level" data structures with slices over them which simplifies creating and managing.
 
 
-## Slices [BASICS SLICES CODE](051-basics-slices)
+## Slices ([code for: Basics Slices](051-basics-slices))
 
 
 Slices are a key data type in Go, giving a more powerful interface to sequences than arrays.
@@ -197,12 +197,12 @@ sources:
 - http://www.dotnetperls.com/slice-go
 
 
-## Mapy [BASICS MAPS CODE](055-basics-maps)
+## Mapy ([code for: Basics Maps](055-basics-maps))
 
 One of the most useful data structures in computer science is the hash table. Many hash table implementations exist with varying properties, but in general they offer fast lookups, adds, and deletes. Go provides a built-in map type that implements a hash table.
 
 
-## `make` and `new` keywords [BASICS NEW AND MAKE CODE](059-basics-new-and-make)
+## `make` and `new` keywords ([code for: Basics New And Make](059-basics-new-and-make))
 
 `new(T)` allocates zeroed storage for a new item of type T and returns its address. In Go terminology, it returns a pointer to a newly allocated zero value of type T.
 
@@ -253,26 +253,26 @@ In terms of channels there you can use make and new
     p := new(chan int)   // p has type: *chan int
     c := make(chan int)  // c has type: chan int
 
-## Struktury [BASICS STRUCTS DEFINING CODE](060-basics-structs-defining)
+## Struktury ([code for: Basics Structs Defining](060-basics-structs-defining))
 
 A struct is a sequence of named elements, called fields, each of which has a name and a type. Field names may be specified explicitly (IdentifierList) or implicitly (EmbeddedField). Within a struct, non-blank field names must be unique.
 
 
-## Struktury - Kompoozycja [BASICS STRUCT COMPOSITION CODE](062-basics-struct-composition)
+## Struktury - Kompoozycja ([code for: Basics Struct Composition](062-basics-struct-composition))
 
 Kompozycja taki pattern chyba znacie ?
 
 
-## Struct tags (annotations like) [BASICS STRUCT TAGS CODE](064-basics-struct-tags)
+## Struct tags (annotations like) ([code for: Basics Struct Tags](064-basics-struct-tags))
 
 A tag for a field allows you to attach meta-information to the field which can be acquired using reflection. Usually it is used to provide transformation info on how a struct field is encoded to or decoded from another format (or stored/retrieved from a database), but you can use it to store whatever meta-info you want to, either intended for another package or for your own use.
 
 
-# [BASICS ANONYMOUS STRUCTS CODE](065-basics-anonymous-structs)
+# ([code for: Basics Anonymous Structs](065-basics-anonymous-structs))
 
 
 
-## Interface'y [BASICS INTERFACES CODE](065-basics-interfaces)
+## Interface'y ([code for: Basics Interfaces](065-basics-interfaces))
 
 Go have "implicit interfaces". To implement an interface in Go, we just need to implement all the methods in the interface.
 
@@ -292,7 +292,7 @@ will accept any parameter whatsoever.
 
 - https://medium.com/golangspec/type-assertions-in-go-e609759c42e1
 
-## Error handling [BASICS ERRORS CODE](067-basics-errors)
+## Error handling ([code for: Basics Errors](067-basics-errors))
 
 There is no exceptions in Go, errors are returned by value, or aggregated in intermediate objects. In go error is simply value which should be handled programatically as quick as possible.
 
@@ -302,13 +302,13 @@ Sources:
 - http://davidnix.io/post/error-handling-in-go/
 
 
-## Panics [BASICS PANICS CODE](068-basics-panics)
+## Panics ([code for: Basics Panics](068-basics-panics))
 
 - Used when we want to stop the program.
 - We can check if there was a `panic` occurence in function defer chain
 
 
-## Strings [BASICS STRINGS CODE](070-basics-strings)
+## Strings ([code for: Basics Strings](070-basics-strings))
 
 In Go, a string is in effect a **read-only slice of bytes**.
 
@@ -317,7 +317,7 @@ It's important to state right up front that a string holds arbitrary bytes. It i
 More on https://blog.golang.org/strings
 
 
-## Go routines [BASICS GOROUTINES CODE](080-basics-goroutines)
+## Go routines ([code for: Basics Goroutines](080-basics-goroutines))
 
 A goroutine is a lightweight thread of execution.
 
@@ -326,7 +326,7 @@ Goroutines run in the same address space, so access to shared memory must be syn
 Channels are a typed conduit through which you can send and receive values with the channel operator, <-.
 
 
-## Using 3rd parties [BASICS 3RD PARTY PACKAGES CODE](090-basics-3rd-party-packages)
+## Using 3rd parties ([code for: Basics 3rd Party Packages](090-basics-3rd-party-packages))
 
 In go we can get packages to our $GOPATH with use of `go get` command.
 
@@ -340,31 +340,52 @@ go dep init
 `dep` is fully-fledged dependency manager. It downloads all dependencies source code to `vendor` directory and then compilator includes those code during compilation process.
 
 
-# [BASICS POINTERS CODE](090-basics-pointers)
+# ([code for: Basics Pointers](090-basics-pointers))
 
 
 
-# [CONCURRENCY CHANNELS CODE](100-concurrency-channels)
+## Channels ([code for: Concurrency Channels](100-concurrency-channels))
+
+Channels are a typed conduit through which you can send and receive values with the channel operator, <-.
+
+    ch <- v    // Send v to channel ch.
+    v := <-ch  // Receive from ch, and
+            // assign value to v.
+
+(The data flows in the direction of the arrow.)
+
+Like maps and slices, channels must be created before use:
+
+    eventsChannel := make(chan int)
+
+By default, **sends and receives block until the other side is ready**. This allows goroutines to synchronize without explicit locks or condition variables.
+
+### Buffered Channels
+
+Channels can be buffered. Provide the buffer length as the second argument to make to initialize a buffered channel:
+
+    ch := make(chan int, 100)
+
+Sends to a buffered channel **block only when the buffer is full**. Receives block when the buffer is empty.
+
+
+# ([code for: Concurrency Other](101-concurrency-other))
 
 
 
-# [CONCURRENCY OTHER CODE](101-concurrency-other)
+# ([code for: Stdlib Date Time](110-stdlib-date-time))
 
 
 
-# [STDLIB DATE TIME CODE](110-stdlib-date-time)
+# ([code for: Stdlib Os Processes](110-stdlib-os-processes))
 
 
 
-# [STDLIB OS PROCESSES CODE](110-stdlib-os-processes)
+# ([code for: Stdlib Cli](114-stdlib-cli))
 
 
 
-# [STDLIB CLI CODE](114-stdlib-cli)
-
-
-
-# Streams - Przykłady [STDLIB STREAMS CODE](115-stdlib-streams)
+# Streams - Przykłady ([code for: Stdlib Streams](115-stdlib-streams))
 
 ## Readers
 
@@ -377,7 +398,7 @@ implementują `io.Writer`.
 koniec.
 
 
-## Podstawowe operacje na IO, Bufory [STDLIB IO CODE](116-stdlib-io)
+## Podstawowe operacje na IO, Bufory ([code for: Stdlib Io](116-stdlib-io))
 
 ### Przykład z `bufio`
 
@@ -386,51 +407,51 @@ koniec.
 ### Łączenie plików za pomocą buforów
 
 
-# [STDLIB LOGGING CODE](120-stdlib-logging)
+# ([code for: Stdlib Logging](120-stdlib-logging))
 
 
 
-# [STDLIB HTTP CODE](140-stdlib-http)
+# ([code for: Stdlib Http](140-stdlib-http))
 
 
 
-# [STDLIB HTTP MIDDLEWARES CODE](141-stdlib-http-middlewares)
+# ([code for: Stdlib Http Middlewares](141-stdlib-http-middlewares))
 
 
 
-# [STDLIB ENCODING JSON CODE](150-stdlib-encoding-json)
+# ([code for: Stdlib Encoding Json](150-stdlib-encoding-json))
 
 
 
-# [STDLIB ENCODING XML CODE](151-stdlib-encoding-xml)
+# ([code for: Stdlib Encoding Xml](151-stdlib-encoding-xml))
 
 
 
-# [STDLIB TEMPLATES CODE](170-stdlib-templates)
+# ([code for: Stdlib Templates](170-stdlib-templates))
 
 
 
-# [STDLIB RAND CODE](180-stdlib-rand)
+# ([code for: Stdlib Rand](180-stdlib-rand))
 
 
 
-# [STDLIB REGEXP CODE](180-stdlib-regexp)
+# ([code for: Stdlib Regexp](180-stdlib-regexp))
 
 
 
-# [STDLIB CONTEXT CODE](181-stdlib-context)
+# ([code for: Stdlib Context](181-stdlib-context))
 
 
 
-# [STDLIB SORT CODE](181-stdlib-sort)
+# ([code for: Stdlib Sort](181-stdlib-sort))
 
 
 
-# [STDLIB SIGNAL CODE](182-stdlib-signal)
+# ([code for: Stdlib Signal](182-stdlib-signal))
 
 
 
-# Task [TASK HTTP RESPONSE READER CODE](199-task-http-response-reader)
+# Task ([code for: Task Http Response Reader](199-task-http-response-reader))
 
 MVP:
 
@@ -444,7 +465,7 @@ Homework for ambitious ones:
 - Pass last results back through WWW REST JSON API (e.g. localhost:8080/statuses)
 
 
-## Instalacja [DATABASES MYSQL CODE](210-databases-mysql)
+## Instalacja ([code for: Databases Mysql](210-databases-mysql))
 
 Uruchom
 
@@ -456,7 +477,7 @@ mysql -uroot -proot -P7701 -h127.0.0.1
 ```
 
 
-## ORMs in Go [DATABASES ORM CODE](215-databases-orm)
+## ORMs in Go ([code for: Databases Orm](215-databases-orm))
 
 ### GORM całkiem nieźle rozbudowany ORM - na GH ~ tyle gwiazdek co doctrine
 
@@ -470,10 +491,10 @@ gdy potrzebujesz czegoś lżejszego
 https://github.com/go-gorp/gorp
 
 
-# Przykłady MongoDB [DATABASES MONGODB CODE](220-databases-mongodb)
+# Przykłady MongoDB ([code for: Databases Mongodb](220-databases-mongodb))
 
 
-# RethinkDB [DATABASES RETHINKDB CODE](230-databases-rethinkdb)
+# RethinkDB ([code for: Databases Rethinkdb](230-databases-rethinkdb))
 
 Jedną z ciekawych funkcjonalności RethinkDB jest możliwość
 monitorowania zmian na kolekcji
@@ -501,96 +522,96 @@ docker run --name some-app --link some-rethink:rdb -d application-that-uses-rdb
 ```
 
 
-# [DATABASES REDIS CODE](240-databases-redis)
+# ([code for: Databases Redis](240-databases-redis))
 
 
 
-# [DATABASES BOLT CODE](241-databases-bolt)
+# ([code for: Databases Bolt](241-databases-bolt))
 
 
 
-# [DATABASES POSTGRESQL CODE](250-databases-postgresql)
+# ([code for: Databases Postgresql](250-databases-postgresql))
 
 
 
-# [QUEUES RABBITMQ CODE](260-queues-rabbitmq)
+# ([code for: Queues Rabbitmq](260-queues-rabbitmq))
 
 
 
-# [DATABASES INFLUXDB CODE](270-databases-influxdb)
+# ([code for: Databases Influxdb](270-databases-influxdb))
 
 
 
-# [TESTING UNIT TASK CODE](300-testing-unit-task)
+# ([code for: Testing Unit Task](300-testing-unit-task))
 
 
 
-# [TESTING UNIT EXAMPLES CODE](302-testing-unit-examples)
+# ([code for: Testing Unit Examples](302-testing-unit-examples))
 
 
 
-# [TESTING UNIT DEPENDENCIES CODE](305-testing-unit-dependencies)
+# ([code for: Testing Unit Dependencies](305-testing-unit-dependencies))
 
 
 
-# [TESTING HTTP HANDLER CODE](310-testing-http-handler)
+# ([code for: Testing Http Handler](310-testing-http-handler))
 
 
 
-# [TESTING HTTP SERVER CODE](310-testing-http-server)
+# ([code for: Testing Http Server](310-testing-http-server))
 
 
 
-# [TESTING BENCHMARKING CODE](320-testing-benchmarking)
+# ([code for: Testing Benchmarking](320-testing-benchmarking))
 
 
 
-# [TESTING BLACKBOX CODE](340-testing-blackbox)
+# ([code for: Testing Blackbox](340-testing-blackbox))
 
 
 
-# [TESTING CHROMEDRIVER CODE](350-testing-chromedriver)
+# ([code for: Testing Chromedriver](350-testing-chromedriver))
 
 
 
-# [TESTING PARALLEL BENCHMARK CODE](380-testing-parallel-benchmark)
+# ([code for: Testing Parallel Benchmark](380-testing-parallel-benchmark))
 
 
 
-## For testing we can use mockery [TESTING MOCKERY CODE](390-testing-mockery)
+## For testing we can use mockery ([code for: Testing Mockery](390-testing-mockery))
 
 https://github.com/vektra/mockery
 
 
-# [PATTERNS PIPELINE CODE](400-patterns-pipeline)
+# ([code for: Patterns Pipeline](400-patterns-pipeline))
 
 
 
-# [PATTERNS GLOW MAP REDUCE CODE](401-patterns-glow-map-reduce)
+# ([code for: Patterns Glow Map Reduce](401-patterns-glow-map-reduce))
 
 
 
-# [FULLSTACK HTML AND ANGULAR CODE](510-fullstack-html-and-angular)
+# ([code for: Fullstack Html And Angular](510-fullstack-html-and-angular))
 
 
 
-# [FULLSTACK REST ANGULAR RESOURCE CODE](520-fullstack-rest-angular-resource)
+# ([code for: Fullstack Rest Angular Resource](520-fullstack-rest-angular-resource))
 
 
 
-# [FULLSTACK JSON EVENT STREAM CODE](530-fullstack-json-event-stream)
+# ([code for: Fullstack Json Event Stream](530-fullstack-json-event-stream))
 
 
 
-# [FULLSTACK WEBSOCKETS CODE](540-fullstack-websockets)
+# ([code for: Fullstack Websockets](540-fullstack-websockets))
 
 
 
-# [FULLSTACK WIKI CODE](560-fullstack-wiki)
+# ([code for: Fullstack Wiki](560-fullstack-wiki))
 
 
 
-## Beego [FULLSTACK BEEGO CODE](570-fullstack-beego)
+## Beego ([code for: Fullstack Beego](570-fullstack-beego))
 
 Bee init script - inicjuje podstawową strukturę katalogów.
 hot compile.
@@ -604,59 +625,59 @@ bee run hello
 ```
 
 
-# [LIBS MANGOS CODE](601-libs-mangos)
+# ([code for: Libs Mangos](601-libs-mangos))
 
 
 
-# [LIBS QUANTILE PERCENTILES CODE](602-libs-quantile-percentiles)
+# ([code for: Libs Quantile Percentiles](602-libs-quantile-percentiles))
 
 
 
-# [LIBS BEEP CODE](610-libs-beep)
+# ([code for: Libs Beep](610-libs-beep))
 
 
 
-# [LIBS BRA CODE](610-libs-bra)
+# ([code for: Libs Bra](610-libs-bra))
 
 
 
-# [LIBS SLACK CODE](611-libs-slack)
+# ([code for: Libs Slack](611-libs-slack))
 
 
 
-# [LIBS VEGETA CODE](620-libs-vegeta)
+# ([code for: Libs Vegeta](620-libs-vegeta))
 
 
 
-# go readline implementation [LIBS READLINE CODE](630-libs-readline)
+# go readline implementation ([code for: Libs Readline](630-libs-readline))
 
 https://github.com/chzyer/readline
 
 
-# [LIBS TERMBOX CODE](640-libs-termbox)
+# ([code for: Libs Termbox](640-libs-termbox))
 
 
 
-## Caddy webserver [LIBS CADDY CODE](650-libs-caddy)
+## Caddy webserver ([code for: Libs Caddy](650-libs-caddy))
 
 
-# [LIBS HTTP ECHO CODE](651-libs-http-echo)
-
-
-
-# [LIBS HTTP IRIS CODE](651-libs-http-iris)
+# ([code for: Libs Http Echo](651-libs-http-echo))
 
 
 
-# [LIBS JOBRUNNER CODE](660-libs-jobrunner)
+# ([code for: Libs Http Iris](651-libs-http-iris))
 
 
 
-# [LIBS CRON CODE](665-libs-cron)
+# ([code for: Libs Jobrunner](660-libs-jobrunner))
 
 
 
-## Validator package [LIBS VALIDATOR CODE](670-libs-validator)
+# ([code for: Libs Cron](665-libs-cron))
+
+
+
+## Validator package ([code for: Libs Validator](670-libs-validator))
 
 - https://github.com/go-playground/validator
 
@@ -665,47 +686,47 @@ https://github.com/chzyer/readline
 - https://github.com/asaskevich/govalidator
 
 
-# [LIBS GOGRAPHVIZ CODE](677-libs-gographviz)
+# ([code for: Libs Gographviz](677-libs-gographviz))
 
 
 
-# [LIBS FASTHTTP CODE](680-libs-fasthttp)
+# ([code for: Libs Fasthttp](680-libs-fasthttp))
 
 
 
-# [LIBS UIPROGRESS CODE](681-libs-uiprogress)
+# ([code for: Libs Uiprogress](681-libs-uiprogress))
 
 
 
-# [LIBS GO RPM CODE](690-libs-go-rpm)
+# ([code for: Libs Go Rpm](690-libs-go-rpm))
 
 
 
-# [LIBS GRPC CODE](690-libs-grpc)
+# ([code for: Libs Grpc](690-libs-grpc))
 
 
 
-# [LIBS LOGRUS CODE](690-libs-logrus)
+# ([code for: Libs Logrus](690-libs-logrus))
 
 
 
-# [LIBS GO PLUGIN CODE](691-libs-go-plugin)
+# ([code for: Libs Go Plugin](691-libs-go-plugin))
 
 
 
-# [LIBS CONSUL CODE](692-libs-consul)
+# ([code for: Libs Consul](692-libs-consul))
 
 
 
-# [LIBS LANGUAGE BINDINGS CODE](693-libs-language-bindings)
+# ([code for: Libs Language Bindings](693-libs-language-bindings))
 
 
 
-# [LIBS ASTIELECTRON CODE](694-libs-astielectron)
+# ([code for: Libs Astielectron](694-libs-astielectron))
 
 
 
-# AWS Lambda Golang [LAMBDA SIMPLE CODE](700-lambda-simple)
+# AWS Lambda Golang ([code for: Lambda Simple](700-lambda-simple))
 
 https://aws.amazon.com/blogs/compute/announcing-go-support-for-aws-lambda/
 
@@ -732,24 +753,24 @@ https://docs.aws.amazon.com/lambda/latest/dg/deploying-lambda-apps.html
 aws lambda create-function --region us-west-1 --function-name HelloFunction --zip-file fileb://./deployment.zip --runtime go1.x --tracing-config Mode=Active --role arn:aws:iam::270605981035:role/<role> --handler main
 
 
-# [HOW TO RUN ON PRODUCTION CODE](800-how-to-run-on-production)
+# ([code for: How To Run On Production](800-how-to-run-on-production))
 
 
 
-# Traefik [LOAD BALANCING TRAEFIK CODE](801-load-balancing-traefik)
+# Traefik ([code for: Load Balancing Traefik](801-load-balancing-traefik))
 
 Load balancer with hot reloading
 
 
-# [DEBUGGING DELVE CODE](950-debugging-delve)
+# ([code for: Debugging Delve](950-debugging-delve))
 
 
 
-# [DEBUGGING EXPVAR CODE](951-debugging-expvar)
+# ([code for: Debugging Expvar](951-debugging-expvar))
 
 
 
-## Profilowanie [PROFILING CODE](960-profiling)
+## Profilowanie ([code for: Profiling](960-profiling))
 
 ### Command
 
@@ -860,5 +881,5 @@ go tool pprof http://localhost:8080/debug/pprof/profile
 ```
 
 
-# [SHOOTING YOURSELF IN THE FOOT CODE](999-shooting-yourself-in-the-foot)
+# ([code for: Shooting Yourself In The Foot](999-shooting-yourself-in-the-foot))
 

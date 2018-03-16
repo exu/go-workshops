@@ -7,12 +7,12 @@ import (
 	"strings"
 )
 
-const INTRO_DIR = "000-intro"
+const IntroDirectory = "000-intro"
 
 func getLink(dir string) string {
 	title := strings.Replace(dir[4:], "-", " ", -1)
-	title = strings.ToTitle(title)
-	return fmt.Sprintf("[%s CODE](%s)", title, dir)
+	title = strings.Title(title)
+	return fmt.Sprintf("([code for: %s](%s))", title, dir)
 }
 
 func main() {
@@ -25,14 +25,14 @@ func main() {
 
 	r, _ := regexp.Compile("^[0-9]{3}-[a-z0-9-]+")
 
-	contentBytes, err := ioutil.ReadFile(INTRO_DIR + "/README.md")
+	contentBytes, err := ioutil.ReadFile(IntroDirectory + "/README.md")
 	content += string(contentBytes)
 	if err != nil {
 		panic(err.Error())
 	}
 
 	for _, file := range files {
-		if file.IsDir() && r.MatchString(file.Name()) && file.Name() != INTRO_DIR {
+		if file.IsDir() && r.MatchString(file.Name()) && file.Name() != IntroDirectory {
 			dir := file.Name()
 			readmeBytes, err := ioutil.ReadFile(dir + "/README.md")
 			if err != nil {
