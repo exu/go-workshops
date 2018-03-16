@@ -427,42 +427,48 @@ Go has very powerful standard library, first and one of awesome library are is D
 
 
 
-# ([code for: Stdlib Cli](114-stdlib-cli))
+## Args and flags ([code for: Stdlib Args](114-stdlib-args))
+
+One of important thing when runnein your program is to get some arguments from user.
+
+in Go you can easily get those data using `os.Args` slice or more powerful package `flags`.
+
+Additionally you can get environment variables from `os.Getenv` function in `os` package
+
+# Streams ([code for: Stdlib Streams](115-stdlib-streams))
+
+Streams in go are very powerful feature, very large part of standard library is written as some kind of stream reader or stream writer.
+
+Go have two basic interfaces shaping all world of data streams `io.Reader` and `io.Writer`.
+
+In this section of workhops we'll try to cover some of use cases for each of them.
 
 
+## Basic IO operations ([code for: Stdlib Io](116-stdlib-io))
 
-# Streams - Przykłady ([code for: Stdlib Streams](115-stdlib-streams))
-
-## Readers
-
-implementują `io.Reader`
-
-## Writers
-
-implementują `io.Writer`.
-
-koniec.
+- `bufio` examples
+- directory traversal
+- merging files with use of `buffers`
 
 
-## Podstawowe operacje na IO, Bufory ([code for: Stdlib Io](116-stdlib-io))
+## Stdlib Logging package ([code for: Stdlib Logging](120-stdlib-logging))
 
-### Przykład z `bufio`
+Go has basic logging package to log what's happening in your program.
 
-### Directory traversal
+## HTTP library ([code for: Stdlib Http](140-stdlib-http))
 
-### Łączenie plików za pomocą buforów
+Package http provides HTTP client and server implementations.
 
+HTTP is one of fundamental lib in programming. Go has implemented very powerful HTTP primitives which allows creation of full-fledged HTTP powered servers.
 
-# ([code for: Stdlib Logging](120-stdlib-logging))
-
-
-
-# ([code for: Stdlib Http](140-stdlib-http))
+Info: there is no routing in stdlib so you need to implement your own or use third party libraries (Gorilla mux, Gin, Echo are ones who can help you)
 
 
+## HTTP Middlewares ([code for: Stdlib Http Middlewares](141-stdlib-http-middlewares))
 
-# ([code for: Stdlib Http Middlewares](141-stdlib-http-middlewares))
+Go is using the term `middleware`, but each language/framework calls the concept differently. `NodeJS` and `Rails` calls it `middleware`. In the `Java EE` (i.e. Java Servlet), it’s called `filters`. `C#` calls it `delegate handlers`.
 
+Essentially, the middleware **performs some specific function** on the HTTP request or response **at a specific stage in the HTTP pipeline** before or after the user defined controller. Middleware is a design pattern to eloquently add cross cutting concerns like logging, handling authentication, or gzip compression without having many code contact points.
 
 
 # ([code for: Stdlib Encoding Json](150-stdlib-encoding-json))
@@ -473,9 +479,13 @@ koniec.
 
 
 
-# ([code for: Stdlib Templates](170-stdlib-templates))
+## Templates ([code for: Stdlib Templates](170-stdlib-templates))
 
+In programming we need often some meta templates who help us with interoperability between our code and many output formats. One example could be template engine for generating HTML files for web sites.
 
+In Go there are template engines (yes plural!) implemented in `stdlib`!
+
+We'll go in this chapter by some `html` and `text` template engines.
 
 # ([code for: Stdlib Rand](180-stdlib-rand))
 
