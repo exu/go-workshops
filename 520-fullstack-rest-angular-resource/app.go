@@ -5,8 +5,9 @@
 package main
 
 import (
-	"github.com/gin-gonic/gin"
 	"strconv"
+
+	"github.com/gin-gonic/gin"
 )
 
 // Definiujemy struktury danych
@@ -132,11 +133,17 @@ func init() {
 
 }
 
+func indexHandler(c *gin.Context) {
+	c.HTML(200, "index.html", "")
+}
+
 func main() {
 	app := gin.New()
 
-	app.LoadHTMLGlob("static/*.html")
+	app.LoadHTMLFiles("./static/index.html")
 	app.Static("/static", "static")
+
+	app.GET("/", indexHandler)
 
 	// to be or not to be restfull - version your api
 	v1 := app.Group("/v1")
