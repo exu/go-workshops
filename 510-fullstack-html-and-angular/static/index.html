@@ -33,16 +33,12 @@
 
         <script src="/static/angular.min.js"></script>
         <script>
-         // definicja naszej aplikacji
          var app = angular.module('app', [], function($interpolateProvider) {
-             // oba systemy templatek mają te same tagi - mały konflikt :)
-             // skupiamy sie na go wiec dostosujmy angulara
+             // template deafault "{ }" symbols has conflict with go :)
              $interpolateProvider.startSymbol('[[');
              $interpolateProvider.endSymbol(']]');
          });
 
-         // wewnątrz kontrolera jestesmy w stanie operować
-         // na scope'ie
          app.controller('ctrl', ["$scope", function($scope){
              $scope.all = {{ . }}
              $scope.id = {{ .Id }}

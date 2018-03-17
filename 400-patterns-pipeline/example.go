@@ -60,7 +60,7 @@ func NewHiSayer() *hiSayer {
 func (proc *hiSayer) Run() {
 	defer close(proc.Out)
 	for i := 1; i <= 100; i++ {
-		proc.Out <- fmt.Sprintf("Hi for the %d:th time!", i)
+		proc.Out <- fmt.Sprintf("Hi for the %dth time!", i)
 	}
 }
 
