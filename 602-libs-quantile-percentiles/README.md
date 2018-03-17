@@ -1,0 +1,3 @@
+## Perks for Go (golang.org)
+
+> Perks contains the Go package quantile that computes approximate quantiles over an unbounded data stream within low memory and CPU bounds.
