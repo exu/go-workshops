@@ -1,3 +1,4 @@
+This repository contains files needed for managing Go language workshop - it's some kind of quite complete walk-through of Go language. Feel free to look on the code, there are many comments which could be useful for beginners and semi-intermediate Go developers.
 ## About Go
 
 Who designed Go language?
