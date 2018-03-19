@@ -1,0 +1,19 @@
+apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
+kind: Deployment
+metadata:
+  name: goapp-deployment
+spec:
+  selector:
+    matchLabels:
+      app: goapp
+  replicas: 4 # tells deployment to run 2 pods matching the template
+  template: # create pods using pod definition in this template
+    metadata:
+      labels:
+        app: goapp
+    spec:
+      containers:
+      - name: goapp
+        image: localhost:5000/goapp:latest
+        ports:
+        - containerPort: 8080
