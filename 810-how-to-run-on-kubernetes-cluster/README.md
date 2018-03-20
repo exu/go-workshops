@@ -10,15 +10,7 @@ What if we want do develop our containers on local machine? I did'n found the ou
 ## Getting started
 
 0. Install kubectl and minikube
-1. Find a valid way to run local images in kubectl:
-
-    1. using env and minikube
-
-        ❯ eval $(minikube docker-env)
-        #build docker image in minikube env
-        ❯ docker build -t my-image .
-
-    2. using docker registry runned on minikube cluster + proxy
+1. using docker registry runned on minikube cluster + proxy
      ([source](https://blog.hasura.io/sharing-a-local-registry-for-minikube-37c7240d0615))
 
             ❯ kubectl create -f kubernetes/kube-registry.yaml
@@ -29,17 +21,17 @@ What if we want do develop our containers on local machine? I did'n found the ou
             awk '{print $1;}') 5000:5000
 
 
-    3. Now it's time to build our app. New docker have ability to build multi-stage builds.
+3. Now it's time to build our app. New docker have ability to build multi-stage builds.
 
-        We don't need go in our system, this two step build docker will build binary in one step and put it in second step in small container without dependency.
+    We don't need go in our system, this two step build docker will build binary in one step and put it in second step in small container without dependency.
 
 
             ❯ docker build -t localhost:5000/goapp:latest .
             ❯ docker push localhost:5000/goapp
 
-        Our app is now ready to go in our local registry (on our cluster).
+    Our app is now ready to go in our local registry (on our cluster).
 
-    4. Now it's time to deploy! We'll use declarative method of managing kubernetes cluster with use of yml files.
+4. Now it's time to deploy! We'll use declarative method of managing kubernetes cluster with use of yml files.
 
     First step: create deployment (i've created file `deployment.yml` in `kubernetes` directory):
 
@@ -142,5 +134,8 @@ What if we want do develop our containers on local machine? I did'n found the ou
 
         When we have external cluster IP now we can access our service on given port.
 
+            ❯ IP=$(minikube ip)
             ❯ curl $IP:30080
             Hello World! 2018-03-19 19:15:47.543450202 +0000 UTC from goapp-deployment-684d96ff7-ltl7h
+
+        Yeah it's working.
