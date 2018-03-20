@@ -98,7 +98,7 @@ What if we want do develop our containers on local machine? I did'n found the ou
             65 root       0:00 ps aux
             /app #
 
-        Yeah! there is my goapp running, but **its network is exposed only inside Kubernetes cluster. Now it's time to expose it outside cluster.
+        Yeah! there is my goapp running, but **its network is exposed only inside Kubernetes cluster**. Now it's time to expose it outside cluster.
 
     - expose as Service (`NodePort`) - use mapping of some port on cluster node to external cluster ip.
 
