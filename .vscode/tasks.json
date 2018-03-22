@@ -9,9 +9,10 @@
             "command": "make doc",
             "group": "build",
             "presentation": {
-                "reveal": "always",
-                "panel": "new"
-            }
+                "reveal": "never",
+                "panel": "shared"
+            },
+            "problemMatcher": []
         }
     ]
 }

@@ -41,9 +41,11 @@ func main() {
 		if file.IsDir() && r.MatchString(file.Name()) && file.Name() != IntroDirectory {
 			dir := file.Name()
 			readmeBytes, err := ioutil.ReadFile(dir + "/README.md")
+			title := getTitleFromDir(dir)
+			link := getLink(dir)
 			if err != nil {
-				content += fmt.Sprintf("\n\n## %s\n\n", getTitleFromDir(dir))
-				content += fmt.Sprintf("\n\nThere is no README.md for %s use %s link to follow code examples\n\n", getLink(dir))
+				content += fmt.Sprintf("\n\n## %s\n\n", title)
+				content += fmt.Sprintf("\n\nThere is no README.md for %s use %s link to follow code examples\n\n", title, link)
 			} else {
 				readme := string(readmeBytes)
 				content += fmt.Sprintf("\n\n%s\n\n\n%s", readme, getLink(dir))
