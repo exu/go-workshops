@@ -8,11 +8,12 @@ import (
 )
 
 const IntroDirectory = "000-intro"
+const GithubRoot = "https://github.com/exu/go-workshops"
 
 func getLink(dir string) string {
 	title := strings.Replace(dir[4:], "-", " ", -1)
 	title = strings.Title(title)
-	return fmt.Sprintf("([code for: %s](%s))", title, dir)
+	return fmt.Sprintf("([code for: %s](%s/%s))", title, GithubRoot, dir)
 }
 
 func main() {
