@@ -108,7 +108,7 @@ To install docker compose please follow [Docker compose installation guide](http
 - BRA (Brilliant Ridiculous Assistant) https://github.com/Unknwon/bra - it's good to setup it when you're working on some webservers to auto reload your app when changes in code are made.
 
 
-## Github style - project structure ([code for: Basics Importing](https://github.com/exu/go-workshops/tree/master/010-basics-importing))
+## Github style - project structure
 
 In go idiomatic way is to organise code in "github style", so part of the path is looking like server address to library. Of course if you want you don't need to do this, but whole ecosystem works that way.
 
@@ -148,7 +148,10 @@ go install external.package.com/uri/to/package
 As we can see our `sub` package is in directory `sub` (obvious) and have two files; `sub1.go` and `sub2.go` each of them also have `package sub` directive which tells compiler that they are in one package.
 
 
-## Package managers ([code for: Package Management](https://github.com/exu/go-workshops/tree/master/011-package-management))
+
+([code for: Basics Importing](https://github.com/exu/go-workshops/tree/master/010-basics-importing))
+
+## Package managers
 
 Currently most advanced in go ecosystem is `dep` https://github.com/golang/dep
 
@@ -162,21 +165,34 @@ after that dep will add vendor dir where all depndencies will be loaded (In go a
 
 For more details please refer to `dep` documentation at https://golang.github.io/dep/docs/daily-dep.html
 
-## Variables ([code for: Basics Variables](https://github.com/exu/go-workshops/tree/master/020-basics-variables))
+
+([code for: Package Management](https://github.com/exu/go-workshops/tree/master/011-package-management))
+
+## Variables
 
 In go variables can be declared and assigned in one simple way `a := 1`, compiler will detect type of variable based on its value.
 
 
-## Constants ([code for: Basics Constants](https://github.com/exu/go-workshops/tree/master/030-basics-constants))
+
+([code for: Basics Variables](https://github.com/exu/go-workshops/tree/master/020-basics-variables))
+
+## Constants
 
 Use `const` to define new contant, mechanics looks like in other languages. What is worth to mention that we have `iota` keyword which could be used as some kind of iterator in constant definition.
 
 
-## ([code for: Basics Overriding Internal Types](https://github.com/exu/go-workshops/tree/master/035-basics-overriding-internal-types))
+
+([code for: Basics Constants](https://github.com/exu/go-workshops/tree/master/030-basics-constants))
+
+## Basics Overriding Internal Types
 
 
 
-## Funkcje ([code for: Basics Functions](https://github.com/exu/go-workshops/tree/master/040-basics-functions))
+There is no README.md for ([code for: Basics Overriding Internal Types](https://github.com/exu/go-workshops/tree/master/035-basics-overriding-internal-types)) use %!s(MISSING) link to follow code examples
+
+
+
+## Funkcje
 
 Functions in Go are "First class citizen".
 
@@ -186,26 +202,47 @@ Functions in Go are "First class citizen".
 - defered calls
 - variadic functions
 
-## Loops ([code for: Basics Loops](https://github.com/exu/go-workshops/tree/master/040-basics-loops))
+
+([code for: Basics Functions](https://github.com/exu/go-workshops/tree/master/040-basics-functions))
+
+## Loops
 
 In go there is only one loop keyword: `for`. It's often used with `range` keyword to iterate over array like elements.
 
-## Packages initialisation ([code for: Basics Init](https://github.com/exu/go-workshops/tree/master/041-basics-init))
+
+([code for: Basics Loops](https://github.com/exu/go-workshops/tree/master/040-basics-loops))
+
+## Packages initialisation
 
 `func init() {}` is responsible for package initialisation, it's called only once when import statement for given package is called.
 
 
-## Closures aka anonymous functions ([code for: Basics Closures](https://github.com/exu/go-workshops/tree/master/042-basics-closures))
+
+([code for: Basics Init](https://github.com/exu/go-workshops/tree/master/041-basics-init))
+
+## Closures aka anonymous functions
 
 Go supports anonymous functions, which can form closures. Anonymous functions are useful when you want to define a function inline without having to name it.
 
+Functions in Go are first class citizens so it can be:
+- passed as parameters
+- created as types
+- assigned as values to variables
+- called anonymously
 
-## Tablice ([code for: Basics Arrays](https://github.com/exu/go-workshops/tree/master/050-basics-arrays))
+
+
+([code for: Basics Closures](https://github.com/exu/go-workshops/tree/master/042-basics-closures))
+
+## Data structures: Arrays
 
 In Go, an `array` is a **numbered sequence of elements** of a specific length. Arrays are "low level" data structures with slices over them which simplifies creating and managing.
 
 
-## Slices ([code for: Basics Slices](https://github.com/exu/go-workshops/tree/master/051-basics-slices))
+
+([code for: Basics Arrays](https://github.com/exu/go-workshops/tree/master/050-basics-arrays))
+
+## Slices
 
 
 Slices are a key data type in Go, giving a more powerful interface to sequences than arrays.
@@ -222,12 +259,18 @@ sources:
 - http://www.dotnetperls.com/slice-go
 
 
-## Mapy ([code for: Basics Maps](https://github.com/exu/go-workshops/tree/master/055-basics-maps))
+
+([code for: Basics Slices](https://github.com/exu/go-workshops/tree/master/051-basics-slices))
+
+## Data structures: Maps
 
 One of the most useful data structures in computer science is the hash table. Many hash table implementations exist with varying properties, but in general they offer fast lookups, adds, and deletes. Go provides a built-in map type that implements a hash table.
 
 
-## `make` and `new` keywords ([code for: Basics New And Make](https://github.com/exu/go-workshops/tree/master/059-basics-new-and-make))
+
+([code for: Basics Maps](https://github.com/exu/go-workshops/tree/master/055-basics-maps))
+
+## `make` and `new` keywords
 
 `new(T)` allocates zeroed storage for a new item of type T and returns its address. In Go terminology, it returns a pointer to a newly allocated zero value of type T.
 
@@ -278,26 +321,42 @@ In terms of channels there you can use make and new
     p := new(chan int)   // p has type: *chan int
     c := make(chan int)  // c has type: chan int
 
-## Struktury ([code for: Basics Structs Defining](https://github.com/exu/go-workshops/tree/master/060-basics-structs-defining))
+
+([code for: Basics New And Make](https://github.com/exu/go-workshops/tree/master/059-basics-new-and-make))
+
+## Struktury
 
 A struct is a sequence of named elements, called fields, each of which has a name and a type. Field names may be specified explicitly (IdentifierList) or implicitly (EmbeddedField). Within a struct, non-blank field names must be unique.
 
 
-## Struktury - Kompoozycja ([code for: Basics Struct Composition](https://github.com/exu/go-workshops/tree/master/062-basics-struct-composition))
+
+([code for: Basics Structs Defining](https://github.com/exu/go-workshops/tree/master/060-basics-structs-defining))
+
+## Struktury - Kompoozycja
 
 Kompozycja taki pattern chyba znacie ?
 
 
-## Struct tags (annotations like) ([code for: Basics Struct Tags](https://github.com/exu/go-workshops/tree/master/064-basics-struct-tags))
+
+([code for: Basics Struct Composition](https://github.com/exu/go-workshops/tree/master/062-basics-struct-composition))
+
+## Struct tags (annotations like)
 
 A tag for a field allows you to attach meta-information to the field which can be acquired using reflection. Usually it is used to provide transformation info on how a struct field is encoded to or decoded from another format (or stored/retrieved from a database), but you can use it to store whatever meta-info you want to, either intended for another package or for your own use.
 
 
-## ([code for: Basics Anonymous Structs](https://github.com/exu/go-workshops/tree/master/065-basics-anonymous-structs))
+
+([code for: Basics Struct Tags](https://github.com/exu/go-workshops/tree/master/064-basics-struct-tags))
+
+## Basics Anonymous Structs
 
 
 
-## Interface'y ([code for: Basics Interfaces](https://github.com/exu/go-workshops/tree/master/065-basics-interfaces))
+There is no README.md for ([code for: Basics Anonymous Structs](https://github.com/exu/go-workshops/tree/master/065-basics-anonymous-structs)) use %!s(MISSING) link to follow code examples
+
+
+
+## Interface'y
 
 Go have "implicit interfaces". To implement an interface in Go, we just need to implement all the methods in the interface.
 
@@ -317,7 +376,10 @@ will accept any parameter whatsoever.
 
 - https://medium.com/golangspec/type-assertions-in-go-e609759c42e1
 
-## Error handling ([code for: Basics Errors](https://github.com/exu/go-workshops/tree/master/067-basics-errors))
+
+([code for: Basics Interfaces](https://github.com/exu/go-workshops/tree/master/065-basics-interfaces))
+
+## Error handling
 
 There is no exceptions in Go, errors are returned by value, or aggregated in intermediate objects. In go error is simply value which should be handled programatically as quick as possible.
 
@@ -327,13 +389,19 @@ Sources:
 - http://davidnix.io/post/error-handling-in-go/
 
 
-## Panics ([code for: Basics Panics](https://github.com/exu/go-workshops/tree/master/068-basics-panics))
+
+([code for: Basics Errors](https://github.com/exu/go-workshops/tree/master/067-basics-errors))
+
+## Panics
 
 - Used when we want to stop the program.
 - We can check if there was a `panic` occurence in function defer chain
 
 
-## Strings ([code for: Basics Strings](https://github.com/exu/go-workshops/tree/master/070-basics-strings))
+
+([code for: Basics Panics](https://github.com/exu/go-workshops/tree/master/068-basics-panics))
+
+## Strings
 
 In Go, a string is in effect a **read-only slice of bytes**.
 
@@ -342,7 +410,10 @@ It's important to state right up front that a string holds arbitrary bytes. It i
 More on https://blog.golang.org/strings
 
 
-## Go routines ([code for: Basics Goroutines](https://github.com/exu/go-workshops/tree/master/080-basics-goroutines))
+
+([code for: Basics Strings](https://github.com/exu/go-workshops/tree/master/070-basics-strings))
+
+## Go routines
 
 A goroutine is a lightweight thread of execution.
 
@@ -351,7 +422,10 @@ Goroutines run in the same address space, so access to shared memory must be syn
 Channels are a typed conduit through which you can send and receive values with the channel operator, <-.
 
 
-## Using 3rd parties ([code for: Basics 3rd Party Packages](https://github.com/exu/go-workshops/tree/master/090-basics-3rd-party-packages))
+
+([code for: Basics Goroutines](https://github.com/exu/go-workshops/tree/master/080-basics-goroutines))
+
+## Using 3rd parties
 
 In go we can get packages to our $GOPATH with use of `go get` command.
 
@@ -365,11 +439,18 @@ go dep init
 `dep` is fully-fledged dependency manager. It downloads all dependencies source code to `vendor` directory and then compilator includes those code during compilation process.
 
 
-## ([code for: Basics Pointers](https://github.com/exu/go-workshops/tree/master/090-basics-pointers))
+
+([code for: Basics 3rd Party Packages](https://github.com/exu/go-workshops/tree/master/090-basics-3rd-party-packages))
+
+## Basics Pointers
 
 
 
-## Channels ([code for: Concurrency Channels](https://github.com/exu/go-workshops/tree/master/100-concurrency-channels))
+There is no README.md for ([code for: Basics Pointers](https://github.com/exu/go-workshops/tree/master/090-basics-pointers)) use %!s(MISSING) link to follow code examples
+
+
+
+## Channels
 
 Channels are a typed conduit through which you can send and receive values with the channel operator, <-.
 
@@ -409,7 +490,10 @@ Sends to a buffered channel **block only when the buffer is full**. Receives blo
 
 Feel free to browse [channels chapter source code](100-concurrency-channels/)
 
-## Other concurrency patterns ([code for: Concurrency Other](https://github.com/exu/go-workshops/tree/master/101-concurrency-other))
+
+([code for: Concurrency Channels](https://github.com/exu/go-workshops/tree/master/100-concurrency-channels))
+
+## Other concurrency patterns
 
 You've lerned about channels primitive on previous chapter of this workshops, now it's time to learn about some other ways of creating concurrent programs in go.
 
@@ -420,15 +504,25 @@ We'll be doing some code with:
 - wait groups
 
 
-## Date time ([code for: Stdlib Date Time](https://github.com/exu/go-workshops/tree/master/110-stdlib-date-time))
+
+([code for: Concurrency Other](https://github.com/exu/go-workshops/tree/master/101-concurrency-other))
+
+## Date time
 
 Go has very powerful standard library, first and one of awesome library are is Date time.
 
-## ([code for: Stdlib Os Processes](https://github.com/exu/go-workshops/tree/master/110-stdlib-os-processes))
+
+([code for: Stdlib Date Time](https://github.com/exu/go-workshops/tree/master/110-stdlib-date-time))
+
+## Stdlib Os Processes
 
 
 
-## Args and flags ([code for: Stdlib Args](https://github.com/exu/go-workshops/tree/master/114-stdlib-args))
+There is no README.md for ([code for: Stdlib Os Processes](https://github.com/exu/go-workshops/tree/master/110-stdlib-os-processes)) use %!s(MISSING) link to follow code examples
+
+
+
+## Args and flags
 
 One of important thing when runnein your program is to get some arguments from user.
 
@@ -436,7 +530,10 @@ in Go you can easily get those data using `os.Args` slice or more powerful packa
 
 Additionally you can get environment variables from `os.Getenv` function in `os` package
 
-# Streams ([code for: Stdlib Streams](https://github.com/exu/go-workshops/tree/master/115-stdlib-streams))
+
+([code for: Stdlib Args](https://github.com/exu/go-workshops/tree/master/114-stdlib-args))
+
+# Streams
 
 Streams in go are very powerful feature, very large part of standard library is written as some kind of stream reader or stream writer.
 
@@ -445,18 +542,27 @@ Go have two basic interfaces shaping all world of data streams `io.Reader` and `
 In this section of workhops we'll try to cover some of use cases for each of them.
 
 
-## Basic IO operations ([code for: Stdlib Io](https://github.com/exu/go-workshops/tree/master/116-stdlib-io))
+
+([code for: Stdlib Streams](https://github.com/exu/go-workshops/tree/master/115-stdlib-streams))
+
+## Basic IO operations
 
 - `bufio` examples
 - directory traversal
 - merging files with use of `buffers`
 
 
-## Stdlib Logging package ([code for: Stdlib Logging](https://github.com/exu/go-workshops/tree/master/120-stdlib-logging))
+
+([code for: Stdlib Io](https://github.com/exu/go-workshops/tree/master/116-stdlib-io))
+
+## Stdlib Logging package
 
 Go has basic logging package to log what's happening in your program.
 
-## HTTP library ([code for: Stdlib Http](https://github.com/exu/go-workshops/tree/master/140-stdlib-http))
+
+([code for: Stdlib Logging](https://github.com/exu/go-workshops/tree/master/120-stdlib-logging))
+
+## HTTP library
 
 Package http provides HTTP client and server implementations.
 
@@ -465,22 +571,36 @@ HTTP is one of fundamental lib in programming. Go has implemented very powerful 
 Info: there is no routing in stdlib so you need to implement your own or use third party libraries (Gorilla mux, Gin, Echo are ones who can help you)
 
 
-## HTTP Middlewares ([code for: Stdlib Http Middlewares](https://github.com/exu/go-workshops/tree/master/141-stdlib-http-middlewares))
+
+([code for: Stdlib Http](https://github.com/exu/go-workshops/tree/master/140-stdlib-http))
+
+## HTTP Middlewares
 
 Go is using the term `middleware`, but each language/framework calls the concept differently. `NodeJS` and `Rails` calls it `middleware`. In the `Java EE` (i.e. Java Servlet), it’s called `filters`. `C#` calls it `delegate handlers`.
 
 Essentially, the middleware **performs some specific function** on the HTTP request or response **at a specific stage in the HTTP pipeline** before or after the user defined controller. Middleware is a design pattern to eloquently add cross cutting concerns like logging, handling authentication, or gzip compression without having many code contact points.
 
 
-## ([code for: Stdlib Encoding Json](https://github.com/exu/go-workshops/tree/master/150-stdlib-encoding-json))
+
+([code for: Stdlib Http Middlewares](https://github.com/exu/go-workshops/tree/master/141-stdlib-http-middlewares))
+
+## Stdlib Encoding Json
 
 
 
-## ([code for: Stdlib Encoding Xml](https://github.com/exu/go-workshops/tree/master/151-stdlib-encoding-xml))
+There is no README.md for ([code for: Stdlib Encoding Json](https://github.com/exu/go-workshops/tree/master/150-stdlib-encoding-json)) use %!s(MISSING) link to follow code examples
 
 
 
-## Templates ([code for: Stdlib Templates](https://github.com/exu/go-workshops/tree/master/170-stdlib-templates))
+## Stdlib Encoding Xml
+
+
+
+There is no README.md for ([code for: Stdlib Encoding Xml](https://github.com/exu/go-workshops/tree/master/151-stdlib-encoding-xml)) use %!s(MISSING) link to follow code examples
+
+
+
+## Templates
 
 In programming we need often some meta templates who help us with interoperability between our code and many output formats. One example could be template engine for generating HTML files for web sites.
 
@@ -488,27 +608,49 @@ In Go there are template engines (yes plural!) implemented in `stdlib`!
 
 We'll go in this chapter by some `html` and `text` template engines.
 
-## ([code for: Stdlib Math](https://github.com/exu/go-workshops/tree/master/180-stdlib-math))
+
+([code for: Stdlib Templates](https://github.com/exu/go-workshops/tree/master/170-stdlib-templates))
+
+## Stdlib Math
 
 
 
-## ([code for: Stdlib Regexp](https://github.com/exu/go-workshops/tree/master/180-stdlib-regexp))
+There is no README.md for ([code for: Stdlib Math](https://github.com/exu/go-workshops/tree/master/180-stdlib-math)) use %!s(MISSING) link to follow code examples
 
 
 
-## Context package ([code for: Stdlib Context](https://github.com/exu/go-workshops/tree/master/181-stdlib-context))
+## Stdlib Regexp
+
+
+
+There is no README.md for ([code for: Stdlib Regexp](https://github.com/exu/go-workshops/tree/master/180-stdlib-regexp)) use %!s(MISSING) link to follow code examples
+
+
+
+## Context package
 
 Context is very powerful package, in this section i've implemented HTTP client and server which handles cancelling both sides when client e.g. press Ctrl+C during request.
 
-## ([code for: Stdlib Sort](https://github.com/exu/go-workshops/tree/master/181-stdlib-sort))
+
+([code for: Stdlib Context](https://github.com/exu/go-workshops/tree/master/181-stdlib-context))
+
+## Stdlib Sort
 
 
 
-## ([code for: Stdlib Signal](https://github.com/exu/go-workshops/tree/master/182-stdlib-signal))
+There is no README.md for ([code for: Stdlib Sort](https://github.com/exu/go-workshops/tree/master/181-stdlib-sort)) use %!s(MISSING) link to follow code examples
 
 
 
-# Task ([code for: Task Http Response Reader](https://github.com/exu/go-workshops/tree/master/199-task-http-response-reader))
+## Stdlib Signal
+
+
+
+There is no README.md for ([code for: Stdlib Signal](https://github.com/exu/go-workshops/tree/master/182-stdlib-signal)) use %!s(MISSING) link to follow code examples
+
+
+
+# Task
 
 MVP:
 
@@ -522,7 +664,10 @@ Homework for ambitious ones:
 - Pass last results back through WWW REST JSON API (e.g. localhost:8080/statuses)
 
 
-## MySQL ([code for: Databases Mysql](https://github.com/exu/go-workshops/tree/master/210-databases-mysql))
+
+([code for: Task Http Response Reader](https://github.com/exu/go-workshops/tree/master/199-task-http-response-reader))
+
+## MySQL
 
 Install instructions to run this section:
 
@@ -534,7 +679,10 @@ mysql -uroot -proot -P7701 -h127.0.0.1
 ```
 
 
-## ORMs in Go ([code for: Databases Orm](https://github.com/exu/go-workshops/tree/master/215-databases-orm))
+
+([code for: Databases Mysql](https://github.com/exu/go-workshops/tree/master/210-databases-mysql))
+
+## ORMs in Go
 
 ### GORM the most popular Go ORM.
 
@@ -550,7 +698,10 @@ If you need some lighter abstraction on SQL driver (than full-fledged ORM)
 https://github.com/go-gorp/gorp
 
 
-# MongoDB examples ([code for: Databases Mongodb](https://github.com/exu/go-workshops/tree/master/220-databases-mongodb))
+
+([code for: Databases Orm](https://github.com/exu/go-workshops/tree/master/215-databases-orm))
+
+# MongoDB examples
 
 to use this examples you'll need to run MongoDB server. you can do this using prepared docker-compose file.
 
@@ -561,7 +712,10 @@ mongo localhost:7702
 ```
 
 
-# RethinkDB ([code for: Databases Rethinkdb](https://github.com/exu/go-workshops/tree/master/230-databases-rethinkdb))
+
+([code for: Databases Mongodb](https://github.com/exu/go-workshops/tree/master/220-databases-mongodb))
+
+# RethinkDB
 
 Why rethink here? I think it'll be worth to point out one of it's nice feature - collection changes.
 
@@ -588,75 +742,146 @@ docker run --name some-app --link some-rethink:rdb -d application-that-uses-rdb
 ```
 
 
-## ([code for: Databases Redis](https://github.com/exu/go-workshops/tree/master/240-databases-redis))
+
+([code for: Databases Rethinkdb](https://github.com/exu/go-workshops/tree/master/230-databases-rethinkdb))
+
+## Databases Redis
 
 
 
-## ([code for: Databases Bolt](https://github.com/exu/go-workshops/tree/master/241-databases-bolt))
+There is no README.md for ([code for: Databases Redis](https://github.com/exu/go-workshops/tree/master/240-databases-redis)) use %!s(MISSING) link to follow code examples
 
 
 
-## ([code for: Databases Postgresql](https://github.com/exu/go-workshops/tree/master/250-databases-postgresql))
+## Databases Bolt
 
 
 
-## ([code for: Testing Unit Task](https://github.com/exu/go-workshops/tree/master/300-testing-unit-task))
+There is no README.md for ([code for: Databases Bolt](https://github.com/exu/go-workshops/tree/master/241-databases-bolt)) use %!s(MISSING) link to follow code examples
 
 
 
-## ([code for: Testing Unit Examples](https://github.com/exu/go-workshops/tree/master/302-testing-unit-examples))
+## Databases Postgresql
 
 
 
-## ([code for: Testing Unit Dependencies](https://github.com/exu/go-workshops/tree/master/305-testing-unit-dependencies))
+There is no README.md for ([code for: Databases Postgresql](https://github.com/exu/go-workshops/tree/master/250-databases-postgresql)) use %!s(MISSING) link to follow code examples
 
 
 
-## ([code for: Testing Http Handler](https://github.com/exu/go-workshops/tree/master/310-testing-http-handler))
+## Testing Unit Task
 
 
 
-## ([code for: Testing Http Server](https://github.com/exu/go-workshops/tree/master/310-testing-http-server))
+There is no README.md for ([code for: Testing Unit Task](https://github.com/exu/go-workshops/tree/master/300-testing-unit-task)) use %!s(MISSING) link to follow code examples
 
 
 
-## ([code for: Testing Benchmarking](https://github.com/exu/go-workshops/tree/master/320-testing-benchmarking))
+## Testing Unit Examples
 
 
 
-## ([code for: Testing Parallel Benchmark](https://github.com/exu/go-workshops/tree/master/380-testing-parallel-benchmark))
+There is no README.md for ([code for: Testing Unit Examples](https://github.com/exu/go-workshops/tree/master/302-testing-unit-examples)) use %!s(MISSING) link to follow code examples
 
 
 
-## ([code for: Patterns Pipeline](https://github.com/exu/go-workshops/tree/master/400-patterns-pipeline))
+## Testing Unit Dependencies
 
 
 
-## ([code for: Patterns Glow Map Reduce](https://github.com/exu/go-workshops/tree/master/401-patterns-glow-map-reduce))
+There is no README.md for ([code for: Testing Unit Dependencies](https://github.com/exu/go-workshops/tree/master/305-testing-unit-dependencies)) use %!s(MISSING) link to follow code examples
 
 
 
-## ([code for: Fullstack Html And Angular](https://github.com/exu/go-workshops/tree/master/510-fullstack-html-and-angular))
+## Testing Http Handler
 
 
 
-## ([code for: Fullstack Rest Angular Resource](https://github.com/exu/go-workshops/tree/master/520-fullstack-rest-angular-resource))
+There is no README.md for ([code for: Testing Http Handler](https://github.com/exu/go-workshops/tree/master/310-testing-http-handler)) use %!s(MISSING) link to follow code examples
 
 
 
-## ([code for: Fullstack Json Event Stream](https://github.com/exu/go-workshops/tree/master/530-fullstack-json-event-stream))
+## Testing Http Server
 
 
 
-## ([code for: Fullstack Websockets](https://github.com/exu/go-workshops/tree/master/540-fullstack-websockets))
+There is no README.md for ([code for: Testing Http Server](https://github.com/exu/go-workshops/tree/master/310-testing-http-server)) use %!s(MISSING) link to follow code examples
 
 
 
-## ([code for: Fullstack Wiki](https://github.com/exu/go-workshops/tree/master/560-fullstack-wiki))
+## Testing Benchmarking
 
 
 
-## Beego ([code for: Fullstack Beego](https://github.com/exu/go-workshops/tree/master/570-fullstack-beego))
+There is no README.md for ([code for: Testing Benchmarking](https://github.com/exu/go-workshops/tree/master/320-testing-benchmarking)) use %!s(MISSING) link to follow code examples
+
+
+
+## Testing Parallel Benchmark
+
+
+
+There is no README.md for ([code for: Testing Parallel Benchmark](https://github.com/exu/go-workshops/tree/master/380-testing-parallel-benchmark)) use %!s(MISSING) link to follow code examples
+
+
+
+## Patterns Pipeline
+
+
+
+There is no README.md for ([code for: Patterns Pipeline](https://github.com/exu/go-workshops/tree/master/400-patterns-pipeline)) use %!s(MISSING) link to follow code examples
+
+
+
+## Patterns Glow Map Reduce
+
+
+
+There is no README.md for ([code for: Patterns Glow Map Reduce](https://github.com/exu/go-workshops/tree/master/401-patterns-glow-map-reduce)) use %!s(MISSING) link to follow code examples
+
+
+
+## Fullstack Html And Angular
+
+
+
+There is no README.md for ([code for: Fullstack Html And Angular](https://github.com/exu/go-workshops/tree/master/510-fullstack-html-and-angular)) use %!s(MISSING) link to follow code examples
+
+
+
+## Fullstack Rest Angular Resource
+
+
+
+There is no README.md for ([code for: Fullstack Rest Angular Resource](https://github.com/exu/go-workshops/tree/master/520-fullstack-rest-angular-resource)) use %!s(MISSING) link to follow code examples
+
+
+
+## Fullstack Json Event Stream
+
+
+
+There is no README.md for ([code for: Fullstack Json Event Stream](https://github.com/exu/go-workshops/tree/master/530-fullstack-json-event-stream)) use %!s(MISSING) link to follow code examples
+
+
+
+## Fullstack Websockets
+
+
+
+There is no README.md for ([code for: Fullstack Websockets](https://github.com/exu/go-workshops/tree/master/540-fullstack-websockets)) use %!s(MISSING) link to follow code examples
+
+
+
+## Fullstack Wiki
+
+
+
+There is no README.md for ([code for: Fullstack Wiki](https://github.com/exu/go-workshops/tree/master/560-fullstack-wiki)) use %!s(MISSING) link to follow code examples
+
+
+
+## Beego
 
 Bee init script - inicjuje podstawową strukturę katalogów.
 hot compile.
@@ -670,7 +895,10 @@ bee run hello
 ```
 
 
-## Mangos SP message system ([code for: Libs Mangos](https://github.com/exu/go-workshops/tree/master/601-libs-mangos))
+
+([code for: Fullstack Beego](https://github.com/exu/go-workshops/tree/master/570-fullstack-beego))
+
+## Mangos SP message system
 
 > Package mangos is an implementation in pure Go of the SP ("Scalability Protocols") messaging system. This makes heavy use of go channels, internally, but it can operate on systems that lack support for cgo.
 
@@ -684,56 +912,104 @@ bee run hello
 
 > Supported transports include TCP, inproc, IPC, Websocket, Websocket/TLS and TLS. Use addresses of the form "tls+tcp://:" to access TLS. Note that ipc:// is not supported on Windows (by either this or the reference implementation.) Forcing the local TCP port in Dial is not supported yet (this is rarely useful).
 
-## Perks for Go (golang.org) ([code for: Libs Quantile Percentiles](https://github.com/exu/go-workshops/tree/master/602-libs-quantile-percentiles))
+
+([code for: Libs Mangos](https://github.com/exu/go-workshops/tree/master/601-libs-mangos))
+
+## Perks for Go (golang.org)
 
 > Perks contains the Go package quantile that computes approximate quantiles over an unbounded data stream within low memory and CPU bounds.
 
 
-## ([code for: Libs Beep](https://github.com/exu/go-workshops/tree/master/610-libs-beep))
+
+([code for: Libs Quantile Percentiles](https://github.com/exu/go-workshops/tree/master/602-libs-quantile-percentiles))
+
+## Libs Beep
 
 
 
-## ([code for: Libs Bra](https://github.com/exu/go-workshops/tree/master/610-libs-bra))
+There is no README.md for ([code for: Libs Beep](https://github.com/exu/go-workshops/tree/master/610-libs-beep)) use %!s(MISSING) link to follow code examples
 
 
 
-## ([code for: Libs Slack](https://github.com/exu/go-workshops/tree/master/611-libs-slack))
+## Libs Bra
 
 
 
-## ([code for: Libs Vegeta](https://github.com/exu/go-workshops/tree/master/620-libs-vegeta))
+There is no README.md for ([code for: Libs Bra](https://github.com/exu/go-workshops/tree/master/610-libs-bra)) use %!s(MISSING) link to follow code examples
 
 
 
-# go readline implementation ([code for: Libs Readline](https://github.com/exu/go-workshops/tree/master/630-libs-readline))
+## Libs Slack
+
+
+
+There is no README.md for ([code for: Libs Slack](https://github.com/exu/go-workshops/tree/master/611-libs-slack)) use %!s(MISSING) link to follow code examples
+
+
+
+## Libs Vegeta
+
+
+
+There is no README.md for ([code for: Libs Vegeta](https://github.com/exu/go-workshops/tree/master/620-libs-vegeta)) use %!s(MISSING) link to follow code examples
+
+
+
+# go readline implementation
 
 https://github.com/chzyer/readline
 
 
-## ([code for: Libs Termbox](https://github.com/exu/go-workshops/tree/master/640-libs-termbox))
+
+([code for: Libs Readline](https://github.com/exu/go-workshops/tree/master/630-libs-readline))
+
+## Libs Termbox
 
 
 
-## Caddy webserver ([code for: Libs Caddy](https://github.com/exu/go-workshops/tree/master/650-libs-caddy))
-
-
-## ([code for: Libs Http Echo](https://github.com/exu/go-workshops/tree/master/651-libs-http-echo))
+There is no README.md for ([code for: Libs Termbox](https://github.com/exu/go-workshops/tree/master/640-libs-termbox)) use %!s(MISSING) link to follow code examples
 
 
 
-## ([code for: Libs Http Iris](https://github.com/exu/go-workshops/tree/master/651-libs-http-iris))
+## Caddy webserver
 
 
 
-## ([code for: Libs Jobrunner](https://github.com/exu/go-workshops/tree/master/660-libs-jobrunner))
+([code for: Libs Caddy](https://github.com/exu/go-workshops/tree/master/650-libs-caddy))
+
+## Libs Http Echo
 
 
 
-## ([code for: Libs Cron](https://github.com/exu/go-workshops/tree/master/665-libs-cron))
+There is no README.md for ([code for: Libs Http Echo](https://github.com/exu/go-workshops/tree/master/651-libs-http-echo)) use %!s(MISSING) link to follow code examples
 
 
 
-## Validator package ([code for: Libs Validator](https://github.com/exu/go-workshops/tree/master/670-libs-validator))
+## Libs Http Iris
+
+
+
+There is no README.md for ([code for: Libs Http Iris](https://github.com/exu/go-workshops/tree/master/651-libs-http-iris)) use %!s(MISSING) link to follow code examples
+
+
+
+## Libs Jobrunner
+
+
+
+There is no README.md for ([code for: Libs Jobrunner](https://github.com/exu/go-workshops/tree/master/660-libs-jobrunner)) use %!s(MISSING) link to follow code examples
+
+
+
+## Libs Cron
+
+
+
+There is no README.md for ([code for: Libs Cron](https://github.com/exu/go-workshops/tree/master/665-libs-cron)) use %!s(MISSING) link to follow code examples
+
+
+
+## Validator package
 
 - https://github.com/go-playground/validator
 
@@ -742,47 +1018,90 @@ https://github.com/chzyer/readline
 - https://github.com/asaskevich/govalidator
 
 
-## ([code for: Libs Gographviz](https://github.com/exu/go-workshops/tree/master/677-libs-gographviz))
+
+([code for: Libs Validator](https://github.com/exu/go-workshops/tree/master/670-libs-validator))
+
+## Libs Gographviz
 
 
 
-## ([code for: Libs Fasthttp](https://github.com/exu/go-workshops/tree/master/680-libs-fasthttp))
+There is no README.md for ([code for: Libs Gographviz](https://github.com/exu/go-workshops/tree/master/677-libs-gographviz)) use %!s(MISSING) link to follow code examples
 
 
 
-## ([code for: Libs Uiprogress](https://github.com/exu/go-workshops/tree/master/681-libs-uiprogress))
+## Libs Fasthttp
 
 
 
-## ([code for: Libs Go Rpm](https://github.com/exu/go-workshops/tree/master/690-libs-go-rpm))
+There is no README.md for ([code for: Libs Fasthttp](https://github.com/exu/go-workshops/tree/master/680-libs-fasthttp)) use %!s(MISSING) link to follow code examples
 
 
 
-## ([code for: Libs Grpc](https://github.com/exu/go-workshops/tree/master/690-libs-grpc))
+## Libs Uiprogress
 
 
 
-## ([code for: Libs Logrus](https://github.com/exu/go-workshops/tree/master/690-libs-logrus))
+There is no README.md for ([code for: Libs Uiprogress](https://github.com/exu/go-workshops/tree/master/681-libs-uiprogress)) use %!s(MISSING) link to follow code examples
 
 
 
-## ([code for: Libs Go Plugin](https://github.com/exu/go-workshops/tree/master/691-libs-go-plugin))
+## Libs Go Rpm
 
 
 
-## ([code for: Libs Consul](https://github.com/exu/go-workshops/tree/master/692-libs-consul))
+There is no README.md for ([code for: Libs Go Rpm](https://github.com/exu/go-workshops/tree/master/690-libs-go-rpm)) use %!s(MISSING) link to follow code examples
 
 
 
-## ([code for: Libs Language Bindings](https://github.com/exu/go-workshops/tree/master/693-libs-language-bindings))
+## Libs Grpc
 
 
 
-## ([code for: Libs Astielectron](https://github.com/exu/go-workshops/tree/master/694-libs-astielectron))
+There is no README.md for ([code for: Libs Grpc](https://github.com/exu/go-workshops/tree/master/690-libs-grpc)) use %!s(MISSING) link to follow code examples
 
 
 
-# AWS Lambda Golang ([code for: Lambda Simple](https://github.com/exu/go-workshops/tree/master/700-lambda-simple))
+## Libs Logrus
+
+
+
+There is no README.md for ([code for: Libs Logrus](https://github.com/exu/go-workshops/tree/master/690-libs-logrus)) use %!s(MISSING) link to follow code examples
+
+
+
+## Libs Go Plugin
+
+
+
+There is no README.md for ([code for: Libs Go Plugin](https://github.com/exu/go-workshops/tree/master/691-libs-go-plugin)) use %!s(MISSING) link to follow code examples
+
+
+
+## Libs Consul
+
+
+
+There is no README.md for ([code for: Libs Consul](https://github.com/exu/go-workshops/tree/master/692-libs-consul)) use %!s(MISSING) link to follow code examples
+
+
+
+## Libs Language Bindings
+
+
+
+There is no README.md for ([code for: Libs Language Bindings](https://github.com/exu/go-workshops/tree/master/693-libs-language-bindings)) use %!s(MISSING) link to follow code examples
+
+
+
+## Libs Astielectron
+
+
+
+There is no README.md for ([code for: Libs Astielectron](https://github.com/exu/go-workshops/tree/master/694-libs-astielectron)) use %!s(MISSING) link to follow code examples
+
+
+
+# AWS Lambda Golang
 
 https://aws.amazon.com/blogs/compute/announcing-go-support-for-aws-lambda/
 
@@ -809,16 +1128,26 @@ https://docs.aws.amazon.com/lambda/latest/dg/deploying-lambda-apps.html
 aws lambda create-function --region us-west-1 --function-name HelloFunction --zip-file fileb://./deployment.zip --runtime go1.x --tracing-config Mode=Active --role arn:aws:iam::270605981035:role/<role> --handler main
 
 
-## ([code for: How To Run On Production](https://github.com/exu/go-workshops/tree/master/800-how-to-run-on-production))
+
+([code for: Lambda Simple](https://github.com/exu/go-workshops/tree/master/700-lambda-simple))
+
+## How To Run On Production
 
 
 
-# Traefik ([code for: Load Balancing Traefik](https://github.com/exu/go-workshops/tree/master/801-load-balancing-traefik))
+There is no README.md for ([code for: How To Run On Production](https://github.com/exu/go-workshops/tree/master/800-how-to-run-on-production)) use %!s(MISSING) link to follow code examples
+
+
+
+# Traefik
 
 Load balancer with hot reloading
 
 
-# Kubernetes deployment on local machine ([code for: How To Run On Kubernetes Cluster](https://github.com/exu/go-workshops/tree/master/810-how-to-run-on-kubernetes-cluster))
+
+([code for: Load Balancing Traefik](https://github.com/exu/go-workshops/tree/master/801-load-balancing-traefik))
+
+# Kubernetes deployment on local machine
 
 We'll try now put our code in working Kubernetes cluster with use of Kubernetes and Minikube on our local machine.
 
@@ -882,6 +1211,9 @@ What if we want do develop our containers on local machine? I did'n found the ou
     Now if our deployment is prepared (image: from our local repository), we're ready do sync our definition with kubernetes cluster:
 
         ❯ kubectl create -f kubernetes/deployment.yml
+
+
+## Play a little with our cluster
 
     our deployment is ready, we can play a little with it.
 
@@ -961,15 +1293,26 @@ What if we want do develop our containers on local machine? I did'n found the ou
         Yeah it's working.
 
 
-## ([code for: Debugging Delve](https://github.com/exu/go-workshops/tree/master/950-debugging-delve))
+
+([code for: How To Run On Kubernetes Cluster](https://github.com/exu/go-workshops/tree/master/810-how-to-run-on-kubernetes-cluster))
+
+## Debugging Delve
 
 
 
-## ([code for: Debugging Expvar](https://github.com/exu/go-workshops/tree/master/951-debugging-expvar))
+There is no README.md for ([code for: Debugging Delve](https://github.com/exu/go-workshops/tree/master/950-debugging-delve)) use %!s(MISSING) link to follow code examples
 
 
 
-## Profilowanie ([code for: Profiling](https://github.com/exu/go-workshops/tree/master/960-profiling))
+## Debugging Expvar
+
+
+
+There is no README.md for ([code for: Debugging Expvar](https://github.com/exu/go-workshops/tree/master/951-debugging-expvar)) use %!s(MISSING) link to follow code examples
+
+
+
+## Profilowanie
 
 ### Command
 
@@ -1080,5 +1423,12 @@ go tool pprof http://localhost:8080/debug/pprof/profile
 ```
 
 
-## ([code for: Shooting Yourself In The Foot](https://github.com/exu/go-workshops/tree/master/999-shooting-yourself-in-the-foot))
+
+([code for: Profiling](https://github.com/exu/go-workshops/tree/master/960-profiling))
+
+## Shooting Yourself In The Foot
+
+
+
+There is no README.md for ([code for: Shooting Yourself In The Foot](https://github.com/exu/go-workshops/tree/master/999-shooting-yourself-in-the-foot)) use %!s(MISSING) link to follow code examples
 
