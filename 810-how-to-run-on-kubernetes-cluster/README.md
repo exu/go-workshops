@@ -63,6 +63,9 @@ What if we want do develop our containers on local machine? I did'n found the ou
 
         ❯ kubectl create -f kubernetes/deployment.yml
 
+
+## Play a little with our cluster
+
     our deployment is ready, we can play a little with it.
 
     - get pods:

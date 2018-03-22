@@ -10,9 +10,14 @@ import (
 const IntroDirectory = "000-intro"
 const GithubRoot = "https://github.com/exu/go-workshops/tree/master"
 
-func getLink(dir string) string {
-	title := strings.Replace(dir[4:], "-", " ", -1)
+func getTitleFromDir(input string) (title string) {
+	title = strings.Replace(input[4:], "-", " ", -1)
 	title = strings.Title(title)
+	return
+}
+
+func getLink(dir string) string {
+	title := getTitleFromDir(dir)
 	return fmt.Sprintf("([code for: %s](%s/%s))", title, GithubRoot, dir)
 }
 
@@ -37,11 +42,11 @@ func main() {
 			dir := file.Name()
 			readmeBytes, err := ioutil.ReadFile(dir + "/README.md")
 			if err != nil {
-				content += fmt.Sprintf("\n\n## %s\n\n", getLink(dir))
+				content += fmt.Sprintf("\n\n## %s\n\n", getTitleFromDir(dir))
+				content += fmt.Sprintf("\n\nThere is no README.md for %s use %s link to follow code examples\n\n", getLink(dir))
 			} else {
 				readme := string(readmeBytes)
-				readme = strings.Replace(readme, "\n", " "+getLink(dir)+"\n", 1)
-				content += "\n\n" + readme
+				content += fmt.Sprintf("\n\n%s\n\n\n%s", readme, getLink(dir))
 			}
 		}
 	}
