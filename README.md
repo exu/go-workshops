@@ -188,7 +188,7 @@ Use `const` to define new contant, mechanics looks like in other languages. What
 
 
 
-There is no README.md for ([code for: Basics Overriding Internal Types](https://github.com/exu/go-workshops/tree/master/035-basics-overriding-internal-types)) use %!s(MISSING) link to follow code examples
+There is no README.md for Basics Overriding Internal Types use ([code for: Basics Overriding Internal Types](https://github.com/exu/go-workshops/tree/master/035-basics-overriding-internal-types)) link to follow code examples
 
 
 
@@ -352,7 +352,7 @@ A tag for a field allows you to attach meta-information to the field which can b
 
 
 
-There is no README.md for ([code for: Basics Anonymous Structs](https://github.com/exu/go-workshops/tree/master/065-basics-anonymous-structs)) use %!s(MISSING) link to follow code examples
+There is no README.md for Basics Anonymous Structs use ([code for: Basics Anonymous Structs](https://github.com/exu/go-workshops/tree/master/065-basics-anonymous-structs)) link to follow code examples
 
 
 
@@ -446,7 +446,7 @@ go dep init
 
 
 
-There is no README.md for ([code for: Basics Pointers](https://github.com/exu/go-workshops/tree/master/090-basics-pointers)) use %!s(MISSING) link to follow code examples
+There is no README.md for Basics Pointers use ([code for: Basics Pointers](https://github.com/exu/go-workshops/tree/master/090-basics-pointers)) link to follow code examples
 
 
 
@@ -518,7 +518,7 @@ Go has very powerful standard library, first and one of awesome library are is D
 
 
 
-There is no README.md for ([code for: Stdlib Os Processes](https://github.com/exu/go-workshops/tree/master/110-stdlib-os-processes)) use %!s(MISSING) link to follow code examples
+There is no README.md for Stdlib Os Processes use ([code for: Stdlib Os Processes](https://github.com/exu/go-workshops/tree/master/110-stdlib-os-processes)) link to follow code examples
 
 
 
@@ -588,7 +588,7 @@ Essentially, the middleware **performs some specific function** on the HTTP requ
 
 
 
-There is no README.md for ([code for: Stdlib Encoding Json](https://github.com/exu/go-workshops/tree/master/150-stdlib-encoding-json)) use %!s(MISSING) link to follow code examples
+There is no README.md for Stdlib Encoding Json use ([code for: Stdlib Encoding Json](https://github.com/exu/go-workshops/tree/master/150-stdlib-encoding-json)) link to follow code examples
 
 
 
@@ -596,7 +596,7 @@ There is no README.md for ([code for: Stdlib Encoding Json](https://github.com/e
 
 
 
-There is no README.md for ([code for: Stdlib Encoding Xml](https://github.com/exu/go-workshops/tree/master/151-stdlib-encoding-xml)) use %!s(MISSING) link to follow code examples
+There is no README.md for Stdlib Encoding Xml use ([code for: Stdlib Encoding Xml](https://github.com/exu/go-workshops/tree/master/151-stdlib-encoding-xml)) link to follow code examples
 
 
 
@@ -615,7 +615,7 @@ We'll go in this chapter by some `html` and `text` template engines.
 
 
 
-There is no README.md for ([code for: Stdlib Math](https://github.com/exu/go-workshops/tree/master/180-stdlib-math)) use %!s(MISSING) link to follow code examples
+There is no README.md for Stdlib Math use ([code for: Stdlib Math](https://github.com/exu/go-workshops/tree/master/180-stdlib-math)) link to follow code examples
 
 
 
@@ -623,7 +623,7 @@ There is no README.md for ([code for: Stdlib Math](https://github.com/exu/go-wor
 
 
 
-There is no README.md for ([code for: Stdlib Regexp](https://github.com/exu/go-workshops/tree/master/180-stdlib-regexp)) use %!s(MISSING) link to follow code examples
+There is no README.md for Stdlib Regexp use ([code for: Stdlib Regexp](https://github.com/exu/go-workshops/tree/master/180-stdlib-regexp)) link to follow code examples
 
 
 
@@ -638,7 +638,7 @@ Context is very powerful package, in this section i've implemented HTTP client a
 
 
 
-There is no README.md for ([code for: Stdlib Sort](https://github.com/exu/go-workshops/tree/master/181-stdlib-sort)) use %!s(MISSING) link to follow code examples
+There is no README.md for Stdlib Sort use ([code for: Stdlib Sort](https://github.com/exu/go-workshops/tree/master/181-stdlib-sort)) link to follow code examples
 
 
 
@@ -646,7 +646,7 @@ There is no README.md for ([code for: Stdlib Sort](https://github.com/exu/go-wor
 
 
 
-There is no README.md for ([code for: Stdlib Signal](https://github.com/exu/go-workshops/tree/master/182-stdlib-signal)) use %!s(MISSING) link to follow code examples
+There is no README.md for Stdlib Signal use ([code for: Stdlib Signal](https://github.com/exu/go-workshops/tree/master/182-stdlib-signal)) link to follow code examples
 
 
 
@@ -749,7 +749,7 @@ docker run --name some-app --link some-rethink:rdb -d application-that-uses-rdb
 
 
 
-There is no README.md for ([code for: Databases Redis](https://github.com/exu/go-workshops/tree/master/240-databases-redis)) use %!s(MISSING) link to follow code examples
+There is no README.md for Databases Redis use ([code for: Databases Redis](https://github.com/exu/go-workshops/tree/master/240-databases-redis)) link to follow code examples
 
 
 
@@ -757,7 +757,7 @@ There is no README.md for ([code for: Databases Redis](https://github.com/exu/go
 
 
 
-There is no README.md for ([code for: Databases Bolt](https://github.com/exu/go-workshops/tree/master/241-databases-bolt)) use %!s(MISSING) link to follow code examples
+There is no README.md for Databases Bolt use ([code for: Databases Bolt](https://github.com/exu/go-workshops/tree/master/241-databases-bolt)) link to follow code examples
 
 
 
@@ -765,7 +765,7 @@ There is no README.md for ([code for: Databases Bolt](https://github.com/exu/go-
 
 
 
-There is no README.md for ([code for: Databases Postgresql](https://github.com/exu/go-workshops/tree/master/250-databases-postgresql)) use %!s(MISSING) link to follow code examples
+There is no README.md for Databases Postgresql use ([code for: Databases Postgresql](https://github.com/exu/go-workshops/tree/master/250-databases-postgresql)) link to follow code examples
 
 
 
@@ -773,7 +773,7 @@ There is no README.md for ([code for: Databases Postgresql](https://github.com/e
 
 
 
-There is no README.md for ([code for: Testing Unit Task](https://github.com/exu/go-workshops/tree/master/300-testing-unit-task)) use %!s(MISSING) link to follow code examples
+There is no README.md for Testing Unit Task use ([code for: Testing Unit Task](https://github.com/exu/go-workshops/tree/master/300-testing-unit-task)) link to follow code examples
 
 
 
@@ -781,7 +781,7 @@ There is no README.md for ([code for: Testing Unit Task](https://github.com/exu/
 
 
 
-There is no README.md for ([code for: Testing Unit Examples](https://github.com/exu/go-workshops/tree/master/302-testing-unit-examples)) use %!s(MISSING) link to follow code examples
+There is no README.md for Testing Unit Examples use ([code for: Testing Unit Examples](https://github.com/exu/go-workshops/tree/master/302-testing-unit-examples)) link to follow code examples
 
 
 
@@ -789,7 +789,7 @@ There is no README.md for ([code for: Testing Unit Examples](https://github.com/
 
 
 
-There is no README.md for ([code for: Testing Unit Dependencies](https://github.com/exu/go-workshops/tree/master/305-testing-unit-dependencies)) use %!s(MISSING) link to follow code examples
+There is no README.md for Testing Unit Dependencies use ([code for: Testing Unit Dependencies](https://github.com/exu/go-workshops/tree/master/305-testing-unit-dependencies)) link to follow code examples
 
 
 
@@ -797,7 +797,7 @@ There is no README.md for ([code for: Testing Unit Dependencies](https://github.
 
 
 
-There is no README.md for ([code for: Testing Http Handler](https://github.com/exu/go-workshops/tree/master/310-testing-http-handler)) use %!s(MISSING) link to follow code examples
+There is no README.md for Testing Http Handler use ([code for: Testing Http Handler](https://github.com/exu/go-workshops/tree/master/310-testing-http-handler)) link to follow code examples
 
 
 
@@ -805,7 +805,7 @@ There is no README.md for ([code for: Testing Http Handler](https://github.com/e
 
 
 
-There is no README.md for ([code for: Testing Http Server](https://github.com/exu/go-workshops/tree/master/310-testing-http-server)) use %!s(MISSING) link to follow code examples
+There is no README.md for Testing Http Server use ([code for: Testing Http Server](https://github.com/exu/go-workshops/tree/master/310-testing-http-server)) link to follow code examples
 
 
 
@@ -813,7 +813,7 @@ There is no README.md for ([code for: Testing Http Server](https://github.com/ex
 
 
 
-There is no README.md for ([code for: Testing Benchmarking](https://github.com/exu/go-workshops/tree/master/320-testing-benchmarking)) use %!s(MISSING) link to follow code examples
+There is no README.md for Testing Benchmarking use ([code for: Testing Benchmarking](https://github.com/exu/go-workshops/tree/master/320-testing-benchmarking)) link to follow code examples
 
 
 
@@ -821,7 +821,7 @@ There is no README.md for ([code for: Testing Benchmarking](https://github.com/e
 
 
 
-There is no README.md for ([code for: Testing Parallel Benchmark](https://github.com/exu/go-workshops/tree/master/380-testing-parallel-benchmark)) use %!s(MISSING) link to follow code examples
+There is no README.md for Testing Parallel Benchmark use ([code for: Testing Parallel Benchmark](https://github.com/exu/go-workshops/tree/master/380-testing-parallel-benchmark)) link to follow code examples
 
 
 
@@ -829,7 +829,7 @@ There is no README.md for ([code for: Testing Parallel Benchmark](https://github
 
 
 
-There is no README.md for ([code for: Patterns Pipeline](https://github.com/exu/go-workshops/tree/master/400-patterns-pipeline)) use %!s(MISSING) link to follow code examples
+There is no README.md for Patterns Pipeline use ([code for: Patterns Pipeline](https://github.com/exu/go-workshops/tree/master/400-patterns-pipeline)) link to follow code examples
 
 
 
@@ -837,7 +837,7 @@ There is no README.md for ([code for: Patterns Pipeline](https://github.com/exu/
 
 
 
-There is no README.md for ([code for: Patterns Glow Map Reduce](https://github.com/exu/go-workshops/tree/master/401-patterns-glow-map-reduce)) use %!s(MISSING) link to follow code examples
+There is no README.md for Patterns Glow Map Reduce use ([code for: Patterns Glow Map Reduce](https://github.com/exu/go-workshops/tree/master/401-patterns-glow-map-reduce)) link to follow code examples
 
 
 
@@ -845,7 +845,7 @@ There is no README.md for ([code for: Patterns Glow Map Reduce](https://github.c
 
 
 
-There is no README.md for ([code for: Fullstack Html And Angular](https://github.com/exu/go-workshops/tree/master/510-fullstack-html-and-angular)) use %!s(MISSING) link to follow code examples
+There is no README.md for Fullstack Html And Angular use ([code for: Fullstack Html And Angular](https://github.com/exu/go-workshops/tree/master/510-fullstack-html-and-angular)) link to follow code examples
 
 
 
@@ -853,7 +853,7 @@ There is no README.md for ([code for: Fullstack Html And Angular](https://github
 
 
 
-There is no README.md for ([code for: Fullstack Rest Angular Resource](https://github.com/exu/go-workshops/tree/master/520-fullstack-rest-angular-resource)) use %!s(MISSING) link to follow code examples
+There is no README.md for Fullstack Rest Angular Resource use ([code for: Fullstack Rest Angular Resource](https://github.com/exu/go-workshops/tree/master/520-fullstack-rest-angular-resource)) link to follow code examples
 
 
 
@@ -861,7 +861,7 @@ There is no README.md for ([code for: Fullstack Rest Angular Resource](https://g
 
 
 
-There is no README.md for ([code for: Fullstack Json Event Stream](https://github.com/exu/go-workshops/tree/master/530-fullstack-json-event-stream)) use %!s(MISSING) link to follow code examples
+There is no README.md for Fullstack Json Event Stream use ([code for: Fullstack Json Event Stream](https://github.com/exu/go-workshops/tree/master/530-fullstack-json-event-stream)) link to follow code examples
 
 
 
@@ -869,7 +869,7 @@ There is no README.md for ([code for: Fullstack Json Event Stream](https://githu
 
 
 
-There is no README.md for ([code for: Fullstack Websockets](https://github.com/exu/go-workshops/tree/master/540-fullstack-websockets)) use %!s(MISSING) link to follow code examples
+There is no README.md for Fullstack Websockets use ([code for: Fullstack Websockets](https://github.com/exu/go-workshops/tree/master/540-fullstack-websockets)) link to follow code examples
 
 
 
@@ -877,7 +877,7 @@ There is no README.md for ([code for: Fullstack Websockets](https://github.com/e
 
 
 
-There is no README.md for ([code for: Fullstack Wiki](https://github.com/exu/go-workshops/tree/master/560-fullstack-wiki)) use %!s(MISSING) link to follow code examples
+There is no README.md for Fullstack Wiki use ([code for: Fullstack Wiki](https://github.com/exu/go-workshops/tree/master/560-fullstack-wiki)) link to follow code examples
 
 
 
@@ -927,7 +927,7 @@ bee run hello
 
 
 
-There is no README.md for ([code for: Libs Beep](https://github.com/exu/go-workshops/tree/master/610-libs-beep)) use %!s(MISSING) link to follow code examples
+There is no README.md for Libs Beep use ([code for: Libs Beep](https://github.com/exu/go-workshops/tree/master/610-libs-beep)) link to follow code examples
 
 
 
@@ -935,7 +935,7 @@ There is no README.md for ([code for: Libs Beep](https://github.com/exu/go-works
 
 
 
-There is no README.md for ([code for: Libs Bra](https://github.com/exu/go-workshops/tree/master/610-libs-bra)) use %!s(MISSING) link to follow code examples
+There is no README.md for Libs Bra use ([code for: Libs Bra](https://github.com/exu/go-workshops/tree/master/610-libs-bra)) link to follow code examples
 
 
 
@@ -943,7 +943,7 @@ There is no README.md for ([code for: Libs Bra](https://github.com/exu/go-worksh
 
 
 
-There is no README.md for ([code for: Libs Slack](https://github.com/exu/go-workshops/tree/master/611-libs-slack)) use %!s(MISSING) link to follow code examples
+There is no README.md for Libs Slack use ([code for: Libs Slack](https://github.com/exu/go-workshops/tree/master/611-libs-slack)) link to follow code examples
 
 
 
@@ -951,7 +951,7 @@ There is no README.md for ([code for: Libs Slack](https://github.com/exu/go-work
 
 
 
-There is no README.md for ([code for: Libs Vegeta](https://github.com/exu/go-workshops/tree/master/620-libs-vegeta)) use %!s(MISSING) link to follow code examples
+There is no README.md for Libs Vegeta use ([code for: Libs Vegeta](https://github.com/exu/go-workshops/tree/master/620-libs-vegeta)) link to follow code examples
 
 
 
@@ -967,7 +967,7 @@ https://github.com/chzyer/readline
 
 
 
-There is no README.md for ([code for: Libs Termbox](https://github.com/exu/go-workshops/tree/master/640-libs-termbox)) use %!s(MISSING) link to follow code examples
+There is no README.md for Libs Termbox use ([code for: Libs Termbox](https://github.com/exu/go-workshops/tree/master/640-libs-termbox)) link to follow code examples
 
 
 
@@ -981,7 +981,7 @@ There is no README.md for ([code for: Libs Termbox](https://github.com/exu/go-wo
 
 
 
-There is no README.md for ([code for: Libs Http Echo](https://github.com/exu/go-workshops/tree/master/651-libs-http-echo)) use %!s(MISSING) link to follow code examples
+There is no README.md for Libs Http Echo use ([code for: Libs Http Echo](https://github.com/exu/go-workshops/tree/master/651-libs-http-echo)) link to follow code examples
 
 
 
@@ -989,7 +989,7 @@ There is no README.md for ([code for: Libs Http Echo](https://github.com/exu/go-
 
 
 
-There is no README.md for ([code for: Libs Http Iris](https://github.com/exu/go-workshops/tree/master/651-libs-http-iris)) use %!s(MISSING) link to follow code examples
+There is no README.md for Libs Http Iris use ([code for: Libs Http Iris](https://github.com/exu/go-workshops/tree/master/651-libs-http-iris)) link to follow code examples
 
 
 
@@ -997,7 +997,7 @@ There is no README.md for ([code for: Libs Http Iris](https://github.com/exu/go-
 
 
 
-There is no README.md for ([code for: Libs Jobrunner](https://github.com/exu/go-workshops/tree/master/660-libs-jobrunner)) use %!s(MISSING) link to follow code examples
+There is no README.md for Libs Jobrunner use ([code for: Libs Jobrunner](https://github.com/exu/go-workshops/tree/master/660-libs-jobrunner)) link to follow code examples
 
 
 
@@ -1005,7 +1005,7 @@ There is no README.md for ([code for: Libs Jobrunner](https://github.com/exu/go-
 
 
 
-There is no README.md for ([code for: Libs Cron](https://github.com/exu/go-workshops/tree/master/665-libs-cron)) use %!s(MISSING) link to follow code examples
+There is no README.md for Libs Cron use ([code for: Libs Cron](https://github.com/exu/go-workshops/tree/master/665-libs-cron)) link to follow code examples
 
 
 
@@ -1025,7 +1025,7 @@ There is no README.md for ([code for: Libs Cron](https://github.com/exu/go-works
 
 
 
-There is no README.md for ([code for: Libs Gographviz](https://github.com/exu/go-workshops/tree/master/677-libs-gographviz)) use %!s(MISSING) link to follow code examples
+There is no README.md for Libs Gographviz use ([code for: Libs Gographviz](https://github.com/exu/go-workshops/tree/master/677-libs-gographviz)) link to follow code examples
 
 
 
@@ -1033,7 +1033,7 @@ There is no README.md for ([code for: Libs Gographviz](https://github.com/exu/go
 
 
 
-There is no README.md for ([code for: Libs Fasthttp](https://github.com/exu/go-workshops/tree/master/680-libs-fasthttp)) use %!s(MISSING) link to follow code examples
+There is no README.md for Libs Fasthttp use ([code for: Libs Fasthttp](https://github.com/exu/go-workshops/tree/master/680-libs-fasthttp)) link to follow code examples
 
 
 
@@ -1041,7 +1041,7 @@ There is no README.md for ([code for: Libs Fasthttp](https://github.com/exu/go-w
 
 
 
-There is no README.md for ([code for: Libs Uiprogress](https://github.com/exu/go-workshops/tree/master/681-libs-uiprogress)) use %!s(MISSING) link to follow code examples
+There is no README.md for Libs Uiprogress use ([code for: Libs Uiprogress](https://github.com/exu/go-workshops/tree/master/681-libs-uiprogress)) link to follow code examples
 
 
 
@@ -1049,7 +1049,7 @@ There is no README.md for ([code for: Libs Uiprogress](https://github.com/exu/go
 
 
 
-There is no README.md for ([code for: Libs Go Rpm](https://github.com/exu/go-workshops/tree/master/690-libs-go-rpm)) use %!s(MISSING) link to follow code examples
+There is no README.md for Libs Go Rpm use ([code for: Libs Go Rpm](https://github.com/exu/go-workshops/tree/master/690-libs-go-rpm)) link to follow code examples
 
 
 
@@ -1057,7 +1057,7 @@ There is no README.md for ([code for: Libs Go Rpm](https://github.com/exu/go-wor
 
 
 
-There is no README.md for ([code for: Libs Grpc](https://github.com/exu/go-workshops/tree/master/690-libs-grpc)) use %!s(MISSING) link to follow code examples
+There is no README.md for Libs Grpc use ([code for: Libs Grpc](https://github.com/exu/go-workshops/tree/master/690-libs-grpc)) link to follow code examples
 
 
 
@@ -1065,7 +1065,7 @@ There is no README.md for ([code for: Libs Grpc](https://github.com/exu/go-works
 
 
 
-There is no README.md for ([code for: Libs Logrus](https://github.com/exu/go-workshops/tree/master/690-libs-logrus)) use %!s(MISSING) link to follow code examples
+There is no README.md for Libs Logrus use ([code for: Libs Logrus](https://github.com/exu/go-workshops/tree/master/690-libs-logrus)) link to follow code examples
 
 
 
@@ -1073,7 +1073,7 @@ There is no README.md for ([code for: Libs Logrus](https://github.com/exu/go-wor
 
 
 
-There is no README.md for ([code for: Libs Go Plugin](https://github.com/exu/go-workshops/tree/master/691-libs-go-plugin)) use %!s(MISSING) link to follow code examples
+There is no README.md for Libs Go Plugin use ([code for: Libs Go Plugin](https://github.com/exu/go-workshops/tree/master/691-libs-go-plugin)) link to follow code examples
 
 
 
@@ -1081,7 +1081,7 @@ There is no README.md for ([code for: Libs Go Plugin](https://github.com/exu/go-
 
 
 
-There is no README.md for ([code for: Libs Consul](https://github.com/exu/go-workshops/tree/master/692-libs-consul)) use %!s(MISSING) link to follow code examples
+There is no README.md for Libs Consul use ([code for: Libs Consul](https://github.com/exu/go-workshops/tree/master/692-libs-consul)) link to follow code examples
 
 
 
@@ -1089,7 +1089,7 @@ There is no README.md for ([code for: Libs Consul](https://github.com/exu/go-wor
 
 
 
-There is no README.md for ([code for: Libs Language Bindings](https://github.com/exu/go-workshops/tree/master/693-libs-language-bindings)) use %!s(MISSING) link to follow code examples
+There is no README.md for Libs Language Bindings use ([code for: Libs Language Bindings](https://github.com/exu/go-workshops/tree/master/693-libs-language-bindings)) link to follow code examples
 
 
 
@@ -1097,7 +1097,7 @@ There is no README.md for ([code for: Libs Language Bindings](https://github.com
 
 
 
-There is no README.md for ([code for: Libs Astielectron](https://github.com/exu/go-workshops/tree/master/694-libs-astielectron)) use %!s(MISSING) link to follow code examples
+There is no README.md for Libs Astielectron use ([code for: Libs Astielectron](https://github.com/exu/go-workshops/tree/master/694-libs-astielectron)) link to follow code examples
 
 
 
@@ -1135,7 +1135,7 @@ aws lambda create-function --region us-west-1 --function-name HelloFunction --zi
 
 
 
-There is no README.md for ([code for: How To Run On Production](https://github.com/exu/go-workshops/tree/master/800-how-to-run-on-production)) use %!s(MISSING) link to follow code examples
+There is no README.md for How To Run On Production use ([code for: How To Run On Production](https://github.com/exu/go-workshops/tree/master/800-how-to-run-on-production)) link to follow code examples
 
 
 
@@ -1300,7 +1300,7 @@ What if we want do develop our containers on local machine? I did'n found the ou
 
 
 
-There is no README.md for ([code for: Debugging Delve](https://github.com/exu/go-workshops/tree/master/950-debugging-delve)) use %!s(MISSING) link to follow code examples
+There is no README.md for Debugging Delve use ([code for: Debugging Delve](https://github.com/exu/go-workshops/tree/master/950-debugging-delve)) link to follow code examples
 
 
 
@@ -1308,7 +1308,7 @@ There is no README.md for ([code for: Debugging Delve](https://github.com/exu/go
 
 
 
-There is no README.md for ([code for: Debugging Expvar](https://github.com/exu/go-workshops/tree/master/951-debugging-expvar)) use %!s(MISSING) link to follow code examples
+There is no README.md for Debugging Expvar use ([code for: Debugging Expvar](https://github.com/exu/go-workshops/tree/master/951-debugging-expvar)) link to follow code examples
 
 
 
@@ -1430,5 +1430,5 @@ go tool pprof http://localhost:8080/debug/pprof/profile
 
 
 
-There is no README.md for ([code for: Shooting Yourself In The Foot](https://github.com/exu/go-workshops/tree/master/999-shooting-yourself-in-the-foot)) use %!s(MISSING) link to follow code examples
+There is no README.md for Shooting Yourself In The Foot use ([code for: Shooting Yourself In The Foot](https://github.com/exu/go-workshops/tree/master/999-shooting-yourself-in-the-foot)) link to follow code examples
 
