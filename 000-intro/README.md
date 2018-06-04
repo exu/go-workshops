@@ -26,7 +26,7 @@ sources:
 - Garbage Collected
 - Strong types
 - Functions as first class citizens
-- Object Oriented (but without inheritance)
+- Object Oriented (but without inheritance and classes)
 
 ## Why it's worth of your time?
 
