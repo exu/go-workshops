@@ -7,7 +7,10 @@
             "label": "Make main README.md",
             "type": "shell",
             "command": "make doc",
-            "group": "build",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
             "presentation": {
                 "reveal": "never",
                 "panel": "shared"

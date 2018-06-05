@@ -1,4 +1,5 @@
 This repository contains files needed for managing Go language workshop - it's some kind of quite complete walk-through of Go language. Feel free to look on the code, there are many comments which could be useful for beginners and semi-intermediate Go developers.
+
 ## About Go
 
 Who designed Go language?
@@ -84,16 +85,15 @@ To install docker compose please follow [Docker compose installation guide](http
 
 - go test - included testing framework
 - go fmt - code formater - ony one valid coding standard -  [fmt library website](https://golang.org/pkg/fmt/)
-- gocode - autocomplete service - [gocode library website](https://github.com/nsf/gocode)
-- go vet - code validator and fixer - [vet library website](http://godoc.org/golang.org/x/tools/cmd/vet)
+- go vet - code validator and fixer - [vet library website](https://golang.org/cmd/vet/)
 - go oracle - dependencies analyser (can be integrated in editor) [oracle web site](http://golang.org/s/oracle-user-manual)
 - godoc - great documentation generator and viewer
+- gocode - autocomplete service - [gocode library website](https://github.com/mdempsky/gocode)
 
 ### IDEs
 
-- IntelliJ Go plugin
-  - https://plugins.jetbrains.com/plugin/9568-go
-- GoLand - https://www.jetbrains.com/go/features/
+- IntelliJ Go plugin https://plugins.jetbrains.com/plugin/9568-go
+- GoLand - https://www.jetbrains.com/go/
 - Emacs - go-mode
 - Vim - vim-go
 - Visual Studio Code (really great UX)
