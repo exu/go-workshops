@@ -44,7 +44,7 @@ prebuild? etc. (youre developer you know it already)
 
 ## For the best of the best (A+ task)
 
-Should run on docker containers (minimum 2 containers with docker-compose usage)
+Should run on docker containers / kubernetes cluster / Helm (minimum 2 containers with docker-compose usage)
 
 ## Rewards
 
