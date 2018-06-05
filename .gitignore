@@ -18,3 +18,4 @@ rethinkdb_data
 /140-stdlib-http/s16
 /150-stdlib-encoding-json/jsonapi8080
 /.vscode/tags
+debug
