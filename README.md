@@ -1,6 +1,7 @@
 # Golang Training Resources
 
 This repository contains files needed for managing Go language workshop - it's some kind of quite complete walk-through of Go language. Feel free to look on the code, there are many comments which could be useful for beginners and semi-intermediate Go developers.
+
 ## About Go
 
 Who designed Go language?
@@ -28,7 +29,7 @@ sources:
 - Garbage Collected
 - Strong types
 - Functions as first class citizens
-- Object Oriented (but without inheritance)
+- Object Oriented (but without inheritance and classes)
 
 ## Why it's worth of your time?
 
@@ -86,16 +87,15 @@ To install docker compose please follow [Docker compose installation guide](http
 
 - go test - included testing framework
 - go fmt - code formater - ony one valid coding standard -  [fmt library website](https://golang.org/pkg/fmt/)
-- gocode - autocomplete service - [gocode library website](https://github.com/nsf/gocode)
-- go vet - code validator and fixer - [vet library website](http://godoc.org/golang.org/x/tools/cmd/vet)
+- go vet - code validator and fixer - [vet library website](https://golang.org/cmd/vet/)
 - go oracle - dependencies analyser (can be integrated in editor) [oracle web site](http://golang.org/s/oracle-user-manual)
 - godoc - great documentation generator and viewer
+- gocode - autocomplete service - [gocode library website](https://github.com/mdempsky/gocode)
 
 ### IDEs
 
-- IntelliJ Go plugin
-  - https://plugins.jetbrains.com/plugin/9568-go
-- GoLand - https://www.jetbrains.com/go/features/
+- IntelliJ Go plugin https://plugins.jetbrains.com/plugin/9568-go
+- GoLand - https://www.jetbrains.com/go/
 - Emacs - go-mode
 - Vim - vim-go
 - Visual Studio Code (really great UX)
@@ -649,23 +649,6 @@ There is no README.md for Stdlib Sort use ([code for: Stdlib Sort](https://githu
 There is no README.md for Stdlib Signal use ([code for: Stdlib Signal](https://github.com/exu/go-workshops/tree/master/182-stdlib-signal)) link to follow code examples
 
 
-
-# Task
-
-MVP:
-
-- Write HTTP response reader from given sources
-- You can implement it with channels.
-- Push results in JSON format to os.Stdout
-
-Homework for ambitious ones:
-
-- Do it with given interval (e.g. 10 seconds)
-- Pass last results back through WWW REST JSON API (e.g. localhost:8080/statuses)
-
-
-
-([code for: Task Http Response Reader](https://github.com/exu/go-workshops/tree/master/199-task-http-response-reader))
 
 ## MySQL
 
@@ -1296,13 +1279,14 @@ What if we want do develop our containers on local machine? I did'n found the ou
 
 ([code for: How To Run On Kubernetes Cluster](https://github.com/exu/go-workshops/tree/master/810-how-to-run-on-kubernetes-cluster))
 
-## Debugging Delve
+## Debugging with Delve
+
+https://github.com/derekparker/delve/tree/master/Documentation
 
 
 
-There is no README.md for Debugging Delve use ([code for: Debugging Delve](https://github.com/exu/go-workshops/tree/master/950-debugging-delve)) link to follow code examples
 
-
+([code for: Debugging Delve](https://github.com/exu/go-workshops/tree/master/950-debugging-delve))
 
 ## Debugging Expvar
 
