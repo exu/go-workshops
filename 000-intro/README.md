@@ -35,11 +35,13 @@ sources:
 - no more code style wars - `gofmt`
 - integrated package downloader `go get`
 - integrated code validation `go vet` and `golint` (github.com/golang/lint)
+- nice playground (https://play.golang.org/)
 - `gocode` intellisense server - you don't need fat IDE to write go code, you can use now editor which you love (Sublime, Atom, Vim, Emacs, VSCode)
 - very fast compilation - if you're going from JAVA world you'll be really surprised
 - quite complete standard library - template/html, performant www servers, json, xml, streams, io, buffers, first class citizen concurrency
 - easy to use cross-compilation (x64, ARM, 386, Mac, Windows)
 - easy start, bunch of editors, all things simply work
+- http2 in core
 - testing included
 - benchmarking of code included
 - very low entry bareer

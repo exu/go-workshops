@@ -7,6 +7,7 @@ import (
 type MyInt int
 
 func (myInt *MyInt) AddAnother(num MyInt) {
+	fmt.Printf("Adding %d to myself (%d)\n", num, *myInt)
 	*myInt += num
 }
 

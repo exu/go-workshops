@@ -7,3 +7,4 @@ Functions in Go are first class citizens so it can be:
 - created as types
 - assigned as values to variables
 - called anonymously
+ 
