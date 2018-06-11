@@ -10,17 +10,18 @@ func main() {
 
 	subSlice := slice[:5]
 	fmt.Println(slice, subSlice)
-
-	fmt.Println("Capacity of slice:", cap(slice), cap(subSlice))
+	fmt.Println("Capacity of 'slice':", cap(slice), cap(subSlice))
 
 	// subSlice and slice have same pointer to underlying array data structure!!
 	subSlice[2] = 10000
-	fmt.Println(slice, subSlice)
+	fmt.Println("Slice vs subSlice (note 2nd index is the same)", slice, subSlice)
 
 	// We  can create new slice with same length as previous one
-	iWantToChange := make([]int, len(subSlice))
-	iWantToChange[3] = 999999
-	fmt.Println(slice, iWantToChange)
+	// and copy variables from main slice
+	copied := make([]int, len(subSlice))
+	copy(copied, slice)
+	copied[3] = 999999
+	fmt.Println("Slice copy", slice, copied)
 
 	// Strings are immutable (but works similar to slices)
 	str := "Jacek Placek"
