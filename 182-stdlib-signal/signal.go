@@ -9,20 +9,27 @@ import (
 )
 
 func cleanup() {
-	fmt.Println("cleanup")
+	fmt.Println("Starting cleanup ... ")
+	time.Sleep(time.Second)
+	fmt.Println(".... Cleanup completed")
 }
 
 func main() {
 	c := make(chan os.Signal, 2)
 	signal.Notify(c, os.Interrupt, syscall.SIGTERM)
 	go func() {
-		<-c
+		fmt.Println("Got signal: ", <-c)
 		cleanup()
 		os.Exit(1)
 	}()
 
+	fmt.Println("I'm some daemon and I'm:")
 	for {
-		fmt.Println("sleeping...")
+		fmt.Println("working hard ...")
 		time.Sleep(10 * time.Second) // or runtime.Gosched() or similar per @misterbee
 	}
+
+	// try to run go run signal.go
+	// C-c
+	// try to kill `killall signal`
 }
