@@ -13,7 +13,7 @@ func main() {
 		for {
 			i++
 			jobs <- i
-			time.Sleep(time.Millisecond)
+			time.Sleep(time.Millisecond * 200)
 		}
 	}()
 

@@ -20,11 +20,6 @@ func (c *intCounter) Value() (x int64) {
 	return int64(*c)
 }
 
-func init() {
-	// you'll need to set GOMAXPROCS > 1 to simulate data race
-	// runtime.GOMAXPROCS(1)
-}
-
 func main() {
 	counter := intCounter(0)
 

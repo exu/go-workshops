@@ -38,14 +38,16 @@ func double(in <-chan int) <-chan int {
 }
 
 func main() {
-	c := gen(10, 20)
-	out := double(double(c))
+	c := gen(10, 20, 30, 40, 50)
+	out := double(c)
 
+	fmt.Println(<-out)
+	fmt.Println(<-out)
 	fmt.Println(<-out)
 	fmt.Println(<-out)
 
 	fmt.Println("Second generator")
-	for n := range double(square(square(gen(2, 3, 4, 5)))) {
+	for n := range double(square(square(gen(2, 3, 4, 5, 10, 20, 50, 100)))) {
 		fmt.Println(n)
 	}
 }
