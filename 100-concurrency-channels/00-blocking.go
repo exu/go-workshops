@@ -1,4 +1,4 @@
-// kanałów używamy do synchronizacji gorutynek
+// we need channels to pass data between goroutines
 package main
 
 import "fmt"
@@ -8,19 +8,19 @@ func doIt(done chan bool) {
 	fmt.Print("working...")
 	time.Sleep(time.Second)
 	fmt.Println("done")
-	// wysyłanie wartości do kanału
+	// sending value through channel
 	done <- true
 }
 
 func main() {
-	// startujemy gorutynke, przekazujemy jej kanał
+	// start goroutine
 	done := make(chan bool)
 	go doIt(done)
 
-	// blokujemy do otrzymania wartości z tego kanału
+	// wait for value form channel (blocking)
 	a := <-done
 	fmt.Println(a)
 }
 
-// jeżeli usuniemy <-done program zostanie zakończony a go worker(done) nie zdąży
-// się wykonać.
+// if we remove `<-done` doIt will not be executed because main function will
+// end faster than doit

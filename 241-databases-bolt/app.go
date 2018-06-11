@@ -25,25 +25,26 @@ func main() {
 		return nil
 	})
 
-	now := time.Now()
-	for i := 0; i < 1000; i++ {
-		db.Update(func(tx *bolt.Tx) error {
+	iterations := 10
 
+	now := time.Now()
+	for i := 0; i < iterations; i++ {
+		db.Update(func(tx *bolt.Tx) error {
 			b := tx.Bucket([]byte("MyBucket"))
-			// fmt.Printf("%+v\n", b)
-			val := rand.Int()
-			return b.Put([]byte("answer"), []byte(strconv.Itoa(val)))
+			key := fmt.Sprintf("answer_%d", i)
+			return b.Put([]byte(key), []byte(strconv.Itoa(rand.Int())))
 		})
 	}
 	fmt.Println(time.Since(now))
 
 	now = time.Now()
 
-	for i := 0; i < 1000000; i++ {
+	for i := 0; i < iterations; i++ {
 		db.View(func(tx *bolt.Tx) error {
 			b := tx.Bucket([]byte("MyBucket"))
-			b.Get([]byte("answer"))
-			//			fmt.Printf("The answer is: %s\n", v)
+			key := fmt.Sprintf("answer_%d", i)
+			v := b.Get([]byte(key))
+			fmt.Printf("The answer is: %s\n", v)
 			return nil
 		})
 	}

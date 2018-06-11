@@ -14,6 +14,7 @@ func TestAdd(t *testing.T) {
 		{"dwa plus dwa = cztery ", args{[]int{2, 2}}, 4},
 		{"dwa plus dwa = sto ", args{[]int{2, 2}}, 100},
 	}
+
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			if got := Add(tt.args.a...); got != tt.want {

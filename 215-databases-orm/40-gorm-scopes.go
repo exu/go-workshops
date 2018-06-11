@@ -39,6 +39,8 @@ func main() {
 		panic(err)
 	}
 
+	orders := []Order{}
+
 	db.Scopes(AmountGreaterThan1000, PaidWithCreditCard).Find(&orders)
 	// Find all credit card orders and amount greater than 1000
 
