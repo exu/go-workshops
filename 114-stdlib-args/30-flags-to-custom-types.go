@@ -23,7 +23,7 @@ func (i *interval) String() string {
 // we want coma separated list of intervals here
 func (i *interval) Set(value string) error {
 	if len(*i) > 0 {
-		return errors.New("You've set flag interval already!")
+		return errors.New("you've set flag interval already")
 	}
 	for _, dt := range strings.Split(value, ",") {
 		duration, err := time.ParseDuration(dt)

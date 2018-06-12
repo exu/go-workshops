@@ -1,8 +1,9 @@
 package main
 
 import (
-	"./image"
 	"fmt"
+
+	"github.com/exu/go-workshops/060-basics-structs-defining/image"
 )
 
 func main() {
