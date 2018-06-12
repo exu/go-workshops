@@ -7,9 +7,9 @@ import (
 	"os"
 )
 
-type MyWriter struct{}
+type PrefixWriter struct{}
 
-func (writer *MyWriter) Write(p []byte) (n int, err error) {
+func (writer *PrefixWriter) Write(p []byte) (n int, err error) {
 	prefix := []byte("[BOO] ")
 	data := append(prefix, p...)
 	os.Stdout.Write(data)
@@ -22,6 +22,6 @@ func main() {
 	writer := os.Stdout
 	writer.Write(str)
 
-	superWriter := MyWriter{}
-	superWriter.Write(str)
+	prefixWriter := PrefixWriter{}
+	prefixWriter.Write(str)
 }

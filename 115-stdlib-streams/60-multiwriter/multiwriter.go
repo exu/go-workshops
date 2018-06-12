@@ -9,14 +9,21 @@ import (
 	"os"
 )
 
+type PrefixWriter struct{}
+
+func (writer *PrefixWriter) Write(p []byte) (n int, err error) {
+	os.Stdout.Write([]byte("[BOO] "))
+	os.Stdout.Write(p)
+	return len(p) + 6, nil
+}
+
 func main() {
 	f, _ := os.Create("file.txt")
 	defer f.Close()
 
-	writer := io.MultiWriter(f, os.Stdout, os.Stderr)
-	// writer.Write([]byte("Hoł hoł hoł"))
+	prefixWriter := &PrefixWriter{}
+	writer := io.MultiWriter(f, os.Stdout, os.Stderr, prefixWriter)
 
-	// now we can use our writer e.g. for logging some data in log package
-	logger := log.New(writer, "\n\n[LOG]", 0)
+	logger := log.New(writer, "[LOG]", 0)
 	logger.Println("Hahahahah")
 }
