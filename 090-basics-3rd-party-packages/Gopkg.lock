@@ -4,20 +4,20 @@
 [[projects]]
   name = "github.com/dgrijalva/jwt-go"
   packages = ["."]
-  revision = "dbeaa9332f19a944acb5736b4456cfcc02140e29"
-  version = "v3.1.0"
+  revision = "06ea1031745cb8b3dab3f6a236daf2b0aa468b7e"
+  version = "v3.2.0"
 
 [[projects]]
   name = "github.com/labstack/echo"
   packages = [".","middleware"]
-  revision = "b28538b2e3f5446fe6e0e47ee34cd74b662ca2ab"
-  version = "3.2.4"
+  revision = "6d227dfea4d2e52cb76856120b3c17f758139b4e"
+  version = "3.3.5"
 
 [[projects]]
   name = "github.com/labstack/gommon"
   packages = ["bytes","color","log","random"]
-  revision = "57409ada9da0f2afad6664c49502f8c50fbd8476"
-  version = "0.2.3"
+  revision = "d6898124de917583f5ff5592ef931d1dfe0ddc05"
+  version = "0.2.6"
 
 [[projects]]
   name = "github.com/mattn/go-colorable"
@@ -47,17 +47,17 @@
   branch = "master"
   name = "golang.org/x/crypto"
   packages = ["acme","acme/autocert"]
-  revision = "9f005a07e0d31d45e6656d241bb5c0f2efd4bc94"
+  revision = "8ac0e0d97ce45cd83d1d7243c060cb8461dda5e9"
 
 [[projects]]
   branch = "master"
   name = "golang.org/x/sys"
   packages = ["unix"]
-  revision = "82aafbf43bf885069dc71b7e7c2f9d7a614d47da"
+  revision = "a9e25c09b96b8870693763211309e213c6ef299d"
 
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "f7c96137578af08f51a400b612d452ba2a57d37ab42a811d3f10310d1982b2fb"
+  inputs-digest = "f157f2f3748e00adef9f6bc27d2701bcaf37fe89e9d7506d70612584c1aef97d"
   solver-name = "gps-cdcl"
   solver-version = 1
