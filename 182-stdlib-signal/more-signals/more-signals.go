@@ -27,7 +27,7 @@ func main() {
 				exit_chan <- 255
 			case syscall.SIGKILL:
 				fmt.Println("kill'em all")
-
+				// it looks like there is no possibility to catch SIGKILL signal
 			// kill -SIGINT XXXX or Ctrl+c
 			case syscall.SIGINT:
 				fmt.Println("Ctrl + C")
