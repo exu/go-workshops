@@ -25,7 +25,7 @@ func main() {
 	fmt.Println()
 	fmt.Println()
 	buf1 := []byte{228, 184, 150} // 世
-	buf2 := []byte{228}           // 世
+	buf2 := []byte{228}
 
 	fmt.Println(utf8.FullRune(buf1))
 	fmt.Println(utf8.FullRune(buf2))

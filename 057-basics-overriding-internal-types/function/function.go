@@ -15,7 +15,7 @@ func f2() string {
 }
 
 func f3() string {
-	return "f2"
+	return "f3"
 }
 
 func main() {

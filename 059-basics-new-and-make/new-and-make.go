@@ -25,7 +25,7 @@ func main() {
 	fmt.Printf("%+v\n", a2) // pointer
 
 	b := new([]int)
-	fmt.Printf("%+v\n", b)
+	fmt.Printf("%+v %d %d\n", b, len(*b), cap(*b))
 
 	c := make([]int, 10, 100)
 	fmt.Printf("%+v\n", c)

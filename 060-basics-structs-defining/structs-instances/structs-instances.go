@@ -16,8 +16,10 @@ func main() {
 
 	a := Thing{}
 	a.SetCount(2)
+
 	b := &Thing{}
 	b.SetCount(2)
+
 	c := new(Thing)
 	c.SetCount(2)
 
