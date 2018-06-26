@@ -8,7 +8,7 @@ import (
 
 func main() {
 
-	proc := exec.Command("ls", "-la")
+	proc := exec.Command("ping", "google.pl")
 	proc.Stdout = os.Stdout
 	proc.Stderr = os.Stderr
 	proc.Start()

@@ -5,8 +5,9 @@ import (
 	"database/sql"
 	"encoding/json"
 	"fmt"
-	"github.com/lib/pq"
 	"time"
+
+	"github.com/lib/pq"
 )
 
 func waitForNotification(l *pq.Listener) {

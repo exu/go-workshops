@@ -24,6 +24,6 @@ func main() {
 	prefixWriter := &PrefixWriter{}
 	writer := io.MultiWriter(f, os.Stdout, os.Stderr, prefixWriter)
 
-	logger := log.New(writer, "[LOG]", 0)
+	logger := log.New(writer, "[LOG] ", 0)
 	logger.Println("Hahahahah")
 }

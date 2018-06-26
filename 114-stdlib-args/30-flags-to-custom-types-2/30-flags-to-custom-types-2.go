@@ -21,10 +21,11 @@ func (i *interval) String() string {
 // until now previous example was identical
 // but we want to simplify it be removing unnecessary
 // complicated part
+
 func (i *interval) Set(value string) error {
 	// POWERTIP: we can use `Set` many times
 	// e.g.:
-	//	-deltaT 10s -deltaT 15s
+	//	-d 10s -d 15s
 	duration, err := time.ParseDuration(value)
 	if err != nil {
 		return err
@@ -37,7 +38,7 @@ func (i *interval) Set(value string) error {
 var intervalFlag interval
 
 func init() {
-	flag.Var(&intervalFlag, "deltaT", "time interval (can be repeated many times e.g. -deltaT=1s -deltaT=2s)")
+	flag.Var(&intervalFlag, "d", "time interval (can be repeated many times e.g. -d=1s -d=2s)")
 	flag.Parse()
 }
 

@@ -11,16 +11,16 @@ type Writer struct {
 	count int
 }
 
-func (writer Writer) Write(p []byte) (n int, err error) {
+func (writer *Writer) Write(p []byte) (n int, err error) {
 	writer.count++
 	log.Println(string(p), writer.count)
 	return len(p), nil
 }
 
 func main() {
-	proc := exec.Command("/bin/sh", "-c", "ls -la && sleep 2")
-	proc.Stdout = Writer{}
-	proc.Stderr = Writer{}
+	proc := exec.Command("ping", "google.pl")
+	proc.Stdout = &Writer{}
+	proc.Stderr = &Writer{}
 	proc.Start()
 
 	err := proc.Wait()

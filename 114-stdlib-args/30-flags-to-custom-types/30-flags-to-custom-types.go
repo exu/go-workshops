@@ -39,7 +39,7 @@ func (i *interval) Set(value string) error {
 var intervalFlag interval
 
 func init() {
-	flag.Var(&intervalFlag, "deltaT", "coma separated intervals list (e.g.: 2m,12s,2h,1m")
+	flag.Var(&intervalFlag, "d", "coma separated intervals list (e.g.: 2m,12s,2h,1m")
 	flag.Parse()
 }
 

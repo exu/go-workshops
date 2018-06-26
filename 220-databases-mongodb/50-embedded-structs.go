@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"log"
 
@@ -75,5 +76,8 @@ func main() {
 	// now we can get our fresh record from DB
 	var result Car
 	c.FindId(id).One(&result)
-	fmt.Printf("%+v", result)
+	// fmt.Printf("%+v", result)
+
+	j, _ := json.MarshalIndent(result, "  ", "  ")
+	fmt.Println(string(j))
 }

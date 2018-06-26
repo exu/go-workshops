@@ -11,7 +11,10 @@ func main() {
 	fmt.Println(match)
 
 	// if we want use given expression more than once it'll be good to compile it
-	r, _ := regexp.Compile("p([a-z]+)ch")
+	r, err := regexp.Compile("p([a-z]+)ch")
+	if err != nil {
+		panic(err)
+	}
 
 	// on compiled object we can call methods
 	fmt.Println("MatchString:", r.MatchString("peach"))
