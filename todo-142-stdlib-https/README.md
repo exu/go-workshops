@@ -2,4 +2,7 @@
 
 `$go run main.go`
 
-And goto https://localhost:8080
+And goto:
+```
+curl --insecure https://localhost:8080
+```
