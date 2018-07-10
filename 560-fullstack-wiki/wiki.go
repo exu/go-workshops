@@ -19,7 +19,7 @@ var validPath = regexp.MustCompile("^/(edit|save|view)/([a-zA-Z0-9]+)$")
 type Page struct {
 	Title   string
 	RawBody []byte
-	Body    []byte
+	Body    template.HTML
 }
 
 func (p *Page) save() error {
@@ -40,7 +40,9 @@ func loadPage(title string) (*Page, error) {
 		return []byte("<a href=\"/view/" + m[1] + "\">" + m[1] + "</a>")
 	})
 
-	return &Page{Title: title, RawBody: body, Body: escapedBody}, nil
+	htmlBody := template.HTML(escapedBody) // where s is a string or []byte
+
+	return &Page{Title: title, RawBody: body, Body: htmlBody}, nil
 }
 
 func renderTemplate(w http.ResponseWriter, tmpl string, p interface{}) {
@@ -56,6 +58,7 @@ func viewHandler(w http.ResponseWriter, r *http.Request, title string) {
 		http.Redirect(w, r, "/edit/"+title, http.StatusFound)
 		return
 	}
+
 	renderTemplate(w, "view", p)
 }
 
