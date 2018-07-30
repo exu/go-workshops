@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"./checker"
+	"github.com/exu/go-workshops/a00-task-http-response-reader/checker"
 )
 
 func main() {
