@@ -1,21 +1,16 @@
 package main
 
 import (
-	"github.com/Sirupsen/logrus"
-	"github.com/weekface/mgorus"
 	"math/rand"
 	"time"
+
+	"github.com/Sirupsen/logrus"
 )
 
 func main() {
 
 	log := logrus.New()
-	log.Formatter = &logrus.JSONFormatter{}
-
-	hooker, err := mgorus.NewHooker("localhost:27017", "kasia", "logs")
-	if err == nil {
-		log.Hooks.Add(hooker)
-	}
+	// log.Formatter = &logrus.JSONFormatter{}
 
 	log.WithFields(logrus.Fields{
 		"animal": "walrus",
@@ -36,6 +31,8 @@ func main() {
 			"item1":  &Complex{"aaa", "Something", time.Now(), time.Now(), "long description", 3},
 			"item2":  &Complex{"aaa", "Else", time.Now(), time.Now(), "long description", 3},
 		}).Error("Error appears")
+
+		log.Warning("aaa")
 
 	}
 

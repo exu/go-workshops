@@ -1,9 +1,0 @@
-package: github.com/exu/go-workshops/651-libs-http-echo
-import:
-- package: github.com/labstack/echo
-  subpackages:
-  - engine/standard
-  - middleware
-- package: golang.org/x/net
-  subpackages:
-  - /websocket
