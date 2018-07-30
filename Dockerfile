@@ -6,4 +6,4 @@ RUN mkdir -p $BUILD_DIR
 ADD . $BUILD_DIR
 WORKDIR $BUILD_DIR
 
-CMD go run 041-basics-init/app.go
+ENTRYPOINT go
