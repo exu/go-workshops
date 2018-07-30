@@ -37,11 +37,13 @@ sources:
 - no more code style wars - `gofmt`
 - integrated package downloader `go get`
 - integrated code validation `go vet` and `golint` (github.com/golang/lint)
+- nice playground (https://play.golang.org/)
 - `gocode` intellisense server - you don't need fat IDE to write go code, you can use now editor which you love (Sublime, Atom, Vim, Emacs, VSCode)
 - very fast compilation - if you're going from JAVA world you'll be really surprised
 - quite complete standard library - template/html, performant www servers, json, xml, streams, io, buffers, first class citizen concurrency
 - easy to use cross-compilation (x64, ARM, 386, Mac, Windows)
 - easy start, bunch of editors, all things simply work
+- http2 in core
 - testing included
 - benchmarking of code included
 - very low entry bareer
@@ -110,7 +112,7 @@ To install docker compose please follow [Docker compose installation guide](http
 
 ## Github style - project structure
 
-In go idiomatic way is to organise code in "github style", so part of the path is looking like server address to library. Of course if you want you don't need to do this, but whole ecosystem works that way.
+In go, idiomatic way is to organise code in "github style", so part of the path is looking like server address to library. Of course if you want you don't need to do this, but whole ecosystem works that way.
 
 ```sh
 src/
@@ -184,14 +186,6 @@ Use `const` to define new contant, mechanics looks like in other languages. What
 
 ([code for: Basics Constants](https://github.com/exu/go-workshops/tree/master/030-basics-constants))
 
-## Basics Overriding Internal Types
-
-
-
-There is no README.md for Basics Overriding Internal Types use ([code for: Basics Overriding Internal Types](https://github.com/exu/go-workshops/tree/master/035-basics-overriding-internal-types)) link to follow code examples
-
-
-
 ## Funkcje
 
 Functions in Go are "First class citizen".
@@ -204,13 +198,6 @@ Functions in Go are "First class citizen".
 
 
 ([code for: Basics Functions](https://github.com/exu/go-workshops/tree/master/040-basics-functions))
-
-## Loops
-
-In go there is only one loop keyword: `for`. It's often used with `range` keyword to iterate over array like elements.
-
-
-([code for: Basics Loops](https://github.com/exu/go-workshops/tree/master/040-basics-loops))
 
 ## Packages initialisation
 
@@ -229,14 +216,16 @@ Functions in Go are first class citizens so it can be:
 - created as types
 - assigned as values to variables
 - called anonymously
-
+ 
 
 
 ([code for: Basics Closures](https://github.com/exu/go-workshops/tree/master/042-basics-closures))
 
 ## Data structures: Arrays
 
-In Go, an `array` is a **numbered sequence of elements** of a specific length. Arrays are "low level" data structures with slices over them which simplifies creating and managing.
+In Go, an `array` is a **numbered sequence of elements** of a specific
+length. Arrays are "low level" data structures with slices over them
+which simplifies creating and managing.
 
 
 
@@ -262,6 +251,13 @@ sources:
 
 ([code for: Basics Slices](https://github.com/exu/go-workshops/tree/master/051-basics-slices))
 
+## Loops
+
+In go there is only one loop keyword: `for`. It's often used with `range` keyword to iterate over array like elements.
+
+
+([code for: Basics Loops](https://github.com/exu/go-workshops/tree/master/052-basics-loops))
+
 ## Data structures: Maps
 
 One of the most useful data structures in computer science is the hash table. Many hash table implementations exist with varying properties, but in general they offer fast lookups, adds, and deletes. Go provides a built-in map type that implements a hash table.
@@ -269,6 +265,14 @@ One of the most useful data structures in computer science is the hash table. Ma
 
 
 ([code for: Basics Maps](https://github.com/exu/go-workshops/tree/master/055-basics-maps))
+
+## Basics Overriding Internal Types
+
+
+
+There is no README.md for Basics Overriding Internal Types use ([code for: Basics Overriding Internal Types](https://github.com/exu/go-workshops/tree/master/057-basics-overriding-internal-types)) link to follow code examples
+
+
 
 ## `make` and `new` keywords
 
@@ -358,13 +362,21 @@ There is no README.md for Basics Anonymous Structs use ([code for: Basics Anonym
 
 ## Interface'y
 
-Go have "implicit interfaces". To implement an interface in Go, we just need to implement all the methods in the interface.
+Go have "implicit interfaces". To implement an interface in Go, we
+just need to implement all the methods in the interface.
 
-So what is an interface? An interface is two things: it is a set of methods, but it is also a type.
+So what is an interface? An interface is two things: it is a set of
+methods, but it is also a type.
 
 ### The `interface{}` type
 
-The `interface{}` type, the empty interface, is the source of much confusion. The interface{} type is the interface that has no methods. Since there is no implements keyword, all types implement at least zero methods, and satisfying an interface is done automatically, all types satisfy the empty interface. That means that if you write a function that takes an `interface{}` value as a parameter, you can supply that function with any value. So this function:
+The `interface{}` type, the empty interface, is the source of much
+confusion. The interface{} type is the interface that has no
+methods. Since there is no implements keyword, all types implement at
+least zero methods, and satisfying an interface is done automatically,
+all types satisfy the empty interface. That means that if you write a
+function that takes an `interface{}` value as a parameter, you can
+supply that function with any value. So this function:
 
     func DoSomething(v interface{}) {
     // ...
@@ -375,6 +387,7 @@ will accept any parameter whatsoever.
 ### Type assertions
 
 - https://medium.com/golangspec/type-assertions-in-go-e609759c42e1
+
 
 
 ([code for: Basics Interfaces](https://github.com/exu/go-workshops/tree/master/065-basics-interfaces))
@@ -450,6 +463,20 @@ There is no README.md for Basics Pointers use ([code for: Basics Pointers](https
 
 
 
+## Other concurrency patterns
+
+You've lerned about channels primitive on previous chapter of this workshops, now it's time to learn about some other ways of creating concurrent programs in go.
+
+We'll be doing some code with:
+- data races errors
+- atomic counters
+- mutexes
+- wait groups
+
+
+
+([code for: Concurrency Other](https://github.com/exu/go-workshops/tree/master/100-concurrency-other))
+
 ## Channels
 
 Channels are a typed conduit through which you can send and receive values with the channel operator, <-.
@@ -491,21 +518,7 @@ Sends to a buffered channel **block only when the buffer is full**. Receives blo
 Feel free to browse [channels chapter source code](100-concurrency-channels/)
 
 
-([code for: Concurrency Channels](https://github.com/exu/go-workshops/tree/master/100-concurrency-channels))
-
-## Other concurrency patterns
-
-You've lerned about channels primitive on previous chapter of this workshops, now it's time to learn about some other ways of creating concurrent programs in go.
-
-We'll be doing some code with:
-- data races errors
-- atomic counters
-- mutexes
-- wait groups
-
-
-
-([code for: Concurrency Other](https://github.com/exu/go-workshops/tree/master/101-concurrency-other))
+([code for: Concurrency Channels](https://github.com/exu/go-workshops/tree/master/101-concurrency-channels))
 
 ## Date time
 
@@ -514,13 +527,11 @@ Go has very powerful standard library, first and one of awesome library are is D
 
 ([code for: Stdlib Date Time](https://github.com/exu/go-workshops/tree/master/110-stdlib-date-time))
 
-## Stdlib Os Processes
+## Running commands in shell
 
 
 
-There is no README.md for Stdlib Os Processes use ([code for: Stdlib Os Processes](https://github.com/exu/go-workshops/tree/master/110-stdlib-os-processes)) link to follow code examples
-
-
+([code for: Stdlib Os Processes](https://github.com/exu/go-workshops/tree/master/110-stdlib-os-processes))
 
 ## Args and flags
 
@@ -697,6 +708,16 @@ mongo localhost:7702
 
 
 ([code for: Databases Mongodb](https://github.com/exu/go-workshops/tree/master/220-databases-mongodb))
+
+## Examples of Mongodb official driver
+
+During writing this workshop (mid 2018) driver looks like not completed yet.
+So I think the best option would be fork of mgo from globalsign
+https://github.com/globalsign/mgo
+
+
+
+([code for: Databases Mongodb Official](https://github.com/exu/go-workshops/tree/master/220-databases-mongodb-official))
 
 # RethinkDB
 
@@ -881,23 +902,6 @@ bee run hello
 
 ([code for: Fullstack Beego](https://github.com/exu/go-workshops/tree/master/570-fullstack-beego))
 
-## Mangos SP message system
-
-> Package mangos is an implementation in pure Go of the SP ("Scalability Protocols") messaging system. This makes heavy use of go channels, internally, but it can operate on systems that lack support for cgo.
-
-> The reference implementation of the SP protocols is available as nanomsg™; there is also an effort to implement an improved and more capable version of nanomsg called NNG™.
-
-> The design is intended to make it easy to add new transports with almost trivial effort, as well as new topologies ("protocols" in SP terminology.)
-
-> At present, all of the Req/Rep, Pub/Sub, Pair, Bus, Push/Pull, and Surveyor/Respondent patterns are supported.
-
-> Additionally, there is an experimental new pattern called STAR available. This pattern is like Bus, except that the messages are delivered not just to immediate peers, but to all members of the topology. Developers must be careful not to create cycles in their network when using this pattern, otherwise infinite loops can occur.
-
-> Supported transports include TCP, inproc, IPC, Websocket, Websocket/TLS and TLS. Use addresses of the form "tls+tcp://:" to access TLS. Note that ipc:// is not supported on Windows (by either this or the reference implementation.) Forcing the local TCP port in Dial is not supported yet (this is rarely useful).
-
-
-([code for: Libs Mangos](https://github.com/exu/go-workshops/tree/master/601-libs-mangos))
-
 ## Perks for Go (golang.org)
 
 > Perks contains the Go package quantile that computes approximate quantiles over an unbounded data stream within low memory and CPU bounds.
@@ -914,13 +918,22 @@ There is no README.md for Libs Beep use ([code for: Libs Beep](https://github.co
 
 
 
-## Libs Bra
+## BRA
+
+autoreload of your services on file change
+
+### Install first
+
+```
+go get -u github.com/Unknwon/bra
+
+bra init
+bra run
+```
 
 
 
-There is no README.md for Libs Bra use ([code for: Libs Bra](https://github.com/exu/go-workshops/tree/master/610-libs-bra)) link to follow code examples
-
-
+([code for: Libs Bra](https://github.com/exu/go-workshops/tree/master/610-libs-bra))
 
 ## Libs Slack
 
@@ -1028,6 +1041,14 @@ There is no README.md for Libs Uiprogress use ([code for: Libs Uiprogress](https
 
 
 
+## Libs Termui
+
+
+
+There is no README.md for Libs Termui use ([code for: Libs Termui](https://github.com/exu/go-workshops/tree/master/682-libs-termui)) link to follow code examples
+
+
+
 ## Libs Go Rpm
 
 
@@ -1052,14 +1073,6 @@ There is no README.md for Libs Logrus use ([code for: Libs Logrus](https://githu
 
 
 
-## Libs Go Plugin
-
-
-
-There is no README.md for Libs Go Plugin use ([code for: Libs Go Plugin](https://github.com/exu/go-workshops/tree/master/691-libs-go-plugin)) link to follow code examples
-
-
-
 ## Libs Consul
 
 
@@ -1076,11 +1089,11 @@ There is no README.md for Libs Language Bindings use ([code for: Libs Language B
 
 
 
-## Libs Astielectron
+## Libs Bigcache
 
 
 
-There is no README.md for Libs Astielectron use ([code for: Libs Astielectron](https://github.com/exu/go-workshops/tree/master/694-libs-astielectron)) link to follow code examples
+There is no README.md for Libs Bigcache use ([code for: Libs Bigcache](https://github.com/exu/go-workshops/tree/master/695-libs-bigcache)) link to follow code examples
 
 
 
@@ -1409,6 +1422,14 @@ go tool pprof http://localhost:8080/debug/pprof/profile
 
 
 ([code for: Profiling](https://github.com/exu/go-workshops/tree/master/960-profiling))
+
+## New Project
+
+
+
+There is no README.md for New Project use ([code for: New Project](https://github.com/exu/go-workshops/tree/master/999-new-project)) link to follow code examples
+
+
 
 ## Shooting Yourself In The Foot
 
