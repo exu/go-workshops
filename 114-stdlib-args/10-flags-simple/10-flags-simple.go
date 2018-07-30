@@ -7,7 +7,7 @@ import (
 
 // Przykład 1: single flag of string type
 // Referencja!
-var logLevel = flag.String("log_level", "warning", "Set logging level")
+var logLevel = flag.String("log_level", "warning", "Sets logging level")
 
 func main() {
 	// we need to call Parse(), after that flags will be parsed

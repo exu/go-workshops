@@ -1,7 +1,7 @@
 package main
 
 import (
-	"./handler"
+	"github.com/exu/go-workshops/310-testing-http-server/handler"
 
 	"io/ioutil"
 	"log"
@@ -28,7 +28,7 @@ func TestSimpleHandler(t *testing.T) {
 
 	if string(greeting) != "Helloł Łerld" {
 		t.Errorf(
-			"Invalid greeting!\n I've got \t\t%s\n but want: \t%s",
+			"Invalid greeting!\n I've got \t%s\n but want: \t%s",
 			string(greeting),
 			"Helloł Łerld",
 		)

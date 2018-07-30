@@ -1,8 +1,9 @@
 package main
 
 import (
-	"./checker"
 	"fmt"
+
+	"./checker"
 )
 
 func main() {
@@ -15,6 +16,7 @@ func main() {
 
 	results := checker.Check(urls)
 
+	fmt.Println(results)
 	//  ___________________
 	// < gimme JSON here!! >
 	//  -------------------

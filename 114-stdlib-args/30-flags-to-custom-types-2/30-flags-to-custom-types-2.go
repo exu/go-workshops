@@ -23,9 +23,6 @@ func (i *interval) String() string {
 // complicated part
 
 func (i *interval) Set(value string) error {
-	// POWERTIP: we can use `Set` many times
-	// e.g.:
-	//	-d 10s -d 15s
 	duration, err := time.ParseDuration(value)
 	if err != nil {
 		return err

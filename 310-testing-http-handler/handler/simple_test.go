@@ -9,7 +9,7 @@ import (
 
 func TestSimpleHandler(t *testing.T) {
 
-	req, err := http.NewRequest("GET", "http://l:8080/api", nil)
+	req, err := http.NewRequest("GET", "/", nil)
 	if err != nil {
 		log.Fatal(err)
 	}

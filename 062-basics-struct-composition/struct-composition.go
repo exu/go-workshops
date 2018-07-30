@@ -10,9 +10,10 @@ type Dimension struct {
 func (this Dimension) IsVertical() bool {
 	if this.Width < this.Height {
 		return true
-	} else {
-		return false
 	}
+
+	return false
+
 }
 
 // Dimension is embedded
@@ -40,6 +41,7 @@ func main() {
 	}
 
 	for _, image := range images {
+
 		fmt.Println(image.URL, "is vertical? : ", image.IsVertical())
 		// we have direct access to fields and methods of embedded struct
 	}

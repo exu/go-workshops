@@ -7,6 +7,6 @@ func main() {
 	ticker := time.NewTicker(time.Millisecond * 500)
 
 	for t := range ticker.C {
-		fmt.Println(t)
+		fmt.Println("OOO jestem zlym serwisem!!", t)
 	}
 }

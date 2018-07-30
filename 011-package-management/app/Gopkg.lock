@@ -5,7 +5,7 @@
   branch = "master"
   name = "github.com/exu/go-workshops-package-1"
   packages = ["somevars"]
-  revision = "dc01e1214a168e09217e7405f1b4928a083fe433"
+  revision = "fff2a9192e713713dc1c207616568c880fd65f07"
 
 [solve-meta]
   analyzer-name = "dep"

@@ -8,23 +8,23 @@ import (
 )
 
 func main() {
-	signal_chan := make(chan os.Signal, 1)
-	signal.Notify(signal_chan,
+	signalChan := make(chan os.Signal, 1)
+	signal.Notify(signalChan,
 		syscall.SIGHUP,
 		syscall.SIGINT,
 		syscall.SIGTERM,
 		syscall.SIGKILL,
 		syscall.SIGQUIT)
 
-	exit_chan := make(chan int)
+	exitChan := make(chan int)
 	go func() {
 		for {
-			s := <-signal_chan
+			s := <-signalChan
 			switch s {
 			// kill -SIGHUP XXXX
 			case syscall.SIGHUP:
 				fmt.Println("hungup")
-				exit_chan <- 255
+				exitChan <- 255
 			case syscall.SIGKILL:
 				fmt.Println("kill'em all")
 				// it looks like there is no possibility to catch SIGKILL signal
@@ -35,22 +35,22 @@ func main() {
 			// kill -SIGTERM XXXX
 			case syscall.SIGTERM:
 				fmt.Println("force stop")
-				exit_chan <- 0
+				exitChan <- 0
 
 			// kill -SIGQUIT XXXX
 			case syscall.SIGQUIT:
 				fmt.Println("stop and core dump")
-				exit_chan <- 0
+				exitChan <- 128
 
 			default:
 				fmt.Println("Unknown signal.")
-				exit_chan <- 1
+				exitChan <- 1
 			}
 		}
 	}()
 
 	fmt.Printf("Current Process PID: %d\n", os.Getpid())
 
-	code := <-exit_chan
+	code := <-exitChan
 	os.Exit(code)
 }

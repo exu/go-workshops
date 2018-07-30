@@ -14,14 +14,13 @@ func main() {
 	}
 	close(requests)
 
-	limiter := time.Tick(time.Millisecond * 200)
+	limiter := time.Tick(time.Millisecond * 1000)
 
 	// Przez zablokowanie requestów przez kanał tickera
 	// limitujemy się do wykonania przebiegu pętli
 	// co 200 ms
 	for req := range requests {
-		<-limiter
-		fmt.Println("request", req, time.Now())
+		fmt.Println("request", req, <-limiter)
 	}
 
 }

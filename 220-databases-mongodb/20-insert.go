@@ -2,10 +2,11 @@ package main
 
 import (
 	"fmt"
-	"gopkg.in/mgo.v2"
 	"log"
 	"math/rand"
 	"time"
+
+	"gopkg.in/mgo.v2"
 )
 
 type Person struct {
@@ -38,7 +39,7 @@ func main() {
 	c.DropCollection()
 
 	start := time.Now()
-	recordsCount := 100000
+	recordsCount := 10000
 
 	for i := 0; i < recordsCount; i++ {
 		err = c.Insert(&Person{fmt.Sprintf("Ale %d", i), rand.Int63(), DESCRIPTION})

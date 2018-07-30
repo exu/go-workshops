@@ -13,7 +13,7 @@ func main() {
 	defer cancel() // The cancel should be deferred so resources are cleaned up
 
 	// Create the command with our context
-	cmd := exec.CommandContext(ctx, "ping", "-c 4", "-i 1", "8.8.8.8")
+	cmd := exec.CommandContext(ctx, "ping", "8.8.8.8")
 
 	// This time we can simply use Output() to get the result.
 	out, err := cmd.Output()

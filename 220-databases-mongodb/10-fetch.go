@@ -38,5 +38,5 @@ func main() {
 		log.Fatal(err)
 	}
 
-	fmt.Println("Phone:", result.Phone)
+	fmt.Println("Phone:", result)
 }

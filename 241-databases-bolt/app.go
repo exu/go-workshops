@@ -25,7 +25,7 @@ func main() {
 		return nil
 	})
 
-	iterations := 10
+	iterations := 1000
 
 	now := time.Now()
 	for i := 0; i < iterations; i++ {

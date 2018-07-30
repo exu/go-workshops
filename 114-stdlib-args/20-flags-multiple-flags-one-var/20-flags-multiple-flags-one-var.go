@@ -16,9 +16,9 @@ func init() {
 	)
 	flag.StringVar(&size, "size", defaultSize, usage)
 	flag.StringVar(&size, "s", defaultSize, usage+" - little shorter :)")
+	flag.Parse()
 }
 
 func main() {
-	flag.Parse()
 	fmt.Println("Rozmiar:", size)
 }

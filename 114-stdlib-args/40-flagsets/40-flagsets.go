@@ -7,8 +7,10 @@ import (
 )
 
 func main() {
+
 	f1 := flag.NewFlagSet("f1", flag.ContinueOnError)
 	silent := f1.Bool("silent", false, "")
+
 	f2 := flag.NewFlagSet("f2", flag.ContinueOnError)
 	loud := f2.Bool("loud", false, "")
 

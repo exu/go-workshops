@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"math"
-	"runtime"
 	"strings"
 )
 
@@ -14,10 +13,6 @@ const (
 // ======= Main =======
 
 func main() {
-	numThreads := runtime.NumCPU() - 1
-	fmt.Println("Starting ", numThreads, " threads ...")
-	runtime.GOMAXPROCS(numThreads)
-
 	pipeline := NewPipeline()
 
 	// Init processes

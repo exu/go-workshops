@@ -11,7 +11,7 @@ func main() {
 	var urls = []string{
 		"http://www.golang.org/",
 		"http://www.google.com/",
-		"http://www.somestupidname.com/",
+		"http://www.somestup23892183912idname.com/",
 		"http://kasia.in",
 	}
 

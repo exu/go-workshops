@@ -5,13 +5,13 @@ import (
 	"strconv"
 )
 
-// Point - THE point is that ...
+// Point - THE point represents point in two dimensional coordinates
 type Point struct {
 	X int
 	Y int
 }
 
-// Give me string representation od THE point
+// String - Gives me string representation of THE point
 func (point *Point) String() string {
 	return strconv.Itoa(point.X) + ":" + strconv.Itoa(point.Y)
 }

@@ -27,13 +27,10 @@ func handler(w http.ResponseWriter, r *http.Request) {
 		120,
 	}
 
-	// marshalling
-	data, _ := json.Marshal(response)
-
 	w.Header().Add("Content-Type", "application/json")
 
-	// strumieniujemy dane
-	w.Write(data)
+	json.NewEncoder(w).Encode(response)
+
 }
 
 func main() {

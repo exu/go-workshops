@@ -13,7 +13,7 @@ func main() {
 
 	// Creating new instance, always with time zone!
 	then := time.Date(
-		2009, 11, 17, 20, 34, 58, 651387237, time.UTC)
+		2018, 06, 17, 20, 34, 58, 651387237, time.UTC)
 
 	p("Whole date:", then)
 
