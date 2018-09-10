@@ -10,7 +10,7 @@ func main() {
 	ch := make(chan int, 100)
 	go func() {
 		for c := range ch {
-			fmt.Println(c)
+			fmt.Println("Readed: ", c)
 			time.Sleep(time.Second)
 		}
 	}()
@@ -18,7 +18,7 @@ func main() {
 	for i := 0; i < 20; i++ {
 		ch <- i
 
-		fmt.Println("Len:", len(ch))
+		fmt.Printf("Written %d, Len: %d\n", i, len(ch))
 	}
 
 	time.Sleep(20 * time.Second)

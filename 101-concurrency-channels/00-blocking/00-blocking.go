@@ -6,7 +6,7 @@ import "time"
 
 func doIt(done chan bool) {
 	fmt.Print("working...")
-	time.Sleep(time.Second)
+	time.Sleep(2 * time.Second)
 	fmt.Println("done")
 	// sending value through channel
 	done <- true

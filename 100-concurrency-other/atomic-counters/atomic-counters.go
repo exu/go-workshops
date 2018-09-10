@@ -31,7 +31,7 @@ func main() {
 		}(i)
 	}
 
-	time.Sleep(time.Second)
+	time.Sleep(3 * time.Second)
 
 	fmt.Println(counter.Value())
 

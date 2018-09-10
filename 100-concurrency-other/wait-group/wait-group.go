@@ -15,9 +15,9 @@ func main() {
 		"http://kasia.in",
 	}
 
+	wg.Add(len(urls))
 	for _, url := range urls {
 		// Increment the WaitGroup counter.
-		wg.Add(1)
 		// Launch a goroutine to fetch the URL.
 		go func(url string) {
 			// Decrement the counter when the goroutine completes.
@@ -34,4 +34,6 @@ func main() {
 
 	// Wait for all HTTP fetches to complete.
 	wg.Wait()
+
+	fmt.Printf("%+v\n", "DONE!")
 }

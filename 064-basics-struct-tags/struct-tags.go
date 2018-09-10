@@ -24,7 +24,7 @@ func (message ErrorMessage) GetMessage() string {
 // lets implement some LogMessage
 // with same prefix and postfix tags
 type LogMessage struct {
-	Message string `prefix:"\x1b[32m" postfix:"\x1b[0m"`
+	Message string `prefix:">>>" postfix:"<<<"`
 }
 
 func (message LogMessage) GetMessage() string {

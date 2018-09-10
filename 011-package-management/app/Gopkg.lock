@@ -3,13 +3,15 @@
 
 [[projects]]
   branch = "master"
+  digest = "1:20c80a9793a69f161b93570d2fb679d47988c048bf1d85cbc671185cd364f14e"
   name = "github.com/exu/go-workshops-package-1"
   packages = ["somevars"]
+  pruneopts = "UT"
   revision = "fff2a9192e713713dc1c207616568c880fd65f07"
 
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "ab7638aea6b092b50e5cbe2e9d28b8b8cdd8fe148dd9f74c38be9079d9ddc00f"
+  input-imports = ["github.com/exu/go-workshops-package-1/somevars"]
   solver-name = "gps-cdcl"
   solver-version = 1

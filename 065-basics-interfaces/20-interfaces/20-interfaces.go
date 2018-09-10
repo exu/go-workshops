@@ -8,6 +8,12 @@ type Shape interface {
 	area() float64
 }
 
+type Square int
+
+func (this Square) area() float64 {
+	return float64(this * this)
+}
+
 type Rectangle struct {
 	Width  int
 	Height int
