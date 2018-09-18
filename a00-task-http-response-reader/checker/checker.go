@@ -4,7 +4,7 @@ package checker
 type Results map[string]int
 
 // Check returns
-func Check([]string) Results {
+func Check(urls []string) Results {
 
 	//  ____________________
 	// < implement the code >
