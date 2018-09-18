@@ -1,11 +1,14 @@
+# The smallest final Go image 4.19MB
+# :) Thanks to Tihomir :)
+
 # build stage
 FROM golang:alpine AS build-env
 RUN mkdir /src
 ADD main.go /src
-RUN cd /src && go build -o goapp
+RUN cd /src && CGO_ENABLED=0 go build -a -ldflags '-extldflags "-static" -w -s' -o goapp
 
 # final stage
-FROM alpine
+FROM scratch
 WORKDIR /app
 COPY --from=build-env /src/goapp /app/
-ENTRYPOINT ./goapp
+ENTRYPOINT ["/app/goapp"]
