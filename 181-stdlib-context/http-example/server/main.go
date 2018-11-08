@@ -24,7 +24,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 	// or simply listen to context end
 	case <-ctx.Done():
 		err := ctx.Err()
-		log.Println(err)
+		log.Println("ctx.Done()->", err)
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 	}
 }

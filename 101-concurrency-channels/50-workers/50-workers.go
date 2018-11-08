@@ -10,8 +10,8 @@ import (
 // jego super tajnym zadaniem jest podnoszenie liczby do potęgi 2
 func worker(id int, jobs <-chan int, results chan<- int) {
 	for j := range jobs {
-		fmt.Println("worker", id, "processing job", j)
 		time.Sleep(time.Second)
+		fmt.Println("worker", id, "processing job", j)
 		results <- j * j
 	}
 }

@@ -8,7 +8,7 @@ func main() {
 
 	// enumerated constant
 	const (
-		A float64 = iota
+		A int = iota
 		B
 		C
 		D
@@ -16,7 +16,7 @@ func main() {
 		F
 	)
 
-	fmt.Printf("Show me values: A=%f ,B=%f, C=%f, D=%f\n", A, B, C, D)
+	fmt.Printf("Show me values: A=%d ,B=%d, C=%d, D=%d\n", A, B, C, D)
 
 	// enumerated with arithmetics
 	const (

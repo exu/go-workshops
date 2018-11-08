@@ -10,8 +10,8 @@ type Shape interface {
 
 type Square int
 
-func (this Square) area() float64 {
-	return float64(this * this)
+func (sq Square) area() float64 {
+	return float64(sq * sq)
 }
 
 type Rectangle struct {
@@ -42,8 +42,9 @@ func totalArea(shapes []Shape) float64 {
 func main() {
 	shapes := []Shape{
 		Rectangle{1, 2},
-		Circle{34},
-		Rectangle{1, 34},
+		Circle{1},
+		Rectangle{1, 1},
+		Square(1),
 	}
 
 	fmt.Println("Total area = ", totalArea(shapes))

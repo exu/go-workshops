@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"math"
 	"strings"
 )
 
@@ -79,7 +78,7 @@ func (proc *stringSplitter) Run() {
 	defer close(proc.OutLeft)
 	defer close(proc.OutRight)
 	for s := range proc.In {
-		halfLen := int(math.Floor(float64(len(s)) / float64(2)))
+		halfLen := int(len(s) / 2)
 		proc.OutLeft <- s[0:halfLen]
 		proc.OutRight <- s[halfLen:len(s)]
 	}

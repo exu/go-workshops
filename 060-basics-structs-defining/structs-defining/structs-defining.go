@@ -13,13 +13,14 @@ type Image struct {
 func main() {
 	images := []Image{
 		Image{
-			URL:         "http://static.ioki.pl/coś.png",
 			ContentType: "image/png",
+			URL:         "http://static.ioki.pl/coś.png",
 			Size:        2048,
 		},
 		// if we don't set value for field,
 		// there will be assigned zero-ed value automatically (NOT NULL)
 		// for strings "", int 0, float 0.0 etc.
+		Image{},
 		Image{
 			URL: "http://static.ioki.pl/tylko-url.jpg",
 		},

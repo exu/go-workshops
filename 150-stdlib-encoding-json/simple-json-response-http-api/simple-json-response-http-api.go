@@ -29,7 +29,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 
 	w.Header().Add("Content-Type", "application/json")
 
-	json.NewEncoder(w).Encode(response)
+	json.NewEncoder(w).Encode([]Response{response, response})
 
 }
 

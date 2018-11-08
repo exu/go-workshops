@@ -2,10 +2,12 @@ package main
 
 import (
 	"fmt"
+	"time"
 )
 
 func gen(nums ...int) <-chan int {
 	out := make(chan int)
+
 	go func() {
 		for _, n := range nums {
 			out <- n
@@ -19,6 +21,7 @@ func square(in <-chan int) <-chan int {
 	out := make(chan int)
 	go func() {
 		for n := range in {
+			time.Sleep(time.Millisecond * 100)
 			out <- n * n
 		}
 		close(out)
@@ -30,6 +33,7 @@ func double(in <-chan int) <-chan int {
 	out := make(chan int)
 	go func() {
 		for n := range in {
+			time.Sleep(time.Millisecond * 100)
 			out <- n + n
 		}
 		close(out)
@@ -39,7 +43,7 @@ func double(in <-chan int) <-chan int {
 
 func main() {
 	c := gen(10, 20, 30, 40, 50)
-	out := double(c)
+	out := double(double(c))
 
 	fmt.Println(<-out)
 	fmt.Println(<-out)

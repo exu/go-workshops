@@ -79,7 +79,7 @@ To install docker compose please follow [Docker compose installation guide](http
 ## Init workshops to play on your machine with code
 
     go get github.com/exu/go-workshops
-    cd $GOPATH/exu/go-workshops
+    cd $GOPATH/src/github.com/exu/go-workshops
 
 ## Go Tools
 
