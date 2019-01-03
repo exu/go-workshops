@@ -25,7 +25,7 @@ func main() {
 		fmt.Println("bigNumer and intIsInt64On64bitMachines are equal")
 	}
 
-	// Array (in go we're using "slices" as interface to arrays - there will be dedicated chapter abput arrays)
+	// Array (in go we're using "slices" as interface to arrays - there will be dedicated chapter about arrays)
 	someArray := []string{"tab", "licz", "ka"}
 	fmt.Println(someArray)
 
