@@ -23,7 +23,7 @@ sources:
 
 ## Go language characteristics
 
-- staticaly compiled (one fat binary with all dependencies )
+- statically compiled (one fat binary with all dependencies)
 - Garbage Collected
 - Strong types
 - Functions as first class citizens
@@ -44,15 +44,15 @@ sources:
 - http2 in core
 - testing included
 - benchmarking of code included
-- very low entry bareer
+- very low entry barrier
 - hype, one of fastest growing language, many new projects are in Go recently
 - concurrency
 - great documentation generator
 - and many many more ...
 
-## Workshop prerequisities
+## Workshop prerequisites
 
-You can install `golang` and `docker` using your prefered way i.e. your OS package manager (brew, pacman, apt, snap or other) or you can simp[l follow installation instruction on go and docker sites.
+You can install `golang` and `docker` using your preferred way i.e. your OS package manager (brew, pacman, apt, snap or other) or you can simply follow installation instruction on go and docker sites.
 
 ### Golang installation
 
@@ -86,7 +86,7 @@ To install docker compose please follow [Docker compose installation guide](http
 ### Included
 
 - go test - included testing framework
-- go fmt - code formater - ony one valid coding standard -  [fmt library website](https://golang.org/pkg/fmt/)
+- go fmt - code formater - only one valid coding standard -  [fmt library website](https://golang.org/pkg/fmt/)
 - go vet - code validator and fixer - [vet library website](https://golang.org/cmd/vet/)
 - go oracle - dependencies analyser (can be integrated in editor) [oracle web site](http://golang.org/s/oracle-user-manual)
 - godoc - great documentation generator and viewer
