@@ -81,7 +81,7 @@ To install docker compose please follow [Docker compose installation guide](http
 ## Init workshops to play on your machine with code
 
     go get github.com/exu/go-workshops
-    cd $GOPATH/exu/go-workshops
+    cd $GOPATH/src/github.com/exu/go-workshops
 
 ## Go Tools
 
@@ -169,6 +169,37 @@ For more details please refer to `dep` documentation at https://golang.github.io
 
 
 ([code for: Package Management](https://github.com/exu/go-workshops/tree/master/011-package-management))
+
+## Modules
+
+Modules are quite new in Go (begins in 1.11 as experimental feature)
+in `1.12` they are in auto mode what means that if you are in GOPATH
+they will be disabled and when you'll be out of GOPATH they will be enabled
+
+In incoming 1.13 version modules will be enabled by default which means that
+no more github style code organisation will be needed
+
+
+### Commands
+
+0. Check `echo $GO111MODULE` first - if value is `off` or `auto` you need to set it to `on`
+1. `go mod init` initialize modules in project directory
+2. `go mod tidy` cleans your unused modules
+3. `go mod download` downloads modules to cache
+4. `go mod vendor` vendoring modules from cache
+
+5. `go build`, `go test`, `go run` downloads modules automatically so you don't need to do it
+6. `go run -mod vendor` using vedored modules
+
+### Tools
+
+As in middle 2019 editors have still issues with new modules, you need
+to install proper `gocode` or can use `gopls` (language server) for
+autocompletition
+
+
+
+([code for: Modules](https://github.com/exu/go-workshops/tree/master/012-modules))
 
 ## Variables
 
@@ -1049,6 +1080,14 @@ There is no README.md for Libs Termui use ([code for: Libs Termui](https://githu
 
 
 
+## Libs Emoji
+
+
+
+There is no README.md for Libs Emoji use ([code for: Libs Emoji](https://github.com/exu/go-workshops/tree/master/688-libs-emoji)) link to follow code examples
+
+
+
 ## Libs Go Rpm
 
 
@@ -1094,6 +1133,22 @@ There is no README.md for Libs Language Bindings use ([code for: Libs Language B
 
 
 There is no README.md for Libs Bigcache use ([code for: Libs Bigcache](https://github.com/exu/go-workshops/tree/master/695-libs-bigcache)) link to follow code examples
+
+
+
+## Libs Complete
+
+
+
+There is no README.md for Libs Complete use ([code for: Libs Complete](https://github.com/exu/go-workshops/tree/master/696-libs-complete)) link to follow code examples
+
+
+
+## Libs Prometheus
+
+
+
+There is no README.md for Libs Prometheus use ([code for: Libs Prometheus](https://github.com/exu/go-workshops/tree/master/696-libs-prometheus)) link to follow code examples
 
 
 
@@ -1296,6 +1351,10 @@ What if we want do develop our containers on local machine? I did'n found the ou
 
 https://github.com/derekparker/delve/tree/master/Documentation
 
+
+### Debugging in Kuberbetes
+
+https://itnext.io/debug-a-go-application-in-kubernetes-from-ide-c45ad26d8785
 
 
 
