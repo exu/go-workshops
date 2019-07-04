@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func main() {
-	// simple contant definition
+	// simple constant definition
 	const MaxCapacity = 5
 
 	// enumerated constant

@@ -8,6 +8,6 @@ You can init your project:
 	$ ls
 	Gopkg.toml Gopkg.lock vendor/
 
-after that dep will add vendor dir where all depndencies will be loaded (In go after 1.5 `vendor` dir have preference over "github style `$GOPATH` based directories - when compiler will not find library in vendor dir it'll try to take it from `$GOPATH`).
+after that dep will add vendor dir where all dependencies will be loaded (In go after 1.5 `vendor` dir have preference over "github style `$GOPATH` based directories - when compiler will not find library in vendor dir it'll try to take it from `$GOPATH`).
 
 For more details please refer to `dep` documentation at https://golang.github.io/dep/docs/daily-dep.html

@@ -1,6 +1,6 @@
 ## Jokes client
 
-Write app which get multiple jokes changed every prediefined period of time
+Write app which get multiple jokes changed every predefined period of time
 
 You can use API for jokes:
 
