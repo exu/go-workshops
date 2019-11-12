@@ -2,7 +2,7 @@
 
 
 [[projects]]
-  name = "github.com/uber-go/zap"
+  name = "go.uber.org/zap"
   packages = ["."]
   revision = "72313cde80537dd4dc9b7b80eda6d7ed796c4232"
   version = "v1.0.0-rc.1"

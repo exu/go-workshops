@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"log"
 
-	r "gopkg.in/dancannon/gorethink.v1"
+	r "gopkg.in/rethinkdb/rethinkdb-go.v5"
 )
 
 func main() {

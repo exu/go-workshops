@@ -26,7 +26,7 @@
 
 
 [[constraint]]
-  name = "github.com/uber-go/zap"
+  name = "go.uber.org/zap"
   version = "1.0.0-rc.1"
 
 [prune]

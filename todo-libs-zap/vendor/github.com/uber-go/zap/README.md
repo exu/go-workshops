@@ -105,5 +105,5 @@ pinned in zap's [glide.lock][] file. [↩](#anchor-versions)
 [ci]: https://travis-ci.org/uber-go/zap
 [cov-img]: https://coveralls.io/repos/github/uber-go/zap/badge.svg?branch=master
 [cov]: https://coveralls.io/github/uber-go/zap?branch=master
-[benchmarking suite]: https://github.com/uber-go/zap/tree/master/benchmarks
-[glide.lock]: https://github.com/uber-go/zap/blob/master/glide.lock
+[benchmarking suite]: https://go.uber.org/zap/tree/master/benchmarks
+[glide.lock]: https://go.uber.org/zap/blob/master/glide.lock
