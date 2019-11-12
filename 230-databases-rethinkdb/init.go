@@ -6,7 +6,7 @@ import (
 	"math/rand"
 	"strconv"
 
-	r "gopkg.in/dancannon/gorethink.v1"
+	r "gopkg.in/rethinkdb/rethinkdb-go.v5"
 )
 
 //ScoreEntry for scores

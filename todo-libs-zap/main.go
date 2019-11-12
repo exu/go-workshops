@@ -1,11 +1,11 @@
 package main
 
-//https://github.com/uber-go/zap
+//https://go.uber.org/zap
 
 import (
 	"time"
 
-	"github.com/uber-go/zap"
+	"go.uber.org/zap"
 )
 
 func main() {

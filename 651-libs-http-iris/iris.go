@@ -1,12 +1,10 @@
 package main
 
-import (
-	"github.com/kataras/iris"
-	"github.com/kataras/iris/context"
-)
+import 	"github.com/kataras/iris/v12"
+
 func main() {
 	app := iris.New()
-	app.Get("/hello/{name:string}", func(ctx context.Context) {
+	app.Get("/hello/{name:string}", func(ctx iris.Context) {
 		name := ctx.Params().Get("name")
         	ctx.Writef("Hello %s", name)
 	})
