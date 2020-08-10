@@ -1,13 +1,9 @@
 ## Package managers
 
-Currently most advanced in go ecosystem is `dep` https://github.com/golang/dep
+Currently most advanced in go ecosystem is `gomod` https://blog.golang.org/using-go-modules
 
 You can init your project:
 
-	$ dep init
+	$ go mod init myapp
 	$ ls
-	Gopkg.toml Gopkg.lock vendor/
-
-after that dep will add vendor dir where all dependencies will be loaded (In go after 1.5 `vendor` dir have preference over "github style `$GOPATH` based directories - when compiler will not find library in vendor dir it'll try to take it from `$GOPATH`).
-
-For more details please refer to `dep` documentation at https://golang.github.io/dep/docs/daily-dep.html
+	go.mod go.sum

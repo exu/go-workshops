@@ -6,8 +6,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/labstack/echo"
-	"github.com/labstack/echo/engine/standard"
+	"github.com/labstack/echo/v4"
 )
 
 type (
@@ -79,5 +78,5 @@ func main() {
 	})
 
 	// Start server
-	e.Run(standard.New(":1323"))
+	e.Start(":1323")
 }
