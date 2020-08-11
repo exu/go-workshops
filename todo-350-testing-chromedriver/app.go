@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/exu/go-workshops/350-testing-chromedriver/site"
+	browser "testing-chromedriver/site"
 )
 
 const LOGIN_URL = "http://dev.ioki.com.pl/login"

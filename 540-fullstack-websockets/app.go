@@ -5,7 +5,7 @@ import (
 
 	"log"
 
-	"github.com/labstack/echo"
+	"github.com/labstack/echo/v4"
 	"golang.org/x/net/websocket"
 )
 

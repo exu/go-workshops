@@ -6,8 +6,8 @@ import (
 
 	"github.com/bamzi/jobrunner"
 
-	"github.com/labstack/echo"
-	mw "github.com/labstack/echo/middleware"
+	"github.com/labstack/echo/v4"
+	mw "github.com/labstack/echo/v4/middleware"
 )
 
 func main() {
